@@ -24,26 +24,26 @@
 
     .topbar{
       position:fixed;top:0;left:0;right:0;z-index:1000;
-      height:72px;background:rgba(58,58,58,.95);
+      height:72px;background:rgba(47,47,47,.96);
       display:flex;align-items:center;justify-content:space-between;
       padding:0 70px;
       backdrop-filter: blur(3px);
     }
-    .topbar .logo-left img{height:46px;width:auto}
+    .topbar .logo-left img{height:46px;width:auto;filter:brightness(0) invert(1)}
     .topbar .top-links{display:flex;gap:38px;align-items:center;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
     .topbar .top-links a{color:#fff;text-decoration:none}
-    .topbar .cta-top{background:var(--terracotta);padding:14px 18px;color:#fff;text-decoration:none;font-size:12px;text-transform:uppercase}
+    .topbar .cta-top{background:var(--whatsapp);padding:14px 22px;color:#fff;text-decoration:none;font-size:12px;text-transform:uppercase;font-weight:700;letter-spacing:.4px}
 
     .subnav-wrap{
       position:fixed;top:72px;left:0;right:0;z-index:999;display:flex;justify-content:center;
+      background:rgba(47,47,47,.96);border-top:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(3px);
     }
     .subnav{
-      width:84%;height:32px;background:#fff;display:flex;align-items:center;justify-content:center;
-      clip-path:polygon(2% 0,100% 0,98% 100%,0 100%);
-      box-shadow:0 1px 0 rgba(0,0,0,.08);
+      width:86%;min-height:38px;display:flex;align-items:center;justify-content:center;
     }
     .subnav a{
-      color:#5f5f5f;text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:600;
+      color:#fff;text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:600;
       margin:0 14px;letter-spacing:.3px;
     }
 
@@ -136,8 +136,9 @@
     .ficha-item p{font-size:14px;line-height:1.45;color:#f1f1f1}
 
     .carolline{background:#f5f5f5;padding:90px 0}
-    .car-grid{display:grid;grid-template-columns:300px 1fr;gap:50px;align-items:center}
-    .car-grid img{width:100%;max-width:260px}
+    .car-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px;align-items:center;max-width:900px}
+    .car-photo{width:180px;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.16);border:6px solid #fff}
+    .car-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
     .car-copy h3{font-size:34px;text-transform:uppercase;font-weight:300;color:#333;line-height:1.1;margin-bottom:16px}
     .car-copy h3 strong{color:var(--terracotta);font-weight:700}
     .car-copy p{font-size:15px;line-height:1.7;color:#666;max-width:650px;margin-bottom:22px}
@@ -148,9 +149,13 @@
 
     @media (max-width: 980px){
       .topbar{padding:0 20px;height:64px}
-      .topbar .top-links{display:none}
       .subnav-wrap{top:64px}
-      .subnav{width:96%;overflow:auto;justify-content:flex-start;padding:0 12px}
+      .subnav{width:100%;overflow:auto;justify-content:flex-start;padding:0 12px}
+      .topbar .logo-left img{height:38px}
+      .topbar .cta-top{padding:11px 14px;font-size:11px;white-space:nowrap}
+      .car-grid{gap:22px;text-align:center;justify-items:center}
+      .car-photo{width:154px;border-width:5px}
+      .car-copy p{max-width:560px}
       .hero-inner{left:20px;right:20px;bottom:100px}
       .hero-bottom-bar{height:auto;flex-direction:column;align-items:flex-start;gap:16px;padding:18px 20px}
       .hero-bottom-right{flex-wrap:wrap;gap:18px}
@@ -167,11 +172,7 @@
   <div class="topbar">
     <div class="logo-left"><img src="https://cdn.tess.im/assets/uploads/359bf185-7e53-4abe-9c31-2d8913afa9c9.png" alt="Paes & Gregori"></div>
     <div class="top-links">
-      <a href="#">Institucional</a>
-      <a href="#">Empreendimentos</a>
-      <a href="#">Seja um Corretor</a>
-      <a href="#">Parcerias</a>
-      <a href="#" class="cta-top">Portal do Cliente</a>
+      <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="cta-top">Fale com o corretor</a>
     </div>
   </div>
 
@@ -238,7 +239,7 @@
           <div class="gallery-copy">
             <h3>Conforto, elegância e exclusividade</h3>
             <p>Os apartamentos de 2 ou 3 suítes do Nhambí Moema traduzem conforto, funcionalidade e sofisticação em cada ambiente. Com plantas bem resolvidas, acabamentos de alto padrão e integração equilibrada entre áreas sociais e íntimas, os espaços foram pensados para acolher diferentes estilos de vida, valorizando a luz natural, a sensação de amplitude e o prazer de morar bem.</p>
-            <a href="#carolline" class="btn-terracotta">Fale com um corretor</a>
+            <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com um corretor</a>
           </div>
         </div>
       </div>
@@ -379,16 +380,16 @@
 
   <section class="carolline" id="carolline">
     <div class="container car-grid">
-      <div><img src="https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg" alt="Carolline"></div>
+      <div class="car-photo"><img src="https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg" alt="Carolline"></div>
       <div class="car-copy">
         <h3>Fale com a <strong>Carolline</strong></h3>
         <p>Se você quer conhecer pessoalmente o Nhambí Moema, tirar dúvidas sobre plantas, disponibilidade e condições, a Carolline pode te atender diretamente e te acompanhar em todas as etapas do processo.</p>
-        <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%20Carolline!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Nhamb%C3%AD%20Moema." target="_blank">Fale com a Carolline</a>
+        <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Fale com a Carolline</a>
       </div>
     </div>
   </section>
 
-  <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%20Carolline!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Nhamb%C3%AD%20Moema." target="_blank" aria-label="WhatsApp">
+  <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -434,108 +435,5 @@
     }
   </script>
 
-<footer-watermark data-tess-watermark="1" style="position:fixed;right:12px;bottom:12px;z-index:2147483647"><div class="tess-wrap" aria-live="polite">
-  <a href="https://tess.pareto.io/" target="_blank" rel="noopener noreferrer" class="tess-tag" aria-label="Made with Tess">
-    <span class="tess-text">Made with</span>
-    <svg class="tess-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1986 542" fill="none">
-      <path d="M1.84122 234.485C2.5103 258.289 0.0171567 282.444 3.13957 305.906C6.77175 321.611 36.809 314.132 48.7889 313.4C97.1145 305.914 139.458 271.305 156.249 225.598C171.487 183.209 163.139 137.494 164.501 93.1716C164.565 77.9758 164.39 63.0743 164.716 47.8227C163.872 32.1097 171.383 3.9616 149.279 1.2168C102.993 -2.5941 49.6412 0.636019 19.1738 39.9464C-1.20154 64.3632 0.423388 96.7677 0.773863 126.841V127L1.83325 234.493L1.84122 234.485Z" fill="#F4F4F4"/>
-      <path d="M1.4599 364.947C1.56345 401.378 4.48673 436.487 25.5948 467.635C34.1018 480.85 44.4249 493.412 56.8189 503.118C70.2724 513.509 86.3305 521.592 101.919 528.235C120.263 535.817 140.001 539.191 159.619 540.201C180.17 541.379 202.314 541.57 223.493 540.838C259.56 540.074 291.326 533.995 316.672 506.683C330.189 492.107 341.293 475.105 344.399 455.08C348.804 429.613 342.559 405.403 328.062 384.129C314.553 364.422 292.991 350.086 270.505 342.225C263.129 339.783 253.347 337.961 246.226 337.476C219.869 337.125 117.539 337.507 53.123 337.348C41.5813 337.34 30.852 337.348 19.6766 337.348C16.0842 337.547 12.3485 336.815 9.31372 338.096C0.997915 342.734 1.42008 356.331 1.46787 364.804V364.963L1.4599 364.947Z" fill="#F4F4F4"/>
-      <path d="M541.251 306.783C540.582 282.979 543.075 258.824 539.953 235.362C536.32 219.657 506.283 227.136 494.303 227.868C445.978 235.354 403.634 269.963 386.843 315.67C371.605 358.059 379.953 403.774 378.591 448.096C378.527 463.292 378.703 478.194 378.376 493.445C379.22 509.158 371.709 537.306 393.813 540.051C440.091 543.87 493.451 540.64 523.918 501.322C544.286 476.905 542.661 444.5 542.31 414.435V414.276L541.251 306.783Z" fill="#F4F4F4"/>
-      <path d="M541.626 176.322C541.523 139.891 538.6 104.782 517.491 73.6342C508.985 60.4193 498.661 47.8569 486.267 38.1506C472.814 27.7602 456.756 19.6769 441.168 13.0337C422.824 5.4517 403.086 2.07837 383.467 1.06797C362.916 -0.109512 340.773 -0.300455 319.593 0.431493C283.526 1.19526 251.76 7.27361 226.415 34.5864C212.897 49.1617 201.794 66.1635 198.687 86.1887C194.282 111.656 200.527 135.866 215.024 157.14C228.533 176.847 250.095 191.183 272.582 199.044C279.957 201.486 289.739 203.308 296.86 203.794C323.217 204.144 425.548 203.762 489.963 203.921C501.505 203.929 512.234 203.921 523.41 203.921C527.002 203.722 530.738 204.454 533.773 203.173C542.088 198.535 541.666 184.938 541.618 176.465V176.306L541.626 176.322Z" fill="#F4F4F4"/>
-      <path d="M1346.08 331.633H1000.71C1001.31 403.224 1059.07 470.845 1131.7 476.045C1196.94 480.709 1251.73 449.696 1282.44 392.729L1331.08 416.682C1283.12 500.083 1192.62 544.362 1096.92 521.543C969.409 491.139 913.368 342.352 967.88 227.67C1009.68 139.733 1102.6 96.9629 1197.67 120.135C1290.64 142.793 1356.88 236.025 1346.07 331.644L1346.08 331.633ZM1289.41 280.283C1279.12 224.664 1234.82 179.487 1179.31 168.457C1116.57 155.983 1055.75 180.696 1022.7 235.437C1017.37 244.274 1005.73 268.376 1005.38 278.079C1005.34 279.395 1005.56 279.47 1006.58 280.283H1289.4H1289.41Z" fill="#F4F4F4"/>
-      <path d="M1983.37 239.636H1931.51C1929.11 234.811 1929.69 228.446 1928.31 222.508C1909.69 142.605 1737.59 148.286 1749.48 235.613C1755.42 279.261 1842.03 284.674 1876.45 293.65C1927.8 307.043 1976.49 330.504 1984.3 389.011C1998.94 498.719 1885.96 538.986 1795.88 524.03C1728.23 512.808 1676.94 462.656 1678.63 391.547H1729.95C1729.76 433.515 1758.03 462.741 1797.31 472.327C1843.08 483.506 1929.17 472.872 1933.09 412.386C1937.64 342.475 1835.75 339.137 1787.67 326.835C1742.78 315.345 1701.43 292.473 1696.93 241.101C1686.67 123.852 1825.3 91.3408 1912.43 131.405C1955.94 151.41 1982.31 191.506 1983.36 239.636H1983.37Z" fill="#F4F4F4"/>
-      <path d="M1402.21 391.545C1404.83 392.358 1403.54 399.386 1403.83 401.697C1413.01 474.817 1503.49 489.859 1561.28 467.243C1624.15 442.649 1621.84 372.021 1556.98 349.02C1491.48 325.795 1376.1 332.727 1369.55 238.072C1361.17 117.025 1516.76 87.9583 1600.47 139.694C1635.59 161.4 1657.24 198.96 1656.14 240.704C1655.76 241.238 1654.77 239.634 1654.55 239.634H1603.76C1603.27 176.313 1533.03 159.763 1481.64 168.268C1445.03 174.334 1403.72 211.691 1428.57 250.685C1446.71 279.141 1523.22 286.405 1555.87 295.563C1619.98 313.535 1667.01 347.897 1658.15 421.895C1647.79 508.452 1550.45 534.619 1476.13 525.108C1405.72 516.101 1351.27 464.965 1352.48 391.534H1402.2L1402.21 391.545Z" fill="#F4F4F4"/>
-      <path d="M775.088 0V119.817H936.548V173.307H775.088L775.045 392.122C776.778 429.373 787.449 463.563 827.482 473.384C864.811 482.542 903.379 470.153 936.548 453.593V510.292C919.162 516.272 901.84 522.573 883.47 525.119C796.078 537.219 726.992 495.358 723.774 402.767V173.307H628.598V120.887L723.763 119.817V0H775.088Z" fill="#F4F4F4"/>
-    </svg>
-  </a>
-
-  <span class="tess-tooltip" role="tooltip">
-    AI-generated (possibly user-edited) content - please verify carefully and submit no personal information. If you believe this content violates your rights or applicable laws, you may submit a report for review
-  </span>
-</div>
-  
-  <style>
-    .tess-wrap { position: relative; }
-
-    .tess-tag {
-      display: inline-flex;
-      align-items: center;
-      background-color: #1a1a1a;
-      color: white;
-      font-family: "Inter", Arial, sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 1;
-      border-radius: 999px;
-      padding: 6px 14px;
-      text-decoration: none;
-      gap: 8px;
-      transition: all 0.25s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      position: relative;
-    }
-  
-    .tess-tag:hover {
-      background-color: #000000;
-      transform: translateY(-1px);
-    }
-
-    .tess-tooltip {
-      position: absolute;
-      bottom: calc(100% + 12px);
-      right: 0;
-      max-width: 360px;
-      width: max-content;
-      background: #fff;
-      color: #111;
-      border-radius: 10px;
-      padding: 14px 16px;
-      font: 400 12px "Inter", Arial, sans-serif;
-      line-height: 1.45;
-      box-shadow: 0 8px 24px rgba(0,0,0,.18);
-      border: 1px solid rgba(0,0,0,.06);
-      text-align: left;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity .2s ease, transform .2s ease;
-      pointer-events: auto;
-      z-index: 1000;
-    }
-
-    .tess-tooltip a { color: #111; text-decoration: underline; }
-
-    .tess-wrap:hover .tess-tooltip,
-    .tess-tag:focus + .tess-tooltip,
-    .tess-wrap:focus-within .tess-tooltip {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .tess-tooltip::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      right: 18px;
-      border: 8px solid transparent;
-      border-top-color: #fff;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,.08));
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .tess-tooltip { background:#2a2a2a; color:#f5f5f5; border-color: rgba(255,255,255,.08); }
-      .tess-tooltip a { color:#f5f5f5; }
-      .tess-tooltip::after { border-top-color:#2a2a2a; }
-    }
-  
-    .tess-logo {
-      height: 16px;
-      width: auto;
-      display: block;
-    }
-  
-    .tess-text {
-      opacity: 0.9;
-    }
-  </style>
-  </footer-watermark></body>
+</body>
 </html>
