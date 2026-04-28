@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhambí Moema - Paes & Gregori</title>
+  
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* RESET E VARIÁVEIS */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Titillium Web', sans-serif;
+      background: #E8E8E8;
+      color: #333333;
+      overflow-x: hidden;
+    }
+    
+    :root {
+      --bg-header: #3d3d3d;
+      --bg-content: #6e6e6e;
+      --terracota: #c87e6a;
+      --text-main: #555555;
+      --text-light: #cccccc;
+      --white: #ffffff;
+      --whatsapp: #25D366;
+    }
+
+    /* ==========================================================================
+       HEADER PRINCIPAL E SUB-NAVEGAÇÃO
+       ========================================================================== */
+    .header-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .top-header {
+      background-color: var(--bg-header);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .logo-container {
+      padding-left: 40px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-container img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      align-items: center;
+    }
+
+    .main-nav li {
+      margin: 0 20px;
+    }
+
+    .main-nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: opacity 0.2s;
+    }
+    
+    .main-nav a:hover { opacity: 0.7; }
+
+    .btn-portal {
+      background-color: var(--terracota);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0 30px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+      transition: background 0.3s;
+    }
+    .btn-portal:hover { background-color: #b56c5a; }
+
+    /* Sub-nav (Abas inclinadas) */
+    .subnav-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
+      background: transparent;
+      height: 45px;
+      pointer-events: none; /* Para não bloquear cliques fora da barra */
+    }
+
+    .subnav-inner {
+      background-color: #fff;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+      pointer-events: auto;
+    }
+
+    .subnav-inner a {
+      color: #666;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 15px;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    .subnav-inner a:hover, .subnav-inner a.active {
+      color: var(--terracota);
+    }
+    
+    /* Espaço para não cobrir o hero */
+    .header-spacer { height: 115px; }
+
+    /* ==========================================================================
+       HERO E FAIXA DESTAQUE
+       ========================================================================== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('Link);
+      background-size: cover;
+      background-position: center bottom;
+      z-index: 1;
+    }
+
+    /* O overlay leve para dar leitura */
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 0 80px 40px 80px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .hero-logo-box {
+      margin-bottom: 20px;
+    }
+    
+    .hero-logo-box img {
+      width: 240px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* Faixa de destaque abaixo do form */
+    .faixa-destaque {
+      background-color: var(--bg-header);
+      padding: 25px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .faixa-left {
+      font-size: 18px;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+
+    .faixa-right {
+      display: flex;
+      gap: 40px;
+    }
+
+    .faixa-icon-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 300;
+    }
+    
+    .faixa-icon-text svg {
+      fill: none; stroke: currentColor; stroke-width: 1.5; width: 24px; height: 24px;
+    }
+
+    /* ==========================================================================
+       SEÇÕES COMUNS GERAIS E TIPOGRAFIA
+       ========================================================================== */
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      color: var(--terracota);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title span.dark {
+      color: #333333;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-main);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       GALERIA (APARTAMENTOS E ÁREAS COMUNS)
+       ========================================================================== */
+    .galeria-section {
+      background-color: var(--white);
+    }
+
+    .galeria-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    .tabs-galeria {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 30px;
+    }
+
+    .tab-galeria {
+      padding: 12px 20px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-right: 20px;
+    }
+
+    .tab-galeria.active {
+      color: var(--terracota);
+      border-bottom-color: var(--terracota);
+    }
+
+    .galeria-content {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      background: var(--white);
+      gap: 0;
+    }
+
+    .galeria-img-container {
+      position: relative;
+    }
+
+    .galeria-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .galeria-tag {
+      position: absolute;
+      bottom: -15px;
+      right: 40px;
+      background-color: var(--terracota);
+      color: var(--white);
+      padding: 10px 30px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    }
+
+    .galeria-info {
+      padding: 30px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fdfdfd;
+    }
+
+    .galeria-info h3 {
+      font-size: 20px;
+      color: #333;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .galeria-info p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btn-fale-corretor {
+      display: inline-block;
+      background-color: var(--terracota);
+      color: var(--white);
+      padding: 12px 25px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      transition: background 0.3s;
+    }
+    .btn-fale-corretor:hover { background-color: #b56c5a; }
+
+    .galeria-nav {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-arrow {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      background: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #888;
+      transition: all 0.2s;
+    }
+    .nav-arrow:hover { border-color: var(--terracota); color: var(--terracota); }
+
+    /* Mostrar ocultar panels da galeria */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    
+    /* Grid ícones Áreas Comuns */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .area-icon-item {
+      display: flex; align-items: center; gap: 15px;
+    }
+    .area-icon-item svg { width: 24px; height: 24px; stroke: #888; fill: none; stroke-width: 1.5; }
+    .area-icon-item span { font-size: 12px; text-transform: uppercase; color: #555; font-weight: 600; letter-spacing: 1px;}
+
+
+    /* ==========================================================================
+       PLANTAS
+       ========================================================================== */
+    .plantas-section {
+      background-color: #f7f7f7;
+    }
+    
+    .plantas-tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 40px;
+      gap: 40px;
+    }
+
+    .planta-tab {
+      padding: 15px 0;
+      font-family: inherit; font-size: 14px; font-weight: 400; text-transform: uppercase;
+      letter-spacing: 1px; color: #666; background: none; border: none;
+      border-bottom: 3px solid transparent; margin-bottom: -2px;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .planta-tab.active { color: #333; font-weight: 700; border-bottom-color: var(--terracota); }
+
+    .plantas-content {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 50px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .planta-img-wrap {
+      text-align: center;
+      position: relative;
+    }
+    .planta-img-wrap img {
+      max-width: 100%;
+      height: 400px;
+      object-fit: contain;
+    }
+    
+    .planta-tag {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+      background-color: var(--terracota);
+      color: var(--white);
+      padding: 8px 30px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1px;
+      clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
+    }
+
+
+    /* ==========================================================================
+       DIFERENCIAIS TÉCNICOS
+       ========================================================================== */
+    .diferenciais-section {
+      background-color: #E8E8E8;
+    }
+    
+    .dif-grid-main {
+      display: grid;
+      grid-template-columns: 25% 75%;
+      gap: 40px;
+    }
+    
+    .dif-icons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px 20px;
+      margin-top: 30px;
+    }
+    
+    .dif-item {
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .dif-item svg { width: 22px; height: 22px; stroke: #888; fill: none; stroke-width: 1.5; flex-shrink: 0;}
+    .dif-item span { font-size: 11px; text-transform: uppercase; color: #555; font-weight: 600; letter-spacing: 0.5px; line-height: 1.4;}
+
+
+    /* ==========================================================================
+       PROJETISTAS
+       ========================================================================== */
+    .projetistas-section {
+      background-color: var(--white);
+    }
+    
+    .proj-grid-main {
+      display: grid;
+      grid-template-columns: 25% 75%;
+      gap: 40px;
+    }
+    
+    .projetistas-lista {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .proj-card {
+      border-left: 3px solid var(--terracota);
+      padding-left: 15px;
+    }
+    .proj-card span { display: block; }
+    .proj-label { color: var(--terracota); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px;}
+    .proj-name { color: #222; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
+
+    /* ==========================================================================
+       LOCALIZAÇÃO
+       ========================================================================== */
+    .localizacao-section {
+      background-color: var(--bg-content);
+      padding: 80px 0;
+    }
+    
+    .loc-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 50% 45%;
+      gap: 5%;
+    }
+    
+    .loc-title {
+      font-size: 34px; color: var(--white); font-weight: 300; text-transform: uppercase; line-height: 1.2; margin-bottom: 30px;
+    }
+    .loc-title strong { font-weight: 800; }
+    
+    .loc-address {
+      border-left: 3px solid var(--terracota);
+      padding-left: 12px;
+      color: var(--white); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 30px;
+    }
+    .loc-address svg { fill: var(--terracota); width: 16px; }
+    
+    .loc-desc { color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 30px;}
+    
+    .accordion-item {
+      border-bottom: 1px solid #888; padding: 15px 0; display: flex; align-items: center; gap: 15px; cursor: pointer;
+    }
+    .accordion-item:hover .acc-title { color: #fff;}
+    .acc-icon { color: var(--terracota); font-size: 20px;}
+    .acc-title { color: #ccc; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.2s;}
+    
+    .map-container {
+      position: relative;
+    }
+    .map-container img {
+      width: 100%; height: auto; display: block;
+    }
+    .map-coords {
+      position: absolute; bottom: 20px; left: 20px; background: rgba(50,50,50,0.85); color: #fff; padding: 8px 12px; font-size: 11px;
+    }
+    .btn-map {
+      position: absolute; bottom: -20px; right: 20px;
+      background-color: var(--terracota); color: var(--white); text-decoration: none;
+      padding: 15px 25px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+      clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .btn-map strong { font-weight: 800; }
+
+
+    /* ==========================================================================
+       FICHA TÉCNICA
+       ========================================================================== */
+    .ficha-section {
+      background-color: #2d2d2d;
+      padding: 80px 0 100px;
+    }
+    
+    .ficha-header {
+      text-align: center; margin-bottom: 60px;
+    }
+    .ficha-header h2 {
+      color: var(--white); font-size: 30px; font-weight: 300; text-transform: uppercase; letter-spacing: 4px;
+    }
+    
+    .ficha-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1000px; margin: 0 auto; padding: 0 40px;
+    }
+    
+    .ficha-card {
+      border-top: 1px solid #C0392B; /* Vermelho terracota */
+      padding-top: 15px;
+    }
+    .ficha-card h4 {
+      color: var(--white); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .ficha-card p {
+      color: #cccccc; font-size: 13px; line-height: 1.6;
+    }
+
+
+    /* ==========================================================================
+       CAROLLINE (SEÇÃO EXTRA) E FOOTER
+       ========================================================================== */
+    .carolline-section {
+      background-color: #f9f9f9;
+      padding: 80px 0;
+    }
+    
+    .carolline-container {
+      max-width: 900px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: auto 1fr; gap: 50px; align-items: center;
+    }
+    
+    .carolline-img {
+      width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--white); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .carolline-info h2 {
+      font-size: 28px; color: var(--bg-header); text-transform: uppercase; font-weight: 300; margin-bottom: 15px;
+    }
+    .carolline-info h2 strong { font-weight: 800; color: var(--terracota); }
+    .carolline-info p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 25px;}
+
+    .btn-whatsapp-carolline {
+      display: inline-block; background-color: var(--whatsapp); color: var(--white); padding: 14px 30px; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; border-radius: 30px; letter-spacing: 1px; transition: background 0.3s;
+    }
+    .btn-whatsapp-carolline:hover { background-color: #1EBE5D; }
+
+    .whatsapp-flutuante {
+      position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 1000; transition: transform 0.3s;
+    }
+    .whatsapp-flutuante:hover { transform: scale(1.1); }
+    .whatsapp-flutuante svg { width: 30px; height: 30px; fill: var(--white); }
+
+    .footer {
+      background-color: #d0d0d0; padding: 50px 0; position: relative; overflow: hidden; text-align: center;
+    }
+    .footer-watermark {
+      font-size: 140px; font-weight: 900; color: #c4c4c4; text-transform: uppercase; line-height: 0.8; letter-spacing: -2px; margin-bottom: -40px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ==================================================================
+       HEADER FIXO
+       ================================================================== -->
+  <header class="header-container">
+    <div class="top-header">
+      <div class="logo-container">
+        <img src="Link alt="Paes & Gregori">
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">Institucional ▾</a></li>
+          <li><a href="#">Empreendimentos</a></li>
+          <li><a href="#">Seja um Corretor</a></li>
+          <li><a href="#">Parcerias</a></li>
+        </ul>
+        <a href="#carolline" class="btn-portal">Fale com a Carolline</a>
+      </nav>
+    </div>
+    
+    <div class="subnav-wrapper">
+      <div class="subnav-inner">
+        <a href="#inicio">Início</a>
+        <a href="#galeria">Galeria de Imagens</a>
+        <a href="#areas">Áreas Comuns</a>
+        <a href="#plantas">Plantas</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#projetistas">Projetistas</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#ficha" class="active">Ficha Técnica</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-spacer" id="inicio"></div>
+
+  <!-- ==================================================================
+       HERO E FAIXA DESTAQUE
+       ================================================================== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text-area">
+        <div class="hero-logo-box">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi-logo-1024x406.png" alt="Nhambí Moema">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa-destaque">
+    <div class="faixa-left">
+      Exclusivamente residencial,<br>
+      No coração de Moema
+    </div>
+    <div class="faixa-right">
+      <div class="faixa-icon-text">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z m0 6h18 m-9 -6v18"/></svg>
+        111m² e 121m²
+      </div>
+      <div class="faixa-icon-text">
+        <svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16M8 4v16M16 4v16"/></svg>
+        3 suítes
+      </div>
+      <div class="faixa-icon-text">
+        <svg viewBox="0 0 24 24"><path d="M18 10h-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-4l-4-4zM7 17c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+        2 vagas determinadas
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================================
+       GALERIA (APARTAMENTOS)
+       ================================================================== -->
+  <section class="galeria-section section-container" id="galeria">
+    <div class="galeria-header">
+      <div>
+        <h2 class="section-title">Apartamentos para<br><span class="dark">receber e impressionar</span></h2>
+      </div>
+      <div>
+        <p class="section-desc">Inspirado na harmonia entre design contemporâneo e conforto, o empreendimento oferece acabamentos de alto padrão, espaços bem planejados e uma atmosfera acolhedora. Um convite para viver com exclusividade em um dos bairros mais desejados de São Paulo.</p>
+      </div>
+    </div>
+
+    <!-- Abas da Galeria -->
+    <div class="tabs-galeria">
+      <button class="tab-galeria" onclick="abrirGaleria('areas')">Áreas Comuns</button>
+      <button class="tab-galeria active" onclick="abrirGaleria('apartos')">Apartamentos</button>
+    </div>
+
+    <!-- Conteúdo Apartamentos -->
+    <div id="gal_apartos" class="tab-panel active">
+      <div class="galeria-content">
+        <div class="galeria-img-container">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp" class="galeria-img" id="img_apto">
+          <div class="galeria-tag" id="tag_apto">Suíte</div>
+        </div>
+        <div class="galeria-info">
+          <h3>Conforto, Elegância e Exclusividade</h3>
+          <p>Os apartamentos de 2 ou 3 suítes do Nhambí Moema traduzem conforto, funcionalidade e sofisticação em cada ambiente. Com plantas bem resolvidas...</p>
+          <a href="#carolline" class="btn-fale-corretor">Fale com um corretor</a>
+          
+          <div class="galeria-nav">
+            <button class="nav-arrow" onclick="navApto(-1)">←</button>
+            <button class="nav-arrow" onclick="navApto(1)">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo Áreas Comuns -->
+    <div id="gal_areas" class="tab-panel" id="areas">
+      <div class="galeria-content" style="grid-template-columns: 100%; padding: 20px;">
+        <p class="section-desc">Conheça todos os espaços de lazer que fazem do Nhambí Moema um empreendimento completo. Planejados para atender diferentes estilos de vida, estes ambientes promovem bem-estar...</p>
+        
+        <div class="areas-grid">
+          <div class="area-icon-item"><svg><circle cx="12" cy="12" r="10"/></svg><span>Salão de Festas</span></div>
+          <div class="area-icon-item"><svg><rect x="3" y="3" width="18" height="18" rx="2"/></svg><span>Churrasqueira</span></div>
+          <div class="area-icon-item"><svg><path d="M12 2L2 22h20z"/></svg><span>Brinquedoteca</span></div>
+          <div class="area-icon-item"><svg><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1v-4s-1 1-4 1-5-2-8-2-4 1-4 1z"/></svg><span>Piscina Adulto</span></div>
+          <div class="area-icon-item"><svg><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1v-4s-1 1-4 1-5-2-8-2-4 1-4 1z"/></svg><span>Piscina Infantil</span></div>
+          <div class="area-icon-item"><svg><path d="M12 2v20M8 6h8M8 18h8"/></svg><span>Sauna</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       PLANTAS
+       ================================================================== -->
+  <section class="plantas-section section-container" id="plantas">
+    <h2 class="section-title" style="color: #333;">Plantas</h2>
+    
+    <div class="plantas-tabs">
+      <button class="planta-tab" onclick="mudarPlanta('lazer', this)">Lazer</button>
+      <button class="planta-tab" onclick="mudarPlanta('p111', this)">Aptos. 111m²</button>
+      <button class="planta-tab active" onclick="mudarPlanta('p121', this)">Aptos. 121m²</button>
+    </div>
+
+    <div class="plantas-content">
+      <div class="planta-info">
+        <p class="section-desc">As plantas de 3 suítes, com layouts bem resolvidos priorizam conforto, funcionalidade e qualidade espacial.<br><br>Para quem deseja áreas de convívio mais amplas, é possível realizar alterações de layout, incluindo a conversão para 2 suítes...</p>
+        
+        <div class="galeria-nav" style="margin-top: 40px;">
+          <button class="nav-arrow" onclick="navPl(-1)">←</button>
+          <button class="nav-arrow" onclick="navPl(1)">→</button>
+        </div>
+      </div>
+      
+      <div class="planta-img-wrap">
+        <img id="img_planta" src="https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp">
+        <div class="planta-tag" id="tag_planta">3 suítes, living integrado</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================================================================
+       DIFERENCIAIS TÉCNICOS
+       ================================================================== -->
+  <section class="diferenciais-section section-container" id="diferenciais">
+    <div class="dif-grid-main">
+      <div>
+        <h2 class="section-title">Diferenciais<br><span class="dark">Técnicos</span></h2>
+      </div>
+      <div>
+        <p class="section-desc">Os diferenciais técnicos do Nhambí Moema refletem o cuidado com o conforto, funcionalidade e a qualidade construtiva do projeto. Soluções pensadas para o dia a dia se somam a itens que elevam a experiência de morar.</p>
+        
+        <div class="dif-icons-grid">
+          <div class="dif-item"><svg><rect x="3" y="3" rx="2" width="18" height="18"/></svg><span>Duas Vagas Determinadas</span></div>
+          <div class="dif-item"><svg><path d="M5 12h14"/></svg><span>Infraestrutura para Ar Condicionado</span></div>
+          <div class="dif-item"><svg><rect x="3" y="3" rx="2" width="18" height="18"/></svg><span>Persianas Motorizadas</span></div>
+          <div class="dif-item"><svg><rect x="3" y="3" rx="2" width="18" height="18"/></svg><span>Tomadas USB (Suítes e Sala)</span></div>
+          <div class="dif-item"><svg><rect x="3" y="3" rx="2" width="18" height="18"/></svg><span>Opção Cozinha Aberta ou Fechada</span></div>
+          <div class="dif-item"><svg><rect x="3" y="3" rx="2" width="18" height="18"/></svg><span>Fechadura Eletrônica</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================================================================
+       PROJETISTAS
+       ================================================================== -->
+  <section class="projetistas-section section-container" id="projetistas">
+    <div class="proj-grid-main">
+      <div>
+        <h2 class="section-title">Projetistas</h2>
+      </div>
+      <div>
+        <p class="section-desc">O Nhambí Moema reflete a visão de profissionais experientes que combinaram design contemporâneo e funcionalidade para oferecer um empreendimento de alto padrão.</p>
+        
+        <div class="projetistas-lista">
+          <div class="proj-card">
+            <span class="proj-label">Arquitetura</span>
+            <span class="proj-name">Bianconi Arquitetos</span>
+          </div>
+          <div class="proj-card">
+            <span class="proj-label">Interiores</span>
+            <span class="proj-name">Studio Archea</span>
+          </div>
+          <div class="proj-card">
+            <span class="proj-label">Paisagismo</span>
+            <span class="proj-name">Barbieri+Gorski</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================================================================
+       LOCALIZAÇÃO
+       ================================================================== -->
+  <section class="localizacao-section" id="localizacao">
+    <div class="loc-grid">
+      <div>
+        <h2 class="loc-title">Viva tudo o que <strong>Moema</strong><br>oferece para uma vida<br>completa</h2>
+        <div class="loc-address">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Alameda dos Nhambiquaras, 1.375
+        </div>
+        <p class="loc-desc">O Nhambí Moema está cercado por uma infraestrutura completa de serviços, comércio e gastronomia. Próximo ao Shopping Ibirapuera, ao Parque Ibirapuera e às principais vias da região, oferece praticidade e qualidade de vida em um dos bairros mais desejados de São Paulo.</p>
+        
+        <div class="loc-accordion">
+          <div class="accordion-item"><span class="acc-icon">+</span><span class="acc-title">Facilidade de acesso e mobilidade</span></div>
+          <div class="accordion-item"><span class="acc-icon">+</span><span class="acc-title">Educação de excelência</span></div>
+          <div class="accordion-item"><span class="acc-icon">+</span><span class="acc-title">Área verde</span></div>
+          <div class="accordion-item"><span class="acc-icon">+</span><span class="acc-title">Gastronomia diversificada</span></div>
+          <div class="accordion-item"><span class="acc-icon">+</span><span class="acc-title">Comodidade e centros comerciais</span></div>
+        </div>
+      </div>
+      
+      <div class="map-container">
+        <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Mapa-NHAMBI.webp" alt="Mapa Nhambí Moema">
+        <div class="map-coords">23°36'37.3" S<br>46°39'44.1" W</div>
+        <a href="https://maps.google.com/?q=Alameda+dos+Nhambiquaras+1375+Moema+São+Paulo" target="_blank" class="btn-map">Ver no <strong>Google Maps</strong></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================================================================
+       FICHA TÉCNICA
+       ================================================================== -->
+  <section class="ficha-section" id="ficha">
+    <div class="ficha-header">
+      <h2>Ficha Técnica</h2>
+    </div>
+    
+    <div class="ficha-grid">
+      <div class="ficha-card">
+        <h4>Status</h4><p>Pronto para morar</p>
+      </div>
+      <div class="ficha-card">
+        <h4>Endereço</h4><p>Alameda dos Nhambiquaras, 1.375</p>
+      </div>
+      <div class="ficha-card">
+        <h4>Bairro</h4><p>Moema</p>
+      </div>
+      
+      <div class="ficha-card">
+        <h4>Torre Única</h4><p>Terreno de 1.200m²<br>Exclusivamente residencial</p>
+      </div>
+      <div class="ficha-card">
+        <h4>Apartamentos</h4><p>3 suítes – 111m² e 121m²<br>Gardens – 167m² e 183m²</p>
+      </div>
+      <div class="ficha-card">
+        <h4>Lazer Residencial</h4><p>Piscina adulto e infantil, Salão de festas, Fitness, Fitness externo, Churrasqueira, Brinquedoteca, Sauna, Pet Care, Bicicletário, Playground</p>
+      </div>
+      
+      <div class="ficha-card">
+        <h4>Arquitetura</h4><p>Bianconi Arquitetos</p>
+      </div>
+      <div class="ficha-card">
+        <h4>Interiores</h4><p>Studio Archea</p>
+      </div>
+      <div class="ficha-card">
+        <h4>Paisagismo</h4><p>Barbieri+Gorski</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================================================================
+       SEÇÃO CAROLLINE E FOOTER
+       ================================================================== -->
+  <section class="carolline-section" id="carolline">
+    <div class="carolline-container">
+      <img src="Link alt="Carolline" class="carolline-img">
+      <div class="carolline-info">
+        <h2>Fale com a <strong>Carolline</strong></h2>
+        <p>Sou especialista no Nhambí Moema e estou à disposição para apresentar todos os detalhes do empreendimento. Agende uma visita e venha conhecer seu novo apartamento em Moema.</p>
+        <a href="https://wa.me/5511919890615" target="_blank" class="btn-whatsapp-carolline">Fale pelo WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-watermark">Paes & Gregori</div>
+  </footer>
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/5511919890615" target="_blank" class="whatsapp-flutuante">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Scripts dos Carrosséis -->
+  <script>
+    // Apartamentos
+    const aptos = [
+      { img: 'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp', tag: 'Suíte' },
+      { img: 'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-1.webp', tag: 'Living' },
+      { img: 'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-3.webp', tag: 'Sala de Jantar' }
+    ];
+    let aptIdx = 0;
+    function navApto(dir) {
+      aptIdx = (aptIdx + dir + aptos.length) % aptos.length;
+      document.getElementById('img_apto').src = aptos[aptIdx].img;
+      document.getElementById('tag_apto').innerText = aptos[aptIdx].tag;
+    }
+
+    // Abas Galeria
+    function abrirGaleria(tab) {
+      document.querySelectorAll('.tab-galeria').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('gal_' + tab).classList.add('active');
+    }
+
+    // Plantas
+    const plantas = {
+      lazer: { img: 'https://paesegregori.com.br/wp-content/uploads/2024/09/Nhambi-terreo-1.webp', tag: 'Térreo e Lazer' },
+      p111: { img: 'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-3-suites-cozinha-aberta.webp', tag: '3 suítes, cozinha aberta' },
+      p121: { img: 'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp', tag: '3 suítes, living integrado' }
+    };
+    const plKeys = ['lazer','p111','p121'];
+    let plIdx = 2;
+    function mudarPlanta(key, btn) {
+      document.querySelectorAll('.planta-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      plIdx = plKeys.indexOf(key);
+      atualizarPlanta();
+    }
+    function navPl(dir) {
+      plIdx = (plIdx + dir + plKeys.length) % plKeys.length;
+      document.querySelectorAll('.planta-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.planta-tab')[plIdx].classList.add('active');
+      atualizarPlanta();
+    }
+    function atualizarPlanta() {
+      let k = plKeys[plIdx];
+      document.getElementById('img_planta').src = plantas[k].img;
+      document.getElementById('tag_planta').innerText = plantas[k].tag;
+    }
+  </script>
+</body>
+</html>
