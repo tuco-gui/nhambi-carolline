@@ -1,439 +1,1044 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhambí Moema - Paes & Gregori</title>
+  <title>Paes e Gregori | Equipe Ortega</title>
+  <meta name="description" content="Home da operação Paes e Gregori com atendimento da Equipe Ortega. Conheça os empreendimentos em destaque e fale com um corretor.">
+  <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:'Titillium Web',sans-serif;background:#fff;color:#222}
     :root{
+      --bg:#f2f0ed;
+      --surface:#ffffff;
+      --text:#333330;
+      --muted:#716f69;
       --dark:#3f3f3f;
-      --dark2:#2f2f2f;
-      --light:#ececec;
-      --terracotta:#c89172;
-      --text:#5b5b5b;
-      --white:#fff;
-      --whatsapp:#25D366;
+      --dark-strong:#2f2f2f;
+      --line:rgba(255,255,255,.12);
+      --brand:#c89172;
+      --brand-strong:#b77f61;
+      --wa:#25d366;
+      --shadow:0 18px 40px rgba(0,0,0,.12);
+      --max:1180px;
     }
 
-    .topbar{
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      height:72px;background:rgba(47,47,47,.96);
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 70px;
-      backdrop-filter: blur(3px);
-    }
-    .topbar .logo-left img{height:46px;width:auto;filter:brightness(0) invert(1)}
-    .topbar .top-links{display:flex;gap:38px;align-items:center;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
-    .topbar .top-links a{color:#fff;text-decoration:none}
-    .topbar .cta-top{background:var(--whatsapp);padding:14px 22px;color:#fff;text-decoration:none;font-size:12px;text-transform:uppercase;font-weight:700;letter-spacing:.4px}
-
-    .subnav-wrap{
-      position:fixed;top:72px;left:0;right:0;z-index:999;display:flex;justify-content:center;
-      background:rgba(47,47,47,.96);border-top:1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(3px);
-    }
-    .subnav{
-      width:86%;min-height:38px;display:flex;align-items:center;justify-content:center;
-    }
-    .subnav a{
-      color:#fff;text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:600;
-      margin:0 14px;letter-spacing:.3px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Titillium Web",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
     }
 
-    .hero{position:relative;height:100vh;min-height:760px;background:url('https://cdn.tess.im/assets/uploads/c5aecdda-f373-4b7f-8d87-1d803f174d75.webp') center center/cover no-repeat;margin-top:0}
-    .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.10) 35%, rgba(0,0,0,.45) 100%)}
-    .hero-inner{position:absolute;left:70px;bottom:86px;z-index:2;color:#fff}
-    .hero-inner img.logo-empreendimento{width:210px;height:auto;margin-bottom:22px}
-    .hero-bottom-bar{
-      position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(33,33,33,.88);height:84px;
-      display:flex;align-items:center;justify-content:space-between;padding:0 70px;color:#fff
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+
+    .container{
+      width:min(calc(100% - 40px),var(--max));
+      margin:0 auto;
     }
-    .hero-bottom-left{font-size:19px;line-height:1.15;text-transform:uppercase;font-weight:300}
-    .hero-bottom-right{display:flex;gap:34px;align-items:center;font-size:13px}
-    .hero-info{display:flex;align-items:center;gap:9px;color:#ddd}
-    .hero-info:before{content:'◫';font-size:14px;color:#888}
 
-    .section-light{background:#efefef;padding:80px 0}
-    .section-white{background:#fff;padding:70px 0}
-    .section-dark{background:#6a6a6a;padding:70px 0}
-    .section-ficha{background:#2d2d2d;padding:80px 0 120px}
-    .container{width:86%;margin:0 auto}
+    .site-header{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:20;
+      background:rgba(63,63,63,.95);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
 
-    .intro-grid{display:grid;grid-template-columns:340px 1fr;gap:36px;align-items:center}
-    .title-big{font-size:34px;line-height:1.02;text-transform:uppercase;color:#222;font-weight:300;margin-bottom:24px}
-    .title-big .accent{color:var(--terracotta);font-weight:700}
-    .text-body{font-size:15px;line-height:1.65;color:#727272;max-width:320px}
-    .btn-outline{display:inline-block;margin-top:26px;padding:10px 26px;border:1px solid #999;color:#666;text-decoration:none;text-transform:uppercase;font-size:12px;font-weight:600}
-    .intro-image-wrap{position:relative}
-    .intro-image-wrap img{width:100%;display:block}
-    .ribbon{position:absolute;right:24px;bottom:-14px;background:var(--terracotta);color:#fff;padding:8px 34px;text-transform:uppercase;font-size:11px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+    .header-bar{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
 
-    .tabs{display:flex;gap:46px;border-bottom:1px solid #999;padding-bottom:10px;margin-bottom:34px}
-    .tab{font-size:13px;text-transform:uppercase;color:#888;text-decoration:none;position:relative;cursor:pointer}
-    .tab.active{color:var(--terracotta)}
-    .tab.active:after{content:'';position:absolute;left:0;right:0;bottom:-11px;height:3px;background:var(--terracotta)}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      text-decoration:none;
+      color:#fff;
+      flex-shrink:0;
+    }
 
-    .gallery-split{display:grid;grid-template-columns:58% 42%;gap:46px;align-items:center}
-    .gallery-main{position:relative}
-    .gallery-main img{width:100%;display:block}
-    .gallery-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;background:var(--terracotta);color:#fff;padding:7px 42px;font-size:12px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
-    .gallery-copy h3{font-size:24px;line-height:1.2;text-transform:uppercase;color:#2a2a2a;margin-bottom:18px}
-    .gallery-copy p{font-size:15px;line-height:1.75;color:#666;margin-bottom:22px}
-    .btn-terracotta{display:inline-block;background:var(--terracotta);color:#fff;text-decoration:none;text-transform:uppercase;font-size:12px;padding:14px 26px}
-    .gallery-nav{display:flex;gap:10px;margin-top:30px}
-    .circle-btn{width:27px;height:27px;border:1px solid #aaa;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#999;background:transparent;cursor:pointer}
+    .brand img{
+      width:96px;
+      height:auto;
+    }
 
-    .areas-top{display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
-    .section-title-side{font-size:28px;line-height:1.05;text-transform:uppercase;color:#222;font-weight:300}
-    .section-title-side .accent{color:var(--terracotta);font-weight:700}
-    .areas-desc{font-size:15px;line-height:1.65;color:#6d6d6d;max-width:860px}
-    .areas-icons{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px 50px;max-width:860px;margin-left:270px}
-    .areas-icons .item{font-size:12px;text-transform:uppercase;color:#6f6f6f;display:flex;align-items:center;gap:12px}
-    .areas-icons .ico{font-size:18px;color:#777;width:20px;text-align:center}
+    .brand-copy{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
 
-    .plantas-title{font-size:46px;text-transform:uppercase;color:#2f2f2f;font-weight:300;margin-bottom:24px}
-    .plantas-grid{display:grid;grid-template-columns:310px 1fr;gap:40px;align-items:start}
-    .plantas-copy{font-size:15px;line-height:1.65;color:#777;max-width:255px}
-    .plantas-img-wrap{position:relative;text-align:center}
-    .plantas-img-wrap img{max-width:100%;height:auto}
-    .plantas-ribbon{position:absolute;right:40px;bottom:-16px;background:var(--terracotta);color:#fff;padding:7px 36px;font-size:12px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
-    .plantas-nav{margin-top:28px;display:flex;gap:10px}
+    .brand-copy strong{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:600;
+    }
 
-    .diff-grid-wrap{display:grid;grid-template-columns:230px 1fr;gap:40px}
-    .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 26px}
-    .diff-item{display:flex;align-items:flex-start;gap:12px;color:#666;font-size:12px;text-transform:uppercase;line-height:1.35}
-    .diff-item .ico{font-size:18px;color:#777;width:20px;flex:0 0 20px}
+    .brand-copy span{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+    }
 
-    .proj-grid{display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
-    .proj-copy{font-size:15px;line-height:1.65;color:#6e6e6e;margin-bottom:24px;max-width:760px}
-    .proj-list{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px;max-width:760px}
-    .proj-item{border-left:4px solid var(--terracotta);padding-left:12px}
-    .proj-item .role{font-size:13px;text-transform:uppercase;color:#9a8d83;margin-right:10px}
-    .proj-item .name{font-size:13px;text-transform:uppercase;color:#444;font-weight:700}
+    .header-nav{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      margin-left:auto;
+    }
 
-    .local-grid{display:grid;grid-template-columns:48% 52%;gap:48px;align-items:start;color:#fff}
-    .local-title{font-size:33px;line-height:1.1;text-transform:uppercase;font-weight:300;margin-bottom:34px}
-    .local-title strong{font-weight:700}
-    .address-line{display:flex;align-items:center;gap:12px;color:#f1f1f1;font-size:14px;text-transform:uppercase;border-left:4px solid var(--terracotta);padding-left:12px;margin-bottom:34px}
-    .local-copy{font-size:15px;line-height:1.7;color:#e4e4e4;max-width:470px;margin-bottom:28px}
-    .accordion .row{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;gap:12px}
-    .accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
-    .map-wrap{position:relative}
-    .map-wrap img{width:100%;display:block}
-    .map-btn{position:absolute;right:0;bottom:0;background:var(--terracotta);color:#fff;text-decoration:none;text-transform:uppercase;font-size:13px;padding:14px 28px;clip-path:polygon(12% 0,100% 0,88% 100%,0 100%)}
+    .header-nav a{
+      color:#fff;
+      text-decoration:none;
+      text-transform:uppercase;
+      font-size:13px;
+      letter-spacing:.04em;
+      white-space:nowrap;
+    }
 
-    .ficha-title{text-align:center;color:#fff;font-size:44px;font-weight:300;text-transform:uppercase;letter-spacing:.5px;margin-bottom:48px}
-    .ficha-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:42px 28px}
-    .ficha-item{padding-top:18px;border-top:1px solid #9f6f55;color:#fff}
-    .ficha-item h4{font-size:13px;text-transform:uppercase;margin-bottom:6px}
-    .ficha-item p{font-size:14px;line-height:1.45;color:#f1f1f1}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-left:20px;
+    }
 
-    .carolline{background:#f5f5f5;padding:90px 0}
-    .car-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px;align-items:center;max-width:900px}
-    .car-photo{width:180px;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.16);border:6px solid #fff}
-    .car-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-    .car-copy h3{font-size:34px;text-transform:uppercase;font-weight:300;color:#333;line-height:1.1;margin-bottom:16px}
-    .car-copy h3 strong{color:var(--terracotta);font-weight:700}
-    .car-copy p{font-size:15px;line-height:1.7;color:#666;max-width:650px;margin-bottom:22px}
-    .btn-green{display:inline-block;background:var(--whatsapp);color:#fff;text-decoration:none;padding:14px 24px;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 20px;
+      border:none;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      font-size:12px;
+      font-weight:700;
+      transition:transform .2s ease, background .2s ease, color .2s ease;
+      cursor:pointer;
+    }
 
-    .floating-wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:9999;text-decoration:none}
-    .floating-wa svg{width:29px;height:29px;fill:#fff}
+    .btn:hover{transform:translateY(-1px)}
 
-    @media (max-width: 980px){
-      .topbar{padding:0 20px;height:64px}
-      .subnav-wrap{top:64px}
-      .subnav{width:100%;overflow:auto;justify-content:flex-start;padding:0 12px}
-      .topbar .logo-left img{height:38px}
-      .topbar .cta-top{padding:11px 14px;font-size:11px;white-space:nowrap}
-      .car-grid{gap:22px;text-align:center;justify-items:center}
-      .car-photo{width:154px;border-width:5px}
-      .car-copy p{max-width:560px}
-      .hero-inner{left:20px;right:20px;bottom:100px}
-      .hero-bottom-bar{height:auto;flex-direction:column;align-items:flex-start;gap:16px;padding:18px 20px}
-      .hero-bottom-right{flex-wrap:wrap;gap:18px}
-      .container{width:90%}
-      .intro-grid,.gallery-split,.areas-top,.plantas-grid,.diff-grid-wrap,.proj-grid,.local-grid,.car-grid{grid-template-columns:1fr}
-      .areas-icons{margin-left:0;grid-template-columns:repeat(2,1fr)}
-      .diff-grid,.proj-list,.ficha-grid{grid-template-columns:1fr}
-      .section-light,.section-white,.section-dark,.section-ficha,.carolline{padding:50px 0}
+    .btn-outline{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.32);
+      background:transparent;
+    }
+
+    .btn-brand{
+      background:var(--brand);
+      color:#fff;
+    }
+
+    .btn-brand:hover{background:var(--brand-strong)}
+
+    .btn-wa{
+      background:var(--wa);
+      color:#fff;
+    }
+
+    .menu-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border:1px solid rgba(255,255,255,.2);
+      background:transparent;
+      color:#fff;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+    }
+
+    .menu-toggle span{
+      width:18px;
+      height:2px;
+      background:currentColor;
+      display:block;
+    }
+
+    .header-inner{
+      display:none;
+    }
+
+    .hero{
+      position:relative;
+      min-height:100svh;
+      padding-top:78px;
+      background:#1e1e1e;
+      overflow:hidden;
+    }
+
+    .hero-track{
+      position:relative;
+      min-height:calc(100svh - 78px);
+    }
+
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      background-image:var(--bg-image);
+      background-position:center center;
+      background-size:cover;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .5s ease;
+    }
+
+    .hero-slide.is-active{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .hero-slide::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(24,24,24,.72) 0%,rgba(24,24,24,.34) 48%,rgba(24,24,24,.2) 100%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      display:grid;
+      align-items:end;
+      min-height:calc(100svh - 78px);
+      padding:100px 0 92px;
+    }
+
+    .hero-card{
+      width:min(100%,540px);
+      color:#fff;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:7px 12px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:11px;
+    }
+
+    .hero-logo{
+      width:min(280px,55vw);
+      margin-bottom:18px;
+    }
+
+    .hero-card h1,
+    .hero-card h2{
+      font-size:clamp(36px,5vw,62px);
+      line-height:.96;
+      text-transform:uppercase;
+      font-weight:300;
+      margin-bottom:14px;
+    }
+
+    .hero-card h1 strong,
+    .hero-card h2 strong{
+      font-weight:700;
+    }
+
+    .hero-location{
+      font-size:16px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.82);
+      margin-bottom:18px;
+    }
+
+    .hero-copy{
+      font-size:17px;
+      max-width:500px;
+      color:rgba(255,255,255,.92);
+      margin-bottom:28px;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:30px;
+    }
+
+    .hero-meta span{
+      min-height:36px;
+      padding:8px 14px;
+      display:inline-flex;
+      align-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.06em;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .hero-dots{
+      position:absolute;
+      inset:auto 0 26px;
+      z-index:2;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+    }
+
+    .hero-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.55);
+      background:transparent;
+      cursor:pointer;
+    }
+
+    .hero-dot.is-active{
+      background:#fff;
+    }
+
+    .section{
+      padding:92px 0;
+    }
+
+    .section-heading{
+      display:grid;
+      grid-template-columns:minmax(240px,320px) 1fr;
+      gap:30px;
+      align-items:start;
+      margin-bottom:40px;
+    }
+
+    .eyebrow{
+      color:var(--brand);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:12px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .section-heading h2{
+      font-size:clamp(30px,4vw,50px);
+      line-height:.96;
+      text-transform:uppercase;
+      font-weight:300;
+    }
+
+    .section-heading h2 strong{
+      font-weight:700;
+    }
+
+    .section-heading p{
+      font-size:16px;
+      color:var(--muted);
+      max-width:680px;
+    }
+
+    .highlights-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:24px;
+    }
+
+    .card{
+      background:var(--surface);
+      box-shadow:var(--shadow);
+    }
+
+    .highlight-card{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card-media{
+      aspect-ratio:16/11;
+      overflow:hidden;
+    }
+
+    .card-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .card-body{
+      padding:22px 22px 24px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      flex:1;
+    }
+
+    .card-topline{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      color:var(--muted);
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.06em;
+    }
+
+    .card-title{
+      font-size:28px;
+      line-height:1;
+      text-transform:uppercase;
+      font-weight:300;
+    }
+
+    .card-title strong{
+      font-weight:700;
+    }
+
+    .card-specs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .card-specs span{
+      padding:6px 10px;
+      background:#f3f0ec;
+      color:#555;
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.04em;
+    }
+
+    .card-body p{
+      color:var(--muted);
+      font-size:15px;
+      flex:1;
+    }
+
+    .institutional{
+      background:#fff;
+    }
+
+    .institutional-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+      gap:34px;
+      align-items:center;
+    }
+
+    .institutional-copy{
+      padding-right:24px;
+    }
+
+    .institutional-copy h2{
+      font-size:clamp(32px,4.2vw,54px);
+      line-height:.95;
+      text-transform:uppercase;
+      font-weight:300;
+      margin-bottom:18px;
+    }
+
+    .institutional-copy h2 strong{
+      font-weight:700;
+      color:var(--brand);
+    }
+
+    .institutional-copy p{
+      color:var(--muted);
+      font-size:16px;
+      margin-bottom:18px;
+      max-width:540px;
+    }
+
+    .institutional-list{
+      display:grid;
+      gap:12px;
+      margin:26px 0 30px;
+      color:#56544f;
+      text-transform:uppercase;
+      font-size:13px;
+      letter-spacing:.04em;
+    }
+
+    .institutional-list span{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .institutional-list span::before{
+      content:"";
+      width:10px;
+      height:10px;
+      background:var(--brand);
+      flex-shrink:0;
+    }
+
+    .institutional-media{
+      min-height:540px;
+      background:
+        linear-gradient(0deg,rgba(48,48,48,.16),rgba(48,48,48,.16)),
+        url("https://paesegregori.com.br/wp-content/uploads/2025/08/fundo-institucional-home-2.webp") center center/cover no-repeat;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-band{
+      background:var(--dark);
+      color:#fff;
+      padding:64px 0;
+    }
+
+    .cta-grid{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      align-items:center;
+    }
+
+    .cta-copy .eyebrow{
+      color:rgba(255,255,255,.62);
+      margin-bottom:8px;
+    }
+
+    .cta-copy h2{
+      font-size:clamp(30px,4vw,52px);
+      line-height:.96;
+      text-transform:uppercase;
+      font-weight:300;
+      margin-bottom:12px;
+    }
+
+    .cta-copy h2 strong{
+      font-weight:700;
+    }
+
+    .cta-copy p{
+      color:rgba(255,255,255,.82);
+      font-size:16px;
+      max-width:620px;
+    }
+
+    .site-footer{
+      background:var(--dark-strong);
+      color:#fff;
+      padding:56px 0 34px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr;
+      gap:30px;
+      align-items:start;
+    }
+
+    .footer-brand img{
+      width:96px;
+      margin-bottom:16px;
+    }
+
+    .footer-brand p,
+    .footer-col p,
+    .footer-col a{
+      color:rgba(255,255,255,.78);
+      font-size:14px;
+      text-decoration:none;
+    }
+
+    .footer-col h3{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:14px;
+      color:#fff;
+    }
+
+    .footer-links{
+      display:grid;
+      gap:10px;
+    }
+
+    .footer-bottom{
+      margin-top:32px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.56);
+      font-size:13px;
+    }
+
+    .floating-wa{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:25;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:var(--wa);
+      box-shadow:0 16px 34px rgba(0,0,0,.24);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .floating-wa svg{
+      width:28px;
+      height:28px;
+      fill:#fff;
+    }
+
+    @media (max-width: 1024px){
+      .header-bar{
+        min-height:72px;
+      }
+
+      .hero{
+        padding-top:72px;
+      }
+
+      .hero-track,
+      .hero-content{
+        min-height:calc(100svh - 72px);
+      }
+
+      .header-nav,
+      .header-actions{
+        display:none;
+      }
+
+      .menu-toggle{
+        display:inline-flex;
+      }
+
+      .site-header.is-open .header-inner{
+        display:grid;
+      }
+
+      .header-inner{
+        display:none;
+        padding:0 0 22px;
+        gap:18px;
+      }
+
+      .header-inner .header-nav,
+      .header-inner .header-actions{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        margin-left:0;
+      }
+
+      .header-inner .header-nav{
+        gap:14px;
+      }
+
+      .header-inner .header-actions{
+        gap:12px;
+      }
+
+      .section-heading,
+      .highlights-grid,
+      .institutional-grid,
+      .cta-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .institutional-copy{
+        padding-right:0;
+      }
+
+      .institutional-media{
+        min-height:380px;
+      }
+    }
+
+    @media (max-width: 720px){
+      .container{
+        width:min(calc(100% - 28px),var(--max));
+      }
+
+      .brand{
+        gap:12px;
+      }
+
+      .brand img{
+        width:78px;
+      }
+
+      .brand-copy strong,
+      .brand-copy span{
+        font-size:11px;
+      }
+
+      .hero-content{
+        padding:80px 0 84px;
+      }
+
+      .hero-card h1,
+      .hero-card h2{
+        font-size:40px;
+      }
+
+      .hero-logo{
+        width:min(220px,58vw);
+      }
+
+      .hero-copy{
+        font-size:16px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .section{
+        padding:72px 0;
+      }
+
+      .card-title{
+        font-size:24px;
+      }
+
+      .institutional-media{
+        min-height:300px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="topbar">
-    <div class="logo-left"><img src="https://cdn.tess.im/assets/uploads/359bf185-7e53-4abe-9c31-2d8913afa9c9.png" alt="Paes & Gregori"></div>
-    <div class="top-links">
-      <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="cta-top">Fale com o corretor</a>
-    </div>
-  </div>
-
-  <div class="subnav-wrap">
-    <div class="subnav">
-      <a href="#inicio">Início</a>
-      <a href="#galeria">Galeria de Imagens</a>
-      <a href="#areas">Áreas Comuns</a>
-      <a href="#plantas">Plantas</a>
-      <a href="#diferenciais">Diferenciais</a>
-      <a href="#projetistas">Projetistas</a>
-      <a href="#localizacao">Localização</a>
-      <a href="#ficha">Ficha Técnica</a>
-    </div>
-  </div>
-
-  <section class="hero" id="inicio">
-    <div class="hero-inner">
-      <img class="logo-empreendimento" src="https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi-logo-1024x406.png" alt="Nhambí Moema">
-    </div>
-    <div class="hero-bottom-bar">
-      <div class="hero-bottom-left">Exclusivamente residencial,<br>no coração de Moema</div>
-      <div class="hero-bottom-right">
-        <div class="hero-info">111m² e 121m²</div>
-        <div class="hero-info">3 suítes</div>
-        <div class="hero-info">2 vagas determinadas</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-light" id="galeria">
-    <div class="container intro-grid">
-      <div>
-        <div class="title-big">Apartamentos para<br>receber <span class="accent">e impressionar</span></div>
-        <div class="text-body">Inspirado na harmonia entre design contemporâneo e conforto, o empreendimento oferece acabamentos de alto padrão, espaços bem planejados e uma atmosfera acolhedora. Um convite para viver com exclusividade em um dos bairros mais desejados de São Paulo.</div>
-        <a href="#projetistas" class="btn-outline">Projetistas</a>
-      </div>
-      <div class="intro-image-wrap">
-        <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-2.webp" alt="Apartamento decorado">
-        <div class="ribbon">Pronto para morar</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-light" id="areas">
+  <header class="site-header" id="topo">
     <div class="container">
-      <div class="tabs">
-        <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
-        <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+      <div class="header-bar">
+        <a class="brand" href="#topo" aria-label="Paes e Gregori com Equipe Ortega">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/07/logo-novo.webp" alt="Paes e Gregori">
+          <div class="brand-copy">
+            <strong>Equipe Ortega</strong>
+            <span>Operação Paes e Gregori</span>
+          </div>
+        </a>
+        <nav class="header-nav" aria-label="Menu principal">
+          <a href="#institucional">Institucional</a>
+          <a href="#empreendimentos">Empreendimentos</a>
+          <a href="#atendimento">Fale com um corretor</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-outline" href="nhambi-moema/carolline/">Landing Carolline</a>
+          <a class="btn btn-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+      <div class="header-inner" id="menu-mobile">
+        <nav class="header-nav" aria-label="Menu mobile">
+          <a href="#institucional">Institucional</a>
+          <a href="#empreendimentos">Empreendimentos</a>
+          <a href="#atendimento">Fale com um corretor</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-outline" href="nhambi-moema/carolline/">Landing Carolline</a>
+          <a class="btn btn-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      <div id="apartamentos" class="gallery-panel">
-        <div class="gallery-split">
+  <main>
+    <section class="hero" aria-label="Empreendimentos em destaque">
+      <div class="hero-track">
+        <article class="hero-slide is-active" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp')">
+          <div class="container hero-content">
+            <div class="hero-card">
+              <span class="hero-tag">Empreendimento em destaque</span>
+              <img class="hero-logo" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Logo-2.webp" alt="312 JAM">
+              <div class="hero-location">Moema • São Paulo</div>
+              <p class="hero-copy">Uma vitrine elegante para apresentar os empreendimentos Paes e Gregori com atendimento consultivo da Equipe Ortega.</p>
+              <div class="hero-meta">
+                <span>Studios e 1 dorm.</span>
+                <span>Lazer e conveniência</span>
+                <span>Endereço estratégico</span>
+              </div>
+              <div class="hero-actions">
+                <a class="btn btn-brand" href="#empreendimentos">Conhecer empreendimentos</a>
+                <a class="btn btn-outline" href="#atendimento">Falar com a Equipe Ortega</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp')">
+          <div class="container hero-content">
+            <div class="hero-card">
+              <span class="hero-tag">Pronto para apresentar</span>
+              <img class="hero-logo" src="https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi-logo.png" alt="Nhambí Moema">
+              <div class="hero-location">Moema • São Paulo</div>
+              <p class="hero-copy">Apartamentos exclusivamente residenciais em um dos pontos mais desejados de Moema, com atendimento dedicado para plantas, valores e condições.</p>
+              <div class="hero-meta">
+                <span>111 m² e 121 m²</span>
+                <span>3 suítes</span>
+                <span>2 vagas</span>
+              </div>
+              <div class="hero-actions">
+                <a class="btn btn-brand" href="nhambi-moema/">Conhecer o empreendimento</a>
+                <a class="btn btn-outline" href="nhambi-moema/carolline/">Atendimento Carolline</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2025/08/fundo-institucional-home-2.webp')">
+          <div class="container hero-content">
+            <div class="hero-card">
+              <span class="hero-tag">Operação em expansão</span>
+              <h1>Novos <strong>lançamentos</strong> a caminho</h1>
+              <div class="hero-location">Seleção Paes e Gregori</div>
+              <p class="hero-copy">Esta home já está preparada para receber novos empreendimentos, novos corretores e novas páginas de campanha sem perder a mesma linha visual da marca.</p>
+              <div class="hero-meta">
+                <span>Estrutura escalável</span>
+                <span>Rotas prontas</span>
+                <span>Atendimento centralizado</span>
+              </div>
+              <div class="hero-actions">
+                <a class="btn btn-brand" href="#institucional">Como funciona a operação</a>
+                <a class="btn btn-outline" href="#atendimento">Solicitar atendimento</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="hero-dots" aria-label="Navegação do carrossel">
+        <button class="hero-dot is-active" type="button" aria-label="Slide 1"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 2"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <section class="section" id="empreendimentos">
+      <div class="container">
+        <div class="section-heading">
           <div>
-            <div class="gallery-main">
-              <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp" alt="Apartamento">
-              <div class="gallery-caption" id="aptCaption">Suíte</div>
+            <div class="eyebrow">Destaques</div>
+            <h2>Empreendimentos em <strong>evidência</strong></h2>
+          </div>
+          <p>Uma seleção apresentada com a mesma linguagem sóbria e elegante da Paes e Gregori, adaptada para a operação de atendimento da Equipe Ortega.</p>
+        </div>
+
+        <div class="highlights-grid">
+          <article class="card highlight-card">
+            <div class="card-media">
+              <img src="https://paesegregori.com.br/wp-content/uploads/2026/04/312-Jam-Destaque-home-30.webp" alt="312 JAM">
             </div>
-            <div class="gallery-nav">
-              <button class="circle-btn" onclick="prevApt()">‹</button>
-              <button class="circle-btn" onclick="nextApt()">›</button>
+            <div class="card-body">
+              <div class="card-topline">
+                <span>Lançamento</span>
+                <span>Moema</span>
+              </div>
+              <h3 class="card-title">312 <strong>JAM</strong></h3>
+              <div class="card-specs">
+                <span>Studios</span>
+                <span>1 dormitório</span>
+              </div>
+              <p>Empreendimento com proposta contemporânea para quem busca mobilidade, conveniência e uma leitura urbana mais jovem.</p>
+              <a class="btn btn-brand" href="#atendimento">Solicitar apresentação</a>
             </div>
-          </div>
-          <div class="gallery-copy">
-            <h3>Conforto, elegância e exclusividade</h3>
-            <p>Os apartamentos de 2 ou 3 suítes do Nhambí Moema traduzem conforto, funcionalidade e sofisticação em cada ambiente. Com plantas bem resolvidas, acabamentos de alto padrão e integração equilibrada entre áreas sociais e íntimas, os espaços foram pensados para acolher diferentes estilos de vida, valorizando a luz natural, a sensação de amplitude e o prazer de morar bem.</p>
-            <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com um corretor</a>
-          </div>
+          </article>
+
+          <article class="card highlight-card">
+            <div class="card-media">
+              <img src="https://paesegregori.com.br/wp-content/uploads/2025/08/destaque3-nhambi.webp" alt="Nhambí Moema">
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span>Residencial</span>
+                <span>Moema</span>
+              </div>
+              <h3 class="card-title">Nhambí <strong>Moema</strong></h3>
+              <div class="card-specs">
+                <span>111 m² e 121 m²</span>
+                <span>3 suítes</span>
+              </div>
+              <p>Projeto exclusivamente residencial com plantas amplas, lazer planejado e foco em morar bem em um dos endereços mais valorizados do bairro.</p>
+              <a class="btn btn-brand" href="nhambi-moema/">Acessar página</a>
+            </div>
+          </article>
+
+          <article class="card highlight-card">
+            <div class="card-media">
+              <img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Apresentacao-2.webp" alt="Novos empreendimentos Paes e Gregori">
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span>Em breve</span>
+                <span>Portfólio</span>
+              </div>
+              <h3 class="card-title">Próximos <strong>destaques</strong></h3>
+              <div class="card-specs">
+                <span>Novas páginas</span>
+                <span>Novas campanhas</span>
+              </div>
+              <p>Espaço reservado para os próximos empreendimentos da operação, mantendo a mesma vitrine e a mesma experiência de navegação.</p>
+              <a class="btn btn-brand" href="#atendimento">Quero ser avisado</a>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div id="areasComuns" class="gallery-panel" style="display:none">
-        <div class="areas-top">
-          <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-          <div class="areas-desc">Conheça todos os espaços de lazer que fazem do Nhambí Moema um empreendimento completo. Planejados para atender diferentes estilos de vida, estes ambientes promovem bem-estar, convivência e conforto em todos os momentos e para todas as idades.</div>
+    <section class="section institutional" id="institucional">
+      <div class="container institutional-grid">
+        <div class="institutional-copy">
+          <div class="eyebrow">Institucional</div>
+          <h2>Paes e Gregori com <strong>atendimento da Equipe Ortega</strong></h2>
+          <p>Esta home foi estruturada para funcionar como a vitrine principal da operação, reunindo os empreendimentos selecionados da Paes e Gregori em um ponto central de atendimento.</p>
+          <p>A proposta é oferecer uma experiência consultiva, organizada e pronta para crescer com novos lançamentos, novas páginas de empreendimento e versões dedicadas por corretor.</p>
+          <div class="institutional-list">
+            <span>Atendimento consultivo para apresentação comercial</span>
+            <span>Estrutura pronta para novas rotas e campanhas</span>
+            <span>Identidade visual alinhada à marca Paes e Gregori</span>
+          </div>
+          <a class="btn btn-brand" href="#atendimento">Fale com a Equipe Ortega</a>
         </div>
-        <div class="areas-icons">
-          <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-          <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-          <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
-          <div class="item"><span class="ico">♨</span><span>Piscina Adulto</span></div>
-          <div class="item"><span class="ico">♨</span><span>Piscina Infantil</span></div>
-          <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
-          <div class="item"><span class="ico">♨</span><span>Fitness</span></div>
-          <div class="item"><span class="ico">♨</span><span>Playground Externo</span></div>
-          <div class="item"><span class="ico">♨</span><span>Fitness Externo</span></div>
-          <div class="item"><span class="ico">♨</span><span>Bicicletário</span></div>
-          <div class="item"><span class="ico">♨</span><span>Pet Care</span></div>
-        </div>
+        <div class="institutional-media" role="img" aria-label="Imagem institucional da Paes e Gregori"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-white" id="plantas">
+    <section class="cta-band" id="atendimento">
+      <div class="container cta-grid">
+        <div class="cta-copy">
+          <div class="eyebrow">Atendimento</div>
+          <h2>Fale com um corretor da <strong>Equipe Ortega</strong></h2>
+          <p>Conheça plantas, valores e condições dos empreendimentos disponíveis com um atendimento centralizado e pronto para direcionar você para a página ideal.</p>
+        </div>
+        <a class="btn btn-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
-      <div class="plantas-title">Plantas</div>
-      <div class="tabs">
-        <div class="tab" onclick="showPlanta('lazer', this)">Lazer</div>
-        <div class="tab" onclick="showPlanta('111', this)">Aptos. 111m²</div>
-        <div class="tab active" onclick="showPlanta('121', this)">Aptos. 121m²</div>
-      </div>
-      <div class="plantas-grid">
-        <div>
-          <div class="plantas-copy">As plantas de 3 suítes, com layouts bem resolvidos, priorizam conforto, funcionalidade e qualidade espacial.<br><br>Para quem deseja áreas de convívio mais amplas, é possível realizar alterações de layout, incluindo a conversão para 2 suítes, proporcionando ambientes ainda mais integrados e generosos.<br><br>Terraço gourmet, circulação inteligente e hall social privativo reforçam a sensação de acolhimento, enquanto a flexibilidade das plantas permite que cada unidade se adapte aos diferentes estilos de vida.</div>
-          <div class="plantas-nav">
-            <button class="circle-btn" onclick="prevPlanta()">‹</button>
-            <button class="circle-btn" onclick="nextPlanta()">›</button>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/07/logo-rodape.webp" alt="Paes e Gregori">
+          <p>Home principal da operação Paes e Gregori com atendimento da Equipe Ortega, preparada para concentrar os empreendimentos e direcionar o visitante para as páginas específicas.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navegação</h3>
+          <div class="footer-links">
+            <a href="#institucional">Institucional</a>
+            <a href="#empreendimentos">Empreendimentos</a>
+            <a href="nhambi-moema/">Nhambí Moema</a>
+            <a href="nhambi-moema/carolline/">Landing Carolline</a>
           </div>
         </div>
-        <div class="plantas-img-wrap">
-          <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp" alt="Planta 121">
-          <div class="plantas-ribbon" id="plantaCaption">3 suítes, living integrado</div>
+        <div class="footer-col">
+          <h3>Atendimento</h3>
+          <div class="footer-links">
+            <p>Equipe Ortega</p>
+            <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
+            <p>Operação dedicada aos empreendimentos Paes e Gregori.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section-light" id="diferenciais">
-    <div class="container diff-grid-wrap">
-      <div>
-        <div class="section-title-side"><span class="accent">Diferenciais</span><br>Técnicos</div>
-      </div>
-      <div>
-        <div class="areas-desc" style="max-width:none;margin-bottom:26px">Os diferenciais técnicos do Nhambí Moema refletem o cuidado com o conforto, a funcionalidade e a qualidade construtiva do projeto. Soluções pensadas para o dia a dia e itens que elevam a experiência de morar, garantindo praticidade, segurança e bem-estar em um empreendimento exclusivamente residencial.</div>
-        <div class="diff-grid">
-          <div class="diff-item"><span class="ico">⌂</span><span>Duas vagas determinadas</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Infra estrutura para ar condicionado (carga e dreno)</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Persianas dos dormitórios motorizadas</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Porta para separação da área social e íntima</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Tomadas USB (suítes e sala)</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Opção de cozinha aberta ou fechada</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para desembaraçador de espelho nos banheiros das suítes</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para aquecedor de toalha nos banheiros das suítes</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso com tratamento acústico</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Previsão de infraestrutura para coifa na cozinha</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Previsão de infraestrutura para coifa na churrasqueira</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Ponto para bike elétrica no bicicletário</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Acesso social e de serviço</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para triturador</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para aspiração central</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Exclusividade residencial</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Guarita com vidro blindado</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Máquina de gelo na churrasqueira e salão de festas</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Tratamento acústico na tubulação hidráulica</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Ponto de hidráulica para geladeira ou filtro, máquina de lavar roupa e lavar louça</span></div>
-          <div class="diff-item"><span class="ico">⌂</span><span>Fechadura eletrônica</span></div>
-        </div>
+      <div class="footer-bottom">
+        <span>Paes e Gregori • Equipe Ortega</span>
+        <span>Estrutura pronta para subdomínio e novas rotas comerciais.</span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="section-white" id="projetistas">
-    <div class="container proj-grid">
-      <div>
-        <div class="section-title-side"><span class="accent">Projetistas</span></div>
-      </div>
-      <div>
-        <div class="proj-copy">O Nhambí Moema reflete a visão de profissionais experientes que combinaram design contemporâneo e funcionalidade para oferecer um empreendimento de alto padrão. Cada espaço é cuidadosamente planejado, priorizando conforto, estética e uma experiência de vida única para seus moradores.</div>
-        <div class="proj-list">
-          <div class="proj-item"><span class="role">Arquitetura</span><span class="name">Bianconi Arquitetos</span></div>
-          <div class="proj-item"><span class="role">Interiores</span><span class="name">Studio Archea</span></div>
-          <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Barbieri+Gorski</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-dark" id="localizacao">
-    <div class="container local-grid">
-      <div>
-        <div class="local-title">Viva tudo o que <strong>Moema</strong><br>oferece para uma vida<br>completa</div>
-        <div class="address-line">📍 Alameda dos Nhambiquaras, 1.375</div>
-        <div class="local-copy">O Nhambí Moema está cercado por uma infraestrutura completa de serviços, comércio e gastronomia. Próximo ao Shopping Ibirapuera, ao Parque Ibirapuera e às principais vias da região, oferece praticidade e qualidade de vida em um dos bairros mais desejados de São Paulo.</div>
-        <div class="accordion">
-          <div class="row"><span class="plus">+</span><span>Facilidade de acesso e mobilidade</span></div>
-          <div class="row"><span class="plus">+</span><span>Educação de excelência</span></div>
-          <div class="row"><span class="plus">+</span><span>Área verde</span></div>
-          <div class="row"><span class="plus">+</span><span>Gastronomia diversificada</span></div>
-          <div class="row"><span class="plus">+</span><span>Comodidade e centros comerciais</span></div>
-        </div>
-      </div>
-      <div class="map-wrap">
-        <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Mapa-NHAMBI.webp" alt="Mapa localização">
-        <a class="map-btn" href="https://maps.google.com/?q=Alameda+dos+Nhambiquaras+1375+Moema+Sao+Paulo" target="_blank">Ver no Google Maps</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-ficha" id="ficha">
-    <div class="container">
-      <div class="ficha-title">Ficha Técnica</div>
-      <div class="ficha-grid">
-        <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
-        <div class="ficha-item"><h4>Endereço</h4><p>Alameda dos Nhambiquaras, 1.375</p></div>
-        <div class="ficha-item"><h4>Bairro</h4><p>Moema</p></div>
-        <div class="ficha-item"><h4>Torre Única</h4><p>Terreno de 1.200m²<br>Exclusivamente residencial</p></div>
-        <div class="ficha-item"><h4>Apartamentos</h4><p>3 suítes – 111m² e 121m²<br>Gardens – 167m² e 183m²</p></div>
-        <div class="ficha-item"><h4>Lazer Residencial</h4><p>Piscina adulto e infantil, Salão de festas, Fitness, Fitness externo, Churrasqueira, Brinquedoteca, Sauna, Pet Care, Bicicletário, Playground</p></div>
-        <div class="ficha-item"><h4>Arquitetura</h4><p>Bianconi Arquitetos</p></div>
-        <div class="ficha-item"><h4>Interiores</h4><p>Studio Archea</p></div>
-        <div class="ficha-item"><h4>Paisagismo</h4><p>Barbieri+Gorski</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="carolline" id="carolline">
-    <div class="container car-grid">
-      <div class="car-photo"><img src="https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg" alt="Carolline"></div>
-      <div class="car-copy">
-        <h3>Fale com a <strong>Carolline</strong></h3>
-        <p>Se você quer conhecer pessoalmente o Nhambí Moema, tirar dúvidas sobre plantas, disponibilidade e condições, a Carolline pode te atender diretamente e te acompanhar em todas as etapas do processo.</p>
-        <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Fale com a Carolline</a>
-      </div>
-    </div>
-  </section>
-
-  <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.02 3.2C8.95 3.2 3.2 8.95 3.2 16.02c0 2.47.72 4.86 2.08 6.9L3 29l6.26-2.22a12.77 12.77 0 0 0 6.76 1.94H16c7.07 0 12.8-5.75 12.8-12.82 0-3.43-1.34-6.66-3.76-9.08A12.7 12.7 0 0 0 16.02 3.2zm0 23.24h-.01a10.6 10.6 0 0 1-5.4-1.48l-.38-.23-3.72 1.32 1.24-3.82-.25-.39a10.56 10.56 0 0 1-1.62-5.62c0-5.86 4.77-10.63 10.65-10.63 2.84 0 5.51 1.1 7.52 3.11a10.57 10.57 0 0 1 3.1 7.52c0 5.86-4.76 10.62-10.61 10.62zm5.82-7.94c-.32-.16-1.88-.93-2.18-1.03-.29-.1-.5-.16-.71.16-.21.31-.82 1.03-1 1.24-.18.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.57-1.88-1.76-2.2-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.72-.97-2.36-.26-.62-.53-.54-.71-.55h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.62 0 1.53 1.13 3.02 1.29 3.23.16.21 2.2 3.36 5.33 4.71.74.32 1.32.52 1.77.67.74.23 1.41.2 1.95.12.59-.09 1.88-.77 2.14-1.51.26-.74.26-1.38.18-1.51-.08-.13-.29-.21-.61-.37z"/>
+    </svg>
   </a>
 
   <script>
-    const apts = [
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp', cap:'Suíte'},
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-2.webp', cap:'Living Integrado'},
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-3.webp', cap:'Cozinha Gourmet'},
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-4.webp', cap:'Sala de Estar'}
-    ];
-    let aptIndex = 0;
-    function renderApt(){
-      document.getElementById('aptImg').src = apts[aptIndex].img;
-      document.getElementById('aptCaption').textContent = apts[aptIndex].cap;
-    }
-    function prevApt(){aptIndex=(aptIndex-1+apts.length)%apts.length;renderApt()}
-    function nextApt(){aptIndex=(aptIndex+1)%apts.length;renderApt()}
+    const slides = Array.from(document.querySelectorAll(".hero-slide"));
+    const dots = Array.from(document.querySelectorAll(".hero-dot"));
+    const header = document.querySelector(".site-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    let currentSlide = 0;
+    let carouselTimer = null;
 
-    const plantas = {
-      'lazer': {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Nhambi-terreo-1.webp', cap:'Lazer completo no térreo'},
-      '111': {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-3-suites-cozinha-aberta.webp', cap:'3 suítes, cozinha aberta'},
-      '121': {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp', cap:'3 suítes, living integrado'}
-    };
-    const plantaOrder = ['lazer','111','121'];
-    let plantaIndex = 2;
-    function renderPlanta(){
-      const key = plantaOrder[plantaIndex];
-      document.getElementById('plantaImg').src = plantas[key].img;
-      document.getElementById('plantaCaption').textContent = plantas[key].cap;
-      document.querySelectorAll('#plantas .tab').forEach(t=>t.classList.remove('active'));
-      const labels = {'lazer':0,'111':1,'121':2};
-      document.querySelectorAll('#plantas .tab')[labels[key]].classList.add('active');
+    function showSlide(index){
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("is-active", slideIndex === currentSlide);
+      });
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === currentSlide);
+      });
     }
-    function prevPlanta(){plantaIndex=(plantaIndex-1+plantaOrder.length)%plantaOrder.length;renderPlanta()}
-    function nextPlanta(){plantaIndex=(plantaIndex+1)%plantaOrder.length;renderPlanta()}
-    function showPlanta(key, el){plantaIndex = plantaOrder.indexOf(key); renderPlanta();}
 
-    function showGallery(id, el){
-      document.querySelectorAll('#areas .tab').forEach(t=>t.classList.remove('active'));
-      el.classList.add('active');
-      document.getElementById('apartamentos').style.display = id==='apartamentos' ? 'block' : 'none';
-      document.getElementById('areasComuns').style.display = id==='areasComuns' ? 'block' : 'none';
+    function startCarousel(){
+      stopCarousel();
+      carouselTimer = window.setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5200);
     }
+
+    function stopCarousel(){
+      if(carouselTimer){
+        window.clearInterval(carouselTimer);
+      }
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        startCarousel();
+      });
+    });
+
+    if(menuToggle){
+      menuToggle.addEventListener("click", () => {
+        const open = header.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(open));
+      });
+    }
+
+    document.querySelectorAll(".header-inner a").forEach((link) => {
+      link.addEventListener("click", () => {
+        header.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    showSlide(0);
+    startCarousel();
   </script>
-
 </body>
 </html>
