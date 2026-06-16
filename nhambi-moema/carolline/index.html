@@ -149,6 +149,20 @@
     .car-copy h3 strong{color:var(--terracotta);font-weight:700}
     .car-copy p{font-size:15px;line-height:1.7;color:#666;max-width:650px;margin-bottom:22px}
     .btn-green{display:inline-block;background:var(--whatsapp);color:#fff;text-decoration:none;padding:14px 24px;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .lead-options{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,380px);gap:34px;align-items:start;margin-top:34px}
+    .lead-card{background:#fff;border:1px solid rgba(0,0,0,.07);box-shadow:0 18px 40px rgba(0,0,0,.06);padding:28px}
+    .lead-card h4{font-size:22px;line-height:1.15;text-transform:uppercase;font-weight:300;color:#333;margin-bottom:12px}
+    .lead-card h4 strong{color:var(--terracotta);font-weight:700}
+    .lead-card p{font-size:14px;line-height:1.7;color:#666;margin-bottom:18px}
+    .lead-form{display:grid;gap:12px}
+    .lead-form label{font-size:12px;text-transform:uppercase;color:#7a7a7a;font-weight:700;letter-spacing:.4px}
+    .lead-form input,.lead-form select,.lead-form textarea{width:100%;border:1px solid #d9d9d9;background:#fff;color:#333;padding:14px 14px;font:inherit;font-size:14px;outline:none}
+    .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--terracotta)}
+    .lead-form textarea{min-height:96px;resize:vertical}
+    .lead-form button{border:0;background:var(--dark2);color:#fff;padding:16px 18px;cursor:pointer;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .lead-form small{font-size:12px;line-height:1.6;color:#7b7b7b}
+    .lead-form .status{display:none;font-size:13px;color:#3a6a4e}
+    .lead-form .status.is-visible{display:block}
 
     .floating-wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:9999;text-decoration:none}
     .floating-wa svg{width:29px;height:29px;fill:#fff}
@@ -160,6 +174,7 @@
       .topbar .logo-left img{height:38px}
       .topbar .cta-top{padding:11px 14px;font-size:11px;white-space:nowrap}
       .car-grid{gap:22px;text-align:center;justify-items:center}
+      .lead-options{grid-template-columns:1fr}
       .car-photo{width:154px;border-width:5px}
       .car-copy p{max-width:560px}
       .hero-inner{left:20px;right:20px;bottom:100px}
@@ -396,6 +411,48 @@
         <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Fale com a Carolline</a>
       </div>
     </div>
+    <div class="container lead-options">
+      <div class="lead-card">
+        <h4>Receba <strong>informacoes</strong> do empreendimento</h4>
+        <p>Prefere que a Carolline entre em contato? Preencha seus dados e receba informacoes sobre disponibilidade, plantas e visita ao decorado.</p>
+        <form class="lead-form" id="leadForm">
+          <div>
+            <label for="leadName">Nome</label>
+            <input id="leadName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="leadPhone">WhatsApp</label>
+            <input id="leadPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div>
+            <label for="leadInterest">Interesse</label>
+            <select id="leadInterest" name="interest" required>
+              <option value="">Selecione</option>
+              <option value="111m2">111m²</option>
+              <option value="121m2">121m²</option>
+              <option value="Garden">Garden</option>
+              <option value="Ainda avaliando">Ainda avaliando</option>
+            </select>
+          </div>
+          <div>
+            <label for="leadSchedule">Melhor horario para contato</label>
+            <input id="leadSchedule" name="schedule" type="text" placeholder="Ex: hoje a tarde">
+          </div>
+          <div>
+            <label for="leadMessage">Mensagem</label>
+            <textarea id="leadMessage" name="message" placeholder="Conte o que voce quer saber sobre o empreendimento."></textarea>
+          </div>
+          <button type="submit">Quero receber informacoes</button>
+          <small>Ao enviar, voce segue para o WhatsApp com uma mensagem preenchida para atendimento da Carolline.</small>
+          <div class="status" id="leadFormStatus">Abrindo o WhatsApp com seus dados preenchidos.</div>
+        </form>
+      </div>
+      <div class="lead-card">
+        <h4>Agende sua <strong>visita</strong></h4>
+        <p>O Nhambi Moema esta pronto para morar e o decorado pode ser visitado com atendimento direto da Equipe Ortega. Se preferir um contato mais rapido, use o WhatsApp e fale agora com a Carolline.</p>
+        <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20visita%20ao%20decorado%20do%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Agendar visita no WhatsApp</a>
+      </div>
+    </div>
   </section>
 
   <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -451,6 +508,82 @@
           window.open(clickUrl, "_blank", "noopener,noreferrer");
         });
       });
+
+      var leadForm = document.getElementById("leadForm");
+      var leadFormStatus = document.getElementById("leadFormStatus");
+      var leadFormTouched = false;
+
+      function sanitizeValue(value){
+        return (value || "").replace(/\s+/g, " ").trim();
+      }
+
+      function formatLeadMessage(data, protocolo){
+        var lines = [
+          "Ola, quero receber informacoes sobre o empreendimento Nhambi Moema.",
+          "Protocolo: " + protocolo,
+          "Nome: " + data.name,
+          "WhatsApp: " + data.phone,
+          "Interesse: " + data.interest
+        ];
+        if(data.schedule) lines.push("Melhor horario: " + data.schedule);
+        if(data.message) lines.push("Mensagem: " + data.message);
+        return lines.join(" | ");
+      }
+
+      if(leadForm){
+        leadForm.addEventListener("focusin", function(){
+          if(leadFormTouched) return;
+          leadFormTouched = true;
+          window.dataLayer.push({
+            event: "lead_form_start",
+            construtora: whatsappConfig.construtora,
+            produto: whatsappConfig.produto,
+            corretor: whatsappConfig.corretor,
+            tipo_pagina: whatsappConfig.tipo_pagina,
+            form_id: "leadForm",
+            page_path: window.location.pathname,
+            page_location: window.location.href
+          });
+        });
+
+        leadForm.addEventListener("submit", function(event){
+          event.preventDefault();
+          var formData = {
+            name: sanitizeValue(document.getElementById("leadName").value),
+            phone: sanitizeValue(document.getElementById("leadPhone").value),
+            interest: sanitizeValue(document.getElementById("leadInterest").value),
+            schedule: sanitizeValue(document.getElementById("leadSchedule").value),
+            message: sanitizeValue(document.getElementById("leadMessage").value)
+          };
+
+          if(!formData.name || !formData.phone || !formData.interest) return;
+
+          var protocolo = gerarProtocolo();
+          var clickUrl = "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(formatLeadMessage(formData, protocolo));
+
+          window.dataLayer.push({
+            event: "lead_form_submit",
+            construtora: whatsappConfig.construtora,
+            produto: whatsappConfig.produto,
+            corretor: whatsappConfig.corretor,
+            tipo_pagina: whatsappConfig.tipo_pagina,
+            telefone_destino: whatsappConfig.telefone_destino,
+            protocolo: protocolo,
+            content_name: whatsappConfig.content_name,
+            content_category: whatsappConfig.content_category,
+            page_path: window.location.pathname,
+            page_location: window.location.href,
+            click_url: clickUrl,
+            lead_name: formData.name,
+            lead_phone: formData.phone,
+            lead_interest: formData.interest,
+            lead_schedule: formData.schedule
+          });
+
+          if(leadFormStatus) leadFormStatus.classList.add("is-visible");
+          window.open(clickUrl, "_blank", "noopener,noreferrer");
+        });
+      }
     })();
 
     const apts = [
