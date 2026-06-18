@@ -1,0 +1,211 @@
+{
+  "name": "Landing Nhambi Carolline - Lead para Sheets e WhatsApp",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bd83d8bf-d63f-4161-a97b-ad38095d3ae6",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://paesegregori.casaortegaimoveis.com.br"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [-840, 160],
+      "id": "5cde88a4-97b1-4a80-b424-5d339fd269d2",
+      "name": "Receber Lead da Landing",
+      "webhookId": "bd83d8bf-d63f-4161-a97b-ad38095d3ae6"
+    },
+    {
+      "parameters": {
+        "jsCode": "const request = $input.first().json;\nconst body = request.body ?? {};\nconst config = Object.freeze({\n  allowedOrigin: 'https://paesegregori.casaortegaimoveis.com.br',\n  spreadsheetId: '13y_9C-c3rQ6MYaIxPFOzpivG338EvpjDbF7WbcKY3aM',\n  sheetName: 'Página1',\n  whatsappRecipient: '5511919890615',\n  evolutionBaseUrl: 'https://evo.figueiramarketing.com.br',\n  evolutionInstance: 'Guilherme014',\n  projectName: 'Nhambí Moema | Carolline'\n});\n\nconst clean = (value, max = 500) => String(value ?? '').replace(/\\s+/g, ' ').trim().slice(0, max);\nconst origin = clean(request.headers?.origin, 300);\nif (origin !== config.allowedOrigin) throw new Error('Origem não autorizada.');\nif (clean(body.website, 200)) throw new Error('Envio bloqueado.');\n\nconst phone = clean(body.phone, 30);\nconst phoneDigits = phone.replace(/\\D/g, '');\nconst lead = {\n  id: clean(body.id, 80),\n  created_time: new Date().toISOString(),\n  ad_id: clean(body.ad_id, 80),\n  ad_name: clean(body.ad_name, 200),\n  adset_id: clean(body.adset_id, 80),\n  adset_name: clean(body.adset_name, 200),\n  campaign_id: clean(body.campaign_id, 80),\n  campaign_name: clean(body.campaign_name, 200),\n  form_id: clean(body.form_id, 80) || 'leadForm',\n  form_name: clean(body.form_name, 200) || 'Landing Page | Nhambí Moema | Carolline',\n  is_organic: Boolean(body.is_organic),\n  platform: clean(body.platform, 50) || 'website',\n  nome_completo: clean(body.name, 120),\n  telefone: phoneDigits,\n  email: clean(body.email, 180),\n  inbox_url: clean(body.inbox_url, 2000),\n  lead_status: 'CREATED',\n  interest: clean(body.interest, 80),\n  best_contact_time: clean(body.schedule, 120),\n  message: clean(body.message, 1000),\n  utm_source: clean(body.utm_source, 200),\n  utm_medium: clean(body.utm_medium, 200),\n  utm_campaign: clean(body.utm_campaign, 300),\n  utm_content: clean(body.utm_content, 300),\n  utm_term: clean(body.utm_term, 300),\n  fbclid: clean(body.fbclid, 1000),\n  landing_url: clean(body.landing_url, 2000),\n  referrer: clean(body.referrer, 2000),\n  telefone_valido: phoneDigits.length >= 10 && phoneDigits.length <= 13,\n  config\n};\n\nif (!lead.id || !lead.nome_completo || !lead.telefone || !lead.interest) {\n  throw new Error('Campos obrigatórios ausentes.');\n}\n\nreturn [{ json: lead }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-600, 160],
+      "id": "7834d916-45c3-410c-a7b2-40920ff30291",
+      "name": "Configurar e Normalizar"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://sheets.googleapis.com/v4/spreadsheets/{{ $json.config.spreadsheetId }}/values/{{ encodeURIComponent($json.config.sheetName) }}!A:AB:append",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSheetsOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "valueInputOption", "value": "RAW" },
+            { "name": "insertDataOption", "value": "INSERT_ROWS" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { values: [[ $json.id, $json.created_time, $json.ad_id, $json.ad_name, $json.adset_id, $json.adset_name, $json.campaign_id, $json.campaign_name, $json.form_id, $json.form_name, $json.is_organic, $json.platform, $json.nome_completo, $json.telefone, $json.email, $json.inbox_url, $json.lead_status, $json.interest, $json.best_contact_time, $json.message, $json.utm_source, $json.utm_medium, $json.utm_campaign, $json.utm_content, $json.utm_term, $json.fbclid, $json.landing_url, $json.referrer ]] } }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-340, 160],
+      "id": "a61d7ad5-6163-44df-9d43-50af4796ffcd",
+      "name": "Gravar Lead na Planilha",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EAmgSEYv1oajSfCs",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            {
+              "id": "validar-telefone-landing",
+              "leftValue": "={{ $('Configurar e Normalizar').item.json.telefone_valido }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [-80, 160],
+      "id": "4cf09817-768f-4e5a-8e38-c8a369e67681",
+      "name": "Validar Telefone"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configurar e Normalizar').item.json.config.evolutionBaseUrl }}/message/sendText/{{ $('Configurar e Normalizar').item.json.config.evolutionInstance }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { number: $('Configurar e Normalizar').item.json.config.whatsappRecipient, text: '🟢 *NOVO LEAD - LANDING PAGE*\\n\\n🏢 *Projeto:* ' + $('Configurar e Normalizar').item.json.config.projectName + '\\n👤 *Nome:* ' + $('Configurar e Normalizar').item.json.nome_completo + '\\n📱 *Telefone:* ' + $('Configurar e Normalizar').item.json.telefone + '\\n🎯 *Interesse:* ' + $('Configurar e Normalizar').item.json.interest + '\\n🕐 *Melhor horário:* ' + ($('Configurar e Normalizar').item.json.best_contact_time || 'Não informado') + '\\n💬 *Mensagem:* ' + ($('Configurar e Normalizar').item.json.message || 'Não informada') + '\\n📣 *Anúncio:* ' + ($('Configurar e Normalizar').item.json.ad_name || 'Não identificado') + '\\n🎯 *Campanha:* ' + ($('Configurar e Normalizar').item.json.campaign_name || 'Orgânico/direto') + '\\n🕐 *Data:* ' + $('Configurar e Normalizar').item.json.created_time } }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [180, 40],
+      "id": "aee2d788-f234-4a87-9c51-c5d16e23f251",
+      "name": "Enviar WhatsApp para Carolline"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://sheets.googleapis.com/v4/spreadsheets/{{ $('Configurar e Normalizar').item.json.config.spreadsheetId }}/values/{{ encodeURIComponent($('Configurar e Normalizar').item.json.config.sheetName) }}!Q{{ $('Gravar Lead na Planilha').item.json.updates.updatedRange.split('!')[1].match(/\\d+/)[0] }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSheetsOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": { "parameters": [{ "name": "valueInputOption", "value": "RAW" }] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"values\": [[\"ENVIADO\"]]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 40],
+      "id": "772d0580-fea4-49a1-9dc4-387bb3089bd2",
+      "name": "Marcar como ENVIADO",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EAmgSEYv1oajSfCs",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://sheets.googleapis.com/v4/spreadsheets/{{ $('Configurar e Normalizar').item.json.config.spreadsheetId }}/values/{{ encodeURIComponent($('Configurar e Normalizar').item.json.config.sheetName) }}!Q{{ $('Gravar Lead na Planilha').item.json.updates.updatedRange.split('!')[1].match(/\\d+/)[0] }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSheetsOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": { "parameters": [{ "name": "valueInputOption", "value": "RAW" }] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"values\": [[\"DADOS INCORRETOS\"]]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [180, 280],
+      "id": "0d14af92-12f0-4aae-b8f9-4dc7b79687fd",
+      "name": "Marcar DADOS INCORRETOS",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EAmgSEYv1oajSfCs",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { success: true, lead_id: $('Configurar e Normalizar').item.json.id, status: 'ENVIADO' } }}",
+        "options": { "responseCode": 200 }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [700, 40],
+      "id": "dff9b101-a679-4424-8cbb-38fdeaf7ae55",
+      "name": "Responder Sucesso"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { success: false, lead_id: $('Configurar e Normalizar').item.json.id, status: 'DADOS INCORRETOS', error: 'Telefone inválido' } }}",
+        "options": { "responseCode": 422 }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [440, 280],
+      "id": "1da2f9e3-6685-4469-93c1-afb00039965b",
+      "name": "Responder Telefone Inválido"
+    },
+    {
+      "parameters": {
+        "content": "## Configuração reutilizável\nPara outra landing page, duplique este workflow e altere apenas o objeto `config` no nó **Configurar e Normalizar**, o caminho do webhook e o domínio permitido no nó **Receber Lead da Landing**.\n\nA chave da Evolution deve ficar em uma credencial `Header Auth` com o cabeçalho `apikey`. Nunca grave a chave diretamente nos nós.",
+        "height": 260,
+        "width": 520,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-840, -220],
+      "id": "993938f9-ab92-41ed-8333-c9b46b1289b8",
+      "name": "Instruções"
+    }
+  ],
+  "connections": {
+    "Receber Lead da Landing": { "main": [[{ "node": "Configurar e Normalizar", "type": "main", "index": 0 }]] },
+    "Configurar e Normalizar": { "main": [[{ "node": "Gravar Lead na Planilha", "type": "main", "index": 0 }]] },
+    "Gravar Lead na Planilha": { "main": [[{ "node": "Validar Telefone", "type": "main", "index": 0 }]] },
+    "Validar Telefone": {
+      "main": [
+        [{ "node": "Enviar WhatsApp para Carolline", "type": "main", "index": 0 }],
+        [{ "node": "Marcar DADOS INCORRETOS", "type": "main", "index": 0 }]
+      ]
+    },
+    "Enviar WhatsApp para Carolline": { "main": [[{ "node": "Marcar como ENVIADO", "type": "main", "index": 0 }]] },
+    "Marcar como ENVIADO": { "main": [[{ "node": "Responder Sucesso", "type": "main", "index": 0 }]] },
+    "Marcar DADOS INCORRETOS": { "main": [[{ "node": "Responder Telefone Inválido", "type": "main", "index": 0 }]] }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "versionId": "31f1cdbd-cb7c-4f1f-8533-36b6250a79e3",
+  "meta": { "templateCredsSetupCompleted": true },
+  "tags": []
+}

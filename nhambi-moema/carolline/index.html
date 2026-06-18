@@ -160,9 +160,12 @@
     .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--terracotta)}
     .lead-form textarea{min-height:96px;resize:vertical}
     .lead-form button{border:0;background:var(--dark2);color:#fff;padding:16px 18px;cursor:pointer;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .lead-form button:disabled{cursor:wait;opacity:.65}
     .lead-form small{font-size:12px;line-height:1.6;color:#7b7b7b}
     .lead-form .status{display:none;font-size:13px;color:#3a6a4e}
     .lead-form .status.is-visible{display:block}
+    .lead-form .status.is-error{color:#a23b32}
+    .form-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 
     .floating-wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:9999;text-decoration:none}
     .floating-wa svg{width:29px;height:29px;fill:#fff}
@@ -413,9 +416,13 @@
     </div>
     <div class="container lead-options">
       <div class="lead-card">
-        <h4>Receba <strong>informacoes</strong> do empreendimento</h4>
-        <p>Prefere que a Carolline entre em contato? Preencha seus dados e receba informacoes sobre disponibilidade, plantas e visita ao decorado.</p>
+        <h4>Receba <strong>informações</strong> do empreendimento</h4>
+        <p>Prefere que a Carolline entre em contato? Preencha seus dados e receba informações sobre disponibilidade, plantas e visita ao decorado.</p>
         <form class="lead-form" id="leadForm">
+          <div class="form-hp" aria-hidden="true">
+            <label for="leadWebsite">Não preencha este campo</label>
+            <input id="leadWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <div>
             <label for="leadName">Nome</label>
             <input id="leadName" name="name" type="text" autocomplete="name" required>
@@ -435,16 +442,16 @@
             </select>
           </div>
           <div>
-            <label for="leadSchedule">Melhor horario para contato</label>
-            <input id="leadSchedule" name="schedule" type="text" placeholder="Ex: hoje a tarde">
+            <label for="leadSchedule">Melhor horário para contato</label>
+            <input id="leadSchedule" name="schedule" type="text" placeholder="Ex.: hoje à tarde">
           </div>
           <div>
             <label for="leadMessage">Mensagem</label>
-            <textarea id="leadMessage" name="message" placeholder="Conte o que voce quer saber sobre o empreendimento."></textarea>
+            <textarea id="leadMessage" name="message" placeholder="Conte o que você quer saber sobre o empreendimento."></textarea>
           </div>
-          <button type="submit">Quero receber informacoes</button>
-          <small>Ao enviar, voce segue para o WhatsApp com uma mensagem preenchida para atendimento da Carolline.</small>
-          <div class="status" id="leadFormStatus">Abrindo o WhatsApp com seus dados preenchidos.</div>
+          <button type="submit">Quero receber informações</button>
+          <small>Ao enviar, seus dados serão registrados e você seguirá para o WhatsApp da Carolline.</small>
+          <div class="status" id="leadFormStatus" role="status" aria-live="polite"></div>
         </form>
       </div>
       <div class="lead-card">
@@ -471,6 +478,11 @@
         content_name: "Nhambí Moema | Atendimento Carolline",
         content_category: "imovel_lancamento",
         mensagem: "Olá, quero conhecer mais sobre o empreendimento Nhambí Moema."
+      };
+      var leadEndpoint = "https://webhook.figueiramarketing.com.br/webhook/bd83d8bf-d63f-4161-a97b-ad38095d3ae6";
+      var campaignConfig = {
+        id: "120248150688020185",
+        name: "[FIG] [LEADS-LP] [ NHAMBI ] 15 06 26"
       };
 
       function gerarProtocolo(){
@@ -517,6 +529,53 @@
         return (value || "").replace(/\s+/g, " ").trim();
       }
 
+      function queryValue(params, names){
+        for(var index = 0; index < names.length; index += 1){
+          var value = sanitizeValue(params.get(names[index]));
+          if(value) return value;
+        }
+        return "";
+      }
+
+      function buildAttribution(){
+        var params = new URLSearchParams(window.location.search);
+        var fbclid = queryValue(params, ["fbclid"]);
+        var utmSource = queryValue(params, ["utm_source"]);
+        var paidMeta = Boolean(fbclid || /facebook|instagram|meta/i.test(utmSource));
+        return {
+          ad_id: queryValue(params, ["ad_id", "utm_ad_id"]),
+          ad_name: queryValue(params, ["ad_name", "utm_ad_name"]),
+          adset_id: queryValue(params, ["adset_id", "utm_adset_id"]),
+          adset_name: queryValue(params, ["adset_name", "utm_adset_name"]),
+          campaign_id: queryValue(params, ["campaign_id", "utm_campaign_id"]) || (paidMeta ? campaignConfig.id : ""),
+          campaign_name: queryValue(params, ["campaign_name"]) || (paidMeta ? campaignConfig.name : ""),
+          utm_source: utmSource,
+          utm_medium: queryValue(params, ["utm_medium"]),
+          utm_campaign: queryValue(params, ["utm_campaign"]),
+          utm_content: queryValue(params, ["utm_content"]),
+          utm_term: queryValue(params, ["utm_term"]),
+          fbclid: fbclid,
+          is_organic: !paidMeta,
+          platform: /instagram/i.test(utmSource) ? "instagram" : (paidMeta ? "meta" : "website")
+        };
+      }
+
+      function storeLead(payload){
+        return fetch(leadEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).then(async function(response){
+          var result = await response.json().catch(function(){ return {}; });
+          if(!response.ok || !result.success){
+            var error = new Error(result.error || "Não foi possível registrar o lead.");
+            error.code = result.status || "SUBMIT_FAILED";
+            throw error;
+          }
+          return result;
+        });
+      }
+
       function formatLeadMessage(data, protocolo){
         var lines = [
           "Ola, quero receber informacoes sobre o empreendimento Nhambi Moema.",
@@ -546,42 +605,91 @@
           });
         });
 
-        leadForm.addEventListener("submit", function(event){
+        leadForm.addEventListener("submit", async function(event){
           event.preventDefault();
+          var submitButton = leadForm.querySelector('button[type="submit"]');
           var formData = {
             name: sanitizeValue(document.getElementById("leadName").value),
             phone: sanitizeValue(document.getElementById("leadPhone").value),
             interest: sanitizeValue(document.getElementById("leadInterest").value),
             schedule: sanitizeValue(document.getElementById("leadSchedule").value),
-            message: sanitizeValue(document.getElementById("leadMessage").value)
+            message: sanitizeValue(document.getElementById("leadMessage").value),
+            website: sanitizeValue(document.getElementById("leadWebsite").value)
           };
 
           if(!formData.name || !formData.phone || !formData.interest) return;
 
+          var phoneDigits = formData.phone.replace(/\D/g, "");
+          if(phoneDigits.length < 10 || phoneDigits.length > 13){
+            if(leadFormStatus){
+              leadFormStatus.textContent = "Confira o WhatsApp informado, incluindo o DDD.";
+              leadFormStatus.classList.add("is-visible", "is-error");
+            }
+            document.getElementById("leadPhone").focus();
+            return;
+          }
+
           var protocolo = gerarProtocolo();
           var clickUrl = "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(formatLeadMessage(formData, protocolo));
-
-          window.dataLayer.push({
-            event: "lead_form_submit",
-            construtora: whatsappConfig.construtora,
-            produto: whatsappConfig.produto,
-            corretor: whatsappConfig.corretor,
-            tipo_pagina: whatsappConfig.tipo_pagina,
-            telefone_destino: whatsappConfig.telefone_destino,
-            protocolo: protocolo,
-            content_name: whatsappConfig.content_name,
-            content_category: whatsappConfig.content_category,
-            page_path: window.location.pathname,
-            page_location: window.location.href,
-            click_url: clickUrl,
-            lead_name: formData.name,
-            lead_phone: formData.phone,
-            lead_interest: formData.interest,
-            lead_schedule: formData.schedule
+          var whatsappWindow = window.open("about:blank", "_blank");
+          var attribution = buildAttribution();
+          var payload = Object.assign({}, formData, attribution, {
+            id: protocolo,
+            origin: window.location.origin,
+            form_id: "leadForm",
+            form_name: "Landing Page | Nhambí Moema | Carolline",
+            email: "",
+            inbox_url: clickUrl,
+            landing_url: window.location.href,
+            referrer: document.referrer
           });
 
-          if(leadFormStatus) leadFormStatus.classList.add("is-visible");
-          window.open(clickUrl, "_blank", "noopener,noreferrer");
+          submitButton.disabled = true;
+          submitButton.textContent = "Registrando...";
+          if(leadFormStatus){
+            leadFormStatus.textContent = "Registrando seus dados com segurança...";
+            leadFormStatus.classList.remove("is-error");
+            leadFormStatus.classList.add("is-visible");
+          }
+
+          try {
+            await storeLead(payload);
+            window.dataLayer.push({
+              event: "lead_form_submit_success",
+              construtora: whatsappConfig.construtora,
+              produto: whatsappConfig.produto,
+              corretor: whatsappConfig.corretor,
+              tipo_pagina: whatsappConfig.tipo_pagina,
+              protocolo: protocolo,
+              form_id: "leadForm",
+              lead_interest: formData.interest,
+              campaign_id: attribution.campaign_id,
+              adset_id: attribution.adset_id,
+              ad_id: attribution.ad_id,
+              page_path: window.location.pathname,
+              page_location: window.location.href
+            });
+            if(leadFormStatus) leadFormStatus.textContent = "Dados registrados. Abrindo o WhatsApp da Carolline...";
+            if(whatsappWindow){
+              whatsappWindow.opener = null;
+              whatsappWindow.location.href = clickUrl;
+            } else {
+              window.location.href = clickUrl;
+            }
+            leadForm.reset();
+          } catch(error) {
+            console.error(error);
+            if(whatsappWindow) whatsappWindow.close();
+            if(leadFormStatus){
+              leadFormStatus.textContent = error.code === "DADOS INCORRETOS"
+                ? "Confira o WhatsApp informado, incluindo o DDD."
+                : "Não foi possível registrar seus dados. Tente novamente ou fale diretamente pelo WhatsApp.";
+              leadFormStatus.classList.add("is-error");
+            }
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Quero receber informações";
+          }
         });
       }
     })();
