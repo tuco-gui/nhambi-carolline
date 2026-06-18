@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -560,21 +559,35 @@
         };
       }
 
+      // ── CORREÇÃO 1: logs detalhados de HTTP status, resposta bruta, JSON e erros de rede/CORS ──
       function storeLead(payload){
         return fetch(leadEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         }).then(async function(response){
-          var result = await response.json().catch(function(){ return {}; });
+          var rawText = await response.text().catch(function(){ return ""; });
+          var result = {};
+          try { result = JSON.parse(rawText); } catch(_){}
+          console.log("[leadForm] status HTTP:", response.status);
+          console.log("[leadForm] resposta bruta:", rawText);
+          console.log("[leadForm] JSON retornado:", result);
           if(!response.ok || !result.success){
             var error = new Error(result.error || "Não foi possível registrar o lead.");
             error.code = result.status || "SUBMIT_FAILED";
+            error.httpStatus = response.status;
+            error.rawResponse = rawText;
             throw error;
           }
           return result;
+        }).catch(function(networkErr){
+          if(networkErr.name === "TypeError"){
+            console.error("[leadForm] erro de rede ou CORS:", networkErr.message);
+          }
+          throw networkErr;
         });
       }
+      // ── fim CORREÇÃO 1 ──
 
       function formatLeadMessage(data, protocolo){
         var lines = [
@@ -631,7 +644,6 @@
 
           var protocolo = gerarProtocolo();
           var clickUrl = "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(formatLeadMessage(formData, protocolo));
-          var whatsappWindow = window.open("about:blank", "_blank");
           var attribution = buildAttribution();
           var payload = Object.assign({}, formData, attribution, {
             id: protocolo,
@@ -652,8 +664,29 @@
             leadFormStatus.classList.add("is-visible");
           }
 
+          // ── CORREÇÃO 2: webhook não bloqueia o WhatsApp; erro empurra lead_form_submit_error ──
+          var webhookOk = false;
           try {
             await storeLead(payload);
+            webhookOk = true;
+          } catch(error) {
+            console.warn("[leadForm] Webhook falhou — abrindo WhatsApp mesmo assim.", error);
+            window.dataLayer.push({
+              event: "lead_form_submit_error",
+              construtora: whatsappConfig.construtora,
+              produto: whatsappConfig.produto,
+              corretor: whatsappConfig.corretor,
+              tipo_pagina: whatsappConfig.tipo_pagina,
+              protocolo: protocolo,
+              form_id: "leadForm",
+              error_message: error.message || String(error),
+              error_code: error.code || "UNKNOWN",
+              page_path: window.location.pathname,
+              page_location: window.location.href
+            });
+          }
+
+          if(webhookOk){
             window.dataLayer.push({
               event: "lead_form_submit_success",
               construtora: whatsappConfig.construtora,
@@ -670,26 +703,21 @@
               page_location: window.location.href
             });
             if(leadFormStatus) leadFormStatus.textContent = "Dados registrados. Abrindo o WhatsApp da Carolline...";
-            if(whatsappWindow){
-              whatsappWindow.opener = null;
-              whatsappWindow.location.href = clickUrl;
-            } else {
-              window.location.href = clickUrl;
-            }
-            leadForm.reset();
-          } catch(error) {
-            console.error(error);
-            if(whatsappWindow) whatsappWindow.close();
+          } else {
             if(leadFormStatus){
-              leadFormStatus.textContent = error.code === "DADOS INCORRETOS"
-                ? "Confira o WhatsApp informado, incluindo o DDD."
-                : "Não foi possível registrar seus dados. Tente novamente ou fale diretamente pelo WhatsApp.";
+              leadFormStatus.textContent = "Não conseguimos confirmar o registro automático, mas vamos abrir o WhatsApp para você falar com a Carolline.";
               leadFormStatus.classList.add("is-error");
             }
-          } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = "Quero receber informações";
           }
+
+          leadForm.reset();
+          submitButton.disabled = false;
+          submitButton.textContent = "Quero receber informações";
+
+          // WhatsApp sempre abre, independente do resultado do webhook
+          var waWindow = window.open(clickUrl, "_blank", "noopener,noreferrer");
+          if(!waWindow) window.location.href = clickUrl;
+          // ── fim CORREÇÃO 2 ──
         });
       }
     })();
