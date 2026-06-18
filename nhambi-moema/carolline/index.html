@@ -606,13 +606,18 @@
         leadForm.addEventListener("focusin", function(){
           if(leadFormTouched) return;
           leadFormTouched = true;
+          var attribution = buildAttribution();
           window.dataLayer.push({
-            event: "lead_form_start",
+            event: "form_start",
             construtora: whatsappConfig.construtora,
             produto: whatsappConfig.produto,
             corretor: whatsappConfig.corretor,
             tipo_pagina: whatsappConfig.tipo_pagina,
+            content_name: whatsappConfig.content_name,
+            content_category: whatsappConfig.content_category,
             form_id: "leadForm",
+            form_location: "carolline_contact_section",
+            lead_source: attribution.platform,
             page_path: window.location.pathname,
             page_location: window.location.href
           });
@@ -688,13 +693,17 @@
 
           if(webhookOk){
             window.dataLayer.push({
-              event: "lead_form_submit_success",
+              event: "lead_form_submit",
               construtora: whatsappConfig.construtora,
               produto: whatsappConfig.produto,
               corretor: whatsappConfig.corretor,
               tipo_pagina: whatsappConfig.tipo_pagina,
+              content_name: whatsappConfig.content_name,
+              content_category: whatsappConfig.content_category,
               protocolo: protocolo,
               form_id: "leadForm",
+              form_location: "carolline_contact_section",
+              lead_source: attribution.platform,
               lead_interest: formData.interest,
               campaign_id: attribution.campaign_id,
               adset_id: attribution.adset_id,

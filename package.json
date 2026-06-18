@@ -1,0 +1,11 @@
+{
+  "name": "nhambi-carolline",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/carolline-tracking.test.mjs",
+    "test:e2e": "node --test tests/carolline-tracking.e2e.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.60.0"
+  }
+}
