@@ -105,7 +105,7 @@ test('form_start fires once and successful submit emits the GTM contract', async
 
     await page.locator('#thankYouWhatsapp').click();
     const qualifiedEvents = await page.evaluate(() =>
-      window.dataLayer.filter((item) => item.event === 'qualified_whatsapp_click'),
+      window.dataLayer.filter((item) => item.event === 'qualified_whatsapp_action'),
     );
     assert.equal(qualifiedEvents.length, 1);
     assert.equal(qualifiedEvents[0].protocolo, submit.protocolo);

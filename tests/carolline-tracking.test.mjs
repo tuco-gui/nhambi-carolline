@@ -84,7 +84,7 @@ test('does not log webhook response payloads in the browser', () => {
 });
 
 test('classifies the post-form WhatsApp action as a qualified contact', () => {
-  assert.match(html, /event:\s*"qualified_whatsapp_click"/);
+  assert.match(html, /event:\s*"qualified_whatsapp_action"/);
   assert.match(html, /lead_temperature:\s*"hot"/);
   assert.match(html, /id="thankYouWhatsapp" href="#whatsapp-qualificado"/);
   assert.match(html, /LEAD QUALIFICADO/);
