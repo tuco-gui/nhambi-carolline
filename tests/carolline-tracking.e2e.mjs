@@ -12,6 +12,7 @@ const html = readFileSync(
 );
 
 async function withPage(webhookResponse, run) {
+  const webhookRequests = [];
   const server = createServer((_request, response) => {
     response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     response.end(html);
@@ -36,6 +37,7 @@ async function withPage(webhookResponse, run) {
       const url = route.request().url();
       if (url.startsWith('http://127.0.0.1:')) return route.continue();
       if (url.includes('webhook.figueiramarketing.com.br')) {
+        webhookRequests.push(route.request().postDataJSON());
         return route.fulfill({
           status: webhookResponse.status,
           contentType: 'application/json',
@@ -48,7 +50,7 @@ async function withPage(webhookResponse, run) {
     await page.goto(`http://127.0.0.1:${server.address().port}`, {
       waitUntil: 'domcontentloaded',
     });
-    await run(page);
+    await run(page, webhookRequests);
   } finally {
     if (browser) await browser.close();
     await new Promise((resolve, reject) =>
@@ -60,11 +62,12 @@ async function withPage(webhookResponse, run) {
 async function fillLeadForm(page) {
   await page.locator('#leadName').fill('Pessoa Teste');
   await page.locator('#leadPhone').fill('(11) 99999-9999');
-  await page.locator('#leadInterest').selectOption('111m2');
+  await page.locator('#leadPurpose').selectOption('Investir');
+  await page.locator('#leadTimeline').selectOption('Até 3 meses');
 }
 
 test('form_start fires once and successful submit emits the GTM contract', async () => {
-  await withPage({ status: 200, body: { success: true } }, async (page) => {
+  await withPage({ status: 200, body: { success: true } }, async (page, webhookRequests) => {
     await page.locator('#leadName').focus();
     await page.locator('#leadPhone').focus();
 
@@ -88,7 +91,34 @@ test('form_start fires once and successful submit emits the GTM contract', async
     assert.equal('email' in submit, false);
     assert.equal(submit.produto, 'nhambi-moema');
     assert.equal(submit.corretor, 'carolline');
+    assert.equal(submit.lead_purpose, 'Investir');
+    assert.equal(submit.purchase_timeline, 'Até 3 meses');
     assert.match(submit.protocolo, /^PROTOCOLO-/);
+    assert.equal(webhookRequests[0].purpose, 'Investir');
+    assert.equal(webhookRequests[0].purchase_timeline, 'Até 3 meses');
+    assert.equal(webhookRequests[0].interest, 'Investir');
+    assert.equal(webhookRequests[0].schedule, 'Até 3 meses');
+
+    await page.locator('#leadThankYou').waitFor({ state: 'visible' });
+    const openedBeforeChoice = await page.evaluate(() => window.openedUrls.length);
+    assert.equal(openedBeforeChoice, 0);
+
+    await page.locator('#thankYouWhatsapp').click();
+    const qualifiedEvents = await page.evaluate(() =>
+      window.dataLayer.filter((item) => item.event === 'qualified_whatsapp_click'),
+    );
+    assert.equal(qualifiedEvents.length, 1);
+    assert.equal(qualifiedEvents[0].protocolo, submit.protocolo);
+    assert.equal(qualifiedEvents[0].lead_temperature, 'hot');
+    assert.equal(qualifiedEvents[0].lead_purpose, 'Investir');
+    const genericWhatsappEvents = await page.evaluate(() =>
+      window.dataLayer.filter((item) => item.event === 'whatsapp_click'),
+    );
+    assert.equal(genericWhatsappEvents.length, 0);
+    const openedUrl = await page.evaluate(() => window.openedUrls.at(-1));
+    assert.match(decodeURIComponent(openedUrl), /LEAD QUALIFICADO/);
+    assert.match(decodeURIComponent(openedUrl), /Objetivo: Investir/);
+    assert.match(decodeURIComponent(openedUrl), /Prazo para adquirir: Até 3 meses/);
   });
 });
 
@@ -106,8 +136,27 @@ test('failed webhook does not emit lead_form_submit', async () => {
         window.dataLayer.some((item) => item.event === 'lead_form_submit'),
       );
       assert.equal(submitted, false);
+      await page.locator('#leadThankYou').waitFor({ state: 'hidden' });
+      const openedUrls = await page.evaluate(() => window.openedUrls.length);
+      assert.equal(openedUrls, 0);
     },
   );
+});
+
+test('invalid phone is rejected before submission', async () => {
+  await withPage({ status: 200, body: { success: true } }, async (page) => {
+    await page.locator('#leadName').fill('Pessoa Teste');
+    await page.locator('#leadPhone').fill('123');
+    await page.locator('#leadPurpose').selectOption('Morar');
+    await page.locator('#leadTimeline').selectOption('De 3 a 6 meses');
+    await page.locator('#leadForm button[type="submit"]').click();
+
+    await page.locator('#leadFormStatus.is-error').waitFor({ state: 'visible' });
+    const submitted = await page.evaluate(() =>
+      window.dataLayer.some((item) => item.event === 'lead_form_submit'),
+    );
+    assert.equal(submitted, false);
+  });
 });
 
 test('existing WhatsApp click tracking remains active', async () => {

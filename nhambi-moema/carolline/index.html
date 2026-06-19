@@ -166,6 +166,32 @@
     .lead-form .status.is-error{color:#a23b32}
     .form-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 
+    body.modal-open{overflow:hidden}
+    .lead-thanks[hidden]{display:none}
+    .lead-thanks{position:fixed;inset:0;z-index:12000;display:grid;place-items:center;padding:24px}
+    .lead-thanks-backdrop{position:absolute;inset:0;background:rgba(30,30,30,.72);backdrop-filter:blur(5px)}
+    .lead-thanks-panel{
+      position:relative;width:min(560px,100%);max-height:calc(100vh - 48px);overflow:auto;background:#fff;
+      box-shadow:0 30px 80px rgba(0,0,0,.3);padding:56px 52px 46px;text-align:center;outline:none;
+      transform:translateY(14px);opacity:0;transition:transform .24s ease,opacity .24s ease
+    }
+    .lead-thanks.is-visible .lead-thanks-panel{transform:translateY(0);opacity:1}
+    .lead-thanks-panel:before{content:'';position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--terracotta)}
+    .lead-thanks-close{position:absolute;right:18px;top:14px;border:0;background:transparent;color:#777;font-size:30px;line-height:1;cursor:pointer;padding:6px}
+    .lead-thanks-mark{width:74px;height:74px;border:1px solid rgba(200,145,114,.5);border-radius:50%;display:grid;place-items:center;margin:0 auto 24px;color:var(--terracotta);background:#faf6f3}
+    .lead-thanks-mark svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .lead-thanks-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#8f6c58;font-weight:700;margin-bottom:10px}
+    .lead-thanks h2{font-size:34px;line-height:1.05;text-transform:uppercase;font-weight:300;color:#303030;margin-bottom:16px}
+    .lead-thanks h2 strong{font-weight:700;color:var(--terracotta)}
+    .lead-thanks-copy{font-size:16px;line-height:1.65;color:#656565;max-width:420px;margin:0 auto 28px}
+    .lead-thanks-choice{border-top:1px solid #e7e0dc;border-bottom:1px solid #e7e0dc;padding:24px 0;margin-bottom:24px}
+    .lead-thanks-choice strong{display:block;font-size:18px;color:#333;margin-bottom:7px}
+    .lead-thanks-choice p{font-size:14px;line-height:1.55;color:#747474;margin:0 auto 18px;max-width:380px}
+    .lead-thanks-choice .btn-green{margin:0;border-radius:0;min-width:230px;text-align:center}
+    .lead-thanks-return{border:0;background:transparent;color:#6d6d6d;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit;font-size:13px}
+
+    @media (prefers-reduced-motion:reduce){.lead-thanks-panel{transition:none}}
+
     .floating-wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:9999;text-decoration:none}
     .floating-wa svg{width:29px;height:29px;fill:#fff}
 
@@ -187,6 +213,9 @@
       .areas-icons{margin-left:0;grid-template-columns:repeat(2,1fr)}
       .diff-grid,.proj-list,.ficha-grid{grid-template-columns:1fr}
       .section-light,.section-white,.section-dark,.section-ficha,.carolline{padding:50px 0}
+      .lead-thanks{padding:14px}
+      .lead-thanks-panel{padding:48px 25px 34px}
+      .lead-thanks h2{font-size:28px}
     }
   </style>
 </head>
@@ -428,28 +457,29 @@
           </div>
           <div>
             <label for="leadPhone">WhatsApp</label>
-            <input id="leadPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            <input id="leadPhone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="15" pattern="[0-9() +\-]{10,15}" title="Informe um telefone com DDD" aria-describedby="leadPhoneHint" required>
+            <small id="leadPhoneHint">Digite o DDD e o número.</small>
           </div>
           <div>
-            <label for="leadInterest">Interesse</label>
-            <select id="leadInterest" name="interest" required>
+            <label for="leadPurpose">Você busca o imóvel para:</label>
+            <select id="leadPurpose" name="purpose" required>
               <option value="">Selecione</option>
-              <option value="111m2">111m²</option>
-              <option value="121m2">121m²</option>
-              <option value="Garden">Garden</option>
+              <option value="Morar">Morar</option>
+              <option value="Investir">Investir</option>
               <option value="Ainda avaliando">Ainda avaliando</option>
             </select>
           </div>
           <div>
-            <label for="leadSchedule">Melhor horário para contato</label>
-            <input id="leadSchedule" name="schedule" type="text" placeholder="Ex.: hoje à tarde">
-          </div>
-          <div>
-            <label for="leadMessage">Mensagem</label>
-            <textarea id="leadMessage" name="message" placeholder="Conte o que você quer saber sobre o empreendimento."></textarea>
+            <label for="leadTimeline">Em quanto tempo pretende adquirir o imóvel?</label>
+            <select id="leadTimeline" name="purchase_timeline" required>
+              <option value="">Selecione</option>
+              <option value="Até 3 meses">Até 3 meses</option>
+              <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+              <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+            </select>
           </div>
           <button type="submit">Quero receber informações</button>
-          <small>Ao enviar, seus dados serão registrados e você seguirá para o WhatsApp da Carolline.</small>
+          <small>Ao enviar, seus dados serão registrados para que a Carolline entre em contato.</small>
           <div class="status" id="leadFormStatus" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -460,6 +490,25 @@
       </div>
     </div>
   </section>
+
+  <div class="lead-thanks" id="leadThankYou" role="dialog" aria-modal="true" aria-labelledby="leadThankYouTitle" hidden>
+    <div class="lead-thanks-backdrop" data-thanks-close></div>
+    <div class="lead-thanks-panel" tabindex="-1">
+      <button class="lead-thanks-close" type="button" aria-label="Fechar" data-thanks-close>&times;</button>
+      <div class="lead-thanks-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M12 25.5 20.5 34 37 16"/><circle cx="24" cy="24" r="20"/></svg>
+      </div>
+      <div class="lead-thanks-eyebrow">Mensagem recebida</div>
+      <h2 id="leadThankYouTitle">Obrigada pelo seu <strong>interesse</strong></h2>
+      <p class="lead-thanks-copy">Recebemos seus dados. A Carolline vai analisar suas preferências e entrar em contato para apresentar as informações do Nhambí Moema.</p>
+      <div class="lead-thanks-choice">
+        <strong>Prefere falar agora?</strong>
+        <p>Se quiser antecipar o atendimento, você pode chamar a Carolline diretamente no WhatsApp.</p>
+        <a class="btn-green" id="thankYouWhatsapp" href="#whatsapp-qualificado" role="button">Falar com a Carolline</a>
+      </div>
+      <button class="lead-thanks-return" type="button" data-thanks-close>Continuar na página</button>
+    </div>
+  </div>
 
   <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -522,7 +571,12 @@
 
       var leadForm = document.getElementById("leadForm");
       var leadFormStatus = document.getElementById("leadFormStatus");
+      var leadPhone = document.getElementById("leadPhone");
+      var leadThankYou = document.getElementById("leadThankYou");
+      var leadThankYouPanel = leadThankYou ? leadThankYou.querySelector(".lead-thanks-panel") : null;
+      var thankYouWhatsapp = document.getElementById("thankYouWhatsapp");
       var leadFormTouched = false;
+      var previousFocusedElement = null;
 
       function sanitizeValue(value){
         return (value || "").replace(/\s+/g, " ").trim();
@@ -559,7 +613,6 @@
         };
       }
 
-      // ── CORREÇÃO 1: logs detalhados de HTTP status, resposta bruta, JSON e erros de rede/CORS ──
       function storeLead(payload){
         return fetch(leadEndpoint, {
           method: "POST",
@@ -569,14 +622,10 @@
           var rawText = await response.text().catch(function(){ return ""; });
           var result = {};
           try { result = JSON.parse(rawText); } catch(_){}
-          console.log("[leadForm] status HTTP:", response.status);
-          console.log("[leadForm] resposta bruta:", rawText);
-          console.log("[leadForm] JSON retornado:", result);
           if(!response.ok || !result.success){
             var error = new Error(result.error || "Não foi possível registrar o lead.");
             error.code = result.status || "SUBMIT_FAILED";
             error.httpStatus = response.status;
-            error.rawResponse = rawText;
             throw error;
           }
           return result;
@@ -587,19 +636,96 @@
           throw networkErr;
         });
       }
-      // ── fim CORREÇÃO 1 ──
 
       function formatLeadMessage(data, protocolo){
         var lines = [
-          "Ola, quero receber informacoes sobre o empreendimento Nhambi Moema.",
+          "🔥 LEAD QUALIFICADO - formulario preenchido no site.",
+          "Quero receber informacoes sobre o empreendimento Nhambi Moema.",
           "Protocolo: " + protocolo,
           "Nome: " + data.name,
           "WhatsApp: " + data.phone,
-          "Interesse: " + data.interest
+          "Objetivo: " + data.purpose,
+          "Prazo para adquirir: " + data.purchase_timeline
         ];
-        if(data.schedule) lines.push("Melhor horario: " + data.schedule);
-        if(data.message) lines.push("Mensagem: " + data.message);
         return lines.join(" | ");
+      }
+
+      function formatPhone(value){
+        var digits = (value || "").replace(/\D/g, "").slice(0, 11);
+        if(digits.length <= 2) return digits;
+        if(digits.length <= 6) return "(" + digits.slice(0, 2) + ") " + digits.slice(2);
+        if(digits.length <= 10) return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 6) + "-" + digits.slice(6);
+        return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 7) + "-" + digits.slice(7);
+      }
+
+      function openThankYouModal(clickUrl, protocolo, leadDetails){
+        if(!leadThankYou || !leadThankYouPanel) return;
+        previousFocusedElement = document.activeElement;
+        if(thankYouWhatsapp){
+          thankYouWhatsapp.setAttribute("data-whatsapp-url", clickUrl);
+          thankYouWhatsapp.setAttribute("data-whatsapp-protocolo", protocolo);
+          thankYouWhatsapp.setAttribute("data-lead-purpose", leadDetails.lead_purpose);
+          thankYouWhatsapp.setAttribute("data-purchase-timeline", leadDetails.purchase_timeline);
+          thankYouWhatsapp.setAttribute("data-lead-source", leadDetails.lead_source);
+        }
+        leadThankYou.hidden = false;
+        document.body.classList.add("modal-open");
+        window.requestAnimationFrame(function(){
+          leadThankYou.classList.add("is-visible");
+          leadThankYouPanel.focus();
+        });
+      }
+
+      function closeThankYouModal(){
+        if(!leadThankYou) return;
+        leadThankYou.classList.remove("is-visible");
+        leadThankYou.hidden = true;
+        document.body.classList.remove("modal-open");
+        if(previousFocusedElement && typeof previousFocusedElement.focus === "function") previousFocusedElement.focus();
+      }
+
+      if(leadThankYou){
+        leadThankYou.querySelectorAll("[data-thanks-close]").forEach(function(control){
+          control.addEventListener("click", closeThankYouModal);
+        });
+        document.addEventListener("keydown", function(event){
+          if(event.key === "Escape" && !leadThankYou.hidden) closeThankYouModal();
+        });
+      }
+
+      if(thankYouWhatsapp){
+        thankYouWhatsapp.addEventListener("click", function(event){
+          event.preventDefault();
+          var clickUrl = thankYouWhatsapp.getAttribute("data-whatsapp-url");
+          if(!clickUrl) return;
+          window.dataLayer.push({
+            event: "qualified_whatsapp_click",
+            construtora: whatsappConfig.construtora,
+            produto: whatsappConfig.produto,
+            corretor: whatsappConfig.corretor,
+            tipo_pagina: whatsappConfig.tipo_pagina,
+            content_name: whatsappConfig.content_name,
+            content_category: whatsappConfig.content_category,
+            protocolo: thankYouWhatsapp.getAttribute("data-whatsapp-protocolo") || "",
+            form_location: "thank_you_modal",
+            lead_source: thankYouWhatsapp.getAttribute("data-lead-source") || "website",
+            lead_temperature: "hot",
+            lead_purpose: thankYouWhatsapp.getAttribute("data-lead-purpose") || "",
+            purchase_timeline: thankYouWhatsapp.getAttribute("data-purchase-timeline") || "",
+            page_path: window.location.pathname,
+            page_location: window.location.href,
+            click_url: clickUrl,
+            click_text: "Falar com a Carolline"
+          });
+          window.open(clickUrl, "_blank", "noopener,noreferrer");
+        });
+      }
+
+      if(leadPhone){
+        leadPhone.addEventListener("input", function(){
+          leadPhone.value = formatPhone(leadPhone.value);
+          leadPhone.setCustomValidity("");
+        });
       }
 
       if(leadForm){
@@ -629,13 +755,15 @@
           var formData = {
             name: sanitizeValue(document.getElementById("leadName").value),
             phone: sanitizeValue(document.getElementById("leadPhone").value),
-            interest: sanitizeValue(document.getElementById("leadInterest").value),
-            schedule: sanitizeValue(document.getElementById("leadSchedule").value),
-            message: sanitizeValue(document.getElementById("leadMessage").value),
+            purpose: sanitizeValue(document.getElementById("leadPurpose").value),
+            purchase_timeline: sanitizeValue(document.getElementById("leadTimeline").value),
             website: sanitizeValue(document.getElementById("leadWebsite").value)
           };
 
-          if(!formData.name || !formData.phone || !formData.interest) return;
+          if(!formData.name || !formData.phone || !formData.purpose || !formData.purchase_timeline){
+            leadForm.reportValidity();
+            return;
+          }
 
           var phoneDigits = formData.phone.replace(/\D/g, "");
           if(phoneDigits.length < 10 || phoneDigits.length > 13){
@@ -643,7 +771,8 @@
               leadFormStatus.textContent = "Confira o WhatsApp informado, incluindo o DDD.";
               leadFormStatus.classList.add("is-visible", "is-error");
             }
-            document.getElementById("leadPhone").focus();
+            leadPhone.setCustomValidity("Informe um telefone válido com DDD.");
+            leadPhone.focus();
             return;
           }
 
@@ -656,6 +785,9 @@
             form_id: "leadForm",
             form_name: "Landing Page | Nhambí Moema | Carolline",
             email: "",
+            interest: formData.purpose,
+            schedule: formData.purchase_timeline,
+            message: "",
             inbox_url: clickUrl,
             landing_url: window.location.href,
             referrer: document.referrer
@@ -669,13 +801,13 @@
             leadFormStatus.classList.add("is-visible");
           }
 
-          // ── CORREÇÃO 2: webhook não bloqueia o WhatsApp; erro empurra lead_form_submit_error ──
+          // O evento de conversão só é enviado depois da confirmação do webhook.
           var webhookOk = false;
           try {
             await storeLead(payload);
             webhookOk = true;
           } catch(error) {
-            console.warn("[leadForm] Webhook falhou — abrindo WhatsApp mesmo assim.", error);
+            console.warn("[leadForm] Falha ao registrar o formulário.", error);
             window.dataLayer.push({
               event: "lead_form_submit_error",
               construtora: whatsappConfig.construtora,
@@ -704,29 +836,33 @@
               form_id: "leadForm",
               form_location: "carolline_contact_section",
               lead_source: attribution.platform,
-              lead_interest: formData.interest,
+              lead_purpose: formData.purpose,
+              purchase_timeline: formData.purchase_timeline,
               campaign_id: attribution.campaign_id,
               adset_id: attribution.adset_id,
               ad_id: attribution.ad_id,
               page_path: window.location.pathname,
               page_location: window.location.href
             });
-            if(leadFormStatus) leadFormStatus.textContent = "Dados registrados. Abrindo o WhatsApp da Carolline...";
+            if(leadFormStatus){
+              leadFormStatus.textContent = "Dados registrados com sucesso.";
+              leadFormStatus.classList.remove("is-visible", "is-error");
+            }
+            leadForm.reset();
+            openThankYouModal(clickUrl, protocolo, {
+              lead_purpose: formData.purpose,
+              purchase_timeline: formData.purchase_timeline,
+              lead_source: attribution.platform
+            });
           } else {
             if(leadFormStatus){
-              leadFormStatus.textContent = "Não conseguimos confirmar o registro automático, mas vamos abrir o WhatsApp para você falar com a Carolline.";
-              leadFormStatus.classList.add("is-error");
+              leadFormStatus.textContent = "Não foi possível enviar seus dados agora. Revise as informações e tente novamente.";
+              leadFormStatus.classList.add("is-visible", "is-error");
             }
           }
 
-          leadForm.reset();
           submitButton.disabled = false;
           submitButton.textContent = "Quero receber informações";
-
-          // WhatsApp sempre abre, independente do resultado do webhook
-          var waWindow = window.open(clickUrl, "_blank", "noopener,noreferrer");
-          if(!waWindow) window.location.href = clickUrl;
-          // ── fim CORREÇÃO 2 ──
         });
       }
     })();

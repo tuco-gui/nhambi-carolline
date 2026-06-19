@@ -56,3 +56,36 @@ test('keeps the existing WhatsApp tracking event', () => {
   assert.match(html, /event:\s*"whatsapp_click"/);
   assert.match(html, /data-whatsapp-link/);
 });
+
+test('uses the qualified lead fields and removes the previous free-text fields', () => {
+  assert.match(html, /name="purpose"/);
+  assert.match(html, /name="purchase_timeline"/);
+  assert.match(html, /value="Morar"/);
+  assert.match(html, /value="Investir"/);
+  assert.match(html, /value="Até 3 meses"/);
+  assert.match(html, /value="De 3 a 6 meses"/);
+  assert.doesNotMatch(html, /id="leadMessage"/);
+  assert.doesNotMatch(html, /id="leadSchedule"/);
+  assert.doesNotMatch(html, /id="leadInterest"/);
+});
+
+test('keeps the user on the landing page and exposes an accessible thank-you modal', () => {
+  assert.match(html, /id="leadThankYou"/);
+  assert.match(html, /role="dialog"/);
+  assert.match(html, /aria-modal="true"/);
+  assert.match(html, /openThankYouModal\(clickUrl, protocolo,/);
+  assert.doesNotMatch(html, /var waWindow = window\.open\(clickUrl/);
+});
+
+test('does not log webhook response payloads in the browser', () => {
+  assert.doesNotMatch(html, /resposta bruta/);
+  assert.doesNotMatch(html, /JSON retornado/);
+  assert.doesNotMatch(html, /rawResponse/);
+});
+
+test('classifies the post-form WhatsApp action as a qualified contact', () => {
+  assert.match(html, /event:\s*"qualified_whatsapp_click"/);
+  assert.match(html, /lead_temperature:\s*"hot"/);
+  assert.match(html, /id="thankYouWhatsapp" href="#whatsapp-qualificado"/);
+  assert.match(html, /LEAD QUALIFICADO/);
+});
