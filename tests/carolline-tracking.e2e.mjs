@@ -38,6 +38,9 @@ async function withPage(webhookResponse, run) {
       if (url.startsWith('http://127.0.0.1:')) return route.continue();
       if (url.includes('webhook.figueiramarketing.com.br')) {
         webhookRequests.push(route.request().postDataJSON());
+        await page.evaluate((count) => {
+          window.__webhookRequestCount = count;
+        }, webhookRequests.length);
         return route.fulfill({
           status: webhookResponse.status,
           contentType: 'application/json',
@@ -98,12 +101,18 @@ test('form_start fires once and successful submit emits the GTM contract', async
     assert.equal(webhookRequests[0].purchase_timeline, 'Até 3 meses');
     assert.equal(webhookRequests[0].interest, 'Investir');
     assert.equal(webhookRequests[0].schedule, 'Até 3 meses');
+    assert.equal(webhookRequests[0].event_type, 'lead_form_submit');
+    assert.equal(webhookRequests[0].lead_temperature, 'warm');
+    assert.equal(webhookRequests[0].qualified_whatsapp_clicked, false);
+    assert.match(webhookRequests[0].qualified_whatsapp_status, /PENDENTE/);
 
     await page.locator('#leadThankYou').waitFor({ state: 'visible' });
     const openedBeforeChoice = await page.evaluate(() => window.openedUrls.length);
     assert.equal(openedBeforeChoice, 0);
 
     await page.locator('#thankYouWhatsapp').click();
+    await page.waitForFunction(() => window.openedUrls.length === 1);
+    await page.waitForFunction(() => window.__webhookRequestCount === 2);
     const qualifiedEvents = await page.evaluate(() =>
       window.dataLayer.filter((item) => item.event === 'qualified_whatsapp_action'),
     );
@@ -119,6 +128,11 @@ test('form_start fires once and successful submit emits the GTM contract', async
     assert.match(decodeURIComponent(openedUrl), /LEAD QUALIFICADO/);
     assert.match(decodeURIComponent(openedUrl), /Objetivo: Investir/);
     assert.match(decodeURIComponent(openedUrl), /Prazo para adquirir: Até 3 meses/);
+    assert.equal(webhookRequests[1].event_type, 'qualified_whatsapp_click');
+    assert.equal(webhookRequests[1].id, submit.protocolo);
+    assert.equal(webhookRequests[1].lead_temperature, 'hot');
+    assert.equal(webhookRequests[1].qualified_whatsapp_clicked, true);
+    assert.match(webhookRequests[1].qualified_whatsapp_status, /QUENTE/);
   });
 });
 

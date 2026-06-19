@@ -86,6 +86,20 @@ test('does not log webhook response payloads in the browser', () => {
 test('classifies the post-form WhatsApp action as a qualified contact', () => {
   assert.match(html, /event:\s*"qualified_whatsapp_action"/);
   assert.match(html, /lead_temperature:\s*"hot"/);
+  assert.match(html, /event_type:\s*"qualified_whatsapp_click"/);
+  assert.match(html, /qualified_whatsapp_status:\s*"QUENTE - clicou no WhatsApp pós-formulário"/);
   assert.match(html, /id="thankYouWhatsapp" href="#whatsapp-qualificado"/);
   assert.match(html, /LEAD QUALIFICADO/);
+});
+
+test('sends UTM-aware platform attribution and spreadsheet qualification fields', () => {
+  assert.match(html, /function inferPlatform/);
+  assert.match(html, /google_ads/);
+  assert.match(html, /utm_source/);
+  assert.match(html, /utm_medium/);
+  assert.match(html, /utm_campaign/);
+  assert.match(html, /utm_content/);
+  assert.match(html, /utm_term/);
+  assert.match(html, /qualified_whatsapp_clicked:\s*false/);
+  assert.match(html, /qualified_whatsapp_status:\s*"PENDENTE - formulário enviado/);
 });

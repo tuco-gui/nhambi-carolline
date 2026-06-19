@@ -590,10 +590,27 @@
         return "";
       }
 
+      function inferPlatform(utmSource, utmMedium, fbclid){
+        var source = sanitizeValue(utmSource).toLowerCase();
+        var medium = sanitizeValue(utmMedium).toLowerCase();
+        if(/instagram|^ig$/.test(source)) return "instagram";
+        if(/facebook|^fb$/.test(source)) return "facebook";
+        if(/meta/.test(source) || fbclid) return "meta";
+        if(/google|adwords|gads|googleads/.test(source)){
+          return /cpc|paid|ppc|ads/.test(medium) ? "google_ads" : "google";
+        }
+        if(/youtube/.test(source)) return "youtube";
+        if(/tiktok/.test(source)) return "tiktok";
+        if(/linkedin/.test(source)) return "linkedin";
+        if(source) return source.replace(/[^a-z0-9_-]/g, "_").slice(0, 50);
+        return "website";
+      }
+
       function buildAttribution(){
         var params = new URLSearchParams(window.location.search);
         var fbclid = queryValue(params, ["fbclid"]);
         var utmSource = queryValue(params, ["utm_source"]);
+        var utmMedium = queryValue(params, ["utm_medium"]);
         var paidMeta = Boolean(fbclid || /facebook|instagram|meta/i.test(utmSource));
         return {
           ad_id: queryValue(params, ["ad_id", "utm_ad_id"]),
@@ -603,13 +620,13 @@
           campaign_id: queryValue(params, ["campaign_id", "utm_campaign_id"]) || (paidMeta ? campaignConfig.id : ""),
           campaign_name: queryValue(params, ["campaign_name"]) || (paidMeta ? campaignConfig.name : ""),
           utm_source: utmSource,
-          utm_medium: queryValue(params, ["utm_medium"]),
+          utm_medium: utmMedium,
           utm_campaign: queryValue(params, ["utm_campaign"]),
           utm_content: queryValue(params, ["utm_content"]),
           utm_term: queryValue(params, ["utm_term"]),
           fbclid: fbclid,
           is_organic: !paidMeta,
-          platform: /instagram/i.test(utmSource) ? "instagram" : (paidMeta ? "meta" : "website")
+          platform: inferPlatform(utmSource, utmMedium, fbclid)
         };
       }
 
@@ -698,6 +715,10 @@
           event.preventDefault();
           var clickUrl = thankYouWhatsapp.getAttribute("data-whatsapp-url");
           if(!clickUrl) return;
+          var protocolo = thankYouWhatsapp.getAttribute("data-whatsapp-protocolo") || "";
+          var leadSource = thankYouWhatsapp.getAttribute("data-lead-source") || "website";
+          var leadPurpose = thankYouWhatsapp.getAttribute("data-lead-purpose") || "";
+          var purchaseTimeline = thankYouWhatsapp.getAttribute("data-purchase-timeline") || "";
           window.dataLayer.push({
             event: "qualified_whatsapp_action",
             construtora: whatsappConfig.construtora,
@@ -706,16 +727,41 @@
             tipo_pagina: whatsappConfig.tipo_pagina,
             content_name: whatsappConfig.content_name,
             content_category: whatsappConfig.content_category,
-            protocolo: thankYouWhatsapp.getAttribute("data-whatsapp-protocolo") || "",
+            protocolo: protocolo,
             form_location: "thank_you_modal",
-            lead_source: thankYouWhatsapp.getAttribute("data-lead-source") || "website",
+            lead_source: leadSource,
             lead_temperature: "hot",
-            lead_purpose: thankYouWhatsapp.getAttribute("data-lead-purpose") || "",
-            purchase_timeline: thankYouWhatsapp.getAttribute("data-purchase-timeline") || "",
+            lead_purpose: leadPurpose,
+            purchase_timeline: purchaseTimeline,
             page_path: window.location.pathname,
             page_location: window.location.href,
             click_url: clickUrl,
             click_text: "Falar com a Carolline"
+          });
+          var attribution = buildAttribution();
+          fetch(leadEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            keepalive: true,
+            body: JSON.stringify(Object.assign({}, attribution, {
+              event_type: "qualified_whatsapp_click",
+              id: protocolo,
+              origin: window.location.origin,
+              form_id: "leadForm",
+              form_name: "Landing Page | Nhambí Moema | Carolline",
+              lead_source: leadSource,
+              lead_temperature: "hot",
+              qualified_whatsapp_clicked: true,
+              qualified_whatsapp_clicked_at: new Date().toISOString(),
+              qualified_whatsapp_status: "QUENTE - clicou no WhatsApp pós-formulário",
+              interest: leadPurpose,
+              schedule: purchaseTimeline,
+              inbox_url: clickUrl,
+              landing_url: window.location.href,
+              referrer: document.referrer
+            }))
+          }).catch(function(error){
+            console.warn("[leadForm] Não foi possível atualizar a qualificação do WhatsApp.", error);
           });
           window.open(clickUrl, "_blank", "noopener,noreferrer");
         });
@@ -780,6 +826,7 @@
           var clickUrl = "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(formatLeadMessage(formData, protocolo));
           var attribution = buildAttribution();
           var payload = Object.assign({}, formData, attribution, {
+            event_type: "lead_form_submit",
             id: protocolo,
             origin: window.location.origin,
             form_id: "leadForm",
@@ -788,6 +835,9 @@
             interest: formData.purpose,
             schedule: formData.purchase_timeline,
             message: "",
+            lead_temperature: "warm",
+            qualified_whatsapp_clicked: false,
+            qualified_whatsapp_status: "PENDENTE - formulário enviado, ainda não clicou no WhatsApp pós-formulário",
             inbox_url: clickUrl,
             landing_url: window.location.href,
             referrer: document.referrer
