@@ -1,5 +1,4 @@
 {
-  "name": "Landing Nhambi Carolline - Lead para Sheets e WhatsApp",
   "nodes": [
     {
       "parameters": {
@@ -13,24 +12,274 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -840,
-        160
+        112,
+        960
       ],
-      "id": "5cde88a4-97b1-4a80-b424-5d339fd269d2",
+      "id": "301aae1c-9d1a-4938-b3da-c17297db7952",
       "name": "Receber Lead da Landing",
       "webhookId": "bd83d8bf-d63f-4161-a97b-ad38095d3ae6"
     },
     {
       "parameters": {
-        "jsCode": "const request = $input.first().json;\nconst body = request.body ?? {};\nconst config = Object.freeze({\n  allowedOrigin: 'https://paesegregori.casaortegaimoveis.com.br',\n  spreadsheetId: '13y_9C-c3rQ6MYaIxPFOzpivG338EvpjDbF7WbcKY3aM',\n  sheetName: 'Página1',\n  whatsappRecipient: '5511919890615',\n  evolutionBaseUrl: 'https://evo.figueiramarketing.com.br',\n  evolutionInstance: 'Guilherme014',\n  projectName: 'Nhambí Moema | Carolline'\n});\n\nconst clean = (value, max = 500) => String(value ?? '').replace(/\\s+/g, ' ').trim().slice(0, max);\nconst parseBoolean = (value) => value === true || String(value ?? '').toLowerCase() === 'true' || String(value ?? '').toLowerCase() === 'sim';\nconst inferPlatform = (source, medium, fbclid) => {\n  const normalizedSource = clean(source, 80).toLowerCase();\n  const normalizedMedium = clean(medium, 80).toLowerCase();\n  if (/instagram|^ig$/.test(normalizedSource)) return 'instagram';\n  if (/facebook|^fb$/.test(normalizedSource)) return 'facebook';\n  if (/meta/.test(normalizedSource) || fbclid) return 'meta';\n  if (/google|adwords|gads|googleads/.test(normalizedSource)) return /cpc|paid|ppc|ads/.test(normalizedMedium) ? 'google_ads' : 'google';\n  if (/youtube/.test(normalizedSource)) return 'youtube';\n  if (/tiktok/.test(normalizedSource)) return 'tiktok';\n  if (/linkedin/.test(normalizedSource)) return 'linkedin';\n  if (normalizedSource) return normalizedSource.replace(/[^a-z0-9_-]/g, '_').slice(0, 50);\n  return 'website';\n};\n\nconst origin = clean(request.headers?.origin, 300);\nif (origin !== config.allowedOrigin) throw new Error('Origem não autorizada.');\nif (clean(body.website, 200)) throw new Error('Envio bloqueado.');\n\nconst eventType = clean(body.event_type || 'lead_form_submit', 80);\nconst isQualifiedUpdate = eventType === 'qualified_whatsapp_click';\nconst phone = clean(body.phone, 30);\nconst phoneDigits = phone.replace(/\\D/g, '');\nconst prazoAquisicao = clean(body.purchase_timeline || body.schedule, 120);\nconst qualifiedAt = clean(body.qualified_whatsapp_clicked_at, 80);\nconst utmSource = clean(body.utm_source, 200);\nconst utmMedium = clean(body.utm_medium, 200);\nconst fbclid = clean(body.fbclid, 1000);\nconst platform = clean(body.platform, 50) || inferPlatform(utmSource, utmMedium, fbclid);\nconst whatsappQualificacao = isQualifiedUpdate\n  ? 'QUENTE - clicou no WhatsApp pós-formulário' + (qualifiedAt ? ' em ' + qualifiedAt : '')\n  : clean(body.qualified_whatsapp_status, 220) || 'PENDENTE - formulário enviado, ainda não clicou no WhatsApp pós-formulário';\n\nconst lead = {\n  event_type: eventType,\n  is_qualified_update: isQualifiedUpdate,\n  id: clean(body.id, 80),\n  created_time: new Date().toISOString(),\n  ad_id: clean(body.ad_id, 80),\n  ad_name: clean(body.ad_name, 200),\n  adset_id: clean(body.adset_id, 80),\n  adset_name: clean(body.adset_name, 200),\n  campaign_id: clean(body.campaign_id, 80),\n  campaign_name: clean(body.campaign_name, 200),\n  form_id: clean(body.form_id, 80) || 'leadForm',\n  form_name: clean(body.form_name, 200) || 'Landing Page | Nhambí Moema | Carolline',\n  is_organic: Boolean(body.is_organic),\n  platform,\n  nome_completo: clean(body.name, 120),\n  telefone: phoneDigits,\n  email: clean(body.email, 180),\n  inbox_url: clean(body.inbox_url, 2000),\n  lead_status: 'CREATED',\n  interest: clean(body.interest, 80),\n  best_contact_time: prazoAquisicao,\n  prazo_aquisicao: prazoAquisicao,\n  whatsapp_qualificacao: whatsappQualificacao,\n  lead_temperature: clean(body.lead_temperature, 40) || (isQualifiedUpdate ? 'hot' : 'warm'),\n  qualified_whatsapp_clicked: isQualifiedUpdate || parseBoolean(body.qualified_whatsapp_clicked),\n  qualified_whatsapp_clicked_at: qualifiedAt,\n  utm_source: utmSource,\n  utm_medium: utmMedium,\n  utm_campaign: clean(body.utm_campaign, 300),\n  utm_content: clean(body.utm_content, 300),\n  utm_term: clean(body.utm_term, 300),\n  fbclid,\n  landing_url: clean(body.landing_url, 2000),\n  referrer: clean(body.referrer, 2000),\n  telefone_valido: phoneDigits.length >= 10 && phoneDigits.length <= 13,\n  config\n};\n\nif (!lead.id) throw new Error('Protocolo obrigatório ausente.');\nif (!lead.is_qualified_update && (!lead.nome_completo || !lead.telefone || !lead.interest || !lead.prazo_aquisicao)) {\n  throw new Error('Campos obrigatórios ausentes.');\n}\n\nreturn [{ json: lead }];"
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cfg-spreadsheet-id",
+              "name": "config.spreadsheetId",
+              "value": "13y_9C-c3rQ6MYaIxPFOzpivG338EvpjDbF7WbcKY3aM",
+              "type": "string"
+            },
+            {
+              "id": "cfg-sheet-name",
+              "name": "config.sheetName",
+              "value": "Página1",
+              "type": "string"
+            },
+            {
+              "id": "cfg-evo-base-url",
+              "name": "config.evolutionBaseUrl",
+              "value": "https://evo.figueiramarketing.com.br",
+              "type": "string"
+            },
+            {
+              "id": "cfg-evo-instance",
+              "name": "config.evolutionInstance",
+              "value": "Guilherme014",
+              "type": "string"
+            },
+            {
+              "id": "cfg-whatsapp-recipient",
+              "name": "config.whatsappRecipient",
+              "value": "5511919890615",
+              "type": "string"
+            },
+            {
+              "id": "cfg-project-name",
+              "name": "config.projectName",
+              "value": "={{ $json.body.form_name || 'Nhambí Moema' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-id",
+              "name": "id",
+              "value": "={{ $json.body.id || Date.now() + '-' + Math.random().toString(36).substring(2,8) }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-created-time",
+              "name": "created_time",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-ad-id",
+              "name": "ad_id",
+              "value": "={{ $json.body.ad_id || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-ad-name",
+              "name": "ad_name",
+              "value": "={{ $json.body.ad_name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-adset-id",
+              "name": "adset_id",
+              "value": "={{ $json.body.adset_id || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-adset-name",
+              "name": "adset_name",
+              "value": "={{ $json.body.adset_name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-campaign-id",
+              "name": "campaign_id",
+              "value": "={{ $json.body.campaign_id || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-campaign-name",
+              "name": "campaign_name",
+              "value": "={{ $json.body.campaign_name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-form-id",
+              "name": "form_id",
+              "value": "={{ $json.body.form_id || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-form-name",
+              "name": "form_name",
+              "value": "={{ $json.body.form_name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-is-organic",
+              "name": "is_organic",
+              "value": "={{ $json.body.is_organic === undefined ? true : $json.body.is_organic }}",
+              "type": "boolean"
+            },
+            {
+              "id": "lead-platform",
+              "name": "platform",
+              "value": "={{ $json.body.platform || ($json.body.utm_source ? String($json.body.utm_source).toLowerCase().replace(/[^a-z0-9_-]/g, '_') : 'website') }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-nome-completo",
+              "name": "nome_completo",
+              "value": "={{ $json.body.name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-telefone",
+              "name": "telefone",
+              "value": "={{ (() => { let d = ($json.body.phone || '').replace(/\\D/g, ''); if (d.length === 11 && d.startsWith('0')) { d = d.substring(1); } if ((d.length === 10 || d.length === 11) && !d.startsWith('55')) { d = '55' + d; } return d; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-email",
+              "name": "email",
+              "value": "={{ $json.body.email || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-inbox-url",
+              "name": "inbox_url",
+              "value": "={{ $json.body.inbox_url || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-status",
+              "name": "lead_status",
+              "value": "={{ $json.body.lead_status || 'novo' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-interest",
+              "name": "interest",
+              "value": "={{ $json.body.interest || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-best-contact-time",
+              "name": "best_contact_time",
+              "value": "={{ $json.body.schedule || $json.body.purchase_timeline || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-message",
+              "name": "message",
+              "value": "={{ $json.body.message || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-utm-source",
+              "name": "utm_source",
+              "value": "={{ $json.body.utm_source || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-utm-medium",
+              "name": "utm_medium",
+              "value": "={{ $json.body.utm_medium || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-utm-campaign",
+              "name": "utm_campaign",
+              "value": "={{ $json.body.utm_campaign || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-utm-content",
+              "name": "utm_content",
+              "value": "={{ $json.body.utm_content || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-utm-term",
+              "name": "utm_term",
+              "value": "={{ $json.body.utm_term || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-fbclid",
+              "name": "fbclid",
+              "value": "={{ $json.body.fbclid || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-landing-url",
+              "name": "landing_url",
+              "value": "={{ $json.body.landing_url || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-referrer",
+              "name": "referrer",
+              "value": "={{ $json.body.referrer || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-telefone-valido",
+              "name": "telefone_valido",
+              "value": "={{ (($json.body.phone || '').replace(/\\D/g, '')).length >= 10 && (($json.body.phone || '').replace(/\\D/g, '')).length <= 13 }}",
+              "type": "boolean"
+            },
+            {
+              "id": "lead-event-type",
+              "name": "event_type",
+              "value": "={{ $json.body.event_type || 'lead_form_submit' }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-is-qualified-update",
+              "name": "is_qualified_update",
+              "value": "={{ ($json.body.event_type || 'lead_form_submit') === 'qualified_whatsapp_click' }}",
+              "type": "boolean"
+            },
+            {
+              "id": "lead-whatsapp-qualificacao",
+              "name": "whatsapp_qualificacao",
+              "value": "={{ ($json.body.event_type || '') === 'qualified_whatsapp_click' ? 'QUENTE - clicou no WhatsApp pós-formulário' + ($json.body.qualified_whatsapp_clicked_at ? ' em ' + $json.body.qualified_whatsapp_clicked_at : '') : ($json.body.qualified_whatsapp_status || 'PENDENTE - formulário enviado, ainda não clicou no WhatsApp pós-formulário') }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-temperature",
+              "name": "lead_temperature",
+              "value": "={{ $json.body.lead_temperature || ((($json.body.event_type || '') === 'qualified_whatsapp_click') ? 'hot' : 'warm') }}",
+              "type": "string"
+            },
+            {
+              "id": "lead-qualified-whatsapp-clicked",
+              "name": "qualified_whatsapp_clicked",
+              "value": "={{ ($json.body.event_type || '') === 'qualified_whatsapp_click' || $json.body.qualified_whatsapp_clicked === true }}",
+              "type": "boolean"
+            },
+            {
+              "id": "lead-qualified-whatsapp-clicked-at",
+              "name": "qualified_whatsapp_clicked_at",
+              "value": "={{ $json.body.qualified_whatsapp_clicked_at || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
       },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
       "position": [
-        -600,
-        160
+        336,
+        944
       ],
-      "id": "7834d916-45c3-410c-a7b2-40920ff30291",
+      "id": "dae74c7d-a9d5-461a-979c-0411d34470ea",
       "name": "Configurar e Normalizar"
     },
     {
@@ -54,16 +303,16 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ { values: [[ $json.id, $json.created_time, $json.ad_id, $json.ad_name, $json.adset_id, $json.adset_name, $json.campaign_id, $json.campaign_name, $json.form_id, $json.form_name, $json.is_organic, $json.platform, $json.nome_completo, $json.telefone, $json.email, $json.inbox_url, $json.lead_status, $json.interest, $json.prazo_aquisicao, $json.whatsapp_qualificacao, $json.utm_source, $json.utm_medium, $json.utm_campaign, $json.utm_content, $json.utm_term, $json.fbclid, $json.landing_url, $json.referrer ]] } }}",
+        "jsonBody": "={{ { values: [[ $json.id, $json.created_time, $json.ad_id, $json.ad_name, $json.adset_id, $json.adset_name, $json.campaign_id, $json.campaign_name, $json.form_id, $json.form_name, $json.is_organic, $json.platform, $json.nome_completo, $json.telefone, $json.email, $json.inbox_url, $json.lead_status, $json.interest, $json.best_contact_time, $json.whatsapp_qualificacao, $json.utm_source, $json.utm_medium, $json.utm_campaign, $json.utm_content, $json.utm_term, $json.fbclid, $json.landing_url, $json.referrer ]] } }}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -80,
-        260
+        528,
+        1088
       ],
-      "id": "a61d7ad5-6163-44df-9d43-50af4796ffcd",
+      "id": "910de787-9f75-49d9-b97b-3f0304c6d3ea",
       "name": "Gravar Lead na Planilha",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -76,9 +325,10 @@
       "parameters": {
         "conditions": {
           "options": {
-            "caseSensitive": false,
+            "caseSensitive": true,
             "leftValue": "",
-            "typeValidation": "loose"
+            "typeValidation": "strict",
+            "version": 2
           },
           "conditions": [
             {
@@ -98,39 +348,37 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        180,
-        260
+        704,
+        1088
       ],
-      "id": "4cf09817-768f-4e5a-8e38-c8a369e67681",
+      "id": "5ff3c0a8-39ed-4fb9-a63d-77d76ddbfe59",
       "name": "Validar Telefone"
     },
     {
       "parameters": {
         "method": "POST",
         "url": "={{ $('Configurar e Normalizar').item.json.config.evolutionBaseUrl }}/message/sendText/{{ $('Configurar e Normalizar').item.json.config.evolutionInstance }}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
-              "name": "Content-Type",
-              "value": "application/json"
+              "name": "apikey",
+              "value": "COLE_AQUI_A_APIKEY_DA_EVOLUTION_NO_N8N"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ { number: $('Configurar e Normalizar').item.json.config.whatsappRecipient, text: '🟢 *NOVO LEAD - LANDING PAGE*\\n\\n🏢 *Projeto:* ' + $('Configurar e Normalizar').item.json.config.projectName + '\\n👤 *Nome:* ' + $('Configurar e Normalizar').item.json.nome_completo + '\\n📱 *Telefone:* ' + $('Configurar e Normalizar').item.json.telefone + '\\n🎯 *Interesse:* ' + $('Configurar e Normalizar').item.json.interest + '\\n⏳ *Prazo para adquirir:* ' + ($('Configurar e Normalizar').item.json.prazo_aquisicao || 'Não informado') + '\\n🔥 *Qualificação WhatsApp:* ' + $('Configurar e Normalizar').item.json.whatsapp_qualificacao + '\\n🌐 *Plataforma:* ' + ($('Configurar e Normalizar').item.json.platform || 'website') + '\\n🔗 *UTMs:* source=' + ($('Configurar e Normalizar').item.json.utm_source || '-') + ' | medium=' + ($('Configurar e Normalizar').item.json.utm_medium || '-') + ' | campaign=' + ($('Configurar e Normalizar').item.json.utm_campaign || '-') + ' | content=' + ($('Configurar e Normalizar').item.json.utm_content || '-') + ' | term=' + ($('Configurar e Normalizar').item.json.utm_term || '-') + '\\n📣 *Anúncio:* ' + ($('Configurar e Normalizar').item.json.ad_name || 'Não identificado') + '\\n🎯 *Campanha:* ' + ($('Configurar e Normalizar').item.json.campaign_name || 'Orgânico/direto') + '\\n🕐 *Data:* ' + $('Configurar e Normalizar').item.json.created_time } }}",
+        "jsonBody": "={{ { number: $('Configurar e Normalizar').item.json.config.whatsappRecipient, text: '🟢 *NOVO LEAD - LANDING PAGE*\\n\\n🏢 *Projeto:* ' + $('Configurar e Normalizar').item.json.config.projectName + '\\n👤 *Nome:* ' + $('Configurar e Normalizar').item.json.nome_completo + '\\n📱 *Telefone:* ' + $('Configurar e Normalizar').item.json.telefone + '\\n🎯 *Interesse:* ' + $('Configurar e Normalizar').item.json.interest + '\\n⏳ *Prazo para adquirir:* ' + ($('Configurar e Normalizar').item.json.best_contact_time || 'Não informado') + '\\n🔥 *Qualificação WhatsApp:* ' + $('Configurar e Normalizar').item.json.whatsapp_qualificacao + '\\n🌐 *Plataforma:* ' + ($('Configurar e Normalizar').item.json.platform || 'website') + '\\n🔗 *UTMs:* source=' + ($('Configurar e Normalizar').item.json.utm_source || '-') + ' | medium=' + ($('Configurar e Normalizar').item.json.utm_medium || '-') + ' | campaign=' + ($('Configurar e Normalizar').item.json.utm_campaign || '-') + ' | content=' + ($('Configurar e Normalizar').item.json.utm_content || '-') + ' | term=' + ($('Configurar e Normalizar').item.json.utm_term || '-') + '\\n📣 *Anúncio:* ' + ($('Configurar e Normalizar').item.json.ad_name || 'Não identificado') + '\\n🎯 *Campanha:* ' + ($('Configurar e Normalizar').item.json.campaign_name || 'Orgânico/direto') + '\\n🕐 *Data:* ' + $('Configurar e Normalizar').item.json.created_time } }}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        440,
-        180
+        1088,
+        1008
       ],
-      "id": "aee2d788-f234-4a87-9c51-c5d16e23f251",
+      "id": "7cd22321-8004-457d-aea1-38d20f653bd2",
       "name": "Enviar WhatsApp para Carolline"
     },
     {
@@ -156,10 +404,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        700,
-        180
+        1456,
+        1008
       ],
-      "id": "772d0580-fea4-49a1-9dc4-387bb3089bd2",
+      "id": "77e8126e-3765-43fa-bac0-b8d643de3c12",
       "name": "Marcar como ENVIADO",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -191,10 +439,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        440,
-        400
+        1104,
+        1248
       ],
-      "id": "0d14af92-12f0-4aae-b8f9-4dc7b79687fd",
+      "id": "01fa91e2-ac25-47ae-a000-1acf0dff8a1d",
       "name": "Marcar DADOS INCORRETOS",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -214,10 +462,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
       "position": [
-        960,
-        180
+        1728,
+        1008
       ],
-      "id": "dff9b101-a679-4424-8cbb-38fdeaf7ae55",
+      "id": "793eed9f-2c97-41da-a37f-db5fcfe1c4f8",
       "name": "Responder Sucesso"
     },
     {
@@ -231,27 +479,11 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
       "position": [
-        700,
-        400
+        1456,
+        1248
       ],
-      "id": "1da2f9e3-6685-4469-93c1-afb00039965b",
+      "id": "e2c2fe83-4e29-4f1b-bdc0-8adac0715aaa",
       "name": "Responder Telefone Inválido"
-    },
-    {
-      "parameters": {
-        "content": "## Configuração reutilizável\nPara outra landing page, duplique este workflow e altere apenas o objeto `config` no nó **Configurar e Normalizar**, o caminho do webhook e o domínio permitido no nó **Receber Lead da Landing**.\n\nA chave da Evolution deve ficar em uma credencial `Header Auth` com o cabeçalho `apikey`. Nunca grave a chave diretamente nos nós.",
-        "height": 260,
-        "width": 520,
-        "color": 5
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -840,
-        -220
-      ],
-      "id": "993938f9-ab92-41ed-8333-c9b46b1289b8",
-      "name": "Instruções"
     },
     {
       "parameters": {
@@ -279,8 +511,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -340,
-        160
+        528,
+        944
       ],
       "id": "1a1db797-97a3-43b0-9f67-c66b25ce1701",
       "name": "Classificar Evento"
@@ -296,8 +528,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -80,
-        40
+        768,
+        784
       ],
       "id": "9a7e5652-3497-40a9-a178-5312ca854d1c",
       "name": "Buscar Protocolos na Planilha",
@@ -315,8 +547,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        180,
-        40
+        1008,
+        784
       ],
       "id": "e6ac998a-a939-4d09-a37e-758b8f93ca78",
       "name": "Localizar Linha do Lead"
@@ -344,8 +576,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        440,
-        40
+        1248,
+        784
       ],
       "id": "018160bc-bfa9-45d0-9bd8-8494d7933ca4",
       "name": "Marcar Lead Quente na Planilha",
@@ -367,8 +599,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
       "position": [
-        700,
-        40
+        1488,
+        784
       ],
       "id": "6c7881dd-0ed6-480b-9e14-6c94f2bcdf5b",
       "name": "Responder Qualificação WhatsApp"
@@ -512,13 +744,12 @@
     }
   },
   "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "cc3109b0a76a3f267f211b32ac812ab64e60f87cd8ee65b6e2bc9697df709359"
+  },
+  "name": "Landing Nhambi Carolline - Lead para Sheets e WhatsApp",
   "settings": {
     "executionOrder": "v1"
-  },
-  "active": false,
-  "versionId": "31f1cdbd-cb7c-4f1f-8533-36b6250a79e3",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
-  "tags": []
+  }
 }
