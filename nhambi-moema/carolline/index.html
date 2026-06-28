@@ -542,6 +542,9 @@
         var fbclid = queryValue(params, ["fbclid"]);
         var utmSource = queryValue(params, ["utm_source"]);
         var paidMeta = Boolean(fbclid || /facebook|instagram|meta/i.test(utmSource));
+        var fbp = (document.cookie.match(/(^|;)\s*_fbp=([^;]+)/) || [])[2] || null;
+        var fbc = fbclid ? ("fb.1." + Date.now() + "." + fbclid) : null;
+        var userAgent = navigator.userAgent || null;
         return {
           ad_id: queryValue(params, ["ad_id", "utm_ad_id"]),
           ad_name: queryValue(params, ["ad_name", "utm_ad_name"]),
@@ -555,6 +558,9 @@
           utm_content: queryValue(params, ["utm_content"]),
           utm_term: queryValue(params, ["utm_term"]),
           fbclid: fbclid,
+          fbp: fbp,
+          fbc: fbc,
+          user_agent: userAgent,
           is_organic: !paidMeta,
           platform: /instagram/i.test(utmSource) ? "instagram" : (paidMeta ? "meta" : "website")
         };
@@ -630,6 +636,7 @@
           }
 
           var protocolo = gerarProtocolo();
+          window._leadProtocolo = protocolo;
           var clickUrl = "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(formatLeadMessage(formData, protocolo));
           var whatsappWindow = window.open("about:blank", "_blank");
           var attribution = buildAttribution();
