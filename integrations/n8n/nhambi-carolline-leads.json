@@ -12,18 +12,84 @@
       },
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
-      "position": [-840, 160],
+      "position": [
+        -840,
+        160
+      ],
       "id": "5cde88a4-97b1-4a80-b424-5d339fd269d2",
       "name": "Receber Lead da Landing",
       "webhookId": "bd83d8bf-d63f-4161-a97b-ad38095d3ae6"
     },
     {
       "parameters": {
-        "jsCode": "const request = $input.first().json;\nconst body = request.body ?? {};\nconst config = Object.freeze({\n  allowedOrigin: 'https://paesegregori.casaortegaimoveis.com.br',\n  spreadsheetId: '13y_9C-c3rQ6MYaIxPFOzpivG338EvpjDbF7WbcKY3aM',\n  sheetName: 'Página1',\n  whatsappRecipient: '5511919890615',\n  evolutionBaseUrl: 'https://evo.figueiramarketing.com.br',\n  evolutionInstance: 'Guilherme014',\n  projectName: 'Nhambí Moema | Carolline'\n});\n\nconst clean = (value, max = 500) => String(value ?? '').replace(/\\s+/g, ' ').trim().slice(0, max);\nconst origin = clean(request.headers?.origin, 300);\nif (origin !== config.allowedOrigin) throw new Error('Origem não autorizada.');\nif (clean(body.website, 200)) throw new Error('Envio bloqueado.');\n\nconst phone = clean(body.phone, 30);\nconst phoneDigits = phone.replace(/\\D/g, '');\nconst lead = {\n  id: clean(body.id, 80),\n  created_time: new Date().toISOString(),\n  ad_id: clean(body.ad_id, 80),\n  ad_name: clean(body.ad_name, 200),\n  adset_id: clean(body.adset_id, 80),\n  adset_name: clean(body.adset_name, 200),\n  campaign_id: clean(body.campaign_id, 80),\n  campaign_name: clean(body.campaign_name, 200),\n  form_id: clean(body.form_id, 80) || 'leadForm',\n  form_name: clean(body.form_name, 200) || 'Landing Page | Nhambí Moema | Carolline',\n  is_organic: Boolean(body.is_organic),\n  platform: clean(body.platform, 50) || 'website',\n  nome_completo: clean(body.name, 120),\n  telefone: phoneDigits,\n  email: clean(body.email, 180),\n  inbox_url: clean(body.inbox_url, 2000),\n  lead_status: 'CREATED',\n  interest: clean(body.interest, 80),\n  best_contact_time: clean(body.schedule, 120),\n  message: clean(body.message, 1000),\n  utm_source: clean(body.utm_source, 200),\n  utm_medium: clean(body.utm_medium, 200),\n  utm_campaign: clean(body.utm_campaign, 300),\n  utm_content: clean(body.utm_content, 300),\n  utm_term: clean(body.utm_term, 300),\n  fbclid: clean(body.fbclid, 1000),\n  landing_url: clean(body.landing_url, 2000),\n  referrer: clean(body.referrer, 2000),\n  telefone_valido: phoneDigits.length >= 10 && phoneDigits.length <= 13,\n  config\n};\n\nif (!lead.id || !lead.nome_completo || !lead.telefone || !lead.interest) {\n  throw new Error('Campos obrigatórios ausentes.');\n}\n\nreturn [{ json: lead }];"
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cfg-origin",
+              "name": "config.allowedOrigin",
+              "value": "https://paesegregori.casaortegaimoveis.com.br",
+              "type": "string"
+            },
+            {
+              "id": "cfg-sheet-id",
+              "name": "config.spreadsheetId",
+              "value": "13y_9C-c3rQ6MYaIxPFOzpivG338EvpjDbF7WbcKY3aM",
+              "type": "string"
+            },
+            {
+              "id": "cfg-sheet-name",
+              "name": "config.sheetName",
+              "value": "Página1",
+              "type": "string"
+            },
+            {
+              "id": "cfg-evo-url",
+              "name": "config.evolutionBaseUrl",
+              "value": "https://evo.figueiramarketing.com.br",
+              "type": "string"
+            },
+            {
+              "id": "cfg-evo-instance",
+              "name": "config.evolutionInstance",
+              "value": "Guilherme014",
+              "type": "string"
+            },
+            {
+              "id": "cfg-recipient",
+              "name": "config.whatsappRecipient",
+              "value": "5511919890615",
+              "type": "string"
+            },
+            {
+              "id": "cfg-project",
+              "name": "config.projectName",
+              "value": "Nhambí Moema | Carolline",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -600,
+        160
+      ],
+      "id": "fb3ca71e-a5ec-4568-b589-f98aa13838d5",
+      "name": "SET_VARIAVEIS"
+    },
+    {
+      "parameters": {
+        "jsCode": "const crypto = require('crypto');\nconst request = $input.first().json;\nconst body = request.body ?? {};\nconst config = Object.freeze({ ...(request.config ?? {}) });\n\nconst clean = (value, max = 500) => String(value ?? '').replace(/\\s+/g, ' ').trim().slice(0, max);\nconst requiredConfig = ['allowedOrigin', 'spreadsheetId', 'sheetName', 'whatsappRecipient', 'evolutionBaseUrl', 'evolutionInstance', 'projectName'];\nif (requiredConfig.some((key) => !clean(config[key], 500))) throw new Error('Configuração obrigatória ausente.');\n\nconst origin = clean(request.headers?.origin, 300);\nif (origin !== config.allowedOrigin) throw new Error('Origem não autorizada.');\nif (clean(body.website, 200)) throw new Error('Envio bloqueado.');\n\nconst phone = clean(body.phone, 30);\nconst phoneDigits = phone.replace(/\\D/g, '');\nconst lead = {\n  id: clean(body.id, 80),\n  created_time: new Date().toISOString(),\n  ad_id: clean(body.ad_id, 80),\n  ad_name: clean(body.ad_name, 200),\n  adset_id: clean(body.adset_id, 80),\n  adset_name: clean(body.adset_name, 200),\n  campaign_id: clean(body.campaign_id, 80),\n  campaign_name: clean(body.campaign_name, 200),\n  form_id: clean(body.form_id, 80) || 'leadForm',\n  form_name: clean(body.form_name, 200) || 'Landing Page | Nhambí Moema | Carolline',\n  is_organic: Boolean(body.is_organic),\n  platform: clean(body.platform, 50) || 'website',\n  nome_completo: clean(body.name, 120),\n  telefone: phoneDigits,\n  email: clean(body.email, 180),\n  inbox_url: clean(body.inbox_url, 2000),\n  lead_status: 'CREATED',\n  interest: clean(body.interest, 80),\n  best_contact_time: clean(body.schedule, 120),\n  message: clean(body.message, 1000),\n  utm_source: clean(body.utm_source, 200),\n  utm_medium: clean(body.utm_medium, 200),\n  utm_campaign: clean(body.utm_campaign, 300),\n  utm_content: clean(body.utm_content, 300),\n  utm_term: clean(body.utm_term, 300),\n  fbclid: clean(body.fbclid, 1000),\n  landing_url: clean(body.landing_url, 2000),\n  referrer: clean(body.referrer, 2000),\n  telefone_hash: crypto.createHash('sha256').update(phoneDigits).digest('hex'),\n  fbp: clean(body.fbp, 200) || null,\n  fbc: clean(body.fbc, 200) || null,\n  user_agent: clean(body.user_agent, 500) || null,\n  telefone_valido: phoneDigits.length >= 10 && phoneDigits.length <= 13,\n  config\n};\n\nif (!lead.id || !lead.nome_completo || !lead.telefone || !lead.interest) {\n  throw new Error('Campos obrigatórios ausentes.');\n}\n\nreturn [{ json: lead }];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [-600, 160],
+      "position": [
+        -340,
+        160
+      ],
       "id": "7834d916-45c3-410c-a7b2-40920ff30291",
       "name": "Configurar e Normalizar"
     },
@@ -36,8 +102,14 @@
         "sendQuery": true,
         "queryParameters": {
           "parameters": [
-            { "name": "valueInputOption", "value": "RAW" },
-            { "name": "insertDataOption", "value": "INSERT_ROWS" }
+            {
+              "name": "valueInputOption",
+              "value": "RAW"
+            },
+            {
+              "name": "insertDataOption",
+              "value": "INSERT_ROWS"
+            }
           ]
         },
         "sendBody": true,
@@ -47,7 +119,10 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-340, 160],
+      "position": [
+        -80,
+        160
+      ],
       "id": "a61d7ad5-6163-44df-9d43-50af4796ffcd",
       "name": "Gravar Lead na Planilha",
       "credentials": {
@@ -60,13 +135,20 @@
     {
       "parameters": {
         "conditions": {
-          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "loose" },
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
           "conditions": [
             {
               "id": "validar-telefone-landing",
               "leftValue": "={{ $('Configurar e Normalizar').item.json.telefone_valido }}",
               "rightValue": true,
-              "operator": { "type": "boolean", "operation": "true" }
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
             }
           ],
           "combinator": "and"
@@ -75,7 +157,10 @@
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [-80, 160],
+      "position": [
+        180,
+        160
+      ],
       "id": "4cf09817-768f-4e5a-8e38-c8a369e67681",
       "name": "Validar Telefone"
     },
@@ -87,7 +172,12 @@
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
         },
         "sendBody": true,
         "specifyBody": "json",
@@ -96,7 +186,10 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [180, 40],
+      "position": [
+        440,
+        40
+      ],
       "id": "aee2d788-f234-4a87-9c51-c5d16e23f251",
       "name": "Enviar WhatsApp para Carolline"
     },
@@ -107,7 +200,14 @@
         "authentication": "predefinedCredentialType",
         "nodeCredentialType": "googleSheetsOAuth2Api",
         "sendQuery": true,
-        "queryParameters": { "parameters": [{ "name": "valueInputOption", "value": "RAW" }] },
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "valueInputOption",
+              "value": "RAW"
+            }
+          ]
+        },
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"values\": [[\"ENVIADO\"]]\n}",
@@ -115,7 +215,10 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [440, 40],
+      "position": [
+        700,
+        40
+      ],
       "id": "772d0580-fea4-49a1-9dc4-387bb3089bd2",
       "name": "Marcar como ENVIADO",
       "credentials": {
@@ -132,7 +235,14 @@
         "authentication": "predefinedCredentialType",
         "nodeCredentialType": "googleSheetsOAuth2Api",
         "sendQuery": true,
-        "queryParameters": { "parameters": [{ "name": "valueInputOption", "value": "RAW" }] },
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "valueInputOption",
+              "value": "RAW"
+            }
+          ]
+        },
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"values\": [[\"DADOS INCORRETOS\"]]\n}",
@@ -140,7 +250,10 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [180, 280],
+      "position": [
+        440,
+        280
+      ],
       "id": "0d14af92-12f0-4aae-b8f9-4dc7b79687fd",
       "name": "Marcar DADOS INCORRETOS",
       "credentials": {
@@ -154,11 +267,16 @@
       "parameters": {
         "respondWith": "json",
         "responseBody": "={{ { success: true, lead_id: $('Configurar e Normalizar').item.json.id, status: 'ENVIADO' } }}",
-        "options": { "responseCode": 200 }
+        "options": {
+          "responseCode": 200
+        }
       },
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
-      "position": [700, 40],
+      "position": [
+        960,
+        40
+      ],
       "id": "dff9b101-a679-4424-8cbb-38fdeaf7ae55",
       "name": "Responder Sucesso"
     },
@@ -166,46 +284,171 @@
       "parameters": {
         "respondWith": "json",
         "responseBody": "={{ { success: false, lead_id: $('Configurar e Normalizar').item.json.id, status: 'DADOS INCORRETOS', error: 'Telefone inválido' } }}",
-        "options": { "responseCode": 422 }
+        "options": {
+          "responseCode": 422
+        }
       },
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
-      "position": [440, 280],
+      "position": [
+        700,
+        280
+      ],
       "id": "1da2f9e3-6685-4469-93c1-afb00039965b",
       "name": "Responder Telefone Inválido"
     },
     {
       "parameters": {
-        "content": "## Configuração reutilizável\nPara outra landing page, duplique este workflow e altere apenas o objeto `config` no nó **Configurar e Normalizar**, o caminho do webhook e o domínio permitido no nó **Receber Lead da Landing**.\n\nA chave da Evolution deve ficar em uma credencial `Header Auth` com o cabeçalho `apikey`. Nunca grave a chave diretamente nos nós.",
+        "content": "## Configuração reutilizável\nPara outra landing page, duplique este workflow e altere os campos do nó **SET_VARIAVEIS**, o caminho do webhook e o domínio permitido no nó **Receber Lead da Landing**.\n\nA chave da Evolution deve ficar em uma credencial `Header Auth` com o cabeçalho `apikey`. Nunca grave a chave diretamente nos nós.",
         "height": 260,
         "width": 520,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [-840, -220],
+      "position": [
+        -840,
+        -220
+      ],
       "id": "993938f9-ab92-41ed-8333-c9b46b1289b8",
       "name": "Instruções"
+    },
+    {
+      "id": "capi-meta-lead-001",
+      "name": "CAPI - Meta Lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -80,
+        380
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v19.0/1904138550276441/events",
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={{ JSON.stringify({ data: [{ event_name: 'Lead', event_time: Math.floor(Date.now() / 1000), event_id: $('Configurar e Normalizar').item.json.id, event_source_url: 'https://paesegregori.casaortegaimoveis.com.br/nhambi-moema/carolline/', action_source: 'website', user_data: { ph: [$('Configurar e Normalizar').item.json.telefone_hash], fbp: $('Configurar e Normalizar').item.json.fbp || undefined, fbc: $('Configurar e Normalizar').item.json.fbc || undefined, client_user_agent: $('Configurar e Normalizar').item.json.user_agent || undefined }, custom_data: { content_name: 'Nhambí Moema', content_category: 'Imóvel Alto Padrão', lead_type: 'form_submit' } }], access_token: $env.META_ACCESS_TOKEN }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
-    "Receber Lead da Landing": { "main": [[{ "node": "Configurar e Normalizar", "type": "main", "index": 0 }]] },
-    "Configurar e Normalizar": { "main": [[{ "node": "Gravar Lead na Planilha", "type": "main", "index": 0 }]] },
-    "Gravar Lead na Planilha": { "main": [[{ "node": "Validar Telefone", "type": "main", "index": 0 }]] },
-    "Validar Telefone": {
+    "Receber Lead da Landing": {
       "main": [
-        [{ "node": "Enviar WhatsApp para Carolline", "type": "main", "index": 0 }],
-        [{ "node": "Marcar DADOS INCORRETOS", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "SET_VARIAVEIS",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Enviar WhatsApp para Carolline": { "main": [[{ "node": "Marcar como ENVIADO", "type": "main", "index": 0 }]] },
-    "Marcar como ENVIADO": { "main": [[{ "node": "Responder Sucesso", "type": "main", "index": 0 }]] },
-    "Marcar DADOS INCORRETOS": { "main": [[{ "node": "Responder Telefone Inválido", "type": "main", "index": 0 }]] }
+    "SET_VARIAVEIS": {
+      "main": [
+        [
+          {
+            "node": "Configurar e Normalizar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configurar e Normalizar": {
+      "main": [
+        [
+          {
+            "node": "Gravar Lead na Planilha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gravar Lead na Planilha": {
+      "main": [
+        [
+          {
+            "node": "Validar Telefone",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CAPI - Meta Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar Telefone": {
+      "main": [
+        [
+          {
+            "node": "Enviar WhatsApp para Carolline",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marcar DADOS INCORRETOS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar WhatsApp para Carolline": {
+      "main": [
+        [
+          {
+            "node": "Marcar como ENVIADO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcar como ENVIADO": {
+      "main": [
+        [
+          {
+            "node": "Responder Sucesso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcar DADOS INCORRETOS": {
+      "main": [
+        [
+          {
+            "node": "Responder Telefone Inválido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "pinData": {},
-  "settings": { "executionOrder": "v1" },
+  "settings": {
+    "executionOrder": "v1"
+  },
   "active": false,
   "versionId": "31f1cdbd-cb7c-4f1f-8533-36b6250a79e3",
-  "meta": { "templateCredsSetupCompleted": true },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "tags": []
 }
