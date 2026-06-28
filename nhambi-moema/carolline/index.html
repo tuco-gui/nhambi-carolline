@@ -294,7 +294,7 @@
           <div class="gallery-copy">
             <h3>Conforto, elegância e exclusividade</h3>
             <p>Os apartamentos de 2 ou 3 suítes do Nhambí Moema traduzem conforto, funcionalidade e sofisticação em cada ambiente. Com plantas bem resolvidas, acabamentos de alto padrão e integração equilibrada entre áreas sociais e íntimas, os espaços foram pensados para acolher diferentes estilos de vida, valorizando a luz natural, a sensação de amplitude e o prazer de morar bem.</p>
-            <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com um corretor</a>
+            <a href="#leadForm" class="btn-terracotta">Fale com um corretor</a>
           </div>
         </div>
       </div>
@@ -839,7 +839,8 @@
             form_id: "leadForm",
             form_name: "Landing Page | Nhambí Moema | Carolline",
             email: "",
-            interest: formData.purpose,
+            interest: formData.purpose || formData.interest || "",
+            purpose: formData.purpose || formData.interest || "",
             schedule: formData.purchase_timeline,
             message: "",
             lead_temperature: "warm",
