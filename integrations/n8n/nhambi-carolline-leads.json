@@ -650,6 +650,34 @@
         "jsCode": "const lead = $('Configurar e Normalizar').item.json;\nconst crypto = require('crypto');\nconst hash = s => crypto.createHash('sha256').update(String(s||'')).digest('hex');\nconst ud = { ph: [hash(lead.telefone)] };\nif (lead.fbp) ud.fbp = lead.fbp;\nif (lead.fbc) ud.fbc = lead.fbc;\nconst eid = 'contact_hot_' + lead.id;\nconst payload = { data: [{ event_name:'Contact', event_time: Math.floor(Date.now()/1000), event_id: eid, event_source_url:'https://paesegregori.casaortegaimoveis.com.br/nhambi-moema/carolline/', action_source:'website', user_data: ud, custom_data:{ content_name:'Nhambí Moema', lead_temperature:'hot', lead_type:'qualified_whatsapp' } }], access_token: $env.META_ACCESS_TOKEN };\ntry { const r = await fetch('https://graph.facebook.com/v19.0/1904138550276441/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); return [{json:{capi:await r.json(),event_id:eid}}]; } catch(e) { return [{json:{capi_error:e.message,event_id:eid}}]; }"
       },
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configurar e Normalizar').item.json.config.evolutionBaseUrl }}/message/sendText/{{ $('Configurar e Normalizar').item.json.config.evolutionInstance }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "COLE_AQUI_A_APIKEY_DA_EVOLUTION_NO_N8N"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { number: $('Configurar e Normalizar').item.json.config.whatsappRecipient, text: `🔥 *LEAD QUENTE - LANDING PAGE*\n\n🏢 *Projeto:* {{ $('Configurar e Normalizar').item.json.config.projectName }}\n👤 *Nome:* {{ $('Configurar e Normalizar').item.json.nome_completo }}\n📱 *Telefone:* {{ $('Configurar e Normalizar').item.json.telefone }}\n🎯 *Interesse:* {{ $('Configurar e Normalizar').item.json.interest }}\n⏳ *Prazo:* {{ $('Configurar e Normalizar').item.json.best_contact_time || 'Não informado' }}\n✅ *Status:* QUENTE — clicou no WhatsApp pós-formulário\n📲 *Link WhatsApp:* {{ $('Configurar e Normalizar').item.json.inbox_url || '' }}\n🌐 *Plataforma:* {{ $('Configurar e Normalizar').item.json.platform }}\n🔗 *UTMs:* source={{ $('Configurar e Normalizar').item.json.utm_source || '-' }} | medium={{ $('Configurar e Normalizar').item.json.utm_medium || '-' }} | campaign={{ $('Configurar e Normalizar').item.json.utm_campaign || '-' }}\n📣 *Anúncio:* {{ $('Configurar e Normalizar').item.json.ad_name || 'Não identificado' }}\n🕐 *Data:* {{ $('Configurar e Normalizar').item.json.created_time }}` } }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1448,
+        784
+      ],
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Notificar Lead Quente WhatsApp",
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
@@ -719,7 +747,7 @@
       "main": [
         [
           {
-            "node": "Responder Qualificação WhatsApp",
+            "node": "Notificar Lead Quente WhatsApp",
             "type": "main",
             "index": 0
           },
@@ -792,6 +820,17 @@
         [
           {
             "node": "Responder Telefone Inválido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notificar Lead Quente WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "Responder Qualificação WhatsApp",
             "type": "main",
             "index": 0
           }
