@@ -678,6 +678,90 @@
       "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
       "name": "Notificar Lead Quente WhatsApp",
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resume": "timeInterval",
+        "unit": "minutes",
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        900
+      ],
+      "id": "w8a1t000-0000-0000-0000-000000000001",
+      "name": "Aguardar Qualificação",
+      "webhookId": "aguardar-qualificacao-nhambi"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://sheets.googleapis.com/v4/spreadsheets/{{ $('Configurar e Normalizar').item.json.config.spreadsheetId }}/values/{{ encodeURIComponent($('Configurar e Normalizar').item.json.config.sheetName) }}!A:T",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSheetsOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        900
+      ],
+      "id": "v3r1fy00-0000-0000-0000-000000000002",
+      "name": "Verificar Status na Planilha",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EAmgSEYv1oajSfCs",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $('Configurar e Normalizar').item.json;\nconst rows = $input.first().json.values ?? [];\nconst rowIndex = rows.findIndex(r => r?.[0] === lead.id);\nif (rowIndex < 0) {\n  // Lead not found — treat as pending to be safe\n  return [{ json: { is_still_pending: true, sheet_row: -1 } }];\n}\nconst statusCell = rows[rowIndex]?.[19] ?? '';\nconst isQuente = String(statusCell).toLowerCase().includes('quente');\nreturn [{ json: { is_still_pending: !isQuente, sheet_row: rowIndex + 1 } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        900
+      ],
+      "id": "ch3ck000-0000-0000-0000-000000000003",
+      "name": "Checar Status Lead"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "check-pendente",
+              "leftValue": "={{ $json.is_still_pending }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1460,
+        900
+      ],
+      "id": "1fp3nd00-0000-0000-0000-000000000004",
+      "name": "Lead Ainda Pendente?"
     }
   ],
   "connections": {
@@ -779,7 +863,7 @@
       "main": [
         [
           {
-            "node": "Enviar WhatsApp para Carolline",
+            "node": "Responder Sucesso",
             "type": "main",
             "index": 0
           }
@@ -806,13 +890,7 @@
     },
     "Marcar como ENVIADO": {
       "main": [
-        [
-          {
-            "node": "Responder Sucesso",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Marcar DADOS INCORRETOS": {
@@ -835,6 +913,62 @@
             "index": 0
           }
         ]
+      ]
+    },
+    "Responder Sucesso": {
+      "main": [
+        [
+          {
+            "node": "Aguardar Qualificação",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aguardar Qualificação": {
+      "main": [
+        [
+          {
+            "node": "Verificar Status na Planilha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar Status na Planilha": {
+      "main": [
+        [
+          {
+            "node": "Checar Status Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Checar Status Lead": {
+      "main": [
+        [
+          {
+            "node": "Lead Ainda Pendente?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead Ainda Pendente?": {
+      "main": [
+        [
+          {
+            "node": "Enviar WhatsApp para Carolline",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
       ]
     }
   },
