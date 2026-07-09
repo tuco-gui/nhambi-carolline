@@ -8,7 +8,7 @@ var EMPREENDIMENTOS = [
   { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp", hasCorretorLP: true },
   { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true },
   { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp", hasCorretorLP: true },
-  { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp" },
+  { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp", hasCorretorLP: true },
   { slug: "join", nome: "Join Vila Mariana", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp", hasCorretorLP: true },
   { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp", hasCorretorLP: true },
   { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp", hasCorretorLP: true },
