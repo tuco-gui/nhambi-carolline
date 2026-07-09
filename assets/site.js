@@ -3,17 +3,17 @@ window.dataLayer = window.dataLayer || [];
 var EMPREENDIMENTOS = [
   { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true },
   { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", hasCorretorLP: true, localPage: "/nhambi-moema/" },
-  { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg" },
-  { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp" },
-  { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp" },
+  { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg", hasCorretorLP: true },
+  { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp", hasCorretorLP: true },
+  { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp", hasCorretorLP: true },
   { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true },
-  { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp" },
+  { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp", hasCorretorLP: true },
   { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp" },
   { slug: "join", nome: "Join Vila Mariana", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp", hasCorretorLP: true },
-  { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp" },
-  { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp" },
+  { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp", hasCorretorLP: true },
+  { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp", hasCorretorLP: true },
   { slug: "ori", nome: "Ori Praça da Árvore", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ori1.jpg", hasCorretorLP: true },
-  { slug: "solaz", nome: "Solaz Vila Mariana", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-fachada.webp" },
+  { slug: "solaz", nome: "Solaz Vila Mariana", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-fachada.webp", hasCorretorLP: true },
   { slug: "tons-klabin", nome: "Tons Klabin", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-fachada.webp", hasCorretorLP: true }
 ];
 
