@@ -6,7 +6,7 @@ var EMPREENDIMENTOS = [
   { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg" },
   { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp" },
   { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp" },
-  { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png" },
+  { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true },
   { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp" },
   { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp" },
   { slug: "join", nome: "Join Vila Madalena", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp" },
@@ -130,8 +130,9 @@ function initials(nome){
   if(grid){
     grid.innerHTML = EMPREENDIMENTOS.map(function(emp){
       var msg = encodeURIComponent("Olá, quero conhecer mais sobre o empreendimento " + emp.nome + (isHubGeral ? "." : (" com " + corretorNome + ".")));
-      var detalhesHref = emp.localPage || ("https://paesegregori.com.br/" + emp.slug + "/");
-      var detalhesTarget = emp.localPage ? "" : ' target="_blank" rel="noopener noreferrer"';
+      var corretorLP = (emp.hasCorretorLP && !isHubGeral) ? ("/corretores/" + corretorSlug + "/" + emp.slug + "/") : null;
+      var detalhesHref = emp.localPage || corretorLP || ("https://paesegregori.com.br/" + emp.slug + "/");
+      var detalhesTarget = (emp.localPage || corretorLP) ? "" : ' target="_blank" rel="noopener noreferrer"';
       return (
         '<article class="card portfolio-card">' +
           '<div class="card-media"><img src="' + emp.img + '" alt="' + emp.nome + '" loading="lazy"></div>' +
