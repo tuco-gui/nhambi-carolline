@@ -130,7 +130,8 @@ function initials(nome){
   if(grid){
     grid.innerHTML = EMPREENDIMENTOS.map(function(emp){
       var msg = encodeURIComponent("Olá, quero conhecer mais sobre o empreendimento " + emp.nome + (isHubGeral ? "." : (" com " + corretorNome + ".")));
-      var corretorLP = (emp.hasCorretorLP && !isHubGeral) ? ("/corretores/" + corretorSlug + "/" + emp.slug + "/") : null;
+      var lpCorretorAtual = corretorSlug === "equipe-ortega" ? "carolline" : corretorSlug;
+      var corretorLP = emp.hasCorretorLP ? ("/corretores/" + lpCorretorAtual + "/" + emp.slug + "/") : null;
       var detalhesHref = corretorLP || emp.localPage;
       var detalhesBtn = detalhesHref ? ('<a class="btn btn-outline" href="' + detalhesHref + '">Ver detalhes</a>') : "";
       return (
