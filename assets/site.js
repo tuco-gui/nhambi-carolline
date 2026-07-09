@@ -1,7 +1,7 @@
 window.dataLayer = window.dataLayer || [];
 
 var EMPREENDIMENTOS = [
-  { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp" },
+  { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true },
   { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", localPage: "/nhambi-moema/" },
   { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg" },
   { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp" },
