@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MTFM84HS");
+  </script>
+  <!-- End Google Tag Manager -->
+  <title>Nhambí Moema - Paes & Gregori</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Titillium Web',sans-serif;background:#fff;color:#222}
+    :root{
+      --dark:#3f3f3f;
+      --dark2:#2f2f2f;
+      --light:#ececec;
+      --terracotta:#c89172;
+      --text:#5b5b5b;
+      --white:#fff;
+      --whatsapp:#25D366;
+    }
+
+    .topbar{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      height:72px;background:rgba(47,47,47,.96);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 70px;
+      backdrop-filter: blur(3px);
+    }
+    .topbar .logo-left img{height:46px;width:auto;filter:brightness(0) invert(1)}
+    .topbar .top-links{display:flex;gap:38px;align-items:center;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+    .topbar .top-links a{color:#fff;text-decoration:none}
+    .topbar .cta-top{background:var(--whatsapp);padding:14px 22px;color:#fff;text-decoration:none;font-size:12px;text-transform:uppercase;font-weight:700;letter-spacing:.4px}
+
+    .subnav-wrap{
+      position:fixed;top:72px;left:0;right:0;z-index:999;display:flex;justify-content:center;
+      background:rgba(47,47,47,.96);border-top:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(3px);
+    }
+    .subnav{
+      width:86%;min-height:38px;display:flex;align-items:center;justify-content:center;
+    }
+    .subnav a{
+      color:#fff;text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:600;
+      margin:0 14px;letter-spacing:.3px;
+    }
+
+    .hero{position:relative;height:100vh;min-height:760px;background:url('https://cdn.tess.im/assets/uploads/c5aecdda-f373-4b7f-8d87-1d803f174d75.webp') center center/cover no-repeat;margin-top:0}
+    .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.10) 35%, rgba(0,0,0,.45) 100%)}
+    .hero-inner{position:absolute;left:70px;bottom:86px;z-index:2;color:#fff}
+    .hero-inner img.logo-empreendimento{width:210px;height:auto;margin-bottom:22px}
+    .hero-bottom-bar{
+      position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(33,33,33,.88);height:84px;
+      display:flex;align-items:center;justify-content:space-between;padding:0 70px;color:#fff
+    }
+    .hero-bottom-left{font-size:19px;line-height:1.15;text-transform:uppercase;font-weight:300}
+    .hero-bottom-right{display:flex;gap:34px;align-items:center;font-size:13px}
+    .hero-info{display:flex;align-items:center;gap:9px;color:#ddd}
+    .hero-info:before{content:'◫';font-size:14px;color:#888}
+
+    .section-light{background:#efefef;padding:80px 0}
+    .section-white{background:#fff;padding:70px 0}
+    .section-dark{background:#6a6a6a;padding:70px 0}
+    .section-ficha{background:#2d2d2d;padding:80px 0 120px}
+    .container{width:86%;margin:0 auto}
+
+    .intro-grid{display:grid;grid-template-columns:340px 1fr;gap:36px;align-items:center}
+    .title-big{font-size:34px;line-height:1.02;text-transform:uppercase;color:#222;font-weight:300;margin-bottom:24px}
+    .title-big .accent{color:var(--terracotta);font-weight:700}
+    .text-body{font-size:15px;line-height:1.65;color:#727272;max-width:320px}
+    .btn-outline{display:inline-block;margin-top:26px;padding:10px 26px;border:1px solid #999;color:#666;text-decoration:none;text-transform:uppercase;font-size:12px;font-weight:600}
+    .intro-image-wrap{position:relative}
+    .intro-image-wrap img{width:100%;display:block}
+    .ribbon{position:absolute;right:24px;bottom:-14px;background:var(--terracotta);color:#fff;padding:8px 34px;text-transform:uppercase;font-size:11px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+
+    .tabs{display:flex;gap:46px;border-bottom:1px solid #999;padding-bottom:10px;margin-bottom:34px}
+    .tab{font-size:13px;text-transform:uppercase;color:#888;text-decoration:none;position:relative;cursor:pointer}
+    .tab.active{color:var(--terracotta)}
+    .tab.active:after{content:'';position:absolute;left:0;right:0;bottom:-11px;height:3px;background:var(--terracotta)}
+
+    .gallery-split{display:grid;grid-template-columns:58% 42%;gap:46px;align-items:center}
+    .gallery-main{position:relative}
+    .gallery-main img{width:100%;display:block}
+    .gallery-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;background:var(--terracotta);color:#fff;padding:7px 42px;font-size:12px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+    .gallery-copy h3{font-size:24px;line-height:1.2;text-transform:uppercase;color:#2a2a2a;margin-bottom:18px}
+    .gallery-copy p{font-size:15px;line-height:1.75;color:#666;margin-bottom:22px}
+    .btn-terracotta{display:inline-block;background:var(--terracotta);color:#fff;text-decoration:none;text-transform:uppercase;font-size:12px;padding:14px 26px}
+    .gallery-nav{display:flex;gap:10px;margin-top:30px}
+    .circle-btn{width:27px;height:27px;border:1px solid #aaa;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#999;background:transparent;cursor:pointer}
+
+    .areas-top{display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
+    .section-title-side{font-size:28px;line-height:1.05;text-transform:uppercase;color:#222;font-weight:300}
+    .section-title-side .accent{color:var(--terracotta);font-weight:700}
+    .areas-desc{font-size:15px;line-height:1.65;color:#6d6d6d;max-width:860px}
+    .areas-icons{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px 50px;max-width:860px;margin-left:270px}
+    .areas-icons .item{font-size:12px;text-transform:uppercase;color:#6f6f6f;display:flex;align-items:center;gap:12px}
+    .areas-icons .ico{font-size:18px;color:#777;width:20px;text-align:center}
+
+    .plantas-title{font-size:46px;text-transform:uppercase;color:#2f2f2f;font-weight:300;margin-bottom:24px}
+    .plantas-grid{display:grid;grid-template-columns:310px 1fr;gap:40px;align-items:start}
+    .plantas-copy{font-size:15px;line-height:1.65;color:#777;max-width:255px}
+    .plantas-img-wrap{position:relative;text-align:center}
+    .plantas-img-wrap img{max-width:100%;height:auto}
+    .plantas-ribbon{position:absolute;right:40px;bottom:-16px;background:var(--terracotta);color:#fff;padding:7px 36px;font-size:12px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+    .plantas-nav{margin-top:28px;display:flex;gap:10px}
+
+    .diff-grid-wrap{display:grid;grid-template-columns:230px 1fr;gap:40px}
+    .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 26px}
+    .diff-item{display:flex;align-items:flex-start;gap:12px;color:#666;font-size:12px;text-transform:uppercase;line-height:1.35}
+    .diff-item .ico{font-size:18px;color:#777;width:20px;flex:0 0 20px}
+
+    .proj-grid{display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
+    .proj-copy{font-size:15px;line-height:1.65;color:#6e6e6e;margin-bottom:24px;max-width:760px}
+    .proj-list{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px;max-width:760px}
+    .proj-item{border-left:4px solid var(--terracotta);padding-left:12px}
+    .proj-item .role{font-size:13px;text-transform:uppercase;color:#9a8d83;margin-right:10px}
+    .proj-item .name{font-size:13px;text-transform:uppercase;color:#444;font-weight:700}
+
+    .local-grid{display:grid;grid-template-columns:48% 52%;gap:48px;align-items:start;color:#fff}
+    .local-title{font-size:33px;line-height:1.1;text-transform:uppercase;font-weight:300;margin-bottom:34px}
+    .local-title strong{font-weight:700}
+    .address-line{display:flex;align-items:center;gap:12px;color:#f1f1f1;font-size:14px;text-transform:uppercase;border-left:4px solid var(--terracotta);padding-left:12px;margin-bottom:34px}
+    .local-copy{font-size:15px;line-height:1.7;color:#e4e4e4;max-width:470px;margin-bottom:28px}
+    .accordion .row{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;gap:12px}
+    .accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
+    .map-wrap{position:relative}
+    .map-wrap img{width:100%;display:block}
+    .map-btn{position:absolute;right:0;bottom:0;background:var(--terracotta);color:#fff;text-decoration:none;text-transform:uppercase;font-size:13px;padding:14px 28px;clip-path:polygon(12% 0,100% 0,88% 100%,0 100%)}
+
+    .ficha-title{text-align:center;color:#fff;font-size:44px;font-weight:300;text-transform:uppercase;letter-spacing:.5px;margin-bottom:48px}
+    .ficha-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:42px 28px}
+    .ficha-item{padding-top:18px;border-top:1px solid #9f6f55;color:#fff}
+    .ficha-item h4{font-size:13px;text-transform:uppercase;margin-bottom:6px}
+    .ficha-item p{font-size:14px;line-height:1.45;color:#f1f1f1}
+
+    .carolline{background:#f5f5f5;padding:90px 0}
+    .car-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px;align-items:center;max-width:900px}
+    .car-photo{width:180px;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.16);border:6px solid #fff}
+    .car-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+    .car-copy h3{font-size:34px;text-transform:uppercase;font-weight:300;color:#333;line-height:1.1;margin-bottom:16px}
+    .car-copy h3 strong{color:var(--terracotta);font-weight:700}
+    .car-copy p{font-size:15px;line-height:1.7;color:#666;max-width:650px;margin-bottom:22px}
+    .btn-green{display:inline-block;background:var(--whatsapp);color:#fff;text-decoration:none;padding:14px 24px;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .lead-options{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,380px);gap:34px;align-items:start;margin-top:34px}
+    .lead-card{background:#fff;border:1px solid rgba(0,0,0,.07);box-shadow:0 18px 40px rgba(0,0,0,.06);padding:28px}
+    .lead-card h4{font-size:22px;line-height:1.15;text-transform:uppercase;font-weight:300;color:#333;margin-bottom:12px}
+    .lead-card h4 strong{color:var(--terracotta);font-weight:700}
+    .lead-card p{font-size:14px;line-height:1.7;color:#666;margin-bottom:18px}
+    .lead-form{display:grid;gap:12px}
+    .lead-form label{font-size:12px;text-transform:uppercase;color:#7a7a7a;font-weight:700;letter-spacing:.4px}
+    .lead-form input,.lead-form select,.lead-form textarea{width:100%;border:1px solid #d9d9d9;background:#fff;color:#333;padding:14px 14px;font:inherit;font-size:14px;outline:none}
+    .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--terracotta)}
+    .lead-form textarea{min-height:96px;resize:vertical}
+    .lead-form button{border:0;background:var(--dark2);color:#fff;padding:16px 18px;cursor:pointer;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .lead-form button:disabled{cursor:wait;opacity:.65}
+    .lead-form small{font-size:12px;line-height:1.6;color:#7b7b7b}
+    .lead-form .status{display:none;font-size:13px;color:#3a6a4e}
+    .lead-form .status.is-visible{display:block}
+    .lead-form .status.is-error{color:#a23b32}
+    .form-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+
+    body.modal-open{overflow:hidden}
+    .lead-thanks[hidden]{display:none}
+    .lead-thanks{position:fixed;inset:0;z-index:12000;display:grid;place-items:center;padding:24px}
+    .lead-thanks-backdrop{position:absolute;inset:0;background:rgba(30,30,30,.72);backdrop-filter:blur(5px)}
+    .lead-thanks-panel{
+      position:relative;width:min(560px,100%);max-height:calc(100vh - 48px);overflow:auto;background:#fff;
+      box-shadow:0 30px 80px rgba(0,0,0,.3);padding:56px 52px 46px;text-align:center;outline:none;
+      transform:translateY(14px);opacity:0;transition:transform .24s ease,opacity .24s ease
+    }
+    .lead-thanks.is-visible .lead-thanks-panel{transform:translateY(0);opacity:1}
+    .lead-thanks-panel:before{content:'';position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--terracotta)}
+    .lead-thanks-close{position:absolute;right:18px;top:14px;border:0;background:transparent;color:#777;font-size:30px;line-height:1;cursor:pointer;padding:6px}
+    .lead-thanks-mark{width:74px;height:74px;border:1px solid rgba(200,145,114,.5);border-radius:50%;display:grid;place-items:center;margin:0 auto 24px;color:var(--terracotta);background:#faf6f3}
+    .lead-thanks-mark svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .lead-thanks-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#8f6c58;font-weight:700;margin-bottom:10px}
+    .lead-thanks h2{font-size:34px;line-height:1.05;text-transform:uppercase;font-weight:300;color:#303030;margin-bottom:16px}
+    .lead-thanks h2 strong{font-weight:700;color:var(--terracotta)}
+    .lead-thanks-copy{font-size:16px;line-height:1.65;color:#656565;max-width:420px;margin:0 auto 28px}
+    .lead-thanks-choice{border-top:1px solid #e7e0dc;border-bottom:1px solid #e7e0dc;padding:24px 0;margin-bottom:24px}
+    .lead-thanks-choice strong{display:block;font-size:18px;color:#333;margin-bottom:7px}
+    .lead-thanks-choice p{font-size:14px;line-height:1.55;color:#747474;margin:0 auto 18px;max-width:380px}
+    .lead-thanks-choice .btn-green{margin:0;border-radius:0;min-width:230px;text-align:center}
+    .lead-thanks-return{border:0;background:transparent;color:#6d6d6d;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit;font-size:13px}
+
+    @media (prefers-reduced-motion:reduce){.lead-thanks-panel{transition:none}}
+
+    .floating-wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:9999;text-decoration:none}
+    .floating-wa svg{width:29px;height:29px;fill:#fff}
+
+    @media (max-width: 980px){
+      .topbar{padding:0 20px;height:64px}
+      .subnav-wrap{top:64px}
+      .subnav{width:100%;overflow:auto;justify-content:flex-start;padding:0 12px}
+      .topbar .logo-left img{height:38px}
+      .topbar .cta-top{padding:11px 14px;font-size:11px;white-space:nowrap}
+      .car-grid{gap:22px;text-align:center;justify-items:center}
+      .lead-options{grid-template-columns:1fr}
+      .car-photo{width:154px;border-width:5px}
+      .car-copy p{max-width:560px}
+      .hero-inner{left:20px;right:20px;bottom:100px}
+      .hero-bottom-bar{height:auto;flex-direction:column;align-items:flex-start;gap:16px;padding:18px 20px}
+      .hero-bottom-right{flex-wrap:wrap;gap:18px}
+      .container{width:90%}
+      .intro-grid,.gallery-split,.areas-top,.plantas-grid,.diff-grid-wrap,.proj-grid,.local-grid,.car-grid{grid-template-columns:1fr}
+      .areas-icons{margin-left:0;grid-template-columns:repeat(2,1fr)}
+      .diff-grid,.proj-list,.ficha-grid{grid-template-columns:1fr}
+      .section-light,.section-white,.section-dark,.section-ficha,.carolline{padding:50px 0}
+      .lead-thanks{padding:14px}
+      .lead-thanks-panel{padding:48px 25px 34px}
+      .lead-thanks h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTFM84HS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="topbar">
+    <div class="logo-left"><img src="https://cdn.tess.im/assets/uploads/359bf185-7e53-4abe-9c31-2d8913afa9c9.png" alt="Paes & Gregori"></div>
+    <div class="top-links">
+      <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="cta-top">Fale com o corretor</a>
+    </div>
+  </div>
+
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria de Imagens</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <img class="logo-empreendimento" src="https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi-logo-1024x406.png" alt="Nhambí Moema">
+    </div>
+    <div class="hero-bottom-bar">
+      <div class="hero-bottom-left">Exclusivamente residencial,<br>no coração de Moema</div>
+      <div class="hero-bottom-right">
+        <div class="hero-info">111m² e 121m²</div>
+        <div class="hero-info">3 suítes</div>
+        <div class="hero-info">2 vagas determinadas</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light" id="galeria">
+    <div class="container intro-grid">
+      <div>
+        <div class="title-big">Apartamentos para<br>receber <span class="accent">e impressionar</span></div>
+        <div class="text-body">Inspirado na harmonia entre design contemporâneo e conforto, o empreendimento oferece acabamentos de alto padrão, espaços bem planejados e uma atmosfera acolhedora. Um convite para viver com exclusividade em um dos bairros mais desejados de São Paulo.</div>
+        <a href="#projetistas" class="btn-outline">Projetistas</a>
+      </div>
+      <div class="intro-image-wrap">
+        <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-2.webp" alt="Apartamento decorado">
+        <div class="ribbon">Pronto para morar</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light" id="areas">
+    <div class="container">
+      <div class="tabs">
+        <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+        <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+      </div>
+
+      <div id="apartamentos" class="gallery-panel">
+        <div class="gallery-split">
+          <div>
+            <div class="gallery-main">
+              <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp" alt="Apartamento">
+              <div class="gallery-caption" id="aptCaption">Suíte</div>
+            </div>
+            <div class="gallery-nav">
+              <button class="circle-btn" onclick="prevApt()">‹</button>
+              <button class="circle-btn" onclick="nextApt()">›</button>
+            </div>
+          </div>
+          <div class="gallery-copy">
+            <h3>Conforto, elegância e exclusividade</h3>
+            <p>Os apartamentos de 2 ou 3 suítes do Nhambí Moema traduzem conforto, funcionalidade e sofisticação em cada ambiente. Com plantas bem resolvidas, acabamentos de alto padrão e integração equilibrada entre áreas sociais e íntimas, os espaços foram pensados para acolher diferentes estilos de vida, valorizando a luz natural, a sensação de amplitude e o prazer de morar bem.</p>
+            <a href="#leadForm" class="btn-terracotta">Fale com um corretor</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="areasComuns" class="gallery-panel" style="display:none">
+        <div class="areas-top">
+          <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
+          <div class="areas-desc">Conheça todos os espaços de lazer que fazem do Nhambí Moema um empreendimento completo. Planejados para atender diferentes estilos de vida, estes ambientes promovem bem-estar, convivência e conforto em todos os momentos e para todas as idades.</div>
+        </div>
+        <div class="areas-icons">
+          <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
+          <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
+          <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
+          <div class="item"><span class="ico">♨</span><span>Piscina Adulto</span></div>
+          <div class="item"><span class="ico">♨</span><span>Piscina Infantil</span></div>
+          <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
+          <div class="item"><span class="ico">♨</span><span>Fitness</span></div>
+          <div class="item"><span class="ico">♨</span><span>Playground Externo</span></div>
+          <div class="item"><span class="ico">♨</span><span>Fitness Externo</span></div>
+          <div class="item"><span class="ico">♨</span><span>Bicicletário</span></div>
+          <div class="item"><span class="ico">♨</span><span>Pet Care</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white" id="plantas">
+    <div class="container">
+      <div class="plantas-title">Plantas</div>
+      <div class="tabs">
+        <div class="tab" onclick="showPlanta('lazer', this)">Lazer</div>
+        <div class="tab" onclick="showPlanta('111', this)">Aptos. 111m²</div>
+        <div class="tab active" onclick="showPlanta('121', this)">Aptos. 121m²</div>
+      </div>
+      <div class="plantas-grid">
+        <div>
+          <div class="plantas-copy">As plantas de 3 suítes, com layouts bem resolvidos, priorizam conforto, funcionalidade e qualidade espacial.<br><br>Para quem deseja áreas de convívio mais amplas, é possível realizar alterações de layout, incluindo a conversão para 2 suítes, proporcionando ambientes ainda mais integrados e generosos.<br><br>Terraço gourmet, circulação inteligente e hall social privativo reforçam a sensação de acolhimento, enquanto a flexibilidade das plantas permite que cada unidade se adapte aos diferentes estilos de vida.</div>
+          <div class="plantas-nav">
+            <button class="circle-btn" onclick="prevPlanta()">‹</button>
+            <button class="circle-btn" onclick="nextPlanta()">›</button>
+          </div>
+        </div>
+        <div class="plantas-img-wrap">
+          <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp" alt="Planta 121">
+          <div class="plantas-ribbon" id="plantaCaption">3 suítes, living integrado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light" id="diferenciais">
+    <div class="container diff-grid-wrap">
+      <div>
+        <div class="section-title-side"><span class="accent">Diferenciais</span><br>Técnicos</div>
+      </div>
+      <div>
+        <div class="areas-desc" style="max-width:none;margin-bottom:26px">Os diferenciais técnicos do Nhambí Moema refletem o cuidado com o conforto, a funcionalidade e a qualidade construtiva do projeto. Soluções pensadas para o dia a dia e itens que elevam a experiência de morar, garantindo praticidade, segurança e bem-estar em um empreendimento exclusivamente residencial.</div>
+        <div class="diff-grid">
+          <div class="diff-item"><span class="ico">⌂</span><span>Duas vagas determinadas</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Infra estrutura para ar condicionado (carga e dreno)</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Persianas dos dormitórios motorizadas</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Porta para separação da área social e íntima</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Tomadas USB (suítes e sala)</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Opção de cozinha aberta ou fechada</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para desembaraçador de espelho nos banheiros das suítes</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para aquecedor de toalha nos banheiros das suítes</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso com tratamento acústico</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Previsão de infraestrutura para coifa na cozinha</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Previsão de infraestrutura para coifa na churrasqueira</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Ponto para bike elétrica no bicicletário</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Acesso social e de serviço</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para triturador</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para aspiração central</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Exclusividade residencial</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Guarita com vidro blindado</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Máquina de gelo na churrasqueira e salão de festas</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Tratamento acústico na tubulação hidráulica</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Ponto de hidráulica para geladeira ou filtro, máquina de lavar roupa e lavar louça</span></div>
+          <div class="diff-item"><span class="ico">⌂</span><span>Fechadura eletrônica</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white" id="projetistas">
+    <div class="container proj-grid">
+      <div>
+        <div class="section-title-side"><span class="accent">Projetistas</span></div>
+      </div>
+      <div>
+        <div class="proj-copy">O Nhambí Moema reflete a visão de profissionais experientes que combinaram design contemporâneo e funcionalidade para oferecer um empreendimento de alto padrão. Cada espaço é cuidadosamente planejado, priorizando conforto, estética e uma experiência de vida única para seus moradores.</div>
+        <div class="proj-list">
+          <div class="proj-item"><span class="role">Arquitetura</span><span class="name">Bianconi Arquitetos</span></div>
+          <div class="proj-item"><span class="role">Interiores</span><span class="name">Studio Archea</span></div>
+          <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Barbieri+Gorski</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark" id="localizacao">
+    <div class="container local-grid">
+      <div>
+        <div class="local-title">Viva tudo o que <strong>Moema</strong><br>oferece para uma vida<br>completa</div>
+        <div class="address-line">📍 Alameda dos Nhambiquaras, 1.375</div>
+        <div class="local-copy">O Nhambí Moema está cercado por uma infraestrutura completa de serviços, comércio e gastronomia. Próximo ao Shopping Ibirapuera, ao Parque Ibirapuera e às principais vias da região, oferece praticidade e qualidade de vida em um dos bairros mais desejados de São Paulo.</div>
+        <div class="accordion">
+          <div class="row"><span class="plus">+</span><span>Facilidade de acesso e mobilidade</span></div>
+          <div class="row"><span class="plus">+</span><span>Educação de excelência</span></div>
+          <div class="row"><span class="plus">+</span><span>Área verde</span></div>
+          <div class="row"><span class="plus">+</span><span>Gastronomia diversificada</span></div>
+          <div class="row"><span class="plus">+</span><span>Comodidade e centros comerciais</span></div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Mapa-NHAMBI.webp" alt="Mapa localização">
+        <a class="map-btn" href="https://maps.google.com/?q=Alameda+dos+Nhambiquaras+1375+Moema+Sao+Paulo" target="_blank">Ver no Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-ficha" id="ficha">
+    <div class="container">
+      <div class="ficha-title">Ficha Técnica</div>
+      <div class="ficha-grid">
+        <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+        <div class="ficha-item"><h4>Endereço</h4><p>Alameda dos Nhambiquaras, 1.375</p></div>
+        <div class="ficha-item"><h4>Bairro</h4><p>Moema</p></div>
+        <div class="ficha-item"><h4>Torre Única</h4><p>Terreno de 1.200m²<br>Exclusivamente residencial</p></div>
+        <div class="ficha-item"><h4>Apartamentos</h4><p>3 suítes – 111m² e 121m²<br>Gardens – 167m² e 183m²</p></div>
+        <div class="ficha-item"><h4>Lazer Residencial</h4><p>Piscina adulto e infantil, Salão de festas, Fitness, Fitness externo, Churrasqueira, Brinquedoteca, Sauna, Pet Care, Bicicletário, Playground</p></div>
+        <div class="ficha-item"><h4>Arquitetura</h4><p>Bianconi Arquitetos</p></div>
+        <div class="ficha-item"><h4>Interiores</h4><p>Studio Archea</p></div>
+        <div class="ficha-item"><h4>Paisagismo</h4><p>Barbieri+Gorski</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="carolline" id="carolline">
+    <div class="container car-grid">
+      <div class="car-photo"><img src="https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg" alt="Carolline"></div>
+      <div class="car-copy">
+        <h3>Fale com a <strong>Carolline</strong></h3>
+        <p>Se você quer conhecer pessoalmente o Nhambí Moema, tirar dúvidas sobre plantas, disponibilidade e condições, a Carolline pode te atender diretamente e te acompanhar em todas as etapas do processo.</p>
+        <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Fale com a Carolline</a>
+      </div>
+    </div>
+    <div class="container lead-options">
+      <div class="lead-card">
+        <h4>Receba <strong>informações</strong> do empreendimento</h4>
+        <p>Prefere que a Carolline entre em contato? Preencha seus dados e receba informações sobre disponibilidade, plantas e visita ao decorado.</p>
+        <form class="lead-form" id="leadForm">
+          <div class="form-hp" aria-hidden="true">
+            <label for="leadWebsite">Não preencha este campo</label>
+            <input id="leadWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div>
+            <label for="leadName">Nome</label>
+            <input id="leadName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="leadPhone">WhatsApp</label>
+            <input id="leadPhone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="15" pattern="[0-9() +\-]{10,15}" title="Informe um telefone com DDD" aria-describedby="leadPhoneHint" required>
+            <small id="leadPhoneHint">Digite o DDD e o número.</small>
+          </div>
+          <div>
+            <label for="leadPurpose">Você busca o imóvel para:</label>
+            <select id="leadPurpose" name="purpose" required>
+              <option value="">Selecione</option>
+              <option value="Morar">Morar</option>
+              <option value="Investir">Investir</option>
+              <option value="Ainda avaliando">Ainda avaliando</option>
+            </select>
+          </div>
+          <div>
+            <label for="leadTimeline">Em quanto tempo pretende adquirir o imóvel?</label>
+            <select id="leadTimeline" name="purchase_timeline" required>
+              <option value="">Selecione</option>
+              <option value="Até 3 meses">Até 3 meses</option>
+              <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+              <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+            </select>
+          </div>
+          <button type="submit">Quero receber informações</button>
+          <small>Ao enviar, seus dados serão registrados para que a Carolline entre em contato.</small>
+          <div class="status" id="leadFormStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+      <div class="lead-card">
+        <h4>Agende sua <strong>visita</strong></h4>
+        <p>O Nhambi Moema esta pronto para morar e o decorado pode ser visitado com atendimento direto da Equipe Ortega. Se preferir um contato mais rapido, use o WhatsApp e fale agora com a Carolline.</p>
+        <a class="btn-green" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20visita%20ao%20decorado%20do%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Agendar visita no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="lead-thanks" id="leadThankYou" role="dialog" aria-modal="true" aria-labelledby="leadThankYouTitle" hidden>
+    <div class="lead-thanks-backdrop" data-thanks-close></div>
+    <div class="lead-thanks-panel" tabindex="-1">
+      <button class="lead-thanks-close" type="button" aria-label="Fechar" data-thanks-close>&times;</button>
+      <div class="lead-thanks-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M12 25.5 20.5 34 37 16"/><circle cx="24" cy="24" r="20"/></svg>
+      </div>
+      <div class="lead-thanks-eyebrow">Mensagem recebida</div>
+      <h2 id="leadThankYouTitle">Obrigada pelo seu <strong>interesse</strong></h2>
+      <p class="lead-thanks-copy">Recebemos seus dados. A Carolline vai analisar suas preferências e entrar em contato para apresentar as informações do Nhambí Moema.</p>
+      <div class="lead-thanks-choice">
+        <strong>Prefere falar agora?</strong>
+        <p>Se quiser antecipar o atendimento, você pode chamar a Carolline diretamente no WhatsApp.</p>
+        <a class="btn-green" id="thankYouWhatsapp" href="#whatsapp-qualificado" role="button">Falar com a Carolline</a>
+      </div>
+      <button class="lead-thanks-return" type="button" data-thanks-close>Continuar na página</button>
+    </div>
+  </div>
+
+  <a class="floating-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    (function(){
+      var whatsappConfig = {
+        construtora: "paesegregori",
+        produto: "nhambi-moema",
+        corretor: "carolline",
+        tipo_pagina: "landing_corretor",
+        telefone_destino: "5511919890615",
+        content_name: "Nhambí Moema | Atendimento Carolline",
+        content_category: "imovel_lancamento",
+        mensagem: "Olá, quero conhecer mais sobre o empreendimento Nhambí Moema."
+      };
+      var leadEndpoint = "https://webhook.figueiramarketing.com.br/webhook/bd83d8bf-d63f-4161-a97b-ad38095d3ae6";
+      var campaignConfig = {
+        id: "120248150688020185",
+        name: "[FIG] [LEADS-LP] [ NHAMBI ] 15 06 26"
+      };
+
+      function gerarProtocolo(){
+        return "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+      }
+
+      function montarUrl(protocolo){
+        return "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(whatsappConfig.mensagem + " Protocolo: " + protocolo);
+      }
+
+      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]').forEach(function(link){
+        link.setAttribute("data-whatsapp-link", "true");
+        Object.keys(whatsappConfig).forEach(function(key){
+          if(key !== "mensagem") link.setAttribute("data-" + key.replace(/_/g, "-"), whatsappConfig[key]);
+        });
+        link.addEventListener("click", function(event){
+          var protocolo = gerarProtocolo();
+          var clickUrl = montarUrl(protocolo);
+          window.dataLayer.push({
+            event: "whatsapp_click",
+            construtora: whatsappConfig.construtora,
+            produto: whatsappConfig.produto,
+            corretor: whatsappConfig.corretor,
+            tipo_pagina: whatsappConfig.tipo_pagina,
+            telefone_destino: whatsappConfig.telefone_destino,
+            protocolo: protocolo,
+            content_name: whatsappConfig.content_name,
+            content_category: whatsappConfig.content_category,
+            page_path: window.location.pathname,
+            page_location: window.location.href,
+            click_url: clickUrl,
+            click_text: (link.textContent || link.getAttribute("aria-label") || "WhatsApp").trim()
+          });
+          event.preventDefault();
+          window.open(clickUrl, "_blank", "noopener,noreferrer");
+        });
+      });
+
+      var leadForm = document.getElementById("leadForm");
+      var leadFormStatus = document.getElementById("leadFormStatus");
+      var leadPhone = document.getElementById("leadPhone");
+      var leadThankYou = document.getElementById("leadThankYou");
+      var leadThankYouPanel = leadThankYou ? leadThankYou.querySelector(".lead-thanks-panel") : null;
+      var thankYouWhatsapp = document.getElementById("thankYouWhatsapp");
+      var leadFormTouched = false;
+      var previousFocusedElement = null;
+
+      function sanitizeValue(value){
+        return (value || "").replace(/\s+/g, " ").trim();
+      }
+
+      function queryValue(params, names){
+        for(var index = 0; index < names.length; index += 1){
+          var value = sanitizeValue(params.get(names[index]));
+          if(value) return value;
+        }
+        return "";
+      }
+
+      function inferPlatform(utmSource, utmMedium, fbclid){
+        var source = sanitizeValue(utmSource).toLowerCase();
+        var medium = sanitizeValue(utmMedium).toLowerCase();
+        if(/instagram|^ig$/.test(source)) return "instagram";
+        if(/facebook|^fb$/.test(source)) return "facebook";
+        if(/meta/.test(source) || fbclid) return "meta";
+        if(/google|adwords|gads|googleads/.test(source)){
+          return /cpc|paid|ppc|ads/.test(medium) ? "google_ads" : "google";
+        }
+        if(/youtube/.test(source)) return "youtube";
+        if(/tiktok/.test(source)) return "tiktok";
+        if(/linkedin/.test(source)) return "linkedin";
+        if(source) return source.replace(/[^a-z0-9_-]/g, "_").slice(0, 50);
+        return "website";
+      }
+
+      function buildAttribution(){
+        var params = new URLSearchParams(window.location.search);
+        var fbclid = queryValue(params, ["fbclid"]);
+        var utmSource = queryValue(params, ["utm_source"]);
+        var utmMedium = queryValue(params, ["utm_medium"]);
+        var paidMeta = Boolean(fbclid || /facebook|instagram|meta/i.test(utmSource));
+        var fbp = (document.cookie.match(/(^|;)\s*_fbp=([^;]+)/) || [])[2] || null;
+        var fbc = fbclid ? ("fb.1." + Date.now() + "." + fbclid) : null;
+        var userAgent = navigator.userAgent || null;
+        return {
+          ad_id: queryValue(params, ["ad_id", "utm_ad_id"]),
+          ad_name: queryValue(params, ["ad_name", "utm_ad_name"]),
+          adset_id: queryValue(params, ["adset_id", "utm_adset_id"]),
+          adset_name: queryValue(params, ["adset_name", "utm_adset_name"]),
+          campaign_id: queryValue(params, ["campaign_id", "utm_campaign_id"]) || (paidMeta ? campaignConfig.id : ""),
+          campaign_name: queryValue(params, ["campaign_name"]) || (paidMeta ? campaignConfig.name : ""),
+          utm_source: utmSource,
+          utm_medium: utmMedium,
+          utm_campaign: queryValue(params, ["utm_campaign"]),
+          utm_content: queryValue(params, ["utm_content"]),
+          utm_term: queryValue(params, ["utm_term"]),
+          fbclid: fbclid,
+          fbp: fbp,
+          fbc: fbc,
+          user_agent: userAgent,
+          is_organic: !paidMeta,
+          platform: inferPlatform(utmSource, utmMedium, fbclid)
+        };
+      }
+
+      function storeLead(payload){
+        return fetch(leadEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).then(async function(response){
+          var rawText = await response.text().catch(function(){ return ""; });
+          var result = {};
+          try { result = JSON.parse(rawText); } catch(_){}
+          if(!response.ok || !result.success){
+            var error = new Error(result.error || "Não foi possível registrar o lead.");
+            error.code = result.status || "SUBMIT_FAILED";
+            error.httpStatus = response.status;
+            throw error;
+          }
+          return result;
+        }).catch(function(networkErr){
+          if(networkErr.name === "TypeError"){
+            console.error("[leadForm] erro de rede ou CORS:", networkErr.message);
+          }
+          throw networkErr;
+        });
+      }
+
+      function formatLeadMessage(data, protocolo){
+        var lines = [
+          "🔥 LEAD QUALIFICADO - formulario preenchido no site.",
+          "Quero receber informacoes sobre o empreendimento Nhambi Moema.",
+          "Protocolo: " + protocolo,
+          "Nome: " + data.name,
+          "WhatsApp: " + data.phone,
+          "Objetivo: " + data.purpose,
+          "Prazo para adquirir: " + data.purchase_timeline
+        ];
+        return lines.join(" | ");
+      }
+
+      function formatPhone(value){
+        var digits = (value || "").replace(/\D/g, "").slice(0, 11);
+        if(digits.length <= 2) return digits;
+        if(digits.length <= 6) return "(" + digits.slice(0, 2) + ") " + digits.slice(2);
+        if(digits.length <= 10) return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 6) + "-" + digits.slice(6);
+        return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 7) + "-" + digits.slice(7);
+      }
+
+      function openThankYouModal(clickUrl, protocolo, leadDetails){
+        if(!leadThankYou || !leadThankYouPanel) return;
+        previousFocusedElement = document.activeElement;
+        if(thankYouWhatsapp){
+          thankYouWhatsapp.setAttribute("data-whatsapp-url", clickUrl);
+          thankYouWhatsapp.setAttribute("data-whatsapp-protocolo", protocolo);
+          thankYouWhatsapp.setAttribute("data-lead-purpose", leadDetails.lead_purpose);
+          thankYouWhatsapp.setAttribute("data-purchase-timeline", leadDetails.purchase_timeline);
+          thankYouWhatsapp.setAttribute("data-lead-source", leadDetails.lead_source);
+        }
+        leadThankYou.hidden = false;
+        document.body.classList.add("modal-open");
+        window.requestAnimationFrame(function(){
+          leadThankYou.classList.add("is-visible");
+          leadThankYouPanel.focus();
+        });
+      }
+
+      function closeThankYouModal(){
+        if(!leadThankYou) return;
+        leadThankYou.classList.remove("is-visible");
+        leadThankYou.hidden = true;
+        document.body.classList.remove("modal-open");
+        if(previousFocusedElement && typeof previousFocusedElement.focus === "function") previousFocusedElement.focus();
+      }
+
+      if(leadThankYou){
+        leadThankYou.querySelectorAll("[data-thanks-close]").forEach(function(control){
+          control.addEventListener("click", closeThankYouModal);
+        });
+        document.addEventListener("keydown", function(event){
+          if(event.key === "Escape" && !leadThankYou.hidden) closeThankYouModal();
+        });
+      }
+
+      if(thankYouWhatsapp){
+        thankYouWhatsapp.addEventListener("click", function(event){
+          event.preventDefault();
+          var clickUrl = thankYouWhatsapp.getAttribute("data-whatsapp-url");
+          if(!clickUrl) return;
+          var protocolo = thankYouWhatsapp.getAttribute("data-whatsapp-protocolo") || "";
+          var leadSource = thankYouWhatsapp.getAttribute("data-lead-source") || "website";
+          var leadPurpose = thankYouWhatsapp.getAttribute("data-lead-purpose") || "";
+          var purchaseTimeline = thankYouWhatsapp.getAttribute("data-purchase-timeline") || "";
+          window.dataLayer.push({
+            event: "qualified_whatsapp_action",
+            construtora: whatsappConfig.construtora,
+            produto: whatsappConfig.produto,
+            corretor: whatsappConfig.corretor,
+            tipo_pagina: whatsappConfig.tipo_pagina,
+            content_name: whatsappConfig.content_name,
+            content_category: whatsappConfig.content_category,
+            protocolo: protocolo,
+            form_location: "thank_you_modal",
+            lead_source: leadSource,
+            lead_temperature: "hot",
+            lead_purpose: leadPurpose,
+            purchase_timeline: purchaseTimeline,
+            page_path: window.location.pathname,
+            page_location: window.location.href,
+            click_url: clickUrl,
+            click_text: "Falar com a Carolline"
+          });
+          var attribution = buildAttribution();
+          fetch(leadEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            keepalive: true,
+            body: JSON.stringify(Object.assign({}, attribution, {
+              event_type: "qualified_whatsapp_click",
+              id: protocolo,
+              origin: window.location.origin,
+              form_id: "leadForm",
+              form_name: "Landing Page | Nhambí Moema | Carolline",
+              lead_source: leadSource,
+              lead_temperature: "hot",
+              qualified_whatsapp_clicked: true,
+              qualified_whatsapp_clicked_at: new Date().toISOString(),
+              qualified_whatsapp_status: "QUENTE - clicou no WhatsApp pós-formulário",
+              interest: leadPurpose,
+              schedule: purchaseTimeline,
+              inbox_url: clickUrl,
+              landing_url: window.location.href,
+              referrer: document.referrer
+            }))
+          }).catch(function(error){
+            console.warn("[leadForm] Não foi possível atualizar a qualificação do WhatsApp.", error);
+          });
+          window.open(clickUrl, "_blank", "noopener,noreferrer");
+        });
+      }
+
+      if(leadPhone){
+        leadPhone.addEventListener("input", function(){
+          leadPhone.value = formatPhone(leadPhone.value);
+          leadPhone.setCustomValidity("");
+        });
+      }
+
+      if(leadForm){
+        leadForm.addEventListener("focusin", function(){
+          if(leadFormTouched) return;
+          leadFormTouched = true;
+          var attribution = buildAttribution();
+          window.dataLayer.push({
+            event: "form_start",
+            construtora: whatsappConfig.construtora,
+            produto: whatsappConfig.produto,
+            corretor: whatsappConfig.corretor,
+            tipo_pagina: whatsappConfig.tipo_pagina,
+            content_name: whatsappConfig.content_name,
+            content_category: whatsappConfig.content_category,
+            form_id: "leadForm",
+            form_location: "carolline_contact_section",
+            lead_source: attribution.platform,
+            page_path: window.location.pathname,
+            page_location: window.location.href
+          });
+        });
+
+        leadForm.addEventListener("submit", async function(event){
+          event.preventDefault();
+          var submitButton = leadForm.querySelector('button[type="submit"]');
+          var formData = {
+            name: sanitizeValue(document.getElementById("leadName").value),
+            phone: sanitizeValue(document.getElementById("leadPhone").value),
+            purpose: sanitizeValue(document.getElementById("leadPurpose").value),
+            purchase_timeline: sanitizeValue(document.getElementById("leadTimeline").value),
+            website: sanitizeValue(document.getElementById("leadWebsite").value)
+          };
+
+          if(!formData.name || !formData.phone || !formData.purpose || !formData.purchase_timeline){
+            leadForm.reportValidity();
+            return;
+          }
+
+          var phoneDigits = formData.phone.replace(/\D/g, "");
+          if(phoneDigits.length < 10 || phoneDigits.length > 13){
+            if(leadFormStatus){
+              leadFormStatus.textContent = "Confira o WhatsApp informado, incluindo o DDD.";
+              leadFormStatus.classList.add("is-visible", "is-error");
+            }
+            leadPhone.setCustomValidity("Informe um telefone válido com DDD.");
+            leadPhone.focus();
+            return;
+          }
+
+          var protocolo = gerarProtocolo();
+          window._leadProtocolo = protocolo;
+          var clickUrl = "https://wa.me/" + whatsappConfig.telefone_destino + "?text=" + encodeURIComponent(formatLeadMessage(formData, protocolo));
+          var attribution = buildAttribution();
+          var payload = Object.assign({}, formData, attribution, {
+            event_type: "lead_form_submit",
+            id: protocolo,
+            origin: window.location.origin,
+            form_id: "leadForm",
+            form_name: "Landing Page | Nhambí Moema | Carolline",
+            email: "",
+            interest: formData.purpose || formData.interest || "",
+            purpose: formData.purpose || formData.interest || "",
+            schedule: formData.purchase_timeline,
+            message: "",
+            lead_temperature: "warm",
+            qualified_whatsapp_clicked: false,
+            qualified_whatsapp_status: "PENDENTE - formulário enviado, ainda não clicou no WhatsApp pós-formulário",
+            inbox_url: clickUrl,
+            landing_url: window.location.href,
+            referrer: document.referrer
+          });
+
+          submitButton.disabled = true;
+          submitButton.textContent = "Registrando...";
+          if(leadFormStatus){
+            leadFormStatus.textContent = "Registrando seus dados com segurança...";
+            leadFormStatus.classList.remove("is-error");
+            leadFormStatus.classList.add("is-visible");
+          }
+
+          // O evento de conversão só é enviado depois da confirmação do webhook.
+          var webhookOk = false;
+          try {
+            await storeLead(payload);
+            webhookOk = true;
+          } catch(error) {
+            console.warn("[leadForm] Falha ao registrar o formulário.", error);
+            window.dataLayer.push({
+              event: "lead_form_submit_error",
+              construtora: whatsappConfig.construtora,
+              produto: whatsappConfig.produto,
+              corretor: whatsappConfig.corretor,
+              tipo_pagina: whatsappConfig.tipo_pagina,
+              protocolo: protocolo,
+              form_id: "leadForm",
+              error_message: error.message || String(error),
+              error_code: error.code || "UNKNOWN",
+              page_path: window.location.pathname,
+              page_location: window.location.href
+            });
+          }
+
+          if(webhookOk){
+            window.dataLayer.push({
+              event: "lead_form_submit",
+              construtora: whatsappConfig.construtora,
+              produto: whatsappConfig.produto,
+              corretor: whatsappConfig.corretor,
+              tipo_pagina: whatsappConfig.tipo_pagina,
+              content_name: whatsappConfig.content_name,
+              content_category: whatsappConfig.content_category,
+              protocolo: protocolo,
+              form_id: "leadForm",
+              form_location: "carolline_contact_section",
+              lead_source: attribution.platform,
+              lead_purpose: formData.purpose,
+              purchase_timeline: formData.purchase_timeline,
+              campaign_id: attribution.campaign_id,
+              adset_id: attribution.adset_id,
+              ad_id: attribution.ad_id,
+              page_path: window.location.pathname,
+              page_location: window.location.href
+            });
+            if(leadFormStatus){
+              leadFormStatus.textContent = "Dados registrados com sucesso.";
+              leadFormStatus.classList.remove("is-visible", "is-error");
+            }
+            leadForm.reset();
+            openThankYouModal(clickUrl, protocolo, {
+              lead_purpose: formData.purpose,
+              purchase_timeline: formData.purchase_timeline,
+              lead_source: attribution.platform
+            });
+          } else {
+            if(leadFormStatus){
+              leadFormStatus.textContent = "Não foi possível enviar seus dados agora. Revise as informações e tente novamente.";
+              leadFormStatus.classList.add("is-visible", "is-error");
+            }
+          }
+
+          submitButton.disabled = false;
+          submitButton.textContent = "Quero receber informações";
+        });
+      }
+    })();
+
+    const apts = [
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp', cap:'Suíte'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-2.webp', cap:'Living Integrado'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-3.webp', cap:'Cozinha Gourmet'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-4.webp', cap:'Sala de Estar'}
+    ];
+    let aptIndex = 0;
+    function renderApt(){
+      document.getElementById('aptImg').src = apts[aptIndex].img;
+      document.getElementById('aptCaption').textContent = apts[aptIndex].cap;
+    }
+    function prevApt(){aptIndex=(aptIndex-1+apts.length)%apts.length;renderApt()}
+    function nextApt(){aptIndex=(aptIndex+1)%apts.length;renderApt()}
+
+    const plantas = {
+      'lazer': {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Nhambi-terreo-1.webp', cap:'Lazer completo no térreo'},
+      '111': {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-3-suites-cozinha-aberta.webp', cap:'3 suítes, cozinha aberta'},
+      '121': {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp', cap:'3 suítes, living integrado'}
+    };
+    const plantaOrder = ['lazer','111','121'];
+    let plantaIndex = 2;
+    function renderPlanta(){
+      const key = plantaOrder[plantaIndex];
+      document.getElementById('plantaImg').src = plantas[key].img;
+      document.getElementById('plantaCaption').textContent = plantas[key].cap;
+      document.querySelectorAll('#plantas .tab').forEach(t=>t.classList.remove('active'));
+      const labels = {'lazer':0,'111':1,'121':2};
+      document.querySelectorAll('#plantas .tab')[labels[key]].classList.add('active');
+    }
+    function prevPlanta(){plantaIndex=(plantaIndex-1+plantaOrder.length)%plantaOrder.length;renderPlanta()}
+    function nextPlanta(){plantaIndex=(plantaIndex+1)%plantaOrder.length;renderPlanta()}
+    function showPlanta(key, el){plantaIndex = plantaOrder.indexOf(key); renderPlanta();}
+
+    function showGallery(id, el){
+      document.querySelectorAll('#areas .tab').forEach(t=>t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('apartamentos').style.display = id==='apartamentos' ? 'block' : 'none';
+      document.getElementById('areasComuns').style.display = id==='areasComuns' ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
