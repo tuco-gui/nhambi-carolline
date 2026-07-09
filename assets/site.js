@@ -2,7 +2,7 @@ window.dataLayer = window.dataLayer || [];
 
 var EMPREENDIMENTOS = [
   { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true },
-  { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", localPage: "/nhambi-moema/" },
+  { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", hasCorretorLP: true, localPage: "/nhambi-moema/" },
   { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg" },
   { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp" },
   { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp" },
@@ -131,8 +131,8 @@ function initials(nome){
     grid.innerHTML = EMPREENDIMENTOS.map(function(emp){
       var msg = encodeURIComponent("Olá, quero conhecer mais sobre o empreendimento " + emp.nome + (isHubGeral ? "." : (" com " + corretorNome + ".")));
       var corretorLP = (emp.hasCorretorLP && !isHubGeral) ? ("/corretores/" + corretorSlug + "/" + emp.slug + "/") : null;
-      var detalhesHref = emp.localPage || corretorLP || ("https://paesegregori.com.br/" + emp.slug + "/");
-      var detalhesTarget = (emp.localPage || corretorLP) ? "" : ' target="_blank" rel="noopener noreferrer"';
+      var detalhesHref = corretorLP || emp.localPage;
+      var detalhesBtn = detalhesHref ? ('<a class="btn btn-outline" href="' + detalhesHref + '">Ver detalhes</a>') : "";
       return (
         '<article class="card portfolio-card">' +
           '<div class="card-media"><img src="' + emp.img + '" alt="' + emp.nome + '" loading="lazy"></div>' +
@@ -140,7 +140,7 @@ function initials(nome){
             '<div class="card-topline"><span>' + emp.status + '</span></div>' +
             '<h4 class="card-title">' + emp.nome + '</h4>' +
             '<div class="portfolio-card-actions">' +
-              '<a class="btn btn-outline" href="' + detalhesHref + '"' + detalhesTarget + '>Ver detalhes</a>' +
+              detalhesBtn +
               '<a class="btn btn-wa" href="https://wa.me/' + telefoneDestino + '?text=' + msg + '" ' +
                 'data-produto-override="' + emp.slug + '" ' +
                 'data-content-name-override="' + emp.nome + '" ' +
