@@ -123,18 +123,22 @@
         </div>
 
         <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="areas-top">
-            <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-            <div class="areas-desc">Brinquedoteca, salão de festas, playground, academia, piscina, sauna e estar externo com paisagismo. Também conta com 1 loja de 171m² e salas comerciais de 27m² a 39m².</div>
-          </div>
-          <div class="areas-icons">
-            <div class="item"><span class="ico">♨</span><span>Piscina</span></div>
-            <div class="item"><span class="ico">♨</span><span>Academia</span></div>
-            <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-            <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
-            <div class="item"><span class="ico">♨</span><span>Playground</span></div>
-            <div class="item"><span class="ico">♨</span><span>Estar Externo</span></div>
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo nos Jardins</h3>
+              <p>Brinquedoteca, salão de festas, playground, academia, piscina, sauna e estar externo com paisagismo. Também conta com 1 loja de 171m² e salas comerciais de 27m² a 39m².</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Lina%20Jardins." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
           </div>
         </div>
       </div>
@@ -293,10 +297,25 @@
     };
     window.PAGE_DATA = {
       apts: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp", cap: "Cozinha decorada"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/6-1.webp", cap: "Living ampliado"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp", cap: "Cozinha"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-1.webp", cap: "Living"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2-1.webp", cap: "Living"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-1.webp", cap: "Varanda integrada"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-1.webp", cap: "Hall dos dormitórios"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7-1.webp", cap: "Suíte master"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/8.webp", cap: "Suíte"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Suite-03-02.webp", cap: "Dormitório"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-suite-master-02.webp", cap: "Perspectiva suíte (cobertura)"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-gourmet-02.webp", cap: "Perspectiva cobertura"}
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Area-de-servico-02.webp", cap: "Área de serviço"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1.webp", cap: "Salão de festas, espaço gourmet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/5.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Playground.webp", cap: "Playground"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7.webp", cap: "Academia"}
       ],
       plantas: {
         "suites143": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp", cap: "2 suítes, 143m²"},

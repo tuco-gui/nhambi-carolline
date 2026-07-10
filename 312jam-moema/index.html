@@ -125,23 +125,22 @@
         </div>
 
         <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="areas-top">
-            <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-            <div class="areas-desc">No térreo, no pavimento wellness e no rooftop — o 312 JAM reúne lazer completo para todos os momentos do dia a dia.</div>
-          </div>
-          <div class="areas-icons">
-            <div class="item"><span class="ico">♨</span><span>Hall e Lockers</span></div>
-            <div class="item"><span class="ico">♨</span><span>Lobby e Coworking</span></div>
-            <div class="item"><span class="ico">♨</span><span>Apoio Café</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-            <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
-            <div class="item"><span class="ico">♨</span><span>Playground</span></div>
-            <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-            <div class="item"><span class="ico">♨</span><span>Piscina Coberta com Raia</span></div>
-            <div class="item"><span class="ico">♨</span><span>Piscina Infantil</span></div>
-            <div class="item"><span class="ico">♨</span><span>Hidro e Sauna</span></div>
-            <div class="item"><span class="ico">♨</span><span>Terraço Wellness</span></div>
-            <div class="item"><span class="ico">♨</span><span>Academia no Rooftop</span></div>
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Academia no rooftop</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo do térreo ao rooftop</h3>
+              <p>No térreo, no pavimento wellness e no rooftop — o 312 JAM reúne lazer completo para todos os momentos do dia a dia.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
           </div>
         </div>
       </div>
@@ -315,10 +314,26 @@
     };
     window.PAGE_DATA = {
       apts: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-55m².webp", cap: "Living 55m²"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-suite-55m².webp", cap: "Suíte 55m²"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-64m².webp", cap: "Living 64m²"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-suite-64m².webp", cap: "Suíte 64m²"}
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-55m².webp", cap: "Perspectiva do living, 55m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-suite-55m².webp", cap: "Perspectiva da suíte, 55m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-64m².webp", cap: "Perspectiva do living, 64m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-suite-64m².webp", cap: "Perspectiva da suíte, 64m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-89m²-b.webp", cap: "Perspectiva do living, 89m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-89m².webp", cap: "Perspectiva do living, 89m²"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp", cap: "Academia no rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia-2.webp", cap: "Academia no rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Piscina-coberta-com-raia.webp", cap: "Piscina coberta com raia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Sauna.webp", cap: "Sauna"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terraco.webp", cap: "Terraço"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terraco-2.webp", cap: "Terraço"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Brinquedoteca.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Playground.webp", cap: "Playground"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Salao-de-festas.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Churrasqueira.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Hall-e-lockers.webp", cap: "Hall e Lockers"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Lobby-e-Coworking.webp", cap: "Lobby e Coworking"}
       ],
       plantas: {
         "2dorms55": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m.webp", cap: "2 dormitórios, 55m²"},

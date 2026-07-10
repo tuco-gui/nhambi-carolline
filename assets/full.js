@@ -69,6 +69,19 @@ window.dataLayer = window.dataLayer || [];
   window.prevApt = function(){ aptIndex = (aptIndex - 1 + apts.length) % apts.length; renderApt(); };
   window.nextApt = function(){ aptIndex = (aptIndex + 1) % apts.length; renderApt(); };
 
+  // ── Carrossel de áreas comuns (Áreas Comuns > aba Áreas Comuns) ──
+  var areas = data.areas || [];
+  var areaIndex = 0;
+  function renderArea(){
+    if(!areas.length) return;
+    var img = document.getElementById("areaImg");
+    var cap = document.getElementById("areaCaption");
+    if(img) img.src = areas[areaIndex].img;
+    if(cap) cap.textContent = areas[areaIndex].cap;
+  }
+  window.prevArea = function(){ areaIndex = (areaIndex - 1 + areas.length) % areas.length; renderArea(); };
+  window.nextArea = function(){ areaIndex = (areaIndex + 1) % areas.length; renderArea(); };
+
   // ── Carrossel de plantas ──
   var plantas = data.plantas || {};
   var plantaOrder = data.plantaOrder || [];
@@ -103,5 +116,6 @@ window.dataLayer = window.dataLayer || [];
   };
 
   renderApt();
+  renderArea();
   renderPlanta();
 })();
