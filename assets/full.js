@@ -73,6 +73,10 @@ window.dataLayer = window.dataLayer || [];
   var plantas = data.plantas || {};
   var plantaOrder = data.plantaOrder || [];
   var plantaIndex = plantaOrder.length ? plantaOrder.length - 1 : 0;
+  var plantaTabsInit = document.querySelectorAll("#plantas .tab");
+  for(var pi = 0; pi < plantaTabsInit.length; pi++){
+    if(plantaTabsInit[pi].classList.contains("active")){ plantaIndex = pi; break; }
+  }
   function renderPlanta(){
     if(!plantaOrder.length) return;
     var key = plantaOrder[plantaIndex];
