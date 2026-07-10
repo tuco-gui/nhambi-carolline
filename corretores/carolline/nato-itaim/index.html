@@ -69,7 +69,7 @@
   </div>
 
   <main>
-    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/Nato-01.webp')">
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/banner2.webp')">
       <div class="full-hero-inner">
         <h1>Nato Itaim</h1>
       </div>
@@ -124,21 +124,22 @@
         </div>
 
         <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="areas-top">
-            <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-            <div class="areas-desc">Lobby, lavanderia, lounge, bicicletário com tomada para bike elétrica, pet place, academia, piscina climatizada com iluminação LED, espaço Parrilla e Sky Bar.</div>
-          </div>
-          <div class="areas-icons">
-            <div class="item"><span class="ico">♨</span><span>Piscina Climatizada</span></div>
-            <div class="item"><span class="ico">♨</span><span>Sky Bar</span></div>
-            <div class="item"><span class="ico">♨</span><span>Espaço Parrilla</span></div>
-            <div class="item"><span class="ico">♨</span><span>Academia</span></div>
-            <div class="item"><span class="ico">♨</span><span>Espaço Multiuso</span></div>
-            <div class="item"><span class="ico">♨</span><span>Pet Place</span></div>
-            <div class="item"><span class="ico">♨</span><span>Lobby</span></div>
-            <div class="item"><span class="ico">♨</span><span>Lounge</span></div>
-            <div class="item"><span class="ico">♨</span><span>Lavanderia</span></div>
-            <div class="item"><span class="ico">♨</span><span>Bicicletário</span></div>
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/piscina.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer com energia cosmopolita</h3>
+              <p>Lobby, lavanderia, lounge, bicicletário com tomada para bike elétrica, pet place, academia, piscina climatizada com iluminação LED, espaço Parrilla e Sky Bar.</p>
+              <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Carolline</a>
+            </div>
           </div>
         </div>
       </div>
@@ -320,6 +321,19 @@
         {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/2-suites-02-a-1.webp", cap: "80m², Living"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/3-suites-02.webp", cap: "Perspectiva 3 suítes, 120m²"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-02.webp", cap: "Studio decorado"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/piscina.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/gourmet.webp", cap: "Espaço Parrilla"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Bar-louge.webp", cap: "Bar Lounge"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/academia.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/espaco-multiuso.webp", cap: "Espaço multiuso"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/bicicletario.webp", cap: "Bicicletário"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/lavanderia.webp", cap: "Lavanderia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/lobby.webp", cap: "Lobby"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/lobby-nr.webp", cap: "Espaço delivery"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/petplace.webp", cap: "Espaço Pet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/subsolo.webp", cap: "Garagem"}
       ],
       plantas: {
         "studio": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/studio.webp", cap: "Studio, 35m²"},

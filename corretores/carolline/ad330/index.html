@@ -69,7 +69,7 @@
   </div>
 
   <main>
-    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp')">
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-rooftop-01-copia.webp')">
       <div class="full-hero-inner">
         <h1>AD330</h1>
       </div>
@@ -124,23 +124,22 @@
         </div>
 
         <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="areas-top">
-            <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-            <div class="areas-desc">No térreo: lounge, coworking, market, fitness, alongamento e lavanderia. No rooftop: piscina, spa/beleza, salão de festas, churrasqueira, espaço kids, bar lounge, fitness descoberto, coworking e lounge games.</div>
-          </div>
-          <div class="areas-icons">
-            <div class="item"><span class="ico">♨</span><span>Piscina no Rooftop</span></div>
-            <div class="item"><span class="ico">♨</span><span>Spa / Beleza</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-            <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-            <div class="item"><span class="ico">♨</span><span>Espaço Kids</span></div>
-            <div class="item"><span class="ico">♨</span><span>Bar Lounge</span></div>
-            <div class="item"><span class="ico">♨</span><span>Fitness Descoberto</span></div>
-            <div class="item"><span class="ico">♨</span><span>Coworking</span></div>
-            <div class="item"><span class="ico">♨</span><span>Lounge Games</span></div>
-            <div class="item"><span class="ico">♨</span><span>Market</span></div>
-            <div class="item"><span class="ico">♨</span><span>Lavanderia Coletiva</span></div>
-            <div class="item"><span class="ico">♨</span><span>Fitness NR</span></div>
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/7.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Salão de festas</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo do térreo ao rooftop</h3>
+              <p>No térreo: lounge, coworking, market, fitness, alongamento e lavanderia. No rooftop: piscina, spa/beleza, salão de festas, churrasqueira, espaço kids, bar lounge, fitness descoberto, coworking e lounge games.</p>
+              <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Carolline</a>
+            </div>
           </div>
         </div>
       </div>
@@ -320,6 +319,19 @@
         {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/1-dorm-1.webp", cap: "1 dormitório 27m²"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2-dorm-46m-1.webp", cap: "2 dormitórios 46m²"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2-dorm-46m-2.webp", cap: "2 dormitórios 46m²"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/7.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/8.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/9.webp", cap: "Bar lounge"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/11.webp", cap: "Piscina com raia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/5.webp", cap: "Fitness"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/10.webp", cap: "Spa"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3.webp", cap: "Beleza"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/6.webp", cap: "Coworking"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/4.webp", cap: "Espaço kids"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/1-2.webp", cap: "Lavanderia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2-1.webp", cap: "Market"}
       ],
       plantas: {
         "studio18": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/studio18m.webp", cap: "Studio, 18m²"},
