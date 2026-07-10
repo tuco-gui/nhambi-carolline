@@ -1,20 +1,20 @@
 window.dataLayer = window.dataLayer || [];
 
 var EMPREENDIMENTOS = [
-  { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true, bairro: "Moema", specs: ["2 e 3 dorms., 55m² a 173m², 1 ou 2 vagas", "Studios HMP, 26m² a 40m²"] },
+  { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true, localPage: "/312jam-moema/", bairro: "Moema", specs: ["2 e 3 dorms., 55m² a 173m², 1 ou 2 vagas", "Studios HMP, 26m² a 40m²"] },
   { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", hasCorretorLP: true, localPage: "/nhambi-moema/", bairro: "Moema", specs: ["3 suítes, 111m² a 121m²", "2 vagas determinadas"] },
-  { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg", hasCorretorLP: true, bairro: "Itaim Bibi", specs: ["1 a 3 suítes, 40m² a 120m²", "Vaga livre e determinada"] },
-  { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp", hasCorretorLP: true, bairro: "Alto da Boa Vista", specs: ["1 e 2 dorms. (com suíte)", "17m² a 48m²"] },
-  { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp", hasCorretorLP: true, bairro: "Vila Madalena", specs: ["Studios, 24m² e 31m²", "3 a 4 suítes, 127m² a 381m²"] },
-  { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true, bairro: "Moema", specs: ["Studios, 1 e 2 dormitórios", "20m² a 80m²"] },
-  { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp", hasCorretorLP: true, bairro: "Vila Madalena", specs: ["4 dorms. ou 3 suítes, 195m²", "Studios, 23m² a 44m²"] },
-  { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp", hasCorretorLP: true, bairro: "Jundiaí, SP", specs: ["Lotes prontos para construir", "700m² a 1.800m²"] },
-  { slug: "join", nome: "Join Vila Mariana", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp", hasCorretorLP: true, bairro: "Vila Mariana", specs: ["2 e 3 dorms. com suíte, 37m² a 69m²", "Contém unidades HIS e HMP"] },
-  { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp", hasCorretorLP: true, bairro: "Chácara Klabin", specs: ["3 suítes e cobertura duplex", "154m² a 324m²"] },
-  { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp", hasCorretorLP: true, bairro: "Jardins", specs: ["2 ou 3 suítes e cobertura triplex", "145m² a 371m², 2 a 4 vagas"] },
-  { slug: "ori", nome: "Ori Praça da Árvore", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ori1.jpg", hasCorretorLP: true, bairro: "Praça da Árvore", specs: ["1 a 2 dorms. (com suíte), 33m² a 49m²", "Contém unidades HIS e HMP"] },
-  { slug: "solaz", nome: "Solaz Vila Mariana", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-fachada.webp", hasCorretorLP: true, bairro: "Vila Mariana", specs: ["2 suítes ou 3 dorms., 87m² e 90m²", "Studios, 19m² a 34m²"] },
-  { slug: "tons-klabin", nome: "Tons Klabin", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-fachada.webp", hasCorretorLP: true, bairro: "Chácara Klabin", specs: ["1 a 3 dorms. (1 a 2 suítes)", "30m² a 137m², com ou sem vaga"] }
+  { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg", hasCorretorLP: true, localPage: "/nato-itaim/", bairro: "Itaim Bibi", specs: ["1 a 3 suítes, 40m² a 120m²", "Vaga livre e determinada"] },
+  { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp", hasCorretorLP: true, localPage: "/ad330/", bairro: "Alto da Boa Vista", specs: ["1 e 2 dorms. (com suíte)", "17m² a 48m²"] },
+  { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp", hasCorretorLP: true, localPage: "/ecos/", bairro: "Vila Madalena", specs: ["Studios, 24m² e 31m²", "3 a 4 suítes, 127m² a 381m²"] },
+  { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true, localPage: "/guaramomis/", bairro: "Moema", specs: ["Studios, 1 e 2 dormitórios", "20m² a 80m²"] },
+  { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp", hasCorretorLP: true, localPage: "/harmonia/", bairro: "Vila Madalena", specs: ["4 dorms. ou 3 suítes, 195m²", "Studios, 23m² a 44m²"] },
+  { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp", hasCorretorLP: true, localPage: "/jardim-atenas/", bairro: "Jundiaí, SP", specs: ["Lotes prontos para construir", "700m² a 1.800m²"] },
+  { slug: "join", nome: "Join Vila Mariana", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp", hasCorretorLP: true, localPage: "/join/", bairro: "Vila Mariana", specs: ["2 e 3 dorms. com suíte, 37m² a 69m²", "Contém unidades HIS e HMP"] },
+  { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp", hasCorretorLP: true, localPage: "/l-klabin/", bairro: "Chácara Klabin", specs: ["3 suítes e cobertura duplex", "154m² a 324m²"] },
+  { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp", hasCorretorLP: true, localPage: "/lina-jardins/", bairro: "Jardins", specs: ["2 ou 3 suítes e cobertura triplex", "145m² a 371m², 2 a 4 vagas"] },
+  { slug: "ori", nome: "Ori Praça da Árvore", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ori1.jpg", hasCorretorLP: true, localPage: "/ori/", bairro: "Praça da Árvore", specs: ["1 a 2 dorms. (com suíte), 33m² a 49m²", "Contém unidades HIS e HMP"] },
+  { slug: "solaz", nome: "Solaz Vila Mariana", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-fachada.webp", hasCorretorLP: true, localPage: "/solaz/", bairro: "Vila Mariana", specs: ["2 suítes ou 3 dorms., 87m² e 90m²", "Studios, 19m² a 34m²"] },
+  { slug: "tons-klabin", nome: "Tons Klabin", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-fachada.webp", hasCorretorLP: true, localPage: "/tons-klabin/", bairro: "Chácara Klabin", specs: ["1 a 3 dorms. (1 a 2 suítes)", "30m² a 137m², com ou sem vaga"] }
 ];
 
 var DESTAQUES_SLUGS = ["312jam-moema", "nato-itaim", "nhambi-moema"];
@@ -27,13 +27,13 @@ var STATUS_SLUGS = {
 };
 
 var CORRETORES = [
-  { slug: "carolline", nome: "Carolline", telefone: "5511919890615" },
-  { slug: "chocolate", nome: "Chocolate", telefone: "5511987769810" },
-  { slug: "danilo", nome: "Danilo", telefone: "5511954361467" },
-  { slug: "felipe", nome: "Felipe", telefone: "5511955579117" },
-  { slug: "hadassah", nome: "Hadassah", telefone: "5511962269456" },
-  { slug: "sandra", nome: "Sandra", telefone: "5511947547108" },
-  { slug: "hideo", nome: "Hideo", telefone: "5511963157829" }
+  { slug: "carolline", nome: "Carolline", telefone: "5511919890615", foto: "https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg", bio: "Atendimento consultivo dedicado a encontrar a unidade certa para cada perfil, com dezenas de vendas realizadas nos empreendimentos Paes e Gregori." },
+  { slug: "chocolate", nome: "Chocolate", telefone: "5511987769810", bio: "Corretor(a) especializado(a) nos empreendimentos Paes e Gregori, com atendimento próximo do início ao pós-venda." },
+  { slug: "danilo", nome: "Danilo", telefone: "5511954361467", bio: "Experiência consolidada em plantas, valores e condições, sempre buscando a melhor opção para cada cliente." },
+  { slug: "felipe", nome: "Felipe", telefone: "5511955579117", bio: "Atendimento ágil e transparente, com foco em ajudar você a decidir com segurança e clareza." },
+  { slug: "hadassah", nome: "Hadassah", telefone: "5511962269456", bio: "Acompanhamento próximo em cada etapa, das primeiras dúvidas até a assinatura do contrato." },
+  { slug: "sandra", nome: "Sandra", telefone: "5511947547108", bio: "Dezenas de famílias já atendidas com atenção aos detalhes que fazem diferença na decisão de compra." },
+  { slug: "hideo", nome: "Hideo", telefone: "5511963157829", bio: "Conhecimento profundo do portfólio Paes e Gregori para indicar o empreendimento ideal a cada perfil." }
 ];
 
 function initials(nome){
@@ -134,10 +134,33 @@ function initials(nome){
     }
   });
 
+  // ── Grade "Conheça nossos corretores" (home geral da Equipe Ortega) ──
+  var corretoresGrid = document.getElementById("corretores-grid");
+  if(corretoresGrid){
+    corretoresGrid.innerHTML = CORRETORES.map(function(c){
+      var avatarHtml = c.foto
+        ? '<img src="' + c.foto + '" alt="' + c.nome + '">'
+        : '<span>' + initials(c.nome) + '</span>';
+      return (
+        '<a class="corretor-card" href="/corretores/' + c.slug + '/home/">' +
+          '<div class="corretor-avatar">' + avatarHtml + '</div>' +
+          '<div class="corretor-body">' +
+            '<h3>' + c.nome + '</h3>' +
+            '<p>' + c.bio + '</p>' +
+            '<span class="corretor-cta">Falar com ' + c.nome + ' →</span>' +
+          '</div>' +
+        '</a>'
+      );
+    }).join("");
+  }
+
   // ── Helper: link de uma empreendimento para o contexto de corretor atual ──
-  var lpCorretorAtual = corretorSlug === "equipe-ortega" ? "carolline" : corretorSlug;
+  // No hub geral (Equipe Ortega) o link vai para a página "sem corretor" do
+  // empreendimento (localPage); só quando um corretor específico está
+  // selecionado o link vai para a LP daquele corretor.
   function empHref(emp){
-    var corretorLP = emp.hasCorretorLP ? ("/corretores/" + lpCorretorAtual + "/" + emp.slug + "/") : null;
+    if(isHubGeral) return emp.localPage || "#";
+    var corretorLP = emp.hasCorretorLP ? ("/corretores/" + corretorSlug + "/" + emp.slug + "/") : null;
     return corretorLP || emp.localPage || "#";
   }
   var empreendimentosListHref = isHubGeral ? "/empreendimentos/" : ("/corretores/" + corretorSlug + "/empreendimentos/");
