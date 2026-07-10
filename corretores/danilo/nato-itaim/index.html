@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>Nato Itaim | Danilo — Paes e Gregori</title>
-  <meta name="description" content="Nato Itaim, pronto para morar Paes e Gregori em Itaim Bibi. Fale com Danilo.">
+  <meta name="description" content="Nato Itaim, pronto para morar Paes e Gregori em Itaim Bibi. Studios a 3 suítes, Sky Bar. Fale com Danilo.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Danilo</a>
+          <a href="#atendimento">Falar com Danilo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Danilo</a>
+          <a href="#atendimento">Falar com Danilo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,111 +55,218 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/Nato-01.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para morar</span>
-          <h1>Nato Itaim</h1>
-          <div class="lp-hero-location">Rua Tenente Negrão, 232 • Itaim Bibi • São Paulo</div>
-          <p class="lp-hero-copy">Um projeto autoral que une arquitetura elegante, design atemporal e plantas inteligentes, para quem valoriza conforto, exclusividade e a energia cosmopolita do Itaim Bibi.</p>
-          <div class="lp-hero-meta">
-            <span>Studios a 3 suítes</span>
-            <span>Sky Bar</span>
-            <span>Pronto para morar</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/banner2.webp')">
+      <div class="full-hero-inner">
+        <h1>Nato Itaim</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para morar,<br>Itaim Bibi</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">Studios a 3 suítes</div>
+          <div class="full-hero-info">Sky Bar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Energia cosmopolita<br>do <span class="accent">Itaim Bibi</span></div>
+          <div class="text-body">Um projeto autoral que une arquitetura elegante, design atemporal e plantas inteligentes, para quem valoriza conforto, exclusividade e a energia cosmopolita do Itaim Bibi. Torre única em terreno de 693m².</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/piscina.webp" alt="Nato Itaim">
+          <div class="ribbon">Pronto para morar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/1-suite-02.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Perspectiva 1 suíte, 40m²</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>De studios a 3 suítes com opção de junção</h3>
+              <p>Studios de 35m², 1 suíte de 39m² e 40m², 2 suítes de 80m² e 3 suítes de 120m², com opção de junção de unidades.</p>
+              <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Danilo</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/piscina.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer com energia cosmopolita</h3>
+              <p>Lobby, lavanderia, lounge, bicicletário com tomada para bike elétrica, pet place, academia, piscina climatizada com iluminação LED, espaço Parrilla e Sky Bar.</p>
+              <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Danilo</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Piscina climatizada e <strong style="font-weight:700;color:var(--brand)">Sky Bar</strong></h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab active" onclick="showPlanta('studio')">Studio, 35m²</div>
+          <div class="tab" onclick="showPlanta('suite40')">1 suíte, 39m²</div>
+          <div class="tab" onclick="showPlanta('suites80')">2 suítes, 80m²</div>
+          <div class="tab" onclick="showPlanta('suites120')">3 suítes, 120m²</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/piscina.webp" alt="Piscina climatizada" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina climatizada</div>
+            <div class="plantas-copy">Studios compactos de 35m², 1 suíte de 39m² e 40m², 2 suítes de 80m² e 3 suítes de 120m², com opção de junção de unidades para plantas ainda maiores.</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/academia.webp" alt="Academia" loading="lazy"></div>
-            <div class="lp-gallery-caption">Academia</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/gourmet.webp" alt="Espaço Parrilla" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço Parrilla</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Bar-louge.webp" alt="Sky Bar" loading="lazy"></div>
-            <div class="lp-gallery-caption">Sky Bar</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/espaco-multiuso.webp" alt="Espaço multiuso" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço multiuso</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/petplace.webp" alt="Pet place" loading="lazy"></div>
-            <div class="lp-gallery-caption">Pet place</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/lobby.webp" alt="Lobby" loading="lazy"></div>
-            <div class="lp-gallery-caption">Lobby</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-02.webp" alt="Studio decorado" loading="lazy"></div>
-            <div class="lp-gallery-caption">Studio decorado</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/studio.webp" alt="Planta Studio 35m²">
+            <div class="plantas-ribbon" id="plantaCaption">Studio, 35m²</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o Nato Itaim</div>
-          <h2>Energia cosmopolita do <strong style="font-weight:700;color:var(--brand)">Itaim Bibi</strong></h2>
-          <p>Torre única em terreno de 693m². Arquitetura da Architects Office SP e paisagismo de Barbieri + Gorski.</p>
-          <p>Amenidades: lobby, lavanderia, lounge, bicicletário com tomada para bike elétrica, pet place, academia, piscina climatizada com iluminação LED, espaço Parrilla e Sky Bar.</p>
-          <p>Sistema de aquecimento central, previsão de ponto de recarga veicular, acessos social e de serviço independentes e áreas comuns entregues equipadas e decoradas.</p>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Studios</strong>35m²</div>
-          <div class="spec-card"><strong>1 suíte</strong>39m² e 40m²</div>
-          <div class="spec-card"><strong>2 suítes</strong>80m²</div>
-          <div class="spec-card"><strong>3 suítes</strong>120m² (com opção de junção)</div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Áreas comuns entregues equipadas e decoradas, com infraestrutura completa.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Piscina climatizada com iluminação LED</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Vagas livres e determinadas</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Áreas comuns com ar condicionado instalado</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Bicicletário com tomada para bicicleta elétrica</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Previsão de ponto de recarga de carro elétrico</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Sistema de aquecimento central</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Acesso social e de serviço independentes</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso, ralo, caixilhos e vedações com desempenho acústico</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Banheiros com iluminação e ventilação naturais</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Jardineiras com irrigação automática</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Danilo</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do Nato Itaim em primeira mão.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div>
+          <div class="proj-copy">Um time dedicado a traduzir a energia cosmopolita do Itaim Bibi em cada detalhe do Nato.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura</span><span class="name">Architects Office SP</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Barbieri + Gorski</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">A energia cosmopolita<br>do <strong>Itaim Bibi</strong></div>
+          <div class="address-line">📍 Rua Tenente Negrão, 232 — Itaim Bibi, São Paulo</div>
+          <div class="local-copy">Um dos bairros mais desejados de São Paulo, com fácil acesso às Avenidas Faria Lima, Juscelino Kubitschek e Berrini, além de restaurantes, bares e comércio de alto padrão.</div>
+        </div>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Tenente+Negrao+232+Itaim+Bibi+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Tenente Negrão, 232</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Itaim Bibi</p></div>
+          <div class="ficha-item"><h4>Torre Única</h4><p>Terreno de 693m²</p></div>
+          <div class="ficha-item"><h4>Studios</h4><p>35m²</p></div>
+          <div class="ficha-item"><h4>1 suíte</h4><p>39m² e 40m²</p></div>
+          <div class="ficha-item"><h4>2 suítes</h4><p>80m²</p></div>
+          <div class="ficha-item"><h4>3 suítes</h4><p>120m² (com opção de junção)</p></div>
+          <div class="ficha-item"><h4>Arquitetura</h4><p>Architects Office SP</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Barbieri + Gorski</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">D</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Danilo</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do Nato Itaim em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -168,21 +275,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">D</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">D</div>
           <p>Página de atendimento de Danilo para o Nato Itaim, pronto para morar Paes e Gregori em Itaim Bibi.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Danilo</a>
+            <a href="#atendimento">Falar com Danilo</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Danilo</p>
-            <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer">+55 11 95436-1467</a>
+            <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nato%20Itaim." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -208,7 +315,76 @@
       empreendimentoSlug: "nato-itaim",
       empreendimentoNome: "Nato Itaim"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/1-suite-02.webp", cap: "Perspectiva 1 suíte, 40m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/2-suites-02-a-1.webp", cap: "80m², Living"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/3-suites-02.webp", cap: "Perspectiva 3 suítes, 120m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-02.webp", cap: "Studio decorado"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/piscina.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/gourmet.webp", cap: "Espaço Parrilla"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Bar-louge.webp", cap: "Bar Lounge"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/academia.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/espaco-multiuso.webp", cap: "Espaço multiuso"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/bicicletario.webp", cap: "Bicicletário"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/lavanderia.webp", cap: "Lavanderia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/lobby.webp", cap: "Lobby"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/lobby-nr.webp", cap: "Espaço delivery"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/petplace.webp", cap: "Espaço Pet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/subsolo.webp", cap: "Garagem"}
+      ],
+      plantas: {
+        "studio": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/studio.webp", cap: "Studio, 35m²"},
+        "suite40": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/40m-1.webp", cap: "1 suíte, 39m²"},
+        "suites80": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/80m-1.webp", cap: "2 suítes, 80m²"},
+        "suites120": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/120m-1.webp", cap: "3 suítes, 120m² (com opção de junção)"}
+      },
+      plantaOrder: ["studio", "suite40", "suites80", "suites120"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

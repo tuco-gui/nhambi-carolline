@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>Solaz Vila Mariana | Felipe — Paes e Gregori</title>
-  <meta name="description" content="Solaz Vila Mariana, pronto para morar Paes e Gregori em Vila Mariana. Fale com Felipe.">
+  <meta name="description" content="Solaz Vila Mariana, pronto para morar Paes e Gregori em Vila Mariana. 2 e 3 dormitórios, rooftop com piscina. Fale com Felipe.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/felipe/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Felipe</a>
+          <a href="#atendimento">Falar com Felipe</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/felipe/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Felipe</a>
+          <a href="#atendimento">Falar com Felipe</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,111 +55,199 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-Apresentacao.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para morar</span>
-          <h1>Solaz Vila Mariana</h1>
-          <div class="lp-hero-location">Rua Conselheiro Rodrigues Alves, 429 • Vila Mariana • São Paulo</div>
-          <p class="lp-hero-copy">No coração da Vila Mariana, próximo ao Parque Ibirapuera, o Solaz oferece apartamentos amplos com depósito privativo e diversas áreas de lazer, para você viver uma experiência única de exclusividade e bem-estar.</p>
-          <div class="lp-hero-meta">
-            <span>2 e 3 dormitórios</span>
-            <span>Rooftop com piscina</span>
-            <span>Pronto para morar</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-Banner-2.webp')">
+      <div class="full-hero-inner">
+        <h1>Solaz Vila Mariana</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para morar,<br>Vila Mariana</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">2 e 3 dormitórios</div>
+          <div class="full-hero-info">Rooftop com piscina</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Perto do<br>Parque <span class="accent">Ibirapuera</span></div>
+          <div class="text-body">No coração da Vila Mariana, próximo ao Parque Ibirapuera, o Solaz oferece apartamentos amplos com depósito privativo e diversas áreas de lazer, para você viver uma experiência única de exclusividade e bem-estar. Torre única, todas as unidades com depósito e vaga.</div>
+          <a href="#diferenciais" class="btn-outline-full">Diferenciais</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-piscinas-rooftop.webp" alt="Solaz Vila Mariana">
+          <div class="ribbon">Pronto para morar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-living.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Living decorado</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>De studios a apartamentos de 3 dormitórios</h3>
+              <p>Studios com serviços de 19m² a 34m², apartamentos de 2 suítes e 3 dormitórios de 87m² a 90m², e gardens de 3 dorms. de 116m² e 118m².</p>
+              <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Felipe</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-piscinas-rooftop.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscinas no rooftop</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo no rooftop</h3>
+              <p>Lazer completo no rooftop com piscinas adulto e infantil, solarium e academia, além de salão de festas, espaço gourmet, churrasqueira, salão de jogos, brinquedoteca, coworking, lavanderia e playground. Studios com academia, coworking e lavanderia próprios.</p>
+              <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Felipe</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Lazer completo no <strong style="font-weight:700;color:var(--brand)">rooftop</strong></h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab active" onclick="showPlanta('studio24')">Studio, 24m²</div>
+          <div class="tab" onclick="showPlanta('suites90')">2 suítes, 90m²</div>
+          <div class="tab" onclick="showPlanta('dorms87')">3 dorms., 87m²</div>
+          <div class="tab" onclick="showPlanta('dorms90')">3 dorms., 90m²</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-piscinas-rooftop.webp" alt="Piscinas no rooftop" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscinas no rooftop</div>
+            <div class="plantas-copy">Studios com serviços de 19m² a 34m², apartamentos de 2 suítes ou 3 dormitórios de 87m² a 90m², com depósito privativo e vaga de garagem em todas as unidades.</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-academia.webp" alt="Academia" loading="lazy"></div>
-            <div class="lp-gallery-caption">Academia</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-espaco-gourmet.webp" alt="Espaço gourmet" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço gourmet</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-salao-de-festas.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-brinquedoteca.webp" alt="Brinquedoteca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Brinquedoteca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-coworking.webp" alt="Coworking" loading="lazy"></div>
-            <div class="lp-gallery-caption">Coworking</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-living.webp" alt="Living decorado" loading="lazy"></div>
-            <div class="lp-gallery-caption">Living decorado</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-varanda-gourmet-com-churrasqueira.webp" alt="Varanda gourmet" loading="lazy"></div>
-            <div class="lp-gallery-caption">Varanda gourmet</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/02/SOLAZ-studios.webp" alt="Planta Studio 24m²">
+            <div class="plantas-ribbon" id="plantaCaption">Studio, 24m²</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o Solaz Vila Mariana</div>
-          <h2>Perto do <strong style="font-weight:700;color:var(--brand)">Parque Ibirapuera</strong></h2>
-          <p>Torre única na Vila Mariana, a poucos minutos do Parque Ibirapuera. Todas as unidades incluem depósito privativo e vaga de garagem.</p>
-          <p>Lazer completo no rooftop com piscinas adulto e infantil, solarium e academia, além de salão de festas, espaço gourmet, churrasqueira, salão de jogos, brinquedoteca, coworking, lavanderia e playground.</p>
-          <p>Contrapiso com tratamento acústico, terraço técnico para ar-condicionado, tomadas USB na suíte e iluminação de áreas comuns em LED.</p>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>3 dormitórios</strong>87m² e 90m²</div>
-          <div class="spec-card"><strong>2 suítes</strong>90m²</div>
-          <div class="spec-card"><strong>Gardens 3 dorms</strong>116m² e 118m²</div>
-          <div class="spec-card"><strong>Studios com serviços</strong>19m² a 34m²</div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Torre única, com áreas comuns entregues equipadas e decoradas.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para ar condicionado (carga e dreno)</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Misturador com água quente nas bancadas</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Tomadas USB (suíte)</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso com tratamento acústico</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Depósito privativo</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para coifa na cozinha</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Caixilhos dos dormitórios com persiana de enrolar</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Iluminação de todas as áreas comuns em LED</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Terraço técnico para ar condicionado</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Tratamento acústico na tubulação hidráulica</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Felipe</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do Solaz Vila Mariana em primeira mão.</p>
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Um bairro completo:<br><strong>Vila Mariana</strong></div>
+          <div class="address-line">📍 Rua Conselheiro Rodrigues Alves, 429 — Vila Mariana, São Paulo</div>
+          <div class="local-copy">A poucos minutos do Parque Ibirapuera, com fácil acesso a comércio, serviços e transporte da região.</div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Conselheiro+Rodrigues+Alves+429+Vila+Mariana+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Conselheiro Rodrigues Alves, 429</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Vila Mariana</p></div>
+          <div class="ficha-item"><h4>Studios com serviços</h4><p>19m² a 34m²</p></div>
+          <div class="ficha-item"><h4>3 dormitórios</h4><p>87m² e 90m²</p></div>
+          <div class="ficha-item"><h4>2 suítes</h4><p>90m²</p></div>
+          <div class="ficha-item"><h4>Gardens 3 dorms.</h4><p>116m² e 118m²</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">F</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Felipe</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do Solaz Vila Mariana em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -168,21 +256,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">F</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">F</div>
           <p>Página de atendimento de Felipe para o Solaz Vila Mariana, pronto para morar Paes e Gregori em Vila Mariana.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/felipe/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Felipe</a>
+            <a href="#atendimento">Falar com Felipe</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Felipe</p>
-            <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer">+55 11 95557-9117</a>
+            <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Solaz%20Vila%20Mariana." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -208,7 +296,73 @@
       empreendimentoSlug: "solaz",
       empreendimentoNome: "Solaz Vila Mariana"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-living.webp", cap: "Living decorado"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-estar.webp", cap: "Estar integrado"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-suite-master.webp", cap: "Suíte master"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-decorado-varanda-gourmet-com-churrasqueira.webp", cap: "Varanda gourmet"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-piscinas-rooftop.webp", cap: "Piscinas no rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-academia.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-espaco-gourmet.webp", cap: "Espaço Gourmet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-lazer-externo.webp", cap: "Lazer externo"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-salao-de-festas.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-salao-de-festas-e-integracao-externa.webp", cap: "Salão de festas, área externa"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-brinquedoteca.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-coworking.webp", cap: "Coworking"}
+      ],
+      plantas: {
+        "studio24": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/SOLAZ-studios.webp", cap: "Studio, 24m²"},
+        "suites90": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/SOLAZ-2-suites-90m.webp", cap: "2 suítes, 90m²"},
+        "dorms87": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/SOLAZ-3-dorms-87m.webp", cap: "3 dormitórios, 87m²"},
+        "dorms90": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/SOLAZ-3-dorms-90m.webp", cap: "3 dormitórios, 90m²"}
+      },
+      plantaOrder: ["studio24", "suites90", "dorms87", "dorms90"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

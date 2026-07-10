@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/chocolate/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Chocolate</a>
+          <a href="#atendimento">Falar com Chocolate</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/chocolate/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Chocolate</a>
+          <a href="#atendimento">Falar com Chocolate</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,111 +55,215 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Apresentacao-2.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Lançamento</span>
-          <img class="lp-hero-logo" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Logo-2.webp" alt="312 JAM">
-          <div class="lp-hero-location">Avenida Jamaris • Moema • São Paulo</div>
-          <p class="lp-hero-copy">Um novo olhar sobre viver em Moema. O projeto dialoga com a cidade e valoriza a experiência de morar em cada detalhe — design contemporâneo no melhor da Jamaris.</p>
-          <div class="lp-hero-meta">
-            <span>2 e 3 dormitórios</span>
-            <span>Coberturas duplex</span>
-            <span>Studios HMP</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2026/03/312JAM-banner.webp')">
+      <div class="full-hero-inner">
+        <img class="logo-empreendimento" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Logo-2.webp" alt="312 JAM">
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Lançamento,<br>Avenida Jamaris — Moema</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">2 e 3 dormitórios</div>
+          <div class="full-hero-info">Coberturas duplex</div>
+          <div class="full-hero-info">Studios HMP</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Um novo olhar<br>sobre viver <span class="accent">em Moema</span></div>
+          <div class="text-body">O projeto dialoga com a cidade e valoriza a experiência de morar em cada detalhe — design contemporâneo no melhor da Jamaris. Torre única com 192 unidades em terreno de 1.700m².</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2026/04/312-Jam-Destaque-home-30.webp" alt="312 JAM">
+          <div class="ribbon">Lançamento</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-55m².webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Living 55m²</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Plantas inteligentes para diferentes estilos de vida</h3>
+              <p>De studios HMP a coberturas duplex, os apartamentos do 312 JAM foram pensados para quem busca mobilidade, conveniência e uma leitura urbana mais jovem — com programa de personalização disponível para layouts e acabamentos.</p>
+              <a href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Chocolate</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Academia no rooftop</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo do térreo ao rooftop</h3>
+              <p>No térreo, no pavimento wellness e no rooftop — o 312 JAM reúne lazer completo para todos os momentos do dia a dia.</p>
+              <a href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Chocolate</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Um andar <strong style="font-weight:700;color:var(--brand)">wellness</strong> e rooftop com academia</h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab" onclick="showPlanta('2dorms55')">2 dorms. 55m²</div>
+          <div class="tab" onclick="showPlanta('2suites64')">2 suítes 64m²</div>
+          <div class="tab" onclick="showPlanta('2suites89')">2 suítes 89m²</div>
+          <div class="tab active" onclick="showPlanta('3dorms89')">3 dorms. 89m²</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Piscina-coberta-com-raia.webp" alt="Piscina coberta com raia" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina coberta com raia</div>
+            <div class="plantas-copy">Plantas com layouts bem resolvidos, priorizando conforto, funcionalidade e qualidade espacial — com programa de personalização disponível para quem deseja ambientes mais integrados.</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp" alt="Academia rooftop" loading="lazy"></div>
-            <div class="lp-gallery-caption">Academia no rooftop</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Sauna.webp" alt="Sauna" loading="lazy"></div>
-            <div class="lp-gallery-caption">Sauna</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terraco.webp" alt="Terraço" loading="lazy"></div>
-            <div class="lp-gallery-caption">Terraço</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Salao-de-festas.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Brinquedoteca.webp" alt="Brinquedoteca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Brinquedoteca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Churrasqueira.webp" alt="Churrasqueira" loading="lazy"></div>
-            <div class="lp-gallery-caption">Churrasqueira</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Lobby-e-Coworking.webp" alt="Lobby e coworking" loading="lazy"></div>
-            <div class="lp-gallery-caption">Lobby e coworking</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-3-dorms-89m.webp" alt="Planta 3 dormitórios 89m²">
+            <div class="plantas-ribbon" id="plantaCaption">3 dormitórios, 89m²</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o 312 JAM</div>
-          <h2>Torre única em <strong>Moema</strong></h2>
-          <p>Localizado na Avenida Jamaris, o 312 JAM é uma torre única com 192 unidades em um terreno de 1.700m². São apartamentos de 2 e 3 dormitórios, coberturas duplex e studios HMP, com projeto assinado pela AMZ Arquitetos, paisagismo da Faisal Arquitetos Paisagistas e comunicação visual da DEA Design.</p>
-          <p>No térreo: hall com lockers, lobby, coworking, apoio café, salão de festas, brinquedoteca, playground e churrasqueira. No pavimento wellness: piscina coberta com raia, piscina infantil, hidro, sauna e terraço. No rooftop: academia com vista para a cidade.</p>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>do 312 JAM</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>2 dormitórios</strong>55m²</div>
-          <div class="spec-card"><strong>2 suítes</strong>64m² e 89m²</div>
-          <div class="spec-card"><strong>3 dormitórios</strong>89m²</div>
-          <div class="spec-card"><strong>Coberturas duplex</strong>105m² e 173m²</div>
-          <div class="spec-card"><strong>Studios HMP</strong>26m² e 33m²</div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Um projeto pensado em cada detalhe, da concepção arquitetônica aos acabamentos.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Torre única, 192 unidades</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Terreno de 1.700m²</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Programa de personalização de layouts e acabamentos</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Unidades R2V e studios HMP</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Andar wellness com piscina coberta com raia</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Academia no rooftop com vista para a cidade</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Chocolate</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do 312 JAM em primeira mão.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div>
+          <div class="proj-copy">O 312 JAM combina design contemporâneo e funcionalidade, com um time de profissionais que traduziu esse conceito em cada detalhe do projeto.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura e Interiores</span><span class="name">AMZ Arquitetos</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Faisal Arquitetos Paisagistas</span></div>
+            <div class="proj-item"><span class="role">Comunicação Visual</span><span class="name">DEA Design</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Viva o melhor de <strong>Moema</strong><br>na Avenida Jamaris</div>
+          <div class="address-line">📍 Avenida Jamaris, 312 — Moema, São Paulo</div>
+          <div class="local-copy">Endereço estratégico em um dos bairros mais desejados de São Paulo, com fácil acesso a comércio, gastronomia e áreas verdes.</div>
+        </div>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Avenida+Jamaris+312+Moema+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Lançamento</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Avenida Jamaris, 312</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Moema</p></div>
+          <div class="ficha-item"><h4>Torre Única</h4><p>Terreno de 1.700m²<br>192 unidades (138 R2V + 54 HMP)</p></div>
+          <div class="ficha-item"><h4>Apartamentos</h4><p>2 dorms 55m² · 2 suítes 64m² e 89m²<br>3 dorms 89m² · Coberturas duplex 105m² e 173m²<br>Studios HMP 26m² e 33m²</p></div>
+          <div class="ficha-item"><h4>Lazer</h4><p>Térreo, pavimento wellness (piscina coberta com raia) e rooftop com academia</p></div>
+          <div class="ficha-item"><h4>Arquitetura e Interiores</h4><p>AMZ Arquitetos</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Faisal Arquitetos Paisagistas</p></div>
+          <div class="ficha-item"><h4>Comunicação Visual</h4><p>DEA Design</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">C</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Chocolate</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do 312 JAM em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -168,21 +272,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">C</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">C</div>
           <p>Página de atendimento de Chocolate para o 312 JAM, lançamento Paes e Gregori em Moema.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/chocolate/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Chocolate</a>
+            <a href="#atendimento">Falar com Chocolate</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Chocolate</p>
-            <a href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">+55 11 98776-9810</a>
+            <a href="https://wa.me/5511987769810?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -208,7 +312,79 @@
       empreendimentoSlug: "312jam-moema",
       empreendimentoNome: "312 JAM"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-55m².webp", cap: "Perspectiva do living, 55m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-suite-55m².webp", cap: "Perspectiva da suíte, 55m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-64m².webp", cap: "Perspectiva do living, 64m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-suite-64m².webp", cap: "Perspectiva da suíte, 64m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-89m²-b.webp", cap: "Perspectiva do living, 89m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-89m².webp", cap: "Perspectiva do living, 89m²"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp", cap: "Academia no rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia-2.webp", cap: "Academia no rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Piscina-coberta-com-raia.webp", cap: "Piscina coberta com raia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Sauna.webp", cap: "Sauna"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terraco.webp", cap: "Terraço"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terraco-2.webp", cap: "Terraço"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Brinquedoteca.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Playground.webp", cap: "Playground"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Salao-de-festas.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Churrasqueira.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Hall-e-lockers.webp", cap: "Hall e Lockers"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Lobby-e-Coworking.webp", cap: "Lobby e Coworking"}
+      ],
+      plantas: {
+        "2dorms55": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m.webp", cap: "2 dormitórios, 55m²"},
+        "2suites64": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-64m.webp", cap: "2 suítes, 64m²"},
+        "2suites89": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m.webp", cap: "2 suítes, 89m²"},
+        "3dorms89": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-3-dorms-89m.webp", cap: "3 dormitórios, 89m²"}
+      },
+      plantaOrder: ["2dorms55", "2suites64", "2suites89", "3dorms89"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

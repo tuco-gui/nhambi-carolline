@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>AD330 | Hideo — Paes e Gregori</title>
-  <meta name="description" content="AD330, pronto para morar Paes e Gregori em Alto da Boa Vista. Fale com Hideo.">
+  <meta name="description" content="AD330, pronto para morar Paes e Gregori em Alto da Boa Vista. Studios, 1 e 2 dormitórios, rooftop com piscina. Fale com Hideo.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/hideo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Hideo</a>
+          <a href="#atendimento">Falar com Hideo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/hideo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Hideo</a>
+          <a href="#atendimento">Falar com Hideo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,111 +55,216 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/07/foto1.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para morar</span>
-          <h1>AD330</h1>
-          <div class="lp-hero-location">Rua Alexandre Dumas, 330 • Alto da Boa Vista • São Paulo</div>
-          <p class="lp-hero-copy">No coração do Alto da Boa Vista, o AD330 redefine a experiência de viver com autenticidade. Seu projeto traduz equilíbrio entre estética sofisticada, funcionalidade e bem-estar, oferecendo plantas inteligentes que se adaptam a diferentes estilos de vida.</p>
-          <div class="lp-hero-meta">
-            <span>1 e 2 dormitórios</span>
-            <span>Rooftop com piscina</span>
-            <span>Pronto para morar</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-rooftop-01-copia.webp')">
+      <div class="full-hero-inner">
+        <h1>AD330</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para morar,<br>Alto da Boa Vista</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">Studios, 1 e 2 dormitórios</div>
+          <div class="full-hero-info">Rooftop com piscina</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Design compacto<br>e funcional <span class="accent">no Alto da Boa Vista</span></div>
+          <div class="text-body">No coração do Alto da Boa Vista, o AD330 redefine a experiência de viver com autenticidade. Plantas inteligentes que se adaptam a diferentes estilos de vida, com equilíbrio entre estética sofisticada, funcionalidade e bem-estar.</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/07/foto1.webp" alt="AD330">
+          <div class="ribbon">Pronto para morar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Studio-1.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Studio 18m²</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>De studios não residenciais a 2 dormitórios</h3>
+              <p>Plantas inteligentes e versáteis, perfeitas para diferentes perfis de moradores — com integração, amplitude e flexibilidade.</p>
+              <a href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Hideo</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/7.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Salão de festas</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo do térreo ao rooftop</h3>
+              <p>No térreo: lounge, coworking, market, fitness, alongamento e lavanderia. No rooftop: piscina, spa/beleza, salão de festas, churrasqueira, espaço kids, bar lounge, fitness descoberto, coworking e lounge games.</p>
+              <a href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Hideo</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Rooftop com <strong style="font-weight:700;color:var(--brand)">piscina</strong> e espaço kids</h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab" onclick="showPlanta('studio18')">Studio 18m²</div>
+          <div class="tab" onclick="showPlanta('studio20')">Studio 20m²</div>
+          <div class="tab" onclick="showPlanta('1dorm27')">1 dorm. 27m²</div>
+          <div class="tab" onclick="showPlanta('2dorm45')">2 dorms. 45m²</div>
+          <div class="tab active" onclick="showPlanta('2dorm46')">2 dorms. 46m²</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/7.webp" alt="Rooftop" loading="lazy"></div>
-            <div class="lp-gallery-caption">Rooftop</div>
+            <div class="plantas-copy">As plantas dos studios não residenciais refletem praticidade para o dia a dia, priorizando o aproveitamento inteligente de cada metro quadrado. As plantas de 1 e 2 dormitórios aliam integração, amplitude e flexibilidade.</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/8.webp" alt="Piscina" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/9.webp" alt="Bar lounge" loading="lazy"></div>
-            <div class="lp-gallery-caption">Bar lounge</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/11.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/5.webp" alt="Coworking" loading="lazy"></div>
-            <div class="lp-gallery-caption">Coworking</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/10.webp" alt="Espaço kids" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço kids</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/Studio-1.webp" alt="Studio decorado" loading="lazy"></div>
-            <div class="lp-gallery-caption">Studio decorado</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/07/1-dorm-1.webp" alt="1 dormitório decorado" loading="lazy"></div>
-            <div class="lp-gallery-caption">1 dormitório decorado</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/2dorm46.webp" alt="Planta 2 dormitórios 46m²">
+            <div class="plantas-ribbon" id="plantaCaption">2 dormitórios, 46m²</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o AD330</div>
-          <h2>No coração do <strong style="font-weight:700;color:var(--brand)">Alto da Boa Vista</strong></h2>
-          <p>Projeto assinado por JNA Arquitetos, interiores da Triptyque Architecture e paisagismo de Martha Gavião.</p>
-          <p>No térreo: lounge, coworking, market, fitness, alongamento e lavanderia. No rooftop: piscina, spa/beleza, salão de festas, churrasqueira, espaço kids, bar lounge, fitness descoberto, coworking e lounge games.</p>
-          <p>Infraestrutura para ar-condicionado em quartos e salas, com conforto térmico em todas as unidades.</p>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Studios</strong>17m² a 26m² (não residenciais)</div>
-          <div class="spec-card"><strong>1 dormitório</strong>27m² e 28m²</div>
-          <div class="spec-card"><strong>2 dormitórios</strong>45m² a 48m² com 1 vaga</div>
-          <div class="spec-card"><strong>Lojas comerciais</strong>4 unidades, 45m² a 248m²</div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Acabamentos de alto padrão e atenção a cada detalhe construtivo.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Torre única</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para ar condicionado em quartos e salas</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Conforto térmico em todas as unidades</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Studios com acesso independente</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Lojas comerciais no térreo</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Rooftop com vista panorâmica</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Hideo</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do AD330 em primeira mão.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div>
+          <div class="proj-copy">O AD330 é resultado da parceria entre renomados profissionais de arquitetura, interiores e paisagismo, sob a curadoria da Paes &amp; Gregori.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura</span><span class="name">JNA Arquitetos</span></div>
+            <div class="proj-item"><span class="role">Interiores</span><span class="name">Triptyque Architecture</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Martha Gavião</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Um bairro completo:<br><strong>Alto da Boa Vista</strong></div>
+          <div class="address-line">📍 Rua Alexandre Dumas, 330 — Alto da Boa Vista, São Paulo</div>
+          <div class="local-copy">Conectado às Avenidas Santo Amaro, Adolfo Pinheiro e Marginal Pinheiros, próximo às estações Adolfo Pinheiro e Borba Gato. Colégios como Waldorf Rudolf Steiner, Suíço-Brasileira e Chapel, parque Severo Gomes e proximidade com os shoppings Morumbi e Market Place.</div>
+        </div>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Alexandre+Dumas+330+Alto+da+Boa+Vista+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Alexandre Dumas, 330</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Alto da Boa Vista</p></div>
+          <div class="ficha-item"><h4>Studios</h4><p>17m² a 26m² (não residenciais)</p></div>
+          <div class="ficha-item"><h4>1 dormitório</h4><p>27m² e 28m²</p></div>
+          <div class="ficha-item"><h4>2 dormitórios</h4><p>45m² a 48m² com 1 vaga</p></div>
+          <div class="ficha-item"><h4>Lojas comerciais</h4><p>4 unidades, 45m² a 248m²</p></div>
+          <div class="ficha-item"><h4>Arquitetura</h4><p>JNA Arquitetos</p></div>
+          <div class="ficha-item"><h4>Interiores</h4><p>Triptyque Architecture</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Martha Gavião</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">H</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Hideo</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do AD330 em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -168,21 +273,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">H</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">H</div>
           <p>Página de atendimento de Hideo para o AD330, pronto para morar Paes e Gregori em Alto da Boa Vista.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/hideo/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Hideo</a>
+            <a href="#atendimento">Falar com Hideo</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Hideo</p>
-            <a href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer">+55 11 96315-7829</a>
+            <a href="https://wa.me/5511963157829?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20AD330." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -208,7 +313,77 @@
       empreendimentoSlug: "ad330",
       empreendimentoNome: "AD330"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Studio-1.webp", cap: "Studio 18m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/1-dorm-1.webp", cap: "1 dormitório 27m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2-dorm-46m-1.webp", cap: "2 dormitórios 46m²"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2-dorm-46m-2.webp", cap: "2 dormitórios 46m²"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/7.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/8.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/9.webp", cap: "Bar lounge"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/11.webp", cap: "Piscina com raia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/5.webp", cap: "Fitness"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/10.webp", cap: "Spa"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3.webp", cap: "Beleza"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/6.webp", cap: "Coworking"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/4.webp", cap: "Espaço kids"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/1-2.webp", cap: "Lavanderia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2-1.webp", cap: "Market"}
+      ],
+      plantas: {
+        "studio18": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/studio18m.webp", cap: "Studio, 18m²"},
+        "studio20": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/studio20m.webp", cap: "Studio, 20m²"},
+        "1dorm27": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/1dorm27.webp", cap: "1 dormitório, 27m²"},
+        "2dorm45": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2dorm45.webp", cap: "2 dormitórios, 45m²"},
+        "2dorm46": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/2dorm46.webp", cap: "2 dormitórios, 46m²"}
+      },
+      plantaOrder: ["studio18", "studio20", "1dorm27", "2dorm45", "2dorm46"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>L Klabin | Danilo — Paes e Gregori</title>
-  <meta name="description" content="L Klabin, pronto para morar Paes e Gregori em Chácara Klabin. Fale com Danilo.">
+  <meta name="description" content="L Klabin, pronto para morar Paes e Gregori em Chácara Klabin. 3 suítes, coberturas duplex. Fale com Danilo.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Danilo</a>
+          <a href="#atendimento">Falar com Danilo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Danilo</a>
+          <a href="#atendimento">Falar com Danilo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,110 +55,216 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/foto1-1.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para morar</span>
-          <h1>L Klabin</h1>
-          <div class="lp-hero-location">Rua Luís Molina, 105 • Chácara Klabin • São Paulo</div>
-          <p class="lp-hero-copy">Onde a sofisticação encontra a essência de viver bem. O L Klabin combina arquitetura sofisticada, acabamentos de alto padrão e plantas pensadas para integrar funcionalidade e elegância, em um estilo de vida exclusivo.</p>
-          <div class="lp-hero-meta">
-            <span>3 suítes</span>
-            <span>Coberturas duplex</span>
-            <span>Pronto para morar</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/01.webp')">
+      <div class="full-hero-inner">
+        <h1>L Klabin</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para morar,<br>Chácara Klabin</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">3 suítes</div>
+          <div class="full-hero-info">Coberturas duplex</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Sofisticação e<br>essência de <span class="accent">viver bem</span></div>
+          <div class="text-body">O L Klabin combina arquitetura sofisticada, acabamentos de alto padrão e plantas pensadas para integrar funcionalidade e elegância. Torre única com 22 pavimentos, em terreno de 2.031m².</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp" alt="L Klabin">
+          <div class="ribbon">Pronto para morar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/3-2.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Suíte master</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Apartamentos de 3 suítes a coberturas duplex</h3>
+              <p>Apartamentos de 154m² com 2 vagas, gardens de 214m² e 247m², e coberturas duplex de 324m² com 3 suítes e 3 vagas.</p>
+              <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Danilo</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Academia Life Fitness</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo na Chácara Klabin</h3>
+              <p>Academia Life Fitness, piscina adulto com raia e piscina infantil, sauna seca, salão de festas com espaço gourmet, coworking, playground, churrasqueira, salão de jogos e brinquedoteca.</p>
+              <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Danilo</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Academia <strong style="font-weight:700;color:var(--brand)">Life Fitness</strong> e piscina com raia</h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab active" onclick="showPlanta('suites154')">3 suítes, 154m²</div>
+          <div class="tab" onclick="showPlanta('duplexTerreo')">Cobertura, térreo</div>
+          <div class="tab" onclick="showPlanta('duplexSup')">Cobertura, terraço</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp" alt="Academia Life Fitness" loading="lazy"></div>
-            <div class="lp-gallery-caption">Academia Life Fitness</div>
+            <div class="plantas-copy">Apartamentos de 3 suítes com 154m² e 2 vagas. Coberturas duplex de 324m², com 3 suítes e 3 vagas, distribuídas entre o pavimento inferior e um terraço privativo.</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/06-piscina.webp" alt="Piscina com raia" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina com raia</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Sauna-02.webp" alt="Sauna seca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Sauna seca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/10-festas.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Coworking-02.webp" alt="Coworking" loading="lazy"></div>
-            <div class="lp-gallery-caption">Coworking</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/07-brinquedoteca.webp" alt="Brinquedoteca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Brinquedoteca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/jogos.webp" alt="Salão de jogos" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de jogos</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/churrasqueira.webp" alt="Churrasqueira" loading="lazy"></div>
-            <div class="lp-gallery-caption">Churrasqueira</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp" alt="Planta 3 suítes 154m²">
+            <div class="plantas-ribbon" id="plantaCaption">3 suítes, 154m²</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o L Klabin</div>
-          <h2>Torre única na <strong style="font-weight:700;color:var(--brand)">Chácara Klabin</strong></h2>
-          <p>Torre única com 22 pavimentos, em terreno de 2.031m². Arquitetura e interiores de Perkins & Will, paisagismo de Rodrigo Oliveira.</p>
-          <p>Lazer completo: academia Life Fitness, piscina adulto com raia e piscina infantil, sauna seca, salão de festas com espaço gourmet, coworking, playground, churrasqueira, salão de jogos e brinquedoteca.</p>
-          <p>Elevador com controle de acesso, hall e depósito privativos, churrasqueira a carvão na varanda, persianas motorizadas nos dormitórios e tomadas USB em suítes e sala.</p>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Apartamentos 3 suítes</strong>154m², 2 vagas</div>
-          <div class="spec-card"><strong>Gardens 3 suítes</strong>214m² e 247m², 2 vagas</div>
-          <div class="spec-card"><strong>Coberturas duplex</strong>324m², 3 suítes, 3 vagas</div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Torre única em terreno com mais de 2.000m², com 100% dos apartamentos entregues.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Vagas determinadas</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Elevador com controle de acesso</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Hall e depósito privativos no andar</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Churrasqueira a carvão na varanda</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Persianas motorizadas nos dormitórios</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para ar condicionado (carga e dreno)</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Terraço técnico para ar condicionado</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para coifa na cozinha</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Tomadas USB (suítes e sala)</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso com tratamento acústico</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Danilo</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do L Klabin em primeira mão.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div>
+          <div class="proj-copy">Um time dedicado a traduzir sofisticação e essência de viver bem em cada detalhe do L Klabin.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura e Interiores</span><span class="name">Perkins &amp; Will</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Rodrigo Oliveira</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Um dos bairros mais<br>desejados: <strong>Chácara Klabin</strong></div>
+          <div class="address-line">📍 Rua Luís Molina, 105 — Chácara Klabin, São Paulo</div>
+          <div class="local-copy">Bairro tradicional com infraestrutura completa de comércio, serviços e transporte.</div>
+        </div>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Luis+Molina+105+Chacara+Klabin+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Luís Molina, 105</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Chácara Klabin</p></div>
+          <div class="ficha-item"><h4>Torre Única</h4><p>22 pavimentos, terreno de 2.031m²</p></div>
+          <div class="ficha-item"><h4>Apartamentos 3 suítes</h4><p>154m², 2 vagas</p></div>
+          <div class="ficha-item"><h4>Gardens 3 suítes</h4><p>214m² e 247m², 2 vagas</p></div>
+          <div class="ficha-item"><h4>Coberturas duplex</h4><p>324m², 3 suítes, 3 vagas</p></div>
+          <div class="ficha-item"><h4>Arquitetura e Interiores</h4><p>Perkins &amp; Will</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Rodrigo Oliveira</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">D</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Danilo</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do L Klabin em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -167,21 +273,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">D</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">D</div>
           <p>Página de atendimento de Danilo para o L Klabin, pronto para morar Paes e Gregori em Chácara Klabin.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Danilo</a>
+            <a href="#atendimento">Falar com Danilo</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Danilo</p>
-            <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer">+55 11 95436-1467</a>
+            <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20L%20Klabin." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -207,7 +313,73 @@
       empreendimentoSlug: "l-klabin",
       empreendimentoNome: "L Klabin"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-2.webp", cap: "Suíte master"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-2.webp", cap: "Cozinha"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-2.webp", cap: "Suíte 2"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-3.webp", cap: "Perspectiva terraço"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp", cap: "Academia Life Fitness"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/2-hall.webp", cap: "Hall"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Coworking-02.webp", cap: "Coworking"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/06-piscina.webp", cap: "Piscina adulto e infantil"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Sauna-02.webp", cap: "Sauna seca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/10-festas.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/churrasqueira.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/jogos.webp", cap: "Salão de jogos"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/07-brinquedoteca.webp", cap: "Brinquedoteca"}
+      ],
+      plantas: {
+        "suites154": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp", cap: "3 suítes, 154m²"},
+        "duplexTerreo": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-terreo.webp", cap: "Cobertura 324m², térreo"},
+        "duplexSup": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-sup.webp", cap: "Cobertura 324m², terraço"}
+      },
+      plantaOrder: ["suites154", "duplexTerreo", "duplexSup"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

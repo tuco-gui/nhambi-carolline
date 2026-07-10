@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>Ecos Vila Madalena | Sandra — Paes e Gregori</title>
-  <meta name="description" content="Ecos Vila Madalena, pronto para morar Paes e Gregori em Vila Madalena. Fale com Sandra.">
+  <meta name="description" content="Ecos Vila Madalena, pronto para morar Paes e Gregori em Vila Madalena. Studios a 4 suítes, 3 torres. Fale com Sandra.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/sandra/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Sandra</a>
+          <a href="#atendimento">Falar com Sandra</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/sandra/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Sandra</a>
+          <a href="#atendimento">Falar com Sandra</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,110 +55,197 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1813-HDR.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para morar</span>
-          <h1>Ecos Vila Madalena</h1>
-          <div class="lp-hero-location">Rua Oscar Caravelas, 93 • Vila Madalena • São Paulo</div>
-          <p class="lp-hero-copy">Vila Madalena: onde conforto, arte e cultura se encontram. O Ecos Vila Madalena traduz a vitalidade e a inspiração de um dos bairros mais icônicos de São Paulo, unindo arquitetura contemporânea, design sofisticado e espaços inteligentes.</p>
-          <div class="lp-hero-meta">
-            <span>Studios a 4 suítes</span>
-            <span>3 torres</span>
-            <span>Pronto para morar</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1540.webp')">
+      <div class="full-hero-inner">
+        <h1>Ecos Vila Madalena</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para morar,<br>Vila Madalena</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">Studios a 4 suítes</div>
+          <div class="full-hero-info">3 torres</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Onde arte e cultura<br>se encontram <span class="accent">na Vila Madalena</span></div>
+          <div class="text-body">O Ecos Vila Madalena traduz a vitalidade e a inspiração de um dos bairros mais icônicos de São Paulo, unindo arquitetura contemporânea, design sofisticado e espaços inteligentes. Três torres: Tim Maia, Cássia Eller (studios) e Cazuza, em terreno de 2.036m².</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1813-HDR.webp" alt="Ecos Vila Madalena">
+          <div class="ribbon">Pronto para morar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-1.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Studio 25m² (Torre Cássia Eller)</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Três torres, três formas de morar</h3>
+              <p>Cássia Eller para studios, Tim Maia com 3 dormitórios/2 suítes e opções duplex, e Cazuza com 3 ou 4 suítes — plantas amplas, bem distribuídas e com integração entre sala, cozinha e terraço.</p>
+              <a href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Sandra</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1813-HDR.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer integrado ao paisagismo</h3>
+              <p>Eixo de lazer integrado ao paisagismo no 1º e 4º pavimentos, com piscina, salão de festas, academia, brinquedoteca e praças temáticas. No rooftop, churrasqueira e spa com vista panorâmica. Studios com coworking, lavanderia, bicicletário e academia exclusivos.</p>
+              <a href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Sandra</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Praças temáticas e <strong style="font-weight:700;color:var(--brand)">rooftop</strong></h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab active" onclick="showPlanta('studio24')">Studio 24m²</div>
+          <div class="tab" onclick="showPlanta('studio31')">Studio 31m²</div>
+          <div class="tab" onclick="showPlanta('timmaia127')">Tim Maia 127m²</div>
+          <div class="tab" onclick="showPlanta('timmaia245')">Tim Maia Duplex 245m²</div>
+          <div class="tab" onclick="showPlanta('cazuza187')">Cazuza 187m²</div>
+          <div class="tab" onclick="showPlanta('cazuza381')">Cazuza 381m²</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1829-HDR.webp" alt="Piscina" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina</div>
+            <div class="plantas-copy">Torre Cássia Eller: plantas compactas e funcionais, com coworking e lavanderia exclusivos. Torre Tim Maia: 3 dormitórios com 2 suítes, com opção duplex. Torre Cazuza: 3 ou 4 suítes, com opções duplex de até 381m².</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1416-HDR.webp" alt="Academia" loading="lazy"></div>
-            <div class="lp-gallery-caption">Academia</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1323-HDR.webp" alt="Espaço gourmet" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço gourmet</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1378-HDR.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1455-HDR.webp" alt="Brinquedoteca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Brinquedoteca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1435-HDR.webp" alt="Praça temática" loading="lazy"></div>
-            <div class="lp-gallery-caption">Praça temática</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-1.webp" alt="Studio decorado" loading="lazy"></div>
-            <div class="lp-gallery-caption">Studio decorado</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-2.webp" alt="Studio decorado" loading="lazy"></div>
-            <div class="lp-gallery-caption">Studio decorado</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/02/ecos-studios-01-24m.webp" alt="Planta Studio 24m²">
+            <div class="plantas-ribbon" id="plantaCaption">Studio, 24m² (Torre Cássia Eller)</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o Ecos Vila Madalena</div>
-          <h2>Três torres na <strong style="font-weight:700;color:var(--brand)">Vila Madalena</strong></h2>
-          <p>Três torres: Tim Maia (8 pavimentos), Cássia Eller (3 pavimentos, studios) e Cazuza (14 pavimentos), em terreno de 2.036m². Arquitetura do Estúdio Molecular, interiores de Silvia Bourroul e paisagismo de Barbieri + Gorski.</p>
-          <p>Lazer residencial: piscina, academia, espaço gourmet, salão de festas, brinquedoteca, salão de jogos, spa e churrasqueira, além de praças temáticas (leitura, movimento, música) e rooftop com terraço coberto e descoberto. Studios com coworking, lavanderia, bicicletário e academia exclusivos.</p>
-          <p>A poucos passos da estação de metrô Vila Madalena, com escolas como Pueri Domus e Vera Cruz por perto.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Studios (Cássia Eller)</strong>24m² a 31m²</div>
-          <div class="spec-card"><strong>Tim Maia</strong>127m² a 245m² (duplex), 3 dorms/2 suítes</div>
-          <div class="spec-card"><strong>Cazuza</strong>136m² a 381m², 3 a 4 suítes</div>
+        <div>
+          <div class="proj-copy">Um time dedicado a traduzir a vitalidade e a inspiração da Vila Madalena em cada detalhe do Ecos.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura</span><span class="name">Estúdio Molecular</span></div>
+            <div class="proj-item"><span class="role">Interiores</span><span class="name">Silvia Bourroul</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Barbieri + Gorski</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Sandra</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do Ecos Vila Madalena em primeira mão.</p>
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Arte, cultura e<br>vida urbana: <strong>Vila Madalena</strong></div>
+          <div class="address-line">📍 Rua Oscar Caravelas, 93 — Vila Madalena, São Paulo</div>
+          <div class="local-copy">Bairro com identidade forte, vida cultural pulsante — polo de arte contemporânea, grafites, galerias e ateliês. Próximo à estação de metrô Vila Madalena, ciclovias e fácil acesso a Pinheiros, Perdizes e Alto de Pinheiros, com escolas como Pueri Domus e Vera Cruz por perto.</div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Oscar+Caravelas+93+Vila+Madalena+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Oscar Caravelas, 93</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Vila Madalena</p></div>
+          <div class="ficha-item"><h4>Terreno</h4><p>2.036m², 3 torres</p></div>
+          <div class="ficha-item"><h4>Torre Cássia Eller</h4><p>Studios, 24m² a 31m²</p></div>
+          <div class="ficha-item"><h4>Torre Tim Maia</h4><p>127m² a 245m² (duplex), 3 dorms/2 suítes</p></div>
+          <div class="ficha-item"><h4>Torre Cazuza</h4><p>136m² a 381m², 3 a 4 suítes</p></div>
+          <div class="ficha-item"><h4>Arquitetura</h4><p>Estúdio Molecular</p></div>
+          <div class="ficha-item"><h4>Interiores</h4><p>Silvia Bourroul</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Barbieri + Gorski</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">S</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Sandra</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do Ecos Vila Madalena em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -167,21 +254,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">S</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">S</div>
           <p>Página de atendimento de Sandra para o Ecos Vila Madalena, pronto para morar Paes e Gregori em Vila Madalena.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/sandra/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Sandra</a>
+            <a href="#atendimento">Falar com Sandra</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Sandra</p>
-            <a href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer">+55 11 94754-7108</a>
+            <a href="https://wa.me/5511947547108?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -207,7 +294,80 @@
       empreendimentoSlug: "ecos",
       empreendimentoNome: "Ecos Vila Madalena"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Studio-1.webp", cap: "Studio 25m² (Torre Cássia Eller)"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/TIM-MAIA-1.webp", cap: "Living integrado (Torre Tim Maia)"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/TIM-MAIA-COZINHA.webp", cap: "Cozinha (Torre Tim Maia)"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cazuza-living.webp", cap: "Living integrado (Torre Cazuza)"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cazuza-suite-master.webp", cap: "Suíte master (Torre Cazuza)"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1813-HDR.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1829-HDR.webp", cap: "Bar da piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1416-HDR.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1323-HDR.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1378-HDR.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1455-HDR.webp", cap: "Salão gourmet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1435-HDR.webp", cap: "Praça da leitura"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1403-HDR.webp", cap: "Praça do movimento"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1394-HDR.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1442-HDR.webp", cap: "Salão de Jogos"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1511-HDR.webp", cap: "Rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1526-HDR.webp", cap: "Rooftop"}
+      ],
+      plantas: {
+        "studio24": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/ecos-studios-01-24m.webp", cap: "Studio, 24m² (Torre Cássia Eller)"},
+        "studio31": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/ecos-studios-04-31m.webp", cap: "Studio, 31m² (Torre Cássia Eller)"},
+        "timmaia127": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/tim-mais-127m.webp", cap: "Tim Maia, 127m²"},
+        "timmaia245": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/tim-maia-Duplex-245m-superior.webp", cap: "Tim Maia Duplex, 245m² (superior)"},
+        "cazuza187": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cazuza-187m.webp", cap: "Cazuza, 187m²"},
+        "cazuza381": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/cazuza-381m.webp", cap: "Cazuza, 381m²"}
+      },
+      plantaOrder: ["studio24", "studio31", "timmaia127", "timmaia245", "cazuza187", "cazuza381"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

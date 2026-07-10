@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>Jardim Atenas | Hadassah — Paes e Gregori</title>
-  <meta name="description" content="Jardim Atenas, pronto para construir Paes e Gregori em Jundiaí. Fale com Hadassah.">
+  <meta name="description" content="Jardim Atenas, pronto para construir Paes e Gregori em Jundiaí. Lotes de 700m² a 1.800m², clube privativo. Fale com Hadassah.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/hadassah/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Hadassah</a>
+          <a href="#atendimento">Falar com Hadassah</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/hadassah/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Hadassah</a>
+          <a href="#atendimento">Falar com Hadassah</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,111 +55,164 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#implantacao">Implantação</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/Apresentacao-02-2.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para construir</span>
-          <h1>Jardim Atenas</h1>
-          <div class="lp-hero-location">Av. Comendador Gumercindo Barranqueiros, 1.215 • Malota • Jundiaí</div>
-          <p class="lp-hero-copy">O charme do campo perto do centro de Jundiaí/SP. A proposta une natureza, bem-estar, exclusividade e segurança, com mais de 90.000m² de área verde e vista para a Serra do Japi.</p>
-          <div class="lp-hero-meta">
-            <span>Lotes de 700m² a 1.800m²</span>
-            <span>+90.000m² de área verde</span>
-            <span>Clube privativo</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/banner-01-01-1.webp')">
+      <div class="full-hero-inner">
+        <h1>Jardim Atenas</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para construir,<br>Malota, Jundiaí</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">Lotes de 700m² a 1.800m²</div>
+          <div class="full-hero-info">Clube privativo</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">O charme do campo<br>perto do centro de <span class="accent">Jundiaí</span></div>
+          <div class="text-body">A proposta une natureza, bem-estar, exclusividade e segurança, com mais de 90.000m² de área verde e vista para a Serra do Japi. Loteamento com portaria de controle de acesso e sistema de monitoramento por câmeras.</div>
+          <a href="#implantacao" class="btn-outline-full">Implantação</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5193.webp" alt="Jardim Atenas">
+          <div class="ribbon">Pronto para construir</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Clube</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Área Verde</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5204.webp" alt="Área verde">
+                <div class="gallery-caption" id="aptCaption">Trilha</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Mais de 90.000m² de área verde</h3>
+              <p>Trilhas arborizadas, mirante e vista para a Serra do Japi, em um cenário que une tranquilidade e contato com a natureza a poucos minutos do centro de Jundiaí.</p>
+              <a href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Hadassah</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer os lotes</a>
-            <a class="btn btn-outline" href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5140.webp" alt="Clube privativo">
+                <div class="gallery-caption" id="areaCaption">Quadra de tênis</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Clube privativo</h3>
+              <p>Um clube exclusivo para os moradores, com quadra oficial de tênis, campo de futebol society, piscina adulto e infantil, sauna, academia, salão de festas, churrasqueira, playground, salão de jogos, fire place, jardins com redários e mirante.</p>
+              <a href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Hadassah</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Clube privativo com <strong style="font-weight:700;color:var(--brand)">quadra de tênis</strong></h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="implantacao">
+      <div class="full-container">
+        <div class="plantas-title">Implantação</div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Piscina-02.webp" alt="Piscina" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina</div>
+            <div class="plantas-copy">Loteamento com lotes de 700m² a 1.800m², em meio a mais de 90.000m² de área verde preservada, com clube privativo e portaria de controle de acesso.</div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Academia-02.webp" alt="Academia" loading="lazy"></div>
-            <div class="lp-gallery-caption">Academia</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Sauna-02.webp" alt="Sauna" loading="lazy"></div>
-            <div class="lp-gallery-caption">Sauna</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Salao-de-jogos-02.webp" alt="Salão de jogos" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de jogos</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Churrasqueira-02.webp" alt="Churrasqueira" loading="lazy"></div>
-            <div class="lp-gallery-caption">Churrasqueira</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5140.webp" alt="Área verde" loading="lazy"></div>
-            <div class="lp-gallery-caption">Área verde</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5324.webp" alt="Trilhas arborizadas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Trilhas arborizadas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5193.webp" alt="Vista para a Serra do Japi" loading="lazy"></div>
-            <div class="lp-gallery-caption">Vista para a Serra do Japi</div>
+          <div class="plantas-img-wrap">
+            <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/Implantacao-Jardim-Atenas-resumo.jpg" alt="Implantação Jardim Atenas">
+            <div class="plantas-ribbon">Mapa de implantação</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o Jardim Atenas</div>
-          <h2>Perto do centro de <strong style="font-weight:700;color:var(--brand)">Jundiaí</strong></h2>
-          <p>Loteamento com portaria de controle de acesso e sistema de monitoramento por câmeras, em meio a mais de 90.000m² de área verde com vista para a Serra do Japi.</p>
-          <p>Clube privativo completo: quadra oficial de tênis, campo de futebol society, piscina adulto e infantil, sauna, academia, salão de festas, churrasqueira, playground, salão de jogos, fire place, trilhas arborizadas e mirante.</p>
-          <p>Fácil acesso pela Rodovia Anhanguera Bandeirantes, próximo ao centro de Jundiaí.</p>
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">O charme do campo<br>perto do centro de <strong>Jundiaí</strong></div>
+          <div class="address-line">📍 Av. Comendador Gumercindo Barranqueiros, 1.215 — Malota, Jundiaí</div>
+          <div class="local-copy">Fácil acesso pela Rodovia Anhanguera Bandeirantes, próximo ao centro de Jundiaí, com vista para a Serra do Japi.</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Tamanho dos lotes</strong>700m² a 1.800m²</div>
-          <div class="spec-card"><strong>Área verde</strong>Mais de 90.000m²</div>
-          <div class="spec-card"><strong>Segurança</strong>Portaria com controle de acesso e câmeras</div>
-          <div class="spec-card"><strong>Localização</strong>Bairro Malota, Jundiaí/SP</div>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Avenida+Comendador+Gumercindo+Barranqueiros+1215+Malota+Jundiai" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Hadassah</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do Jardim Atenas em primeira mão.</p>
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para construir</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Av. Comendador Gumercindo Barranqueiros, 1.215</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Malota, Jundiaí/SP</p></div>
+          <div class="ficha-item"><h4>Tamanho dos lotes</h4><p>700m² a 1.800m²</p></div>
+          <div class="ficha-item"><h4>Área verde</h4><p>Mais de 90.000m²</p></div>
+          <div class="ficha-item"><h4>Segurança</h4><p>Portaria com controle de acesso e câmeras</p></div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">H</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Hadassah</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do Jardim Atenas em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -168,21 +221,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">H</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">H</div>
           <p>Página de atendimento de Hadassah para o Jardim Atenas, pronto para construir Paes e Gregori em Jundiaí.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/hadassah/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Hadassah</a>
+            <a href="#atendimento">Falar com Hadassah</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Hadassah</p>
-            <a href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer">+55 11 96226-9456</a>
+            <a href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -208,7 +261,55 @@
       empreendimentoSlug: "jardim-atenas",
       empreendimentoNome: "Jardim Atenas"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5204.webp", cap: "Trilha"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5113.webp", cap: "Mirante"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5257.webp", cap: "Alongamento"}
+      ]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

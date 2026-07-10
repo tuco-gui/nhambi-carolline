@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>Tons Klabin | Danilo — Paes e Gregori</title>
-  <meta name="description" content="Tons Klabin, obra em andamento Paes e Gregori em Chácara Klabin. Fale com Danilo.">
+  <meta name="description" content="Tons Klabin, obra em andamento Paes e Gregori na Chácara Klabin. Studios a 3 dormitórios, lazer com rooftop. Fale com Danilo.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Danilo</a>
+          <a href="#atendimento">Falar com Danilo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Danilo</a>
+          <a href="#atendimento">Falar com Danilo</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,112 +55,190 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-apresentacao.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Obra em andamento</span>
-          <h1>Tons Klabin</h1>
-          <div class="lp-hero-location">Rua Major Newton Feliciano, 105 • Chácara Klabin • São Paulo</div>
-          <p class="lp-hero-copy">Sofisticação e tranquilidade na Chácara Klabin, combinando arquitetura contemporânea e design único. Conforto e exclusividade em um dos bairros mais desejados, com plantas versáteis que se adaptam a diferentes estilos de vida.</p>
-          <div class="lp-hero-meta">
-            <span>Studios a 3 dormitórios</span>
-            <span>Lazer com rooftop</span>
-            <span>Torre única</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-banner.webp')">
+      <div class="full-hero-inner">
+        <h1>Tons Klabin</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Obra em andamento,<br>Chácara Klabin</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">Studios a 3 dormitórios</div>
+          <div class="full-hero-info">Lazer com rooftop</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Sofisticação e<br>tranquilidade <span class="accent">na Chácara Klabin</span></div>
+          <div class="text-body">Arquitetura contemporânea e design único. Conforto e exclusividade em um dos bairros mais desejados, com plantas versáteis que se adaptam a diferentes estilos de vida.</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-living.webp" alt="Tons Klabin">
+          <div class="ribbon">Obra em andamento</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-living.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Living</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Plantas versáteis para diferentes estilos de vida</h3>
+              <p>De studios a apartamentos garden de 3 dormitórios, com opções de cozinha aberta ou fechada, sala de TV e office.</p>
+              <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Danilo</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-piscina-coberta-e-spa.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina coberta raia 25m e Spa</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer residencial completo</h3>
+              <p>Lazer residencial completo, com áreas exclusivas também para quem mora nos studios.</p>
+              <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Danilo</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Lazer residencial e <strong style="font-weight:700;color:var(--brand)">rooftop</strong> exclusivo</h2>
-        <div class="lp-gallery-grid">
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-piscina-coberta-e-spa.webp" alt="Piscina coberta e spa" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina coberta e spa</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-sauna.webp" alt="Sauna" loading="lazy"></div>
-            <div class="lp-gallery-caption">Sauna</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-salao-de-festas.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-brinquedoteca.webp" alt="Brinquedoteca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Brinquedoteca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-pet-place.webp" alt="Pet place" loading="lazy"></div>
-            <div class="lp-gallery-caption">Pet place</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-piscina-no-rooftop.webp" alt="Piscina no rooftop" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscina no rooftop</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-fitness-no-rooftop.webp" alt="Fitness no rooftop" loading="lazy"></div>
-            <div class="lp-gallery-caption">Fitness no rooftop</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-Espaco-Gourme-no-rooftop.webp" alt="Espaço gourmet no rooftop" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço gourmet no rooftop</div>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
+        </div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Detalhes que elevam a experiência de morar no Tons Klabin.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Torre única, terreno de 1.931m²</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para ar condicionado</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso com tratamento acústico</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Iluminação LED</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Caixilhos com persiana de enrolar</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Terraço técnico</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Áreas comuns entregues equipadas e decoradas</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Studios com lazer próprio (fitness, coworking, lavanderia)</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o Tons Klabin</div>
-          <h2>Sofisticação na <strong style="font-weight:700;color:var(--brand)">Chácara Klabin</strong></h2>
-          <p>Torre única em terreno de 1.931m². Arquitetura da IDE studio, interiores de Marcela Penteado Arquitetos e paisagismo de Gil Fialho.</p>
-          <p>Lazer residencial: piscina coberta com raia de 25m, spa, sauna, brinquedoteca, salão de festas, playground, pet place, fitness, coworking, lavanderia, churrasqueira, espaço gourmet, piscinas adulto e infantil, deck solarium e bar. Studios com lazer próprio: fitness, lavanderia compartilhada, coworking, churrasqueira e fire place.</p>
-          <p>Infraestrutura para ar condicionado, contrapiso com tratamento acústico, iluminação LED e áreas comuns entregues equipadas e decoradas.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Studios</strong>29m² a 32m²</div>
-          <div class="spec-card"><strong>1 dormitório</strong>33m² a 37m²</div>
-          <div class="spec-card"><strong>2 dormitórios</strong>62m²</div>
-          <div class="spec-card"><strong>3 dormitórios</strong>90m² e 137m² (garden)</div>
-          <div class="spec-card"><strong>Lojas</strong>104m² a 193m²</div>
+        <div>
+          <div class="proj-copy">Um time dedicado a traduzir sofisticação e tranquilidade em cada detalhe do Tons Klabin.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura</span><span class="name">IDE studio</span></div>
+            <div class="proj-item"><span class="role">Interiores</span><span class="name">Marcela Penteado Arquitetos</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Gil Fialho</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Danilo</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do Tons Klabin em primeira mão.</p>
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Um dos bairros mais<br>desejados: <strong>Chácara Klabin</strong></div>
+          <div class="address-line">📍 Rua Major Newton Feliciano, 105 — Chácara Klabin, São Paulo</div>
+          <div class="local-copy">Bairro tradicional com infraestrutura completa de comércio, serviços e transporte.</div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Major+Newton+Feliciano+105+Chacara+Klabin+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Obra em andamento</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Major Newton Feliciano, 105</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Chácara Klabin</p></div>
+          <div class="ficha-item"><h4>Torre Única</h4><p>Terreno de 1.931m²</p></div>
+          <div class="ficha-item"><h4>Apartamentos</h4><p>Studios 29m² a 32m² · 1 dorm 33m² a 37m²<br>2 dorms 62m² · 3 dorms 90m² e 137m² (garden)<br>Lojas 104m² a 193m²</p></div>
+          <div class="ficha-item"><h4>Lazer</h4><p>Piscina coberta com raia de 25m, spa, sauna, brinquedoteca, salão de festas, playground e rooftop</p></div>
+          <div class="ficha-item"><h4>Arquitetura</h4><p>IDE studio</p></div>
+          <div class="ficha-item"><h4>Interiores</h4><p>Marcela Penteado Arquitetos</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Gil Fialho</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">D</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Danilo</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do Tons Klabin em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -169,21 +247,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">D</div>
-          <p>Página de atendimento de Danilo para o Tons Klabin, obra em andamento Paes e Gregori em Chácara Klabin.</p>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">D</div>
+          <p>Página de atendimento de Danilo para o Tons Klabin, obra em andamento Paes e Gregori.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/danilo/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Danilo</a>
+            <a href="#atendimento">Falar com Danilo</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Danilo</p>
-            <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer">+55 11 95436-1467</a>
+            <a href="https://wa.me/5511954361467?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Tons%20Klabin." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -209,7 +287,57 @@
       empreendimentoSlug: "tons-klabin",
       empreendimentoNome: "Tons Klabin"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-living.webp", cap: "Living"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-cozinha-integrada.webp", cap: "Cozinha integrada"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-suite.webp", cap: "Suíte"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-dormitorio.webp", cap: "Dormitório"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-decorado-varanda-gourmet-integrada.webp", cap: "Varanda gourmet"}
+      ]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -9,13 +9,13 @@
   </script>
   <!-- End Google Tag Manager -->
   <title>Harmonia da Vila | Felipe — Paes e Gregori</title>
-  <meta name="description" content="Harmonia da Vila, pronto para morar Paes e Gregori em Vila Madalena. Fale com Felipe.">
+  <meta name="description" content="Harmonia da Vila, pronto para morar Paes e Gregori em Vila Madalena. Studios a 4 dormitórios, piscina com raia de 25m. Fale com Felipe.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/lp.css">
+  <link rel="stylesheet" href="/assets/full.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@
         </a>
         <nav class="header-nav" aria-label="Menu principal">
           <a href="/corretores/felipe/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Felipe</a>
+          <a href="#atendimento">Falar com Felipe</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -46,7 +46,7 @@
       <div class="header-inner" id="menu-mobile">
         <nav class="header-nav" aria-label="Menu mobile">
           <a href="/corretores/felipe/home/">Todos os empreendimentos</a>
-          <a href="#form">Falar com Felipe</a>
+          <a href="#atendimento">Falar com Felipe</a>
         </nav>
         <div class="header-actions">
           <a class="btn btn-wa" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -55,111 +55,215 @@
     </div>
   </header>
 
+  <div class="subnav-wrap">
+    <div class="subnav">
+      <a href="#inicio">Início</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#areas">Áreas Comuns</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#projetistas">Projetistas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#ficha">Ficha Técnica</a>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-hero" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/Harmonia-apresentacao-02.webp')">
-      <div class="container lp-hero-content">
-        <div class="lp-hero-card">
-          <span class="lp-hero-tag">Pronto para morar</span>
-          <h1>Harmonia da Vila</h1>
-          <div class="lp-hero-location">Rua Senador César Lacerda Vergueiro, 250 • Vila Madalena • São Paulo</div>
-          <p class="lp-hero-copy">O Harmonia da Vila traduz a essência da Vila Madalena em um projeto singular — torre única com plantas que unem liberdade, conveniência e privacidade, em endereço que respira cultura, modernidade e sofisticação.</p>
-          <div class="lp-hero-meta">
-            <span>Studios a 4 dormitórios</span>
-            <span>Piscina com raia de 25m</span>
-            <span>Pronto para morar</span>
+    <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/09/Harmonia-banner-01-copia.webp')">
+      <div class="full-hero-inner">
+        <h1>Harmonia da Vila</h1>
+      </div>
+      <div class="full-hero-bottom-bar">
+        <div class="full-hero-bottom-left">Pronto para morar,<br>Vila Madalena</div>
+        <div class="full-hero-bottom-right">
+          <div class="full-hero-info">Studios a 4 dormitórios</div>
+          <div class="full-hero-info">Piscina com raia de 25m</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="galeria">
+      <div class="full-container intro-grid">
+        <div>
+          <div class="title-big">Torre única<br>na <span class="accent">Vila Madalena</span></div>
+          <div class="text-body">O Harmonia da Vila traduz a essência da Vila Madalena em um projeto singular — torre única com 26 pavimentos em terreno de 2.034m², com plantas que unem liberdade, conveniência e privacidade, em endereço que respira cultura, modernidade e sofisticação.</div>
+          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+        </div>
+        <div class="intro-image-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-piscinas-02.webp" alt="Harmonia da Vila">
+          <div class="ribbon">Pronto para morar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="full-container">
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        </div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-apto-Living-02.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">Living ampliado</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>De studios compactos a apartamentos de 195m²</h3>
+              <p>Plantas com 195m² privilegiam a integração de sala, cozinha e varanda, com 3 suítes ou a opção de 4 dormitórios. Studios integram dormitório, sala e cozinha em um mesmo ambiente, com lazer e serviços próprios.</p>
+              <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Felipe</a>
+            </div>
           </div>
-          <div class="lp-hero-actions">
-            <a class="btn btn-wa" href="#form">Quero conhecer as plantas</a>
-            <a class="btn btn-outline" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-churrasqueira-02.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Churrasqueira</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer completo para toda a família</h3>
+              <p>Piscina com raia de 25m, piscina infantil, sauna, salão de festas, espaço gourmet, churrasqueira, lounge externo, fitness interno e externo, salão de jogos, playground, brinquedoteca e mirante. Studios com espaço gourmet, fitness e lavanderia próprios.</p>
+              <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Felipe</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-gallery">
-      <div class="container">
-        <div class="eyebrow">Lazer e áreas comuns</div>
-        <h2 style="font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;font-weight:300;margin-bottom:24px">Piscina com raia de <strong style="font-weight:700;color:var(--brand)">25 metros</strong></h2>
-        <div class="lp-gallery-grid">
+    <section class="section-white" id="plantas">
+      <div class="full-container">
+        <div class="plantas-title">Plantas</div>
+        <div class="tabs">
+          <div class="tab" onclick="showPlanta('studio23')">Studio 23m²</div>
+          <div class="tab" onclick="showPlanta('tipo191')">195m², 4 dorms.</div>
+          <div class="tab active" onclick="showPlanta('tipo195')">195m², 3 suítes</div>
+        </div>
+        <div class="plantas-grid">
           <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-piscinas-02.webp" alt="Piscinas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Piscinas</div>
+            <div class="plantas-copy">Com layouts compactos e bem resolvidos, os studios integram dormitório, sala e cozinha em um mesmo ambiente. Já as plantas de 195m² privilegiam a integração da sala, cozinha e varanda, com a área íntima em 3 suítes ou a opção de 4 dormitórios.</div>
+            <div class="plantas-nav">
+              <button class="circle-btn" onclick="prevPlanta()">‹</button>
+              <button class="circle-btn" onclick="nextPlanta()">›</button>
+            </div>
           </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-fitness-02.webp" alt="Fitness" loading="lazy"></div>
-            <div class="lp-gallery-caption">Fitness</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-sauna-02.webp" alt="Sauna" loading="lazy"></div>
-            <div class="lp-gallery-caption">Sauna</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-salao-festas-02.webp" alt="Salão de festas" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de festas</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-salao-festas-gourmet-02.webp" alt="Espaço gourmet" loading="lazy"></div>
-            <div class="lp-gallery-caption">Espaço gourmet</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-brinquedoteca-02.webp" alt="Brinquedoteca" loading="lazy"></div>
-            <div class="lp-gallery-caption">Brinquedoteca</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-jogos-02.webp" alt="Salão de jogos" loading="lazy"></div>
-            <div class="lp-gallery-caption">Salão de jogos</div>
-          </div>
-          <div>
-            <div class="lp-gallery-item"><img src="https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-churrasqueira-02.webp" alt="Churrasqueira" loading="lazy"></div>
-            <div class="lp-gallery-caption">Churrasqueira</div>
+          <div class="plantas-img-wrap">
+            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA_DA_VILA_PLANTA_TIPO_195m.webp" alt="Planta 195m², 3 suítes">
+            <div class="plantas-ribbon" id="plantaCaption">195m², 3 suítes</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-sobre">
-      <div class="container lp-sobre-grid">
-        <div class="lp-sobre-copy">
-          <div class="eyebrow">Sobre o Harmonia da Vila</div>
-          <h2>Torre única na <strong style="font-weight:700;color:var(--brand)">Vila Madalena</strong></h2>
-          <p>Torre única com 26 pavimentos em terreno de 2.034m². Arquitetura de Jonas Birger, decoração de Carlos Rossi e paisagismo de Martha Gavião.</p>
-          <p>Lazer residencial: piscina com raia de 25m, piscina infantil, sauna, salão de festas, espaço gourmet, churrasqueira, lounge externo, fitness interno e externo, salão de jogos, playground, brinquedoteca e mirante. Studios com espaço gourmet, fitness e lavanderia próprios.</p>
-          <p>Infraestrutura para ar-condicionado, automação de persianas, churrasqueira na varanda, portaria blindada e acesso exclusivo por elevador.</p>
+    <section class="section-light" id="diferenciais">
+      <div class="full-container diff-grid-wrap">
+        <div>
+          <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
-        <div class="lp-sobre-specs">
-          <div class="spec-card"><strong>Studios</strong>23m² a 44m²</div>
-          <div class="spec-card"><strong>Apartamentos</strong>195m², 4 dorms ou 3 suítes</div>
-          <div class="spec-card"><strong>Garden</strong>201m²</div>
-          <div class="spec-card"><strong>Coberturas</strong>304m²</div>
+        <div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Padrões de qualidade que garantem conforto, eficiência e sofisticação.</div>
+          <div class="diff-grid">
+            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para ar condicionado (carga e dreno)</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Ponto elétrico para futura automatização de persianas</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Churrasqueira na varanda</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Torneira monocomando</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Portaria blindada</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Acesso exclusivo para elevadores residenciais</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-form-section" id="form">
-      <div class="container lp-form-grid">
-        <div class="lp-form-copy">
-          <div class="eyebrow">Plantas e valores</div>
-          <h2>Fale com <strong>Felipe</strong></h2>
-          <p>Deixe seus dados e receba plantas, valores e condições do Harmonia da Vila em primeira mão.</p>
+    <section class="section-white" id="projetistas">
+      <div class="full-container proj-grid">
+        <div>
+          <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
-        <form class="lp-form" id="lpLeadForm" novalidate>
-          <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required>
-          <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required>
-          <select id="lpPurpose" name="purpose" aria-label="Objetivo" required>
-            <option value="">Você quer...</option>
-            <option value="Morar">Morar</option>
-            <option value="Investir">Investir</option>
-            <option value="Ainda avaliando">Ainda avaliando</option>
-          </select>
-          <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required>
-            <option value="">Prazo pra comprar</option>
-            <option value="Até 3 meses">Até 3 meses</option>
-            <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-            <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-          </select>
-          <button class="btn btn-wa" type="submit">Quero as plantas e valores</button>
-          <span class="lp-form-status" id="lpLeadStatus"></span>
-        </form>
+        <div>
+          <div class="proj-copy">Um time dedicado a traduzir a essência da Vila Madalena em cada detalhe do Harmonia da Vila.</div>
+          <div class="proj-list">
+            <div class="proj-item"><span class="role">Arquitetura</span><span class="name">Jonas Birger</span></div>
+            <div class="proj-item"><span class="role">Interiores</span><span class="name">Carlos Rossi</span></div>
+            <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Martha Gavião</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="localizacao">
+      <div class="full-container local-grid">
+        <div>
+          <div class="local-title">Um dos bairros mais<br>icônicos: <strong>Vila Madalena</strong></div>
+          <div class="address-line">📍 Rua Senador César Lacerda Vergueiro, 250 — Vila Madalena, São Paulo</div>
+          <div class="local-copy">Cultura, lazer e conveniência em ruas arborizadas, próximo à Praça Pôr do Sol, bares, restaurantes e comércio local. Perto da PUC-SP e USP, da estação de metrô Vila Madalena e de vias como Av. Faria Lima, Av. Rebouças e R. Henrique Schumann.</div>
+        </div>
+        <div class="map-wrap">
+          <a class="map-btn" href="https://maps.google.com/?q=Rua+Senador+Cesar+Lacerda+Vergueiro+250+Vila+Madalena+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-ficha" id="ficha">
+      <div class="full-container">
+        <div class="ficha-title">Ficha Técnica</div>
+        <div class="ficha-grid">
+          <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
+          <div class="ficha-item"><h4>Endereço</h4><p>Rua Senador César Lacerda Vergueiro, 250</p></div>
+          <div class="ficha-item"><h4>Bairro</h4><p>Vila Madalena</p></div>
+          <div class="ficha-item"><h4>Torre Única</h4><p>26 pavimentos, terreno de 2.034m²</p></div>
+          <div class="ficha-item"><h4>Studios</h4><p>23m² a 44m²</p></div>
+          <div class="ficha-item"><h4>Apartamentos</h4><p>195m², 4 dorms. ou 3 suítes</p></div>
+          <div class="ficha-item"><h4>Garden</h4><p>201m²</p></div>
+          <div class="ficha-item"><h4>Coberturas</h4><p>304m²</p></div>
+          <div class="ficha-item"><h4>Arquitetura</h4><p>Jonas Birger</p></div>
+          <div class="ficha-item"><h4>Interiores</h4><p>Carlos Rossi</p></div>
+          <div class="ficha-item"><h4>Paisagismo</h4><p>Martha Gavião</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-corretor-section" id="atendimento">
+      <div class="full-container">
+        <div class="full-corretor-grid">
+          <div class="full-corretor-photo"><div class="avatar-fallback">F</div></div>
+          <div class="full-corretor-copy">
+            <h3>Fale com <strong>Felipe</strong></h3>
+            <p>Deixe seus dados e receba plantas, valores e condições do Harmonia da Vila em primeira mão.</p>
+            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
+              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Você quer...</option>
+                <option value="Morar">Morar</option>
+                <option value="Investir">Investir</option>
+                <option value="Ainda avaliando">Ainda avaliando</option>
+              </select>
+              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
+                <option value="">Prazo pra comprar</option>
+                <option value="Até 3 meses">Até 3 meses</option>
+                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
+              </select>
+              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
+              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
+            </form>
+            <a class="btn-green-full" href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -168,21 +272,21 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-avatar" aria-hidden="true">F</div>
+          <div class="brand-avatar" style="width:96px;height:96px;font-size:32px" aria-hidden="true">F</div>
           <p>Página de atendimento de Felipe para o Harmonia da Vila, pronto para morar Paes e Gregori em Vila Madalena.</p>
         </div>
         <div class="footer-col">
           <h3>Navegação</h3>
           <div class="footer-links">
             <a href="/corretores/felipe/home/">Todos os empreendimentos</a>
-            <a href="#form">Falar com Felipe</a>
+            <a href="#atendimento">Falar com Felipe</a>
           </div>
         </div>
         <div class="footer-col">
           <h3>Atendimento</h3>
           <div class="footer-links">
             <p>Felipe</p>
-            <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer">+55 11 95557-9117</a>
+            <a href="https://wa.me/5511955579117?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Harmonia%20da%20Vila." target="_blank" rel="noopener noreferrer">+55 11 91989-0615</a>
             <p>Corretor(a) da operação Paes e Gregori.</p>
           </div>
         </div>
@@ -208,7 +312,76 @@
       empreendimentoSlug: "harmonia",
       empreendimentoNome: "Harmonia da Vila"
     };
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-apto-Living-02.webp", cap: "Living ampliado"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-apto-Varanda-02.webp", cap: "Varanda"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-apto-suite-master-02.webp", cap: "Suíte master"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-apto-Churrasqueira-02.webp", cap: "Churrasqueira na varanda"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-churrasqueira-02.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-fitness-02.webp", cap: "Fitness"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-salao-festas-02.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-salao-festas-gourmet-02.webp", cap: "Salão de festas, gourmet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-brinquedoteca-02.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-jogos-02.webp", cap: "Jogos"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-piscinas-02.webp", cap: "Piscinas adulto e infantil"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-sauna-02.webp", cap: "Sauna"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-bicicletario-02.webp", cap: "Bicicletário"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-fitness-studios-02.webp", cap: "Fitness Studios"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-gourmet-studios-02.webp", cap: "Gourmet Studios"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Harmonia-lavanderia-02.webp", cap: "Lavanderia Studios"}
+      ],
+      plantas: {
+        "studio23": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA_DA_VILA_PLANTA_STUDIO_14_HR_RePr.webp", cap: "Studio, 23m²"},
+        "tipo191": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA_DA_VILA_PLANTA_TIPO_191m.webp", cap: "195m², 4 dorms. com 3 suítes"},
+        "tipo195": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA_DA_VILA_PLANTA_TIPO_195m.webp", cap: "195m², 3 suítes"}
+      },
+      plantaOrder: ["studio23", "tipo191", "tipo195"]
+    };
   </script>
-  <script src="/assets/lp.js"></script>
+  <script src="/assets/full.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById("lpLeadForm");
+      var status = document.getElementById("lpLeadStatus");
+      if(!form) return;
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var nome = document.getElementById("lpNome").value;
+        var telefone = document.getElementById("lpTelefone").value;
+        var purpose = document.getElementById("lpPurpose").value;
+        var timeline = document.getElementById("lpTimeline").value;
+        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+          form.reportValidity();
+          return;
+        }
+        var cfg = window.PAGE_CONFIG;
+        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori",
+          produto: cfg.empreendimentoSlug,
+          corretor: cfg.corretorSlug,
+          tipo_pagina: "landing_produto",
+          content_name: cfg.empreendimentoNome,
+          content_category: "imovel_lancamento",
+          protocolo: protocolo,
+          form_id: "lpLeadForm",
+          form_location: "full_corretor_section",
+          lead_source: "site",
+          lead_purpose: purpose,
+          purchase_timeline: timeline,
+          telefone_lead: telefone.trim(),
+          page_path: window.location.pathname,
+          page_location: window.location.href
+        });
+        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
+        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+      });
+    })();
+  </script>
 </body>
 </html>
