@@ -140,10 +140,11 @@
     .ficha-item h4{font-size:13px;text-transform:uppercase;margin-bottom:6px}
     .ficha-item p{font-size:14px;line-height:1.45;color:#f1f1f1}
 
-    .hadassah{background:#f5f5f5;padding:90px 0}
+    .carolline{background:#f5f5f5;padding:90px 0}
     .car-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px;align-items:center;max-width:900px}
     .car-photo{width:180px;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.16);border:6px solid #fff}
-    .car-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.car-photo-avatar{background:var(--terracotta);display:flex;align-items:center;justify-content:center}.car-photo-avatar span{color:#fff;font-size:44px;font-weight:700;letter-spacing:.02em}
+    .car-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+    .avatar-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--terracotta);color:#fff;font-size:56px;font-weight:700}
     .car-copy h3{font-size:34px;text-transform:uppercase;font-weight:300;color:#333;line-height:1.1;margin-bottom:16px}
     .car-copy h3 strong{color:var(--terracotta);font-weight:700}
     .car-copy p{font-size:15px;line-height:1.7;color:#666;max-width:650px;margin-bottom:22px}
@@ -212,7 +213,7 @@
       .intro-grid,.gallery-split,.areas-top,.plantas-grid,.diff-grid-wrap,.proj-grid,.local-grid,.car-grid{grid-template-columns:1fr}
       .areas-icons{margin-left:0;grid-template-columns:repeat(2,1fr)}
       .diff-grid,.proj-list,.ficha-grid{grid-template-columns:1fr}
-      .section-light,.section-white,.section-dark,.section-ficha,.hadassah{padding:50px 0}
+      .section-light,.section-white,.section-dark,.section-ficha,.carolline{padding:50px 0}
       .lead-thanks{padding:14px}
       .lead-thanks-panel{padding:48px 25px 34px}
       .lead-thanks h2{font-size:28px}
@@ -433,11 +434,11 @@
     </div>
   </section>
 
-  <section class="hadassah" id="hadassah">
+  <section class="carolline" id="carolline">
     <div class="container car-grid">
-      <div class="car-photo car-photo-avatar" aria-hidden="true"><span>H</span></div>
+      <div class="car-photo"><div class="avatar-fallback">H</div></div>
       <div class="car-copy">
-        <h3>Fale com a <strong>Hadassah</strong></h3>
+        <h3>Fale com <strong>Hadassah</strong></h3>
         <p>Se você quer conhecer pessoalmente o Nhambí Moema, tirar dúvidas sobre plantas, disponibilidade e condições, a Hadassah pode te atender diretamente e te acompanhar em todas as etapas do processo.</p>
         <a class="btn-green" href="https://wa.me/5511962269456?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer">Fale com a Hadassah</a>
       </div>
