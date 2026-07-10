@@ -1,0 +1,138 @@
+/* Template completo de LP de empreendimento (Início / Galeria / Áreas Comuns / Plantas /
+   Diferenciais / Projetistas / Localização / Ficha Técnica), extraído de nhambi-moema/index.html
+   pra ser reutilizado em qualquer empreendimento. Corretor-específico usa junto com site.css
+   (header/footer/dropdown padrão); esse arquivo cobre só o miolo (da subnav até a ficha técnica). */
+
+:root{
+  --terracotta: var(--brand, #c89172);
+}
+
+html{scroll-behavior:smooth}
+
+.subnav-wrap{
+  position:sticky;top:78px;left:0;right:0;z-index:19;display:flex;justify-content:center;
+  background:rgba(47,47,47,.96);border-top:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(3px);
+}
+.subnav{
+  width:100%;max-width:1180px;min-height:38px;display:flex;align-items:center;
+  justify-content:center;flex-wrap:wrap;gap:0;padding:6px 20px;
+}
+.subnav a{
+  color:#fff;text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:600;
+  margin:4px 14px;letter-spacing:.3px;white-space:nowrap;
+}
+
+.full-hero{position:relative;height:100vh;min-height:640px;background-image:var(--bg-image);background-position:center center;background-size:cover;margin-top:0}
+.full-hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.10) 35%, rgba(0,0,0,.45) 100%)}
+.full-hero-inner{position:absolute;left:70px;bottom:86px;z-index:2;color:#fff;right:70px}
+.full-hero-inner img.logo-empreendimento{width:210px;height:auto;margin-bottom:22px}
+.full-hero-inner h1{font-size:clamp(30px,4vw,48px);text-transform:uppercase;font-weight:300;margin-bottom:22px;max-width:640px;line-height:1.05}
+.full-hero-bottom-bar{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(33,33,33,.88);min-height:84px;
+  display:flex;align-items:center;justify-content:space-between;padding:14px 70px;color:#fff;flex-wrap:wrap;gap:14px
+}
+.full-hero-bottom-left{font-size:19px;line-height:1.15;text-transform:uppercase;font-weight:300}
+.full-hero-bottom-right{display:flex;gap:34px;align-items:center;font-size:13px;flex-wrap:wrap}
+.full-hero-info{display:flex;align-items:center;gap:9px;color:#ddd}
+.full-hero-info:before{content:'◫';font-size:14px;color:#888}
+
+.section-light{background:#efefef;padding:80px 0}
+.section-white{background:#fff;padding:70px 0}
+.section-dark{background:#6a6a6a;padding:70px 0}
+.section-ficha{background:#2d2d2d;padding:80px 0 120px}
+.full-container{width:min(86%,1180px);margin:0 auto}
+
+.intro-grid{display:grid;grid-template-columns:340px 1fr;gap:36px;align-items:center}
+.title-big{font-size:34px;line-height:1.02;text-transform:uppercase;color:#222;font-weight:300;margin-bottom:24px}
+.title-big .accent{color:var(--terracotta);font-weight:700}
+.text-body{font-size:15px;line-height:1.65;color:#727272;max-width:320px}
+.btn-outline-full{display:inline-block;margin-top:26px;padding:10px 26px;border:1px solid #999;color:#666;text-decoration:none;text-transform:uppercase;font-size:12px;font-weight:600}
+.intro-image-wrap{position:relative}
+.intro-image-wrap img{width:100%;display:block}
+.ribbon{position:absolute;right:24px;bottom:-14px;background:var(--terracotta);color:#fff;padding:8px 34px;text-transform:uppercase;font-size:11px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+
+.tabs{display:flex;gap:46px;border-bottom:1px solid #999;padding-bottom:10px;margin-bottom:34px;flex-wrap:wrap}
+.tab{font-size:13px;text-transform:uppercase;color:#888;text-decoration:none;position:relative;cursor:pointer}
+.tab.active{color:var(--terracotta)}
+.tab.active:after{content:'';position:absolute;left:0;right:0;bottom:-11px;height:3px;background:var(--terracotta)}
+
+.gallery-split{display:grid;grid-template-columns:58% 42%;gap:46px;align-items:center}
+.gallery-main{position:relative}
+.gallery-main img{width:100%;display:block}
+.gallery-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;background:var(--terracotta);color:#fff;padding:7px 42px;font-size:12px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);white-space:nowrap}
+.gallery-copy h3{font-size:24px;line-height:1.2;text-transform:uppercase;color:#2a2a2a;margin-bottom:18px}
+.gallery-copy p{font-size:15px;line-height:1.75;color:#666;margin-bottom:22px}
+.btn-terracotta{display:inline-block;background:var(--terracotta);color:#fff;text-decoration:none;text-transform:uppercase;font-size:12px;padding:14px 26px}
+.gallery-nav{display:flex;gap:10px;margin-top:30px}
+.circle-btn{width:27px;height:27px;border:1px solid #aaa;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#999;background:transparent;cursor:pointer}
+
+.areas-top{display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
+.section-title-side{font-size:28px;line-height:1.05;text-transform:uppercase;color:#222;font-weight:300}
+.section-title-side .accent{color:var(--terracotta);font-weight:700}
+.areas-desc{font-size:15px;line-height:1.65;color:#6d6d6d;max-width:860px}
+.areas-icons{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px 50px;max-width:860px}
+.areas-icons .item{font-size:12px;text-transform:uppercase;color:#6f6f6f;display:flex;align-items:center;gap:12px}
+.areas-icons .ico{font-size:18px;color:#777;width:20px;text-align:center}
+
+.plantas-title{font-size:clamp(30px,4vw,46px);text-transform:uppercase;color:#2f2f2f;font-weight:300;margin-bottom:24px}
+.plantas-grid{display:grid;grid-template-columns:310px 1fr;gap:40px;align-items:start}
+.plantas-copy{font-size:15px;line-height:1.65;color:#777;max-width:255px}
+.plantas-img-wrap{position:relative;text-align:center}
+.plantas-img-wrap img{max-width:100%;height:auto}
+.plantas-ribbon{position:absolute;right:40px;bottom:-16px;background:var(--terracotta);color:#fff;padding:7px 36px;font-size:12px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);white-space:nowrap}
+.plantas-nav{margin-top:28px;display:flex;gap:10px}
+
+.diff-grid-wrap{display:grid;grid-template-columns:230px 1fr;gap:40px}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 26px}
+.diff-item{display:flex;align-items:flex-start;gap:12px;color:#666;font-size:12px;text-transform:uppercase;line-height:1.35}
+.diff-item .ico{font-size:18px;color:#777;width:20px;flex:0 0 20px}
+
+.proj-grid{display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
+.proj-copy{font-size:15px;line-height:1.65;color:#6e6e6e;margin-bottom:24px;max-width:760px}
+.proj-list{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px;max-width:760px}
+.proj-item{border-left:4px solid var(--terracotta);padding-left:12px}
+.proj-item .role{font-size:13px;text-transform:uppercase;color:#9a8d83;margin-right:10px}
+.proj-item .name{font-size:13px;text-transform:uppercase;color:#444;font-weight:700}
+
+.local-grid{display:grid;grid-template-columns:48% 52%;gap:48px;align-items:start;color:#fff}
+.local-title{font-size:33px;line-height:1.1;text-transform:uppercase;font-weight:300;margin-bottom:34px}
+.local-title strong{font-weight:700}
+.address-line{display:flex;align-items:center;gap:12px;color:#f1f1f1;font-size:14px;text-transform:uppercase;border-left:4px solid var(--terracotta);padding-left:12px;margin-bottom:34px}
+.local-copy{font-size:15px;line-height:1.7;color:#e4e4e4;max-width:470px;margin-bottom:28px}
+.accordion .row{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;gap:12px}
+.accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
+.map-wrap{position:relative}
+.map-wrap img{width:100%;display:block}
+.map-btn{position:absolute;right:0;bottom:0;background:var(--terracotta);color:#fff;text-decoration:none;text-transform:uppercase;font-size:13px;padding:14px 28px;clip-path:polygon(12% 0,100% 0,88% 100%,0 100%)}
+
+.ficha-title{text-align:center;color:#fff;font-size:clamp(30px,4vw,44px);font-weight:300;text-transform:uppercase;letter-spacing:.5px;margin-bottom:48px}
+.ficha-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:42px 28px}
+.ficha-item{padding-top:18px;border-top:1px solid #9f6f55;color:#fff}
+.ficha-item h4{font-size:13px;text-transform:uppercase;margin-bottom:6px}
+.ficha-item p{font-size:14px;line-height:1.45;color:#f1f1f1}
+
+.full-corretor-section{background:#f5f5f5;padding:90px 0}
+.full-corretor-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px;align-items:center;max-width:900px;margin:0 auto}
+.full-corretor-photo{width:180px;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.16);border:6px solid #fff}
+.full-corretor-photo img,.full-corretor-photo .avatar-fallback{width:100%;height:100%;object-fit:cover;object-position:center;display:flex;align-items:center;justify-content:center;background:var(--terracotta);color:#fff;font-size:56px;font-weight:700}
+.full-corretor-copy h3{font-size:34px;text-transform:uppercase;font-weight:300;color:#333;line-height:1.1;margin-bottom:16px}
+.full-corretor-copy h3 strong{color:var(--terracotta);font-weight:700}
+.full-corretor-copy p{font-size:15px;line-height:1.7;color:#666;max-width:650px;margin-bottom:22px}
+.btn-green-full{display:inline-block;background:var(--wa,#25d366);color:#fff;text-decoration:none;padding:14px 24px;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.4px}
+
+@media (max-width: 980px){
+  .subnav-wrap{top:72px}
+  .subnav{width:100%;overflow:auto;justify-content:flex-start;padding:6px 12px}
+  .full-corretor-grid{gap:22px;text-align:center;justify-items:center}
+  .full-corretor-photo{width:154px;border-width:5px}
+  .full-corretor-copy p{max-width:560px}
+  .full-hero-inner{left:20px;right:20px;bottom:100px}
+  .full-hero-bottom-bar{flex-direction:column;align-items:flex-start;gap:16px;padding:18px 20px}
+  .full-hero-bottom-right{flex-wrap:wrap;gap:18px}
+  .full-container{width:90%}
+  .intro-grid,.gallery-split,.areas-top,.plantas-grid,.diff-grid-wrap,.proj-grid,.local-grid,.full-corretor-grid{grid-template-columns:1fr}
+  .areas-icons{grid-template-columns:repeat(2,1fr)}
+  .diff-grid,.proj-list,.ficha-grid{grid-template-columns:1fr}
+  .section-light,.section-white,.section-dark,.section-ficha,.full-corretor-section{padding:50px 0}
+}
