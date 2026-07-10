@@ -1,21 +1,30 @@
 window.dataLayer = window.dataLayer || [];
 
 var EMPREENDIMENTOS = [
-  { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true },
-  { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", hasCorretorLP: true, localPage: "/nhambi-moema/" },
-  { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg", hasCorretorLP: true },
-  { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp", hasCorretorLP: true },
-  { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp", hasCorretorLP: true },
-  { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true },
-  { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp", hasCorretorLP: true },
-  { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp", hasCorretorLP: true },
-  { slug: "join", nome: "Join Vila Mariana", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp", hasCorretorLP: true },
-  { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp", hasCorretorLP: true },
-  { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp", hasCorretorLP: true },
-  { slug: "ori", nome: "Ori Praça da Árvore", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ori1.jpg", hasCorretorLP: true },
-  { slug: "solaz", nome: "Solaz Vila Mariana", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-fachada.webp", hasCorretorLP: true },
-  { slug: "tons-klabin", nome: "Tons Klabin", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-fachada.webp", hasCorretorLP: true }
+  { slug: "312jam-moema", nome: "312 JAM", status: "Lançamento", img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Destaque-home.webp", hasCorretorLP: true, bairro: "Moema", specs: ["2 e 3 dorms., 55m² a 173m², 1 ou 2 vagas", "Studios HMP, 26m² a 40m²"] },
+  { slug: "nhambi-moema", nome: "Nhambí Moema", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nhambi1.webp", hasCorretorLP: true, localPage: "/nhambi-moema/", bairro: "Moema", specs: ["3 suítes, 111m² a 121m²", "2 vagas determinadas"] },
+  { slug: "nato-itaim", nome: "Nato Itaim", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/nato.jpg", hasCorretorLP: true, bairro: "Itaim Bibi", specs: ["1 a 3 suítes, 40m² a 120m²", "Vaga livre e determinada"] },
+  { slug: "ad330", nome: "AD330", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/AD330-fachada.webp", hasCorretorLP: true, bairro: "Alto da Boa Vista", specs: ["1 e 2 dorms. (com suíte)", "17m² a 48m²"] },
+  { slug: "ecos", nome: "Ecos Vila Madalena", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ECOS-fachada.webp", hasCorretorLP: true, bairro: "Vila Madalena", specs: ["Studios, 24m² e 31m²", "3 a 4 suítes, 127m² a 381m²"] },
+  { slug: "guaramomis", nome: "Guaramomis", status: "Em breve", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/guaramoris-destacada.png", hasCorretorLP: true, bairro: "Moema", specs: ["Studios, 1 e 2 dormitórios", "20m² a 80m²"] },
+  { slug: "harmonia", nome: "Harmonia da Vila", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/HARMONIA-fachada.webp", hasCorretorLP: true, bairro: "Vila Madalena", specs: ["4 dorms. ou 3 suítes, 195m²", "Studios, 23m² a 44m²"] },
+  { slug: "jardim-atenas", nome: "Jardim Atenas", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/JD-ATENAS-fachada-portaria.webp", hasCorretorLP: true, bairro: "Jundiaí, SP", specs: ["Lotes prontos para construir", "700m² a 1.800m²"] },
+  { slug: "join", nome: "Join Vila Mariana", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/12/JOIN-fachada.webp", hasCorretorLP: true, bairro: "Vila Mariana", specs: ["2 e 3 dorms. com suíte, 37m² a 69m²", "Contém unidades HIS e HMP"] },
+  { slug: "l-klabin", nome: "L Klabin", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/L-KLABIN-fachada.webp", hasCorretorLP: true, bairro: "Chácara Klabin", specs: ["3 suítes e cobertura duplex", "154m² a 324m²"] },
+  { slug: "lina-jardins", nome: "Lina Jardins", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/07/LINA-fachada.webp", hasCorretorLP: true, bairro: "Jardins", specs: ["2 ou 3 suítes e cobertura triplex", "145m² a 371m², 2 a 4 vagas"] },
+  { slug: "ori", nome: "Ori Praça da Árvore", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/ori1.jpg", hasCorretorLP: true, bairro: "Praça da Árvore", specs: ["1 a 2 dorms. (com suíte), 33m² a 49m²", "Contém unidades HIS e HMP"] },
+  { slug: "solaz", nome: "Solaz Vila Mariana", status: "Pronto", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/SOLAZ-fachada.webp", hasCorretorLP: true, bairro: "Vila Mariana", specs: ["2 suítes ou 3 dorms., 87m² e 90m²", "Studios, 19m² a 34m²"] },
+  { slug: "tons-klabin", nome: "Tons Klabin", status: "Obra em andamento", img: "https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-fachada.webp", hasCorretorLP: true, bairro: "Chácara Klabin", specs: ["1 a 3 dorms. (1 a 2 suítes)", "30m² a 137m², com ou sem vaga"] }
 ];
+
+var DESTAQUES_SLUGS = ["312jam-moema", "nato-itaim", "nhambi-moema"];
+
+var STATUS_SLUGS = {
+  "Lançamento": "lancamento",
+  "Pronto": "pronto",
+  "Em breve": "em-breve",
+  "Obra em andamento": "obra-em-andamento"
+};
 
 var CORRETORES = [
   { slug: "carolline", nome: "Carolline", telefone: "5511919890615" },
@@ -125,33 +134,80 @@ function initials(nome){
     }
   });
 
-  // ── Grid do portfólio (14 empreendimentos) ──
-  var grid = document.getElementById("portfolio-grid");
-  if(grid){
-    grid.innerHTML = EMPREENDIMENTOS.map(function(emp){
-      var msg = encodeURIComponent("Olá, quero conhecer mais sobre o empreendimento " + emp.nome + (isHubGeral ? "." : (" com " + corretorNome + ".")));
-      var lpCorretorAtual = corretorSlug === "equipe-ortega" ? "carolline" : corretorSlug;
-      var corretorLP = emp.hasCorretorLP ? ("/corretores/" + lpCorretorAtual + "/" + emp.slug + "/") : null;
-      var detalhesHref = corretorLP || emp.localPage;
-      var detalhesBtn = detalhesHref ? ('<a class="btn btn-outline" href="' + detalhesHref + '">Ver detalhes</a>') : "";
+  // ── Helper: link de uma empreendimento para o contexto de corretor atual ──
+  var lpCorretorAtual = corretorSlug === "equipe-ortega" ? "carolline" : corretorSlug;
+  function empHref(emp){
+    var corretorLP = emp.hasCorretorLP ? ("/corretores/" + lpCorretorAtual + "/" + emp.slug + "/") : null;
+    return corretorLP || emp.localPage || "#";
+  }
+  var empreendimentosListHref = isHubGeral ? "/empreendimentos/" : ("/corretores/" + corretorSlug + "/empreendimentos/");
+
+  // ── 3 destaques (home) ──
+  var highlights = document.getElementById("highlights-grid");
+  if(highlights){
+    highlights.innerHTML = DESTAQUES_SLUGS.map(function(slug){
+      var emp = EMPREENDIMENTOS.filter(function(e){ return e.slug === slug; })[0];
+      if(!emp) return "";
+      var specsHtml = (emp.specs || []).map(function(s){ return '<span class="highlight-spec">' + s + '</span>'; }).join("");
       return (
-        '<article class="card portfolio-card">' +
-          '<div class="card-media"><img src="' + emp.img + '" alt="' + emp.nome + '" loading="lazy"></div>' +
-          '<div class="card-body">' +
-            '<div class="card-topline"><span>' + emp.status + '</span></div>' +
-            '<h4 class="card-title">' + emp.nome + '</h4>' +
-            '<div class="portfolio-card-actions">' +
-              detalhesBtn +
-              '<a class="btn btn-wa" href="https://wa.me/' + telefoneDestino + '?text=' + msg + '" ' +
-                'data-produto-override="' + emp.slug + '" ' +
-                'data-content-name-override="' + emp.nome + '" ' +
-                'data-mensagem-override="Olá, quero conhecer mais sobre o empreendimento ' + emp.nome + (isHubGeral ? "" : (" com " + corretorNome)) + '.">Falar sobre este</a>' +
+        '<a class="highlight-card" href="' + empHref(emp) + '">' +
+          '<div class="highlight-media">' +
+            '<img src="' + emp.img + '" alt="' + emp.nome + '" loading="lazy">' +
+            '<span class="highlight-badge">' + emp.status + '</span>' +
+          '</div>' +
+          '<div class="highlight-body">' +
+            '<h3 class="highlight-title">' + emp.nome + '</h3>' +
+            '<div class="highlight-specs">' +
+              '<span class="highlight-spec highlight-spec-location">📍 ' + (emp.bairro || "") + '</span>' +
+              specsHtml +
             '</div>' +
           '</div>' +
+        '</a>'
+      );
+    }).join("");
+  }
+
+  // ── Botão "Conhecer nossos empreendimentos" (home) ──
+  document.querySelectorAll("[data-empreendimentos-link]").forEach(function(link){
+    link.setAttribute("href", empreendimentosListHref);
+  });
+
+  // ── Grid completo de empreendimentos (página /empreendimentos/) ──
+  var empGrid = document.getElementById("emp-grid");
+  if(empGrid){
+    empGrid.innerHTML = EMPREENDIMENTOS.map(function(emp){
+      var specsHtml = (emp.specs || []).map(function(s){ return '<span class="emp-spec">' + s + '</span>'; }).join("");
+      var statusSlug = STATUS_SLUGS[emp.status] || "outro";
+      return (
+        '<article class="emp-card" data-status="' + statusSlug + '">' +
+          '<a class="emp-card-link" href="' + empHref(emp) + '">' +
+            '<div class="emp-card-media">' +
+              '<img src="' + emp.img + '" alt="' + emp.nome + '" loading="lazy">' +
+              '<span class="emp-badge">' + emp.status + '</span>' +
+            '</div>' +
+            '<div class="emp-card-body">' +
+              '<h3 class="emp-card-title">' + emp.nome + '</h3>' +
+              '<div class="emp-card-specs">' +
+                '<span class="emp-spec emp-spec-location">📍 ' + (emp.bairro || "") + '</span>' +
+                specsHtml +
+              '</div>' +
+              '<span class="emp-saiba-mais">Saiba mais →</span>' +
+            '</div>' +
+          '</a>' +
         '</article>'
       );
     }).join("");
-    attachWhatsappTracking(grid);
+
+    var filterButtons = document.querySelectorAll("[data-emp-filter]");
+    filterButtons.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var value = btn.getAttribute("data-emp-filter");
+        filterButtons.forEach(function(b){ b.classList.toggle("is-active", b === btn); });
+        empGrid.querySelectorAll(".emp-card").forEach(function(card){
+          card.style.display = (value === "todos" || card.getAttribute("data-status") === value) ? "" : "none";
+        });
+      });
+    });
   }
 
   // ── Formulário do CTA (nome + telefone + motivo + prazo, igual ao da Carolline) ──
