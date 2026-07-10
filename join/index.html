@@ -97,34 +97,49 @@
 
     <section class="section-light" id="areas">
       <div class="full-container">
-        <div class="areas-top">
-          <div class="section-title-side">Mais de 20 <span class="accent">opções de lazer</span></div>
-          <div class="areas-desc">Piscina com raia, Sky Lounge e muito mais — o Join foi pensado pra equilibrar praticidade, conforto e exclusividade em cada detalhe.</div>
+        <div class="tabs">
+          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
+          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
         </div>
-        <div class="areas-icons">
-          <div class="item"><span class="ico">♨</span><span>Piscina com Raia</span></div>
-          <div class="item"><span class="ico">♨</span><span>Sky Lounge</span></div>
-          <div class="item"><span class="ico">♨</span><span>Salão de Jogos</span></div>
-          <div class="item"><span class="ico">♨</span><span>Espaço Youtuber</span></div>
-          <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-          <div class="item"><span class="ico">♨</span><span>Academia</span></div>
-          <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
-          <div class="item"><span class="ico">♨</span><span>Playground</span></div>
-          <div class="item"><span class="ico">♨</span><span>Pet Place</span></div>
-          <div class="item"><span class="ico">♨</span><span>Coworking</span></div>
-          <div class="item"><span class="ico">♨</span><span>Bicicletário</span></div>
-          <div class="item"><span class="ico">♨</span><span>Lavanderia</span></div>
-          <div class="item"><span class="ico">♨</span><span>Espaço Descanso</span></div>
-          <div class="item"><span class="ico">♨</span><span>Lobby</span></div>
-          <div class="item"><span class="ico">♨</span><span>Mini Market</span></div>
-          <div class="item"><span class="ico">♨</span><span>Piscina Infantil</span></div>
-          <div class="item"><span class="ico">♨</span><span>Solarium</span></div>
-          <div class="item"><span class="ico">♨</span><span>Praça Central</span></div>
-          <div class="item"><span class="ico">♨</span><span>Salão Gourmet</span></div>
-          <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-          <div class="item"><span class="ico">♨</span><span>Sala de Massagem</span></div>
-          <div class="item"><span class="ico">♨</span><span>Sauna Seca</span></div>
-          <div class="item"><span class="ico">♨</span><span>Espaço Delivery</span></div>
+
+        <div id="apartamentos" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/12/1-1.webp" alt="Apartamento">
+                <div class="gallery-caption" id="aptCaption">2 dormitórios, living integrado</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevApt()">‹</button>
+                <button class="circle-btn" onclick="nextApt()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>2 e 3 dormitórios com suíte</h3>
+              <p>Apartamentos de 2 e 3 dormitórios com suíte, de 37m² a 69m², incluindo unidades HIS e HMP.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Join%20Vila%20Mariana." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="areasComuns" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_PISCINA-DESC_C19A6_E2.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Mais de 20 opções de lazer</h3>
+              <p>Piscina com raia, Sky Lounge e muito mais — o Join foi pensado pra equilibrar praticidade, conforto e exclusividade em cada detalhe.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Join%20Vila%20Mariana." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -270,7 +285,29 @@
       empreendimentoSlug: "join",
       empreendimentoNome: "Join Vila Mariana"
     };
-    window.PAGE_DATA = {};
+    window.PAGE_DATA = {
+      apts: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1-1.webp", cap: "2 dormitórios, living integrado"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/join.webp", cap: "2 dormitórios, living integrado"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_PISCINA-DESC_C19A6_E2.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_SKY-LOUNGE_C12A2_E2.webp", cap: "Sky Lounge"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_JOGOS_C33A3_E2.webp", cap: "Salão de Jogos"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_ESPACO-YOUTUBER_C6A3_E2.webp", cap: "Espaço Youtuber"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_SALAO-FESTAS-2_C14A4_E2.webp", cap: "Salão de Festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_ACADEMIA_C11A2_E2.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_BRINQUEDOTECA_C9A2_E2.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_PLAYGROUND_C16A1.webp", cap: "Playground"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_PET-PLACE_C3A4_E2.webp", cap: "Pet Place"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_COWORKING_C10A2_E2.webp", cap: "Coworking"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_BICICLETARIO_C4A1_E2.webp", cap: "Bicicletário"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_LAVANDERIA_C7A4_E2.webp", cap: "Lavanderia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_ESPACO_DESCNASO_C34A1_E2.webp", cap: "Espaço Descanso"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_LOBBY_C5A4_E2.webp", cap: "Lobby"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/12/1LE_4-P1_MINI-MARKET_C8A1_E2.webp", cap: "Mini Market"}
+      ]
+    };
   </script>
   <script src="/assets/full.js"></script>
   <script>

@@ -123,23 +123,22 @@
         </div>
 
         <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="areas-top">
-            <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-            <div class="areas-desc">Eixo de lazer integrado ao paisagismo no 1º e 4º pavimentos, com piscina, salão de festas, academia, brinquedoteca e praças temáticas. No rooftop, churrasqueira e spa com vista panorâmica. Studios com coworking, lavanderia, bicicletário e academia exclusivos.</div>
-          </div>
-          <div class="areas-icons">
-            <div class="item"><span class="ico">♨</span><span>Piscina</span></div>
-            <div class="item"><span class="ico">♨</span><span>Academia</span></div>
-            <div class="item"><span class="ico">♨</span><span>Espaço Gourmet</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-            <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Jogos</span></div>
-            <div class="item"><span class="ico">♨</span><span>Praça da Música</span></div>
-            <div class="item"><span class="ico">♨</span><span>Praça do Movimento</span></div>
-            <div class="item"><span class="ico">♨</span><span>Praça da Leitura</span></div>
-            <div class="item"><span class="ico">♨</span><span>Spa</span></div>
-            <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-            <div class="item"><span class="ico">♨</span><span>Terraço Coberto e Descoberto</span></div>
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1813-HDR.webp" alt="Área comum">
+                <div class="gallery-caption" id="areaCaption">Piscina</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Lazer integrado ao paisagismo</h3>
+              <p>Eixo de lazer integrado ao paisagismo no 1º e 4º pavimentos, com piscina, salão de festas, academia, brinquedoteca e praças temáticas. No rooftop, churrasqueira e spa com vista panorâmica. Studios com coworking, lavanderia, bicicletário e academia exclusivos.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Ecos%20Vila%20Madalena." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
           </div>
         </div>
       </div>
@@ -302,6 +301,20 @@
         {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/TIM-MAIA-COZINHA.webp", cap: "Cozinha (Torre Tim Maia)"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cazuza-living.webp", cap: "Living integrado (Torre Cazuza)"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cazuza-suite-master.webp", cap: "Suíte master (Torre Cazuza)"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1813-HDR.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1829-HDR.webp", cap: "Bar da piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1416-HDR.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1323-HDR.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1378-HDR.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1455-HDR.webp", cap: "Salão gourmet"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1435-HDR.webp", cap: "Praça da leitura"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1403-HDR.webp", cap: "Praça do movimento"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1394-HDR.webp", cap: "Brinquedoteca"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1442-HDR.webp", cap: "Salão de Jogos"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1511-HDR.webp", cap: "Rooftop"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_1526-HDR.webp", cap: "Rooftop"}
       ],
       plantas: {
         "studio24": {img: "https://paesegregori.com.br/wp-content/uploads/2026/02/ecos-studios-01-24m.webp", cap: "Studio, 24m² (Torre Cássia Eller)"},

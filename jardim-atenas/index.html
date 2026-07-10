@@ -105,8 +105,8 @@
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5140.webp" alt="Área verde">
-                <div class="gallery-caption" id="aptCaption">Área verde</div>
+                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5204.webp" alt="Área verde">
+                <div class="gallery-caption" id="aptCaption">Trilha</div>
               </div>
               <div class="gallery-nav">
                 <button class="circle-btn" onclick="prevApt()">‹</button>
@@ -122,23 +122,22 @@
         </div>
 
         <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="areas-top">
-            <div class="section-title-side">Clube <span class="accent">privativo</span></div>
-            <div class="areas-desc">Um clube exclusivo para os moradores, com quadra oficial de tênis, campo de futebol society, piscina adulto e infantil, sauna, academia, salão de festas, churrasqueira, playground, salão de jogos, fire place, jardins com redários e mirante.</div>
-          </div>
-          <div class="areas-icons">
-            <div class="item"><span class="ico">♨</span><span>Quadra Oficial de Tênis</span></div>
-            <div class="item"><span class="ico">♨</span><span>Campo de Futebol Society</span></div>
-            <div class="item"><span class="ico">♨</span><span>Piscina Adulto e Infantil</span></div>
-            <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
-            <div class="item"><span class="ico">♨</span><span>Academia</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-            <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-            <div class="item"><span class="ico">♨</span><span>Salão de Jogos</span></div>
-            <div class="item"><span class="ico">♨</span><span>Fire Place</span></div>
-            <div class="item"><span class="ico">♨</span><span>Jardins com Redários</span></div>
-            <div class="item"><span class="ico">♨</span><span>Mirante</span></div>
-            <div class="item"><span class="ico">♨</span><span>Playground</span></div>
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5140.webp" alt="Clube privativo">
+                <div class="gallery-caption" id="areaCaption">Quadra de tênis</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevArea()">‹</button>
+                <button class="circle-btn" onclick="nextArea()">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Clube privativo</h3>
+              <p>Um clube exclusivo para os moradores, com quadra oficial de tênis, campo de futebol society, piscina adulto e infantil, sauna, academia, salão de festas, churrasqueira, playground, salão de jogos, fire place, jardins com redários e mirante.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Jardim%20Atenas." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
           </div>
         </div>
       </div>
@@ -264,9 +263,24 @@
     };
     window.PAGE_DATA = {
       apts: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5140.webp", cap: "Área verde"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5324.webp", cap: "Trilhas arborizadas"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5193.webp", cap: "Vista para a Serra do Japi"}
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5204.webp", cap: "Trilha"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5113.webp", cap: "Mirante"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5257.webp", cap: "Alongamento"}
+      ],
+      areas: [
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5140.webp", cap: "Quadra de tênis"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5324.webp", cap: "Treino tênis e basquete"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5193.webp", cap: "Campo society"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5180.webp", cap: "Playground"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Churrasqueira-02.webp", cap: "Churrasqueira"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Salao-de-jogos-02.webp", cap: "Salão de jogos"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Piscina-02.webp", cap: "Piscina"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Sauna-02.webp", cap: "Sauna"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5095.webp", cap: "Salão de festas"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5290.webp", cap: "Salão de festas - área externa"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/MG_5078.webp", cap: "Deck"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Academia-02.webp", cap: "Academia"},
+        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/Fire-place-02.webp", cap: "Fire place"}
       ]
     };
   </script>

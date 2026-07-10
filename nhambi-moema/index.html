@@ -254,22 +254,22 @@
       </div>
 
       <div id="areasComuns" class="gallery-panel" style="display:none">
-        <div class="areas-top">
-          <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
-          <div class="areas-desc">Conheça todos os espaços de lazer que fazem do Nhambí Moema um empreendimento completo. Planejados para atender diferentes estilos de vida, estes ambientes promovem bem-estar, convivência e conforto em todos os momentos e para todas as idades.</div>
-        </div>
-        <div class="areas-icons">
-          <div class="item"><span class="ico">♨</span><span>Salão de Festas</span></div>
-          <div class="item"><span class="ico">♨</span><span>Churrasqueira</span></div>
-          <div class="item"><span class="ico">♨</span><span>Brinquedoteca</span></div>
-          <div class="item"><span class="ico">♨</span><span>Piscina Adulto</span></div>
-          <div class="item"><span class="ico">♨</span><span>Piscina Infantil</span></div>
-          <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
-          <div class="item"><span class="ico">♨</span><span>Fitness</span></div>
-          <div class="item"><span class="ico">♨</span><span>Playground Externo</span></div>
-          <div class="item"><span class="ico">♨</span><span>Fitness Externo</span></div>
-          <div class="item"><span class="ico">♨</span><span>Bicicletário</span></div>
-          <div class="item"><span class="ico">♨</span><span>Pet Care</span></div>
+        <div class="gallery-split">
+          <div>
+            <div class="gallery-main">
+              <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/salao-de-festas-1.webp" alt="Área comum">
+              <div class="gallery-caption" id="areaCaption">Salão de festas</div>
+            </div>
+            <div class="gallery-nav">
+              <button class="circle-btn" onclick="prevArea()">‹</button>
+              <button class="circle-btn" onclick="nextArea()">›</button>
+            </div>
+          </div>
+          <div class="gallery-copy">
+            <h3>Lazer completo para todos os momentos</h3>
+            <p>Conheça todos os espaços de lazer que fazem do Nhambí Moema um empreendimento completo. Planejados para atender diferentes estilos de vida, estes ambientes promovem bem-estar, convivência e conforto em todos os momentos e para todas as idades.</p>
+            <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Nhamb%C3%AD%20Moema." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com um corretor</a>
+          </div>
         </div>
       </div>
     </div>
@@ -466,6 +466,24 @@
     }
     function prevApt(){aptIndex=(aptIndex-1+apts.length)%apts.length;renderApt()}
     function nextApt(){aptIndex=(aptIndex+1)%apts.length;renderApt()}
+
+    const areas = [
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/salao-de-festas-1.webp', cap:'Salão de festas'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/brinquedoteca-1.webp', cap:'Brinquedoteca'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/churrasqueira-2.webp', cap:'Churrasqueira'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/piscinas.webp', cap:'Piscinas adulto e infantil'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Sauna-1.webp', cap:'Sauna'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Fitness.webp', cap:'Fitness'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/playground-1.webp', cap:'Playground'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/pet-care.webp', cap:'Perspectiva do Pet care'}
+    ];
+    let areaIndex = 0;
+    function renderArea(){
+      document.getElementById('areaImg').src = areas[areaIndex].img;
+      document.getElementById('areaCaption').textContent = areas[areaIndex].cap;
+    }
+    function prevArea(){areaIndex=(areaIndex-1+areas.length)%areas.length;renderArea()}
+    function nextArea(){areaIndex=(areaIndex+1)%areas.length;renderArea()}
 
     const plantas = {
       'lazer': {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Nhambi-terreo-1.webp', cap:'Lazer completo no térreo'},
