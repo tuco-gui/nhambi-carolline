@@ -145,11 +145,11 @@ button{font:inherit}
 }
 
 .btn-brand{
-  background:var(--brand);
+  background:var(--wa);
   color:#fff;
 }
 
-.btn-brand:hover{background:var(--brand-strong)}
+.btn-brand:hover{background:#1fb959}
 
 .btn-wa{
   background:var(--wa);
@@ -277,13 +277,6 @@ button{font:inherit}
 .hero-slide.is-active{
   opacity:1;
   pointer-events:auto;
-}
-
-.hero-slide::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,rgba(24,24,24,.72) 0%,rgba(24,24,24,.34) 48%,rgba(24,24,24,.2) 100%);
 }
 
 .hero-content{
@@ -515,7 +508,7 @@ button{font:inherit}
   width:40px;
   height:40px;
   border-radius:50%;
-  background:var(--brand);
+  background:var(--wa);
   color:#fff;
   font-size:20px;
   flex-shrink:0;
