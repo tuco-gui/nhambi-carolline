@@ -115,7 +115,57 @@ window.dataLayer = window.dataLayer || [];
     if(areasPanel) areasPanel.style.display = id === "areasComuns" ? "block" : "none";
   };
 
+  // ── Sistema genérico de carrossel com N abas nomeadas ──
+  // Usado em empreendimentos com mais de 2 abas em Áreas Comuns/Plantas
+  // (ex.: Tons Klabin: Lazer Residencial / Lazer Studios / 2 e 3 Dormitórios / Studios e 1 Dormitório).
+  // data.galleryTabs = [{ id: "lazerResidencial", images: [{img, cap}, ...] }, ...]
+  var galleryTabs = data.galleryTabs || [];
+  var galleryIndexes = {};
+  galleryTabs.forEach(function(t){ galleryIndexes[t.id] = 0; });
+
+  function findGalleryTab(id){
+    for(var i = 0; i < galleryTabs.length; i++){
+      if(galleryTabs[i].id === id) return galleryTabs[i];
+    }
+    return null;
+  }
+
+  function renderGalleryTab(id){
+    var tab = findGalleryTab(id);
+    if(!tab || !tab.images.length) return;
+    var item = tab.images[galleryIndexes[id]];
+    var img = document.getElementById(id + "Img");
+    var cap = document.getElementById(id + "Caption");
+    if(img) img.src = item.img;
+    if(cap) cap.textContent = item.cap;
+  }
+
+  window.prevGalleryImg = function(id){
+    var tab = findGalleryTab(id);
+    if(!tab || !tab.images.length) return;
+    galleryIndexes[id] = (galleryIndexes[id] - 1 + tab.images.length) % tab.images.length;
+    renderGalleryTab(id);
+  };
+  window.nextGalleryImg = function(id){
+    var tab = findGalleryTab(id);
+    if(!tab || !tab.images.length) return;
+    galleryIndexes[id] = (galleryIndexes[id] + 1) % tab.images.length;
+    renderGalleryTab(id);
+  };
+  window.showGalleryTab = function(id, el, groupSelector){
+    var group = groupSelector || "#areas";
+    var groupEl = document.querySelector(group);
+    if(!groupEl) return;
+    groupEl.querySelectorAll(".tabs .tab").forEach(function(t){ t.classList.remove("active"); });
+    if(el) el.classList.add("active");
+    groupEl.querySelectorAll(".gallery-panel[id$='Panel']").forEach(function(panel){
+      var panelId = panel.id.slice(0, -"Panel".length);
+      panel.style.display = panelId === id ? "block" : "none";
+    });
+  };
+
   renderApt();
   renderArea();
   renderPlanta();
+  galleryTabs.forEach(function(t){ renderGalleryTab(t.id); });
 })();
