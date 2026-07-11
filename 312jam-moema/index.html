@@ -87,11 +87,15 @@
     </section>
 
     <section class="section-light" id="galeria">
-      <div class="full-container intro-grid">
+      <div class="full-container intro-grid" style="grid-template-columns:40% 1fr">
         <div>
           <div class="title-big">Um novo olhar<br>sobre viver <span class="accent">em Moema</span></div>
-          <div class="text-body">O projeto dialoga com a cidade e valoriza a experiência de morar em cada detalhe — design contemporâneo no melhor da Jamaris. Torre única com 192 unidades em terreno de 1.700m².</div>
-          <a href="#projetistas" class="btn-outline-full">Projetistas</a>
+          <div class="text-body">O 312 JAM nasce de uma leitura atenta de Moema — um bairro que reúne mobilidade, conveniência e qualidade de vida em um dos endereços mais cobiçados de São Paulo.</div>
+          <div class="text-body" style="margin-top:16px">A torre única, de arquitetura contemporânea e atemporal, dialoga com o entorno e valoriza cada detalhe da experiência de morar. Com tipologias diversas e um andar inteiro dedicado ao wellness, o projeto propõe um jeito de viver mais fluido, integrado ao ritmo da cidade.</div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
+            <a href="#projetistas" class="btn-outline-full" style="margin-top:0">Projetistas</a>
+            <a href="https://my.matterport.com/show/?m=UPGCYZUA9t9" target="_blank" rel="noopener noreferrer nofollow" class="btn-outline-full" style="margin-top:0">Tour Virtual</a>
+          </div>
         </div>
         <div class="intro-image-wrap">
           <img src="https://paesegregori.com.br/wp-content/uploads/2026/04/312-Jam-Destaque-home-30.webp" alt="312 JAM">
@@ -102,48 +106,43 @@
 
     <section class="section-light" id="areas">
       <div class="full-container">
-        <div class="tabs">
-          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
-          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+        <div class="areas-top">
+          <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
+          <div class="areas-desc">Cada ambiente comum do 312 JAM foi pensado para acompanhar o ritmo de quem vive a cidade intensamente — equilibrando convívio, descanso e praticidade em um só endereço. A integração entre arquitetura e paisagismo se estende por todos os pavimentos, ampliando a experiência de morar além da porta do apartamento.</div>
+        </div>
+        <div class="areas-icons">
+          <div class="item"><span class="ico">◫</span><span>Lobby</span></div>
+          <div class="item"><span class="ico">◫</span><span>Coworking</span></div>
+          <div class="item"><span class="ico">◫</span><span>Apoio café</span></div>
+          <div class="item"><span class="ico">◫</span><span>Playground</span></div>
+          <div class="item"><span class="ico">◫</span><span>Salão de festas</span></div>
+          <div class="item"><span class="ico">◫</span><span>Brinquedoteca</span></div>
+          <div class="item"><span class="ico">◫</span><span>Churrasqueira</span></div>
+          <div class="item"><span class="ico">◫</span><span>Lavanderia</span></div>
+          <div class="item"><span class="ico">◫</span><span>Piscina coberta com raia</span></div>
+          <div class="item"><span class="ico">◫</span><span>Piscina infantil</span></div>
+          <div class="item"><span class="ico">◫</span><span>Hidro</span></div>
+          <div class="item"><span class="ico">◫</span><span>Área de ducha</span></div>
+          <div class="item"><span class="ico">◫</span><span>Sauna</span></div>
+          <div class="item"><span class="ico">◫</span><span>Terraço</span></div>
+          <div class="item"><span class="ico">◫</span><span>Academia</span></div>
         </div>
 
-        <div id="apartamentos" class="gallery-panel">
-          <div class="gallery-split">
-            <div>
-              <div class="gallery-main">
-                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-galeria-apto-living-55m².webp" alt="Apartamento">
-                <div class="gallery-caption" id="aptCaption">Living 55m²</div>
-              </div>
-              <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevApt()">‹</button>
-                <button class="circle-btn" onclick="nextApt()">›</button>
-              </div>
+        <div class="gallery-split" style="margin-top:56px">
+          <div>
+            <div class="gallery-main">
+              <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp" alt="Área comum">
+              <div class="gallery-caption" id="areaCaption">Academia no rooftop</div>
             </div>
-            <div class="gallery-copy">
-              <h3>Plantas inteligentes para diferentes estilos de vida</h3>
-              <p>De studios HMP a coberturas duplex, os apartamentos do 312 JAM foram pensados para quem busca mobilidade, conveniência e uma leitura urbana mais jovem — com programa de personalização disponível para layouts e acabamentos.</p>
-              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            <div class="gallery-nav">
+              <button class="circle-btn" onclick="prevArea()">‹</button>
+              <button class="circle-btn" onclick="nextArea()">›</button>
             </div>
           </div>
-        </div>
-
-        <div id="areasComuns" class="gallery-panel" style="display:none">
-          <div class="gallery-split">
-            <div>
-              <div class="gallery-main">
-                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Academia.webp" alt="Área comum">
-                <div class="gallery-caption" id="areaCaption">Academia no rooftop</div>
-              </div>
-              <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevArea()">‹</button>
-                <button class="circle-btn" onclick="nextArea()">›</button>
-              </div>
-            </div>
-            <div class="gallery-copy">
-              <h3>Lazer completo do térreo ao rooftop</h3>
-              <p>No térreo, no pavimento wellness e no rooftop — o 312 JAM reúne lazer completo para todos os momentos do dia a dia.</p>
-              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
-            </div>
+          <div class="gallery-copy">
+            <h3>Lazer completo do térreo ao rooftop</h3>
+            <p>No térreo, no pavimento wellness e no rooftop — o 312 JAM reúne lazer completo para todos os momentos do dia a dia.</p>
+            <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
           </div>
         </div>
       </div>
