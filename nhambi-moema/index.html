@@ -342,7 +342,7 @@
         </div>
         <div class="plantas-img-wrap">
           <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp" alt="Planta 121">
-          <div class="plantas-ribbon" id="plantaCaption">3 suítes, living integrado</div>
+          <div class="plantas-ribbon" id="plantaCaption">3 suítes, cozinha aberta</div>
         </div>
       </div>
     </div>
@@ -678,23 +678,49 @@
     function nextArea(){areaIndex=(areaIndex+1)%areas.length;renderArea()}
 
     const plantas = {
-      'lazer': {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Nhambi-terreo-1.webp', cap:'Lazer completo no térreo'},
-      '111': {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-3-suites-cozinha-aberta.webp', cap:'3 suítes, cozinha aberta'},
-      '121': {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp', cap:'3 suítes, living integrado'}
+      'lazer': [
+        {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/Nhambi-terreo-1.webp', cap:'Lazer completo no térreo'}
+      ],
+      '111': [
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-2-suites-cozinha-aberta-e-living-ampliado.webp', cap:'2 suítes, living ampliado e integrado'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-2-suites-cozinha-fechada-banheiros-sra-sr-e-living-ampliado.webp', cap:'2 suítes, living ampliado'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-3-suites-cozinha-aberta.webp', cap:'3 suítes, cozinha aberta'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/111m-3-suites-cozinha-fechada.webp', cap:'3 suítes, cozinha fechada'}
+      ],
+      '121': [
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-01-cozinha-aberta.webp', cap:'3 suítes, cozinha aberta'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-02-cozinha-fechada-banheiro-sra-sr-living-ampliado.webp', cap:'3 suítes, living ampliado'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-02-cozinha-aberta-e-living-ampliado.webp', cap:'3 suítes, living ampliado e integrado'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-03-cozinha-aberta.webp', cap:'3 suítes, living integrado'},
+        {img:'https://paesegregori.com.br/wp-content/uploads/2026/02/121m-3-suites-03-cozinha-fechada.webp', cap:'3 suítes, cozinha fechada'}
+      ]
     };
-    const plantaOrder = ['lazer','111','121'];
-    let plantaIndex = 2;
+    const plantaTabOrder = ['lazer','111','121'];
+    let plantaTab = '121';
+    let plantaImgIndex = 0;
     function renderPlanta(){
-      const key = plantaOrder[plantaIndex];
-      document.getElementById('plantaImg').src = plantas[key].img;
-      document.getElementById('plantaCaption').textContent = plantas[key].cap;
+      const item = plantas[plantaTab][plantaImgIndex];
+      document.getElementById('plantaImg').src = item.img;
+      document.getElementById('plantaCaption').textContent = item.cap;
       document.querySelectorAll('#plantas .tab').forEach(t=>t.classList.remove('active'));
-      const labels = {'lazer':0,'111':1,'121':2};
-      document.querySelectorAll('#plantas .tab')[labels[key]].classList.add('active');
+      document.querySelectorAll('#plantas .tab')[plantaTabOrder.indexOf(plantaTab)].classList.add('active');
     }
-    function prevPlanta(){plantaIndex=(plantaIndex-1+plantaOrder.length)%plantaOrder.length;renderPlanta()}
-    function nextPlanta(){plantaIndex=(plantaIndex+1)%plantaOrder.length;renderPlanta()}
-    function showPlanta(key, el){plantaIndex = plantaOrder.indexOf(key); renderPlanta();}
+    function prevPlanta(){
+      const len = plantas[plantaTab].length;
+      plantaImgIndex = (plantaImgIndex - 1 + len) % len;
+      renderPlanta();
+    }
+    function nextPlanta(){
+      const len = plantas[plantaTab].length;
+      plantaImgIndex = (plantaImgIndex + 1) % len;
+      renderPlanta();
+    }
+    function showPlanta(key, el){
+      plantaTab = key;
+      plantaImgIndex = 0;
+      renderPlanta();
+    }
+    renderPlanta();
 
     function showGallery(id, el){
       document.querySelectorAll('#areas .tab').forEach(t=>t.classList.remove('active'));
