@@ -42,6 +42,10 @@
       .lead-thanks-panel{padding:48px 25px 34px}
       .lead-thanks h2{font-size:28px}
     }
+    .plantas-hotspot-list{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;margin-top:22px;font-size:13px;color:#767676}
+    .plantas-hotspot-list span{display:flex;align-items:center;gap:8px}
+    .plantas-hotspot-list span:before{content:'';width:6px;height:6px;background:var(--terracotta);border-radius:50%;flex:0 0 6px}
+    @media (max-width:600px){.plantas-hotspot-list{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -198,23 +202,89 @@
       <div class="full-container">
         <div class="plantas-title">Plantas</div>
         <div class="tabs">
-          <div class="tab" onclick="showPlanta('suites143')">2 suítes, 143m²</div>
-          <div class="tab" onclick="showPlanta('suites145')">2 suítes, 145m²</div>
-          <div class="tab" onclick="showPlanta('dorms143')">3 dorms. c/ suíte, 143m²</div>
-          <div class="tab" onclick="showPlanta('tres-suites145')">3 suítes, 145m²</div>
-          <div class="tab active" onclick="showPlanta('triplex')">Cobertura triplex</div>
+          <div class="tab active" onclick="showGalleryTab('implantacao', this, '#plantas')">Áreas Comuns</div>
+          <div class="tab" onclick="showGalleryTab('duasSuites', this, '#plantas')">2 Suítes</div>
+          <div class="tab" onclick="showGalleryTab('tresDormitorios', this, '#plantas')">3 Dormitórios</div>
+          <div class="tab" onclick="showGalleryTab('coberturaTriplexPlanta', this, '#plantas')">Cobertura Triplex</div>
         </div>
-        <div class="plantas-grid">
-          <div>
-            <div class="plantas-copy">Apartamentos de 143m² e 145m², com opções de 2 ou 3 suítes, ou 3 dormitórios com 1 suíte. Coberturas triplex de 348m² e 371m², com 2 a 4 vagas por unidade.</div>
-            <div class="plantas-nav">
-              <button class="circle-btn" onclick="prevPlanta()">‹</button>
-              <button class="circle-btn" onclick="nextPlanta()">›</button>
+
+        <div id="implantacaoPanel" class="gallery-panel">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">Cada detalhe do térreo foi desenhado para equilibrar segurança, praticidade e lazer — da portaria blindada e dos acessos independentes às áreas de convívio como salão de festas, playground e piscina.</div>
+              <div class="plantas-hotspot-list">
+                <span>Acesso residencial pedestre</span>
+                <span>Acesso residencial veículos</span>
+                <span>Área de espera - embarque</span>
+                <span>Portaria blindada</span>
+                <span>Hall</span>
+                <span>Elevador social - final 1</span>
+                <span>Elevador de serviço - finais 1 e 2</span>
+                <span>Elevador social - final 2</span>
+                <span>Brinquedoteca</span>
+                <span>Salão de festas</span>
+                <span>Playground</span>
+                <span>Estar externo</span>
+                <span>Piscina</span>
+                <span>Academia</span>
+                <span>Sauna</span>
+                <span>Acesso ao playground e estar externo</span>
+                <span>Loja</span>
+                <span>Acesso comercial pedestre</span>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="implantacaoImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/terreo.webp" alt="Implantação do térreo">
+              <div class="plantas-ribbon" id="implantacaoCaption">Áreas comuns, térreo</div>
             </div>
           </div>
-          <div class="plantas-img-wrap">
-            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp" alt="Cobertura triplex">
-            <div class="plantas-ribbon" id="plantaCaption">Cobertura triplex, 348m² e 371m²</div>
+        </div>
+
+        <div id="duasSuitesPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">As plantas de 2 suítes equilibram amplitude, privacidade e conforto em layouts inteligentes. A integração entre sala, cozinha e terraço valoriza a convivência e a luz natural, enquanto a circulação bem resolvida traduz elegância em cada detalhe.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('duasSuites')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('duasSuites')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="duasSuitesImg" src="https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp" alt="2 suítes">
+              <div class="plantas-ribbon" id="duasSuitesCaption">2 suítes, 143m²</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tresDormitoriosPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">Plantas pensadas para uma rotina mais fluida, com áreas sociais generosas e integração entre estar, jantar e terraço. As diferentes metragens, incluindo versões com pé-direito duplo e opções com 3 suítes, atendem a variados perfis sem abrir mão da privacidade.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('tresDormitorios')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('tresDormitorios')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="tresDormitoriosImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-143m.webp" alt="3 dormitórios">
+              <div class="plantas-ribbon" id="tresDormitoriosCaption">3 dormitórios c/ suíte, 143m²</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="coberturaTriplexPlantaPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">As coberturas triplex elevam a experiência residencial a um novo patamar, distribuindo em três níveis áreas sociais generosas, suítes confortáveis e um rooftop privativo — um refúgio ao ar livre com espaço gourmet, ideal para receber com total privacidade.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('coberturaTriplexPlanta')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('coberturaTriplexPlanta')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="coberturaTriplexPlantaImg" src="https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-terreo.webp" alt="Cobertura triplex">
+              <div class="plantas-ribbon" id="coberturaTriplexPlantaCaption">Cobertura triplex, 348m², térreo</div>
+            </div>
           </div>
         </div>
       </div>
@@ -401,16 +471,41 @@
             {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-gourmet-02.webp", cap: "Perspectiva cobertura"},
             {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-rooftop-02.webp", cap: "Perspectiva rooftop"}
           ]
+        },
+        {
+          id: "implantacao",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/terreo.webp", cap: "Áreas comuns, térreo"}
+          ]
+        },
+        {
+          id: "duasSuites",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp", cap: "2 suítes, 143m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-145m.webp", cap: "2 suítes, 145m²"}
+          ]
+        },
+        {
+          id: "tresDormitorios",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-143m.webp", cap: "3 dormitórios c/ suíte, 143m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-145m.webp", cap: "3 dormitórios c/ suíte, 145m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-pe-direito-duplo-143m-b.webp", cap: "3 dormitórios c/ suíte, pé-direito duplo, 143m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-suites-145m.webp", cap: "3 suítes, 145m²"}
+          ]
+        },
+        {
+          id: "coberturaTriplexPlanta",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-terreo.webp", cap: "Cobertura triplex, 348m², térreo"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-superior.webp", cap: "Cobertura triplex, 348m², superior"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-rooftop.webp", cap: "Cobertura triplex, 348m², rooftop"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-371m²-terreo.webp", cap: "Cobertura triplex, 371m², térreo"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-371m²-superior.webp", cap: "Cobertura triplex, 371m², superior"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-371m²-rooftop.webp", cap: "Cobertura triplex, 371m², rooftop"}
+          ]
         }
-      ],
-      plantas: {
-        "suites143": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp", cap: "2 suítes, 143m²"},
-        "suites145": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-145m.webp", cap: "2 suítes, 145m²"},
-        "dorms143": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-143m.webp", cap: "3 dormitórios com suíte, 143m²"},
-        "tres-suites145": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-suites-145m.webp", cap: "3 suítes, 145m²"},
-        "triplex": {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp", cap: "Cobertura triplex, 348m² e 371m²"}
-      },
-      plantaOrder: ["suites143", "suites145", "dorms143", "tres-suites145", "triplex"]
+      ]
     };
   </script>
   <script src="/assets/full.js"></script>
