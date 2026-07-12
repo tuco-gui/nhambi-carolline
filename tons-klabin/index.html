@@ -42,6 +42,13 @@
       .lead-thanks-panel{padding:48px 25px 34px}
       .lead-thanks h2{font-size:28px}
     }
+
+    .accordion .row{border-bottom:1px solid rgba(255,255,255,.18)}
+    .accordion .row summary{padding:14px 0;font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none}
+    .accordion .row summary::-webkit-details-marker{display:none}
+    .accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
+    .accordion .row[open] .plus{transform:rotate(45deg)}
+    .accordion-copy{font-size:13px;line-height:1.7;color:#d8d8d8;text-transform:none;padding:0 0 18px}
   </style>
 </head>
 <body>
@@ -329,7 +336,7 @@
           <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
         <div>
-          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Os diferenciais técnicos do Tons Klabin reforçam o compromisso da Paes e Gregori com qualidade construtiva, conforto e inteligência de projeto. Cada detalhe foi pensado para valorizar desempenho, durabilidade e bem-estar, oferecendo soluções que elevam o padrão dos apartamentos e garantem mais eficiência no dia a dia.</div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">No Tons Klabin, cada solução técnica nasce de um propósito claro: elevar o padrão construtivo sem abrir mão da praticidade do dia a dia. São escolhas que se traduzem em mais conforto, durabilidade e eficiência para quem mora — do detalhe mais discreto ao item que faz diferença todos os dias.</div>
           <div class="diff-grid">
             <div class="diff-item"><span class="ico">❄</span><span>Infraestrutura para ar condicionado (carga e dreno)</span></div>
             <div class="diff-item"><span class="ico">✎</span><span>Programa de personalização Paes e Gregori</span></div>
@@ -350,10 +357,10 @@
           <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
         <div>
-          <div class="proj-copy">No Tons Klabin, cada escolha é resultado de uma curadoria criteriosa e do alto grau de exigência da Paes e Gregori. A arquitetura, os interiores e o paisagismo foram confiados a escritórios alinhados ao olhar atento ao detalhe, à funcionalidade e à estética atemporal, garantindo que o projeto traduza, com autenticidade, o DNA da marca na Chácara Klabin.</div>
+          <div class="proj-copy">Cada parceria por trás do Tons Klabin foi escolhida a dedo, seguindo o padrão de exigência que define a Paes e Gregori. Arquitetura, decoração e paisagismo caminham na mesma direção — um olhar apurado para o detalhe, a funcionalidade e uma estética que não envelhece, dando forma autêntica ao projeto na Chácara Klabin.</div>
           <div class="proj-list">
             <div class="proj-item"><span class="role">Arquitetura</span><span class="name">IDE studio</span></div>
-            <div class="proj-item"><span class="role">Interiores</span><span class="name">Marcela Penteado Arquitetos</span></div>
+            <div class="proj-item"><span class="role">Decoração</span><span class="name">Marcela Penteado Arquitetos</span></div>
             <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Gil Fialho</span></div>
           </div>
         </div>
@@ -363,21 +370,23 @@
     <section class="section-dark" id="localizacao">
       <div class="full-container local-grid">
         <div>
-          <div class="local-title">Chácara Klabin: <strong>mobilidade, verde e exclusividade</strong></div>
+          <div class="local-title">Chácara Klabin:<br><strong>bem-estar em cada esquina</strong></div>
           <div class="address-line">📍 Rua Major Newton Feliciano, 105 — Chácara Klabin, São Paulo</div>
-          <div class="local-copy">Em frente à Praça Alexandre Cabanel, o Tons Klabin ocupa um ponto estratégico em um dos bairros mais valorizados da zona sul de São Paulo, reconhecido pelo equilíbrio entre tranquilidade e infraestrutura completa.</div>
+          <div class="local-copy">De frente para a Praça Alexandre Cabanel, o Tons Klabin ergue-se em um dos endereços mais valorizados da zona sul — onde sossego e infraestrutura completa convivem lado a lado.</div>
           <div class="accordion" style="margin-top:8px">
-            <div class="row"><span class="plus">+</span>Conexão e mobilidade</div>
+            <details class="row">
+              <summary><span>Conexão e mobilidade</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">As estações Chácara Klabin e Santos-Imigrantes ficam a poucos minutos, assim como vias estruturais como a Rua Ricardo Jafet e a Avenida Prefeito Fábio Prado — um acesso rápido à Avenida Paulista, ao Parque Ibirapuera e ao restante da cidade.</p>
+            </details>
+            <details class="row">
+              <summary><span>Infraestrutura consolidada</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">Colégios de referência, como o Arquidiocesano e o Liceu Pasteur, dividem o bairro com universidades como FMU e UNIP. Hospitais de peso — Sepaco e Hospital São Paulo — somam-se a supermercados, farmácias, padarias e academias a poucos passos de casa.</p>
+            </details>
+            <details class="row">
+              <summary><span>Bairro planejado e valorizado</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">Voltado para a Praça Alexandre Cabanel, o empreendimento garante respiro e vista permanentes em um bairro planejado, de ruas arborizadas e arquitetura consolidada — um dos endereços mais disputados da zona sul.</p>
+            </details>
           </div>
-          <div class="local-copy">A poucos minutos das estações Chácara Klabin e Santos–Imigrantes, além de vias estruturais como Ricardo Jafet e Av. Prefeito Fábio Prado, facilita deslocamentos para a Av. Paulista, Parque Ibirapuera e demais regiões da cidade.</div>
-          <div class="accordion">
-            <div class="row"><span class="plus">+</span>Infraestrutura consolidada</div>
-          </div>
-          <div class="local-copy">A Chácara Klabin conta com escolas renomadas, como o Colégio Arquidiocesano e o Liceu Pasteur, nas proximidades, além de fácil acesso a universidades como FMU e UNIP. A região também abriga hospitais de excelência, como o Hospital Sepaco e o Hospital São Paulo. Supermercados, farmácias, padarias, academias e outros serviços essenciais estão a poucos passos do edifício.</div>
-          <div class="accordion">
-            <div class="row"><span class="plus">+</span>Bairro planejado e valorizado</div>
-          </div>
-          <div class="local-copy">A relação direta com a Praça Alexandre Cabanel amplia a sensação de respiro urbano e qualifica a vista permanente. Inserido em um bairro planejado, de ruas arborizadas e padrão arquitetônico consolidado, o empreendimento está em uma das regiões com maior demanda e valorização da zona sul.</div>
         </div>
         <div class="map-wrap">
           <img src="https://paesegregori.com.br/wp-content/uploads/2024/09/TONS-mapa.webp" alt="Mapa de localização do Tons Klabin">
