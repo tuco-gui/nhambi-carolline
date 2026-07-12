@@ -16,6 +16,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/full.css">
+  <style>
+    body.modal-open{overflow:hidden}
+    .lead-thanks[hidden]{display:none}
+    .lead-thanks{position:fixed;inset:0;z-index:12000;display:grid;place-items:center;padding:24px}
+    .lead-thanks-backdrop{position:absolute;inset:0;background:rgba(30,30,30,.72);backdrop-filter:blur(5px)}
+    .lead-thanks-panel{position:relative;background:#fff;max-width:460px;width:100%;padding:56px 40px 34px;text-align:center;border-radius:2px;box-shadow:0 30px 70px rgba(0,0,0,.35);transform:translateY(14px);opacity:0;transition:transform .35s ease,opacity .35s ease}
+    .lead-thanks.is-visible .lead-thanks-panel{transform:translateY(0);opacity:1}
+    .lead-thanks-panel:before{content:'';position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--terracotta)}
+    .lead-thanks-close{position:absolute;right:18px;top:14px;border:0;background:transparent;color:#777;font-size:30px;line-height:1;cursor:pointer;padding:6px}
+    .lead-thanks-mark{width:74px;height:74px;border:1px solid rgba(200,145,114,.5);border-radius:50%;display:grid;place-items:center;margin:0 auto 24px;color:var(--terracotta);background:#faf6f3}
+    .lead-thanks-mark svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .lead-thanks-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#8f6c58;font-weight:700;margin-bottom:10px}
+    .lead-thanks h2{font-size:34px;line-height:1.05;text-transform:uppercase;font-weight:300;color:#303030;margin-bottom:16px}
+    .lead-thanks h2 strong{font-weight:700;color:var(--terracotta)}
+    .lead-thanks-copy{font-size:16px;line-height:1.65;color:#656565;max-width:420px;margin:0 auto 28px}
+    .lead-thanks-choice{border-top:1px solid #e7e0dc;border-bottom:1px solid #e7e0dc;padding:24px 0;margin-bottom:24px}
+    .lead-thanks-choice strong{display:block;font-size:18px;color:#333;margin-bottom:7px}
+    .lead-thanks-choice p{font-size:14px;line-height:1.55;color:#747474;margin:0 auto 18px;max-width:380px}
+    .lead-thanks-choice .btn-green-full{margin:0;min-width:230px;text-align:center}
+    .lead-thanks-return{border:0;background:transparent;color:#6d6d6d;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit;font-size:13px}
+    @media (prefers-reduced-motion:reduce){.lead-thanks-panel{transition:none}}
+    @media (max-width:600px){
+      .lead-thanks{padding:14px}
+      .lead-thanks-panel{padding:48px 25px 34px}
+      .lead-thanks h2{font-size:28px}
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -162,21 +189,21 @@
           <div class="areas-desc">Cada ambiente comum do 312 JAM foi pensado para acompanhar o ritmo de quem vive a cidade intensamente — equilibrando convívio, descanso e praticidade em um só endereço. A integração entre arquitetura e paisagismo se estende por todos os pavimentos, ampliando a experiência de morar além da porta do apartamento.</div>
         </div>
         <div class="areas-icons">
-          <div class="item"><span class="ico">◫</span><span>Lobby</span></div>
-          <div class="item"><span class="ico">◫</span><span>Coworking</span></div>
-          <div class="item"><span class="ico">◫</span><span>Apoio café</span></div>
-          <div class="item"><span class="ico">◫</span><span>Playground</span></div>
-          <div class="item"><span class="ico">◫</span><span>Salão de festas</span></div>
-          <div class="item"><span class="ico">◫</span><span>Brinquedoteca</span></div>
-          <div class="item"><span class="ico">◫</span><span>Churrasqueira</span></div>
-          <div class="item"><span class="ico">◫</span><span>Lavanderia</span></div>
-          <div class="item"><span class="ico">◫</span><span>Piscina coberta com raia</span></div>
-          <div class="item"><span class="ico">◫</span><span>Piscina infantil</span></div>
-          <div class="item"><span class="ico">◫</span><span>Hidro</span></div>
-          <div class="item"><span class="ico">◫</span><span>Área de ducha</span></div>
-          <div class="item"><span class="ico">◫</span><span>Sauna</span></div>
-          <div class="item"><span class="ico">◫</span><span>Terraço</span></div>
-          <div class="item"><span class="ico">◫</span><span>Academia</span></div>
+          <div class="item"><span class="ico">⌂</span><span>Lobby</span></div>
+          <div class="item"><span class="ico">▤</span><span>Coworking</span></div>
+          <div class="item"><span class="ico">◉</span><span>Apoio café</span></div>
+          <div class="item"><span class="ico">✦</span><span>Playground</span></div>
+          <div class="item"><span class="ico">✧</span><span>Salão de festas</span></div>
+          <div class="item"><span class="ico">✿</span><span>Brinquedoteca</span></div>
+          <div class="item"><span class="ico">▲</span><span>Churrasqueira</span></div>
+          <div class="item"><span class="ico">▥</span><span>Lavanderia</span></div>
+          <div class="item"><span class="ico">≈</span><span>Piscina coberta com raia</span></div>
+          <div class="item"><span class="ico">∿</span><span>Piscina infantil</span></div>
+          <div class="item"><span class="ico">○</span><span>Hidro</span></div>
+          <div class="item"><span class="ico">⚏</span><span>Área de ducha</span></div>
+          <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
+          <div class="item"><span class="ico">⌒</span><span>Terraço</span></div>
+          <div class="item"><span class="ico">⚙</span><span>Academia</span></div>
         </div>
 
         <div class="gallery-split" style="margin-top:56px">
@@ -306,11 +333,11 @@
           <div class="areas-desc" style="max-width:none;margin-bottom:26px">Um projeto pensado em cada detalhe, da concepção arquitetônica aos acabamentos.</div>
           <div class="diff-grid">
             <div class="diff-item"><span class="ico">⌂</span><span>Torre única, 192 unidades</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Terreno de 1.700m²</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Programa de personalização de layouts e acabamentos</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Unidades R2V e studios HMP</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Andar wellness com piscina coberta com raia</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Academia no rooftop com vista para a cidade</span></div>
+            <div class="diff-item"><span class="ico">▦</span><span>Terreno de 1.700m²</span></div>
+            <div class="diff-item"><span class="ico">✎</span><span>Programa de personalização de layouts e acabamentos</span></div>
+            <div class="diff-item"><span class="ico">◫</span><span>Unidades R2V e studios HMP</span></div>
+            <div class="diff-item"><span class="ico">♨</span><span>Andar wellness com piscina coberta com raia</span></div>
+            <div class="diff-item"><span class="ico">⛰</span><span>Academia no rooftop com vista para a cidade</span></div>
           </div>
         </div>
       </div>
@@ -357,6 +384,7 @@
           <div class="local-copy">Moema reúne uma das cenas gastronômicas mais diversificadas da cidade, com opções para todos os gostos a poucos minutos de casa.</div>
         </div>
         <div class="map-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2026/03/312-Jam-Mapa.webp" alt="Mapa de localização do 312 JAM">
           <a class="map-btn" href="https://maps.google.com/?q=Avenida+Jamaris+312+Moema+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
         </div>
       </div>
@@ -407,11 +435,29 @@
               <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
               <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
             </form>
-            <a class="btn-green-full" href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="lead-thanks" id="leadThankYou" role="dialog" aria-modal="true" aria-labelledby="leadThankYouTitle" hidden>
+      <div class="lead-thanks-backdrop" data-thanks-close></div>
+      <div class="lead-thanks-panel" tabindex="-1">
+        <button class="lead-thanks-close" type="button" aria-label="Fechar" data-thanks-close>&times;</button>
+        <div class="lead-thanks-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M12 25.5 20.5 34 37 16"/><circle cx="24" cy="24" r="20"/></svg>
+        </div>
+        <div class="lead-thanks-eyebrow">Mensagem recebida</div>
+        <h2 id="leadThankYouTitle">Obrigado pelo seu <strong>interesse</strong></h2>
+        <p class="lead-thanks-copy">Recebemos seus dados. Um corretor da Equipe Ortega vai analisar suas preferências e entrar em contato para apresentar as informações do 312 JAM.</p>
+        <div class="lead-thanks-choice">
+          <strong>Prefere falar agora?</strong>
+          <p>Se quiser antecipar o atendimento, você pode chamar a Equipe Ortega diretamente no WhatsApp.</p>
+          <a class="btn-green-full" id="thankYouWhatsapp" href="#" role="button">Falar com a Equipe Ortega</a>
+        </div>
+        <button class="lead-thanks-return" type="button" data-thanks-close>Continuar na página</button>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -515,7 +561,61 @@
     (function(){
       var form = document.getElementById("lpLeadForm");
       var status = document.getElementById("lpLeadStatus");
+      var leadThankYou = document.getElementById("leadThankYou");
+      var leadThankYouPanel = leadThankYou ? leadThankYou.querySelector(".lead-thanks-panel") : null;
+      var thankYouWhatsapp = document.getElementById("thankYouWhatsapp");
+      var previousFocusedElement = null;
       if(!form) return;
+
+      function openThankYouModal(clickUrl){
+        if(!leadThankYou || !leadThankYouPanel) return;
+        previousFocusedElement = document.activeElement;
+        if(thankYouWhatsapp) thankYouWhatsapp.setAttribute("href", clickUrl);
+        leadThankYou.hidden = false;
+        document.body.classList.add("modal-open");
+        window.requestAnimationFrame(function(){
+          leadThankYou.classList.add("is-visible");
+          leadThankYouPanel.focus();
+        });
+      }
+
+      function closeThankYouModal(){
+        if(!leadThankYou) return;
+        leadThankYou.classList.remove("is-visible");
+        leadThankYou.hidden = true;
+        document.body.classList.remove("modal-open");
+        if(previousFocusedElement && typeof previousFocusedElement.focus === "function") previousFocusedElement.focus();
+      }
+
+      if(leadThankYou){
+        leadThankYou.querySelectorAll("[data-thanks-close]").forEach(function(control){
+          control.addEventListener("click", closeThankYouModal);
+        });
+        document.addEventListener("keydown", function(event){
+          if(event.key === "Escape" && !leadThankYou.hidden) closeThankYouModal();
+        });
+      }
+
+      if(thankYouWhatsapp){
+        thankYouWhatsapp.addEventListener("click", function(){
+          var cfg = window.PAGE_CONFIG;
+          window.dataLayer.push({
+            event: "qualified_whatsapp_action",
+            construtora: "paesegregori",
+            produto: cfg.empreendimentoSlug,
+            corretor: cfg.corretorSlug,
+            tipo_pagina: "landing_produto",
+            content_name: cfg.empreendimentoNome,
+            content_category: "imovel_lancamento",
+            form_location: "thank_you_modal",
+            lead_source: "site",
+            lead_temperature: "hot",
+            page_path: window.location.pathname,
+            page_location: window.location.href
+          });
+        });
+      }
+
       form.addEventListener("submit", function(event){
         event.preventDefault();
         var nome = document.getElementById("lpNome").value;
@@ -546,9 +646,10 @@
           page_path: window.location.pathname,
           page_location: window.location.href
         });
-        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        if(status) status.textContent = "Dados registrados.";
         var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
-        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+        var clickUrl = "https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo);
+        openThankYouModal(clickUrl);
       });
     })();
   </script>
