@@ -42,6 +42,10 @@
       .lead-thanks-panel{padding:48px 25px 34px}
       .lead-thanks h2{font-size:28px}
     }
+    .plantas-hotspot-list{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;margin-top:22px;font-size:13px;color:#767676}
+    .plantas-hotspot-list span{display:flex;align-items:center;gap:8px}
+    .plantas-hotspot-list span:before{content:'';width:6px;height:6px;background:var(--terracotta);border-radius:50%;flex:0 0 6px}
+    @media (max-width:600px){.plantas-hotspot-list{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -195,21 +199,79 @@
       <div class="full-container">
         <div class="plantas-title">Plantas</div>
         <div class="tabs">
-          <div class="tab active" onclick="showPlanta('suites154')">3 suítes, 154m²</div>
-          <div class="tab" onclick="showPlanta('duplexTerreo')">Cobertura, térreo</div>
-          <div class="tab" onclick="showPlanta('duplexSup')">Cobertura, terraço</div>
+          <div class="tab active" onclick="showGalleryTab('terreo', this, '#plantas')">Térreo</div>
+          <div class="tab" onclick="showGalleryTab('tresSuitesPlanta', this, '#plantas')">3 Suítes</div>
+          <div class="tab" onclick="showGalleryTab('coberturaDuplexPlanta', this, '#plantas')">Cobertura Duplex</div>
         </div>
-        <div class="plantas-grid">
-          <div>
-            <div class="plantas-copy">Apartamentos de 3 suítes com 154m² e 2 vagas. Coberturas duplex de 324m², com 3 suítes e 3 vagas, distribuídas entre o pavimento inferior e um terraço privativo.</div>
-            <div class="plantas-nav">
-              <button class="circle-btn" onclick="prevPlanta()">‹</button>
-              <button class="circle-btn" onclick="nextPlanta()">›</button>
+
+        <div id="terreoPanel" class="gallery-panel">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">O térreo do L Klabin foi desenhado para receber com fluidez: acessos de veículos e pedestres bem definidos, portaria com concierge e uma sequência de áreas de lazer que vai do salão de festas à academia e à piscina com raia.</div>
+              <div class="plantas-hotspot-list">
+                <span>Entrada e saída de veículos</span>
+                <span>Acesso pedestre</span>
+                <span>Hall de entrada</span>
+                <span>Portaria</span>
+                <span>WC portaria</span>
+                <span>Concierge</span>
+                <span>Copa salão de festas</span>
+                <span>Salão de festas</span>
+                <span>Apoio salão de festas</span>
+                <span>WC PNE feminino</span>
+                <span>Elevador serviço</span>
+                <span>Medidores</span>
+                <span>Hall elevador</span>
+                <span>Elevador social</span>
+                <span>Vestiário feminino</span>
+                <span>Vestiário masculino</span>
+                <span>Academia</span>
+                <span>Descanso sauna</span>
+                <span>WC PNE masculino</span>
+                <span>Sauna</span>
+                <span>Acesso mezanino</span>
+                <span>Hall social</span>
+                <span>Coworking</span>
+                <span>Deck piscina</span>
+                <span>Deck molhado</span>
+                <span>Piscina raia</span>
+                <span>Piscina infantil</span>
+                <span>Playground</span>
+                <span>Churrasqueira</span>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="terreoImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/terreo.webp" alt="Implantação do térreo">
+              <div class="plantas-ribbon" id="terreoCaption">Térreo</div>
             </div>
           </div>
-          <div class="plantas-img-wrap">
-            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp" alt="Planta 3 suítes 154m²">
-            <div class="plantas-ribbon" id="plantaCaption">3 suítes, 154m²</div>
+        </div>
+
+        <div id="tresSuitesPlantaPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">Layouts amplos e bem distribuídos priorizam conforto e flexibilidade de uso. As plantas de 3 suítes equilibram áreas sociais e íntimas, criando ambientes ideais para famílias que valorizam espaço e integração.</div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="tresSuitesPlantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp" alt="Planta 3 suítes 154m²">
+              <div class="plantas-ribbon" id="tresSuitesPlantaCaption">3 suítes, 154m²</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="coberturaDuplexPlantaPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">Espaços generosos e integrados se distribuem entre o pavimento inferior e um terraço privativo, com áreas externas que ampliam a sensação de liberdade e permitem diferentes composições de layout.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('coberturaDuplexPlanta')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('coberturaDuplexPlanta')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="coberturaDuplexPlantaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-terreo.webp" alt="Cobertura duplex">
+              <div class="plantas-ribbon" id="coberturaDuplexPlantaCaption">Cobertura 324m², térreo</div>
+            </div>
           </div>
         </div>
       </div>
@@ -410,14 +472,27 @@
           images: [
             {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-3.webp", cap: "Perspectiva terraço"}
           ]
+        },
+        {
+          id: "terreo",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/terreo.webp", cap: "Térreo"}
+          ]
+        },
+        {
+          id: "tresSuitesPlanta",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp", cap: "3 suítes, 154m²"}
+          ]
+        },
+        {
+          id: "coberturaDuplexPlanta",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-terreo.webp", cap: "Cobertura 324m², térreo"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-sup.webp", cap: "Cobertura 324m², terraço"}
+          ]
         }
-      ],
-      plantas: {
-        "suites154": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp", cap: "3 suítes, 154m²"},
-        "duplexTerreo": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-terreo.webp", cap: "Cobertura 324m², térreo"},
-        "duplexSup": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/duplex-sup.webp", cap: "Cobertura 324m², terraço"}
-      },
-      plantaOrder: ["suites154", "duplexTerreo", "duplexSup"]
+      ]
     };
   </script>
   <script src="/assets/full.js"></script>
