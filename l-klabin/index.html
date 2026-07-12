@@ -128,45 +128,62 @@
     <section class="section-light" id="areas">
       <div class="full-container">
         <div class="tabs">
-          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
-          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+          <div class="tab active" onclick="showGalleryTab('areasComuns', this, '#areas')">Áreas Comuns</div>
+          <div class="tab" onclick="showGalleryTab('tresSuites', this, '#areas')">3 Suítes</div>
+          <div class="tab" onclick="showGalleryTab('coberturaDuplex', this, '#areas')">Cobertura Duplex</div>
         </div>
 
-        <div id="apartamentos" class="gallery-panel">
+        <div id="areasComunsPanel" class="gallery-panel">
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/3-2.webp" alt="Apartamento">
-                <div class="gallery-caption" id="aptCaption">Suíte master</div>
+                <img id="areasComunsImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp" alt="Área comum">
+                <div class="gallery-caption" id="areasComunsCaption">Academia Life Fitness</div>
               </div>
               <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevApt()">‹</button>
-                <button class="circle-btn" onclick="nextApt()">›</button>
+                <button class="circle-btn" onclick="prevGalleryImg('areasComuns')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('areasComuns')">›</button>
               </div>
             </div>
             <div class="gallery-copy">
-              <h3>Apartamentos de 3 suítes a coberturas duplex</h3>
-              <p>Apartamentos de 154m² com 2 vagas, gardens de 214m² e 247m², e coberturas duplex de 324m² com 3 suítes e 3 vagas.</p>
+              <h3>Espaços para viver em todos os momentos</h3>
+              <p>Da rotina fitness aos encontros em família, o L Klabin reúne ambientes para cada momento do dia: brinquedoteca para os pequenos, salão de festas para celebrar, piscina para relaxar e academia para manter os cuidados em dia.</p>
               <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
             </div>
           </div>
         </div>
 
-        <div id="areasComuns" class="gallery-panel" style="display:none">
+        <div id="tresSuitesPanel" class="gallery-panel" style="display:none">
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp" alt="Área comum">
-                <div class="gallery-caption" id="areaCaption">Academia Life Fitness</div>
+                <img id="tresSuitesImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/5-2.webp" alt="Apartamento 3 suítes">
+                <div class="gallery-caption" id="tresSuitesCaption">Living</div>
               </div>
               <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevArea()">‹</button>
-                <button class="circle-btn" onclick="nextArea()">›</button>
+                <button class="circle-btn" onclick="prevGalleryImg('tresSuites')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('tresSuites')">›</button>
               </div>
             </div>
             <div class="gallery-copy">
-              <h3>Lazer completo na Chácara Klabin</h3>
-              <p>Academia Life Fitness, piscina adulto com raia e piscina infantil, sauna seca, salão de festas com espaço gourmet, coworking, playground, churrasqueira, salão de jogos e brinquedoteca.</p>
+              <h3>Conforto que também é sofisticação</h3>
+              <p>Plantas bem distribuídas priorizam luz natural, circulação fluida e conforto em cada ambiente. Os apartamentos de 3 suítes equilibram praticidade e elegância, pensados para famílias que buscam funcionalidade sem abrir mão do bem-estar.</p>
+              <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="coberturaDuplexPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="coberturaDuplexImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/1-3.webp" alt="Cobertura duplex">
+                <div class="gallery-caption" id="coberturaDuplexCaption">Perspectiva terraço</div>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Um viver à parte</h3>
+              <p>A cobertura duplex eleva a experiência a um novo patamar: espaços amplos, design autoral e uma vista que transforma o terraço em extensão da própria casa.</p>
               <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
             </div>
           </div>
@@ -361,22 +378,39 @@
       empreendimentoNome: "L Klabin"
     };
     window.PAGE_DATA = {
-      apts: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-2.webp", cap: "Suíte master"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-2.webp", cap: "Cozinha"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-2.webp", cap: "Suíte 2"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-3.webp", cap: "Perspectiva terraço"}
-      ],
-      areas: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp", cap: "Academia Life Fitness"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/2-hall.webp", cap: "Hall"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Coworking-02.webp", cap: "Coworking"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/06-piscina.webp", cap: "Piscina adulto e infantil"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Sauna-02.webp", cap: "Sauna seca"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/10-festas.webp", cap: "Salão de festas"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/churrasqueira.webp", cap: "Churrasqueira"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/jogos.webp", cap: "Salão de jogos"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/07-brinquedoteca.webp", cap: "Brinquedoteca"}
+      galleryTabs: [
+        {
+          id: "areasComuns",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/1-academia.webp", cap: "Academia Life Fitness"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/2-hall.webp", cap: "Hall"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Coworking-02.webp", cap: "Coworking"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/06-piscina.webp", cap: "Piscina adulto e infantil"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Sauna-02.webp", cap: "Sauna seca"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/10-festas.webp", cap: "Salão de festas"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/churrasqueira.webp", cap: "Churrasqueira"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/jogos.webp", cap: "Salão de jogos"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/07-brinquedoteca.webp", cap: "Brinquedoteca"}
+          ]
+        },
+        {
+          id: "tresSuites",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/5-2.webp", cap: "Living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-2.webp", cap: "Cozinha"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/6-2.webp", cap: "Varanda integrada"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-2.webp", cap: "Suíte master"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-2.webp", cap: "Suíte 2"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7-2.webp", cap: "Suíte 3"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/09/Servico-02.webp", cap: "Serviço"}
+          ]
+        },
+        {
+          id: "coberturaDuplex",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-3.webp", cap: "Perspectiva terraço"}
+          ]
+        }
       ],
       plantas: {
         "suites154": {img: "https://paesegregori.com.br/wp-content/uploads/2024/09/3suites.webp", cap: "3 suítes, 154m²"},
