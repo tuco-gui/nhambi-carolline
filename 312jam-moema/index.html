@@ -203,33 +203,95 @@
       <div class="full-container">
         <div class="plantas-title">Plantas</div>
         <div class="tabs">
-          <div class="tab active" onclick="showPlanta('terreo')">Lazer Térreo</div>
-          <div class="tab" onclick="showPlanta('wellness')">Pavimento Wellness</div>
-          <div class="tab" onclick="showPlanta('rooftop')">Lazer Rooftop</div>
-          <div class="tab" onclick="showPlanta('2dorms55')">2 dorms. 55m²</div>
-          <div class="tab" onclick="showPlanta('2dorms55amp')">2 dorms. 55m² ampliada</div>
-          <div class="tab" onclick="showPlanta('2suites64')">2 suítes 64m²</div>
-          <div class="tab" onclick="showPlanta('2suites64amp')">2 suítes 64m² ampliada</div>
-          <div class="tab" onclick="showPlanta('3dorms89')">3 dorms. 89m²</div>
-          <div class="tab" onclick="showPlanta('3dorms89v2')">3 dorms. 89m² (variação)</div>
-          <div class="tab" onclick="showPlanta('2suites89')">2 suítes 89m²</div>
-          <div class="tab" onclick="showPlanta('2suites89amp')">2 suítes 89m² ampliada</div>
-          <div class="tab" onclick="showPlanta('2suites89esc')">2 suítes 89m² c/ escritório</div>
-          <div class="tab" onclick="showPlanta('2suites89srsra')">2 suítes 89m² (sr. e sra.)</div>
-          <div class="tab" onclick="showPlanta('studio26')">Studio HMP 26m²</div>
-          <div class="tab" onclick="showPlanta('studio33')">Studio HMP 33m²</div>
+          <div class="tab active" onclick="showGalleryTab('terreo', this, '#plantas')">Lazer Térreo</div>
+          <div class="tab" onclick="showGalleryTab('wellness', this, '#plantas')">Pavimento Wellness</div>
+          <div class="tab" onclick="showGalleryTab('rooftop', this, '#plantas')">Lazer Rooftop</div>
+          <div class="tab" onclick="showGalleryTab('apartamentosPlanta', this, '#plantas')">Apartamentos</div>
+          <div class="tab" onclick="showGalleryTab('studiosHmp', this, '#plantas')">Studios HMP</div>
         </div>
-        <div class="plantas-grid">
-          <div>
-            <div class="plantas-copy">Da implantação do lazer no térreo, no pavimento wellness e no rooftop, às plantas dos apartamentos e dos studios HMP — cada ambiente do 312 JAM foi desenhado com layouts bem resolvidos, priorizando conforto, funcionalidade e qualidade espacial, com programa de personalização disponível para quem deseja ambientes mais integrados.</div>
-            <div class="plantas-nav">
-              <button class="circle-btn" onclick="prevPlanta()">‹</button>
-              <button class="circle-btn" onclick="nextPlanta()">›</button>
+
+        <div id="terreoPanel" class="gallery-panel">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="terreoImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terreo.webp" alt="Implantação Lazer Térreo">
+                <div class="gallery-caption" id="terreoCaption">Lazer Térreo</div>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Áreas comuns organizadas em cada pavimento</h3>
+              <p>As áreas comuns do 312 JAM foram organizadas para valorizar fluidez, integração e diversidade de usos ao longo do edifício. No térreo, os espaços se conectam de forma aberta e convidativa, aproximando o empreendimento da dinâmica urbana.</p>
             </div>
           </div>
-          <div class="plantas-img-wrap">
-            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terreo.webp" alt="Implantação Lazer Térreo">
-            <div class="plantas-ribbon" id="plantaCaption">Lazer Térreo</div>
+        </div>
+
+        <div id="wellnessPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="wellnessImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Andar-wellness.webp" alt="Pavimento Wellness">
+                <div class="gallery-caption" id="wellnessCaption">Pavimento Wellness</div>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Um andar inteiro dedicado ao bem-estar</h3>
+              <p>No andar wellness, o edifício assume um caráter mais introspectivo, voltado ao autocuidado e à contemplação, em ambientes integrados ao verde.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="rooftopPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="rooftopImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Rooftop.webp" alt="Lazer Rooftop">
+                <div class="gallery-caption" id="rooftopCaption">Lazer Rooftop</div>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>No rooftop, a vista vira protagonista</h3>
+              <p>No rooftop, a academia se beneficia da altura para oferecer uma vista ampla da cidade, reforçando a relação com o entorno. O resultado é uma implantação técnica que distribui o lazer de forma estratégica, criando diferentes atmosferas que acompanham o ritmo do dia a dia.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="apartamentosPlantaPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="apartamentosPlantaImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m.webp" alt="Planta apartamento">
+                <div class="gallery-caption" id="apartamentosPlantaCaption">55m², 2 dormitórios</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('apartamentosPlanta')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('apartamentosPlanta')">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Plantas com layouts bem resolvidos</h3>
+              <p>Priorizando conforto, funcionalidade e qualidade espacial, com programa de personalização disponível para quem deseja ambientes mais integrados.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="studiosHmpPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="studiosHmpImg" src="https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-studio-hmp-26m.webp" alt="Planta studio HMP">
+                <div class="gallery-caption" id="studiosHmpCaption">26m², studio HMP</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('studiosHmp')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('studiosHmp')">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Studios com desenho inteligente</h3>
+              <p>Layouts eficientes que organizam os espaços de forma clara e funcional, valorizando a integração dos ambientes e permitindo diferentes formas de morar.</p>
+              <a href="https://wa.me/5511972693413?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20312%20JAM." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Falar com um corretor</a>
+            </div>
           </div>
         </div>
       </div>
@@ -260,7 +322,8 @@
           <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
         <div>
-          <div class="proj-copy">O 312 JAM combina design contemporâneo e funcionalidade, com um time de profissionais que traduziu esse conceito em cada detalhe do projeto.</div>
+          <div class="proj-copy">O 312 JAM reúne uma curadoria de profissionais alinhados a uma mesma visão de arquitetura, cidade e experiência de morar.</div>
+          <div class="proj-copy" style="margin-top:14px">A arquitetura e os interiores, assinados pelo AMZ Arquitetos, conduzem o projeto com linguagem contemporânea e atenção ao uso dos espaços. O paisagismo, de Faisal Arquitetos Paisagistas, integra o verde ao cotidiano, enquanto a comunicação visual, da DEA Design, conecta marca e espaço com consistência.</div>
           <div class="proj-list">
             <div class="proj-item"><span class="role">Arquitetura e Interiores</span><span class="name">AMZ Arquitetos</span></div>
             <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Faisal Arquitetos Paisagistas</span></div>
@@ -402,24 +465,33 @@
         {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Hall-e-lockers.webp", cap: "Hall e Lockers"},
         {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Lobby-e-Coworking.webp", cap: "Lobby e Coworking"}
       ],
-      plantas: {
-        "terreo": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terreo.webp", cap: "Lazer Térreo"},
-        "wellness": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Andar-wellness.webp", cap: "Pavimento Wellness"},
-        "rooftop": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Rooftop.webp", cap: "Lazer Rooftop"},
-        "2dorms55": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m.webp", cap: "55m², 2 dormitórios"},
-        "2dorms55amp": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m-ampliada.webp", cap: "55m², 2 dorms. e sala ampliada"},
-        "2suites64": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-64m.webp", cap: "64m², 2 suítes"},
-        "2suites64amp": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-64m-sala-ampliada.webp", cap: "64m², 2 suítes e sala ampliada"},
-        "3dorms89": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-3-dorms-89m.webp", cap: "89m², 3 dormitórios"},
-        "3dorms89v2": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-3-dorms-89m-2.webp", cap: "89m², 3 dormitórios, sala ampliada"},
-        "2suites89": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m.webp", cap: "89m², 2 suítes"},
-        "2suites89amp": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m-sala-ampliada.webp", cap: "89m², 2 suítes e sala ampliada"},
-        "2suites89esc": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m-escritorio.webp", cap: "89m², 2 suítes (1 escritório)"},
-        "2suites89srsra": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m-banheiro-sr-sra-sala-ampliada.webp", cap: "89m², 1 suíte (sr. e sra.) e sala ampliada"},
-        "studio26": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-studio-hmp-26m.webp", cap: "26m², studio HMP"},
-        "studio33": {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-studio-hmp-33m.webp", cap: "33m², studio HMP"}
-      },
-      plantaOrder: ["terreo", "wellness", "rooftop", "2dorms55", "2dorms55amp", "2suites64", "2suites64amp", "3dorms89", "3dorms89v2", "2suites89", "2suites89amp", "2suites89esc", "2suites89srsra", "studio26", "studio33"]
+      galleryTabs: [
+        {id: "terreo", images: [
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Terreo.webp", cap: "Lazer Térreo"}
+        ]},
+        {id: "wellness", images: [
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Andar-wellness.webp", cap: "Pavimento Wellness"}
+        ]},
+        {id: "rooftop", images: [
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-Rooftop.webp", cap: "Lazer Rooftop"}
+        ]},
+        {id: "apartamentosPlanta", images: [
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m.webp", cap: "55m², 2 dormitórios"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-dorms-55m-ampliada.webp", cap: "55m², 2 dorms. e sala ampliada"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-64m.webp", cap: "64m², 2 suítes"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-64m-sala-ampliada.webp", cap: "64m², 2 suítes e sala ampliada"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-3-dorms-89m.webp", cap: "89m², 3 dormitórios"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-3-dorms-89m-2.webp", cap: "89m², 3 dormitórios, sala ampliada"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m.webp", cap: "89m², 2 suítes"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m-sala-ampliada.webp", cap: "89m², 2 suítes e sala ampliada"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m-escritorio.webp", cap: "89m², 2 suítes (1 escritório)"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-2-suites-89m-banheiro-sr-sra-sala-ampliada.webp", cap: "89m², 1 suíte (sr. e sra.) e sala ampliada"}
+        ]},
+        {id: "studiosHmp", images: [
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-studio-hmp-26m.webp", cap: "26m², studio HMP"},
+          {img: "https://paesegregori.com.br/wp-content/uploads/2026/03/312Jam-planta-studio-hmp-33m.webp", cap: "33m², studio HMP"}
+        ]}
+      ]
     };
   </script>
   <script src="/assets/full.js"></script>
