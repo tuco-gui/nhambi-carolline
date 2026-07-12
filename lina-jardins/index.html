@@ -46,6 +46,13 @@
     .plantas-hotspot-list span{display:flex;align-items:center;gap:8px}
     .plantas-hotspot-list span:before{content:'';width:6px;height:6px;background:var(--terracotta);border-radius:50%;flex:0 0 6px}
     @media (max-width:600px){.plantas-hotspot-list{grid-template-columns:1fr}}
+
+    .accordion .row{border-bottom:1px solid rgba(255,255,255,.18)}
+    .accordion .row summary{padding:14px 0;font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none}
+    .accordion .row summary::-webkit-details-marker{display:none}
+    .accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
+    .accordion .row[open] .plus{transform:rotate(45deg)}
+    .accordion-copy{font-size:13px;line-height:1.7;color:#d8d8d8;text-transform:none;padding:0 0 18px}
   </style>
 </head>
 <body>
@@ -311,10 +318,25 @@
         <div>
           <div class="local-title">O charme de<br>viver nos <strong>Jardins</strong></div>
           <div class="address-line">📍 Al. Joaquim Eugênio de Lima, 697 — Jardins, São Paulo</div>
-          <div class="local-copy">Um dos bairros mais desejados de São Paulo, com ruas arborizadas, comércio de alto padrão e fácil acesso à Av. Paulista e à Av. Brigadeiro Luís Antônio.</div>
+          <div class="local-copy">Um bairro exclusivo, onde a sofisticação encontra a conveniência urbana e o acesso fácil aos principais polos culturais, gastronômicos e de lazer da cidade.</div>
+          <div class="accordion">
+            <details class="row">
+              <summary><span>Mobilidade e acesso</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">A poucos passos das estações Trianon-MASP e Brigadeiro, com acesso direto a vias estruturais como Paulista, Rebouças e Nove de Julho — o trajeto pela cidade fica mais curto.</p>
+            </details>
+            <details class="row">
+              <summary><span>Cultura, gastronomia, moda e lazer</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">MASP, Japan House e Itaú Cultural ficam a poucos minutos, assim como a Rua Oscar Freire — território de moda e alta gastronomia que define o estilo de vida do bairro.</p>
+            </details>
+            <details class="row">
+              <summary><span>Infraestrutura completa e segura</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">Comércio qualificado e serviços essenciais ao redor garantem o dia a dia prático, sem abrir mão da tranquilidade que o endereço pede.</p>
+            </details>
+          </div>
         </div>
         <div class="map-wrap">
-          <a class="map-btn" href="https://maps.google.com/?q=Alameda+Joaquim+Eugenio+de+Lima+697+Jardins+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/07/Mapa-LINA.webp" alt="Mapa de localização do Lina Jardins">
+          <a class="map-btn" href="https://maps.app.goo.gl/GBxpnZa58kt8wHBT7" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
         </div>
       </div>
     </section>
@@ -326,12 +348,12 @@
           <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
           <div class="ficha-item"><h4>Endereço</h4><p>Al. Joaquim Eugênio de Lima, 697</p></div>
           <div class="ficha-item"><h4>Bairro</h4><p>Jardins</p></div>
-          <div class="ficha-item"><h4>Torre Única</h4><p>15 pavimentos, terreno de 877m², 3 subsolos</p></div>
-          <div class="ficha-item"><h4>2 suítes</h4><p>143m² e 145m²</p></div>
-          <div class="ficha-item"><h4>3 dorms. com suíte</h4><p>143m² e 145m²</p></div>
-          <div class="ficha-item"><h4>Coberturas triplex</h4><p>348m² e 371m²</p></div>
-          <div class="ficha-item"><h4>Vagas</h4><p>2 a 4 por unidade</p></div>
-          <div class="ficha-item"><h4>Comercial</h4><p>1 loja de 171m², salas de 27m² a 39m²</p></div>
+          <div class="ficha-item"><h4>Terreno</h4><p>Torre única em 877m², 15 pavimentos</p></div>
+          <div class="ficha-item"><h4>Apartamentos</h4><p>2 suítes – 143m² e 145m²<br>3 dorms. com suíte – 143m² e 145m²<br>Coberturas triplex – 348m² e 371m²</p></div>
+          <div class="ficha-item"><h4>Lazer</h4><p>Brinquedoteca, salão de festas, playground, academia, piscina, sauna e estar externo com paisagismo</p></div>
+          <div class="ficha-item"><h4>Garagem</h4><p>3 subsolos, 2 a 3 vagas por apartamento</p></div>
+          <div class="ficha-item"><h4>Loja</h4><p>171m²</p></div>
+          <div class="ficha-item"><h4>Salas Comerciais</h4><p>27m² a 39m²</p></div>
           <div class="ficha-item"><h4>Arquitetura</h4><p>Nitsche Arquitetos</p></div>
           <div class="ficha-item"><h4>Interiores</h4><p>Studio Superlimão</p></div>
           <div class="ficha-item"><h4>Paisagismo</h4><p>Barbieri + Gorski</p></div>
