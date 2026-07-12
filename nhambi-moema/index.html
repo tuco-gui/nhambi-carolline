@@ -269,8 +269,8 @@
         <div class="gallery-split">
           <div>
             <div class="gallery-main">
-              <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp" alt="Apartamento">
-              <div class="gallery-caption" id="aptCaption">Suíte</div>
+              <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-1.webp" alt="Apartamento">
+              <div class="gallery-caption" id="aptCaption">Living</div>
             </div>
             <div class="gallery-nav">
               <button class="circle-btn" onclick="prevApt()">‹</button>
@@ -286,7 +286,24 @@
       </div>
 
       <div id="areasComuns" class="gallery-panel" style="display:none">
-        <div class="gallery-split">
+        <div class="areas-top">
+          <div class="section-title-side">Áreas <span class="accent">comuns</span></div>
+          <div class="areas-desc">Conheça todos os espaços de lazer que fazem do Nhambí Moema um empreendimento completo. Planejados para atender diferentes estilos de vida, estes ambientes promovem bem-estar, convivência e conforto em todos os momentos e para todas as idades.</div>
+        </div>
+        <div class="areas-icons">
+          <div class="item"><span class="ico">✧</span><span>Salão de Festas</span></div>
+          <div class="item"><span class="ico">▲</span><span>Churrasqueira</span></div>
+          <div class="item"><span class="ico">✿</span><span>Brinquedoteca</span></div>
+          <div class="item"><span class="ico">≈</span><span>Piscina Adulto</span></div>
+          <div class="item"><span class="ico">∿</span><span>Piscina Infantil</span></div>
+          <div class="item"><span class="ico">♨</span><span>Sauna</span></div>
+          <div class="item"><span class="ico">⚙</span><span>Fitness</span></div>
+          <div class="item"><span class="ico">✦</span><span>Playground Externo</span></div>
+          <div class="item"><span class="ico">⚙</span><span>Fitness Externo</span></div>
+          <div class="item"><span class="ico">▥</span><span>Bicicletário</span></div>
+          <div class="item"><span class="ico">◉</span><span>Pet Care</span></div>
+        </div>
+        <div class="gallery-split" style="margin-top:56px">
           <div>
             <div class="gallery-main">
               <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/09/salao-de-festas-1.webp" alt="Área comum">
@@ -627,10 +644,12 @@
     })();
 
     const apts = [
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-1.webp', cap:'Living'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-2.webp', cap:'Living'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-3.webp', cap:'Varanda gourmet'},
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-4.webp', cap:'Suíte master'},
       {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-5.webp', cap:'Suíte'},
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-2.webp', cap:'Living Integrado'},
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-3.webp', cap:'Cozinha Gourmet'},
-      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-4.webp', cap:'Sala de Estar'}
+      {img:'https://paesegregori.com.br/wp-content/uploads/2024/09/2-DECORADO-6.webp', cap:'Suíte'}
     ];
     let aptIndex = 0;
     function renderApt(){
