@@ -127,45 +127,66 @@
     <section class="section-light" id="areas">
       <div class="full-container">
         <div class="tabs">
-          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
-          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+          <div class="tab active" onclick="showGalleryTab('areasComuns', this, '#areas')">Áreas Comuns</div>
+          <div class="tab" onclick="showGalleryTab('apartamentos', this, '#areas')">Apartamentos</div>
+          <div class="tab" onclick="showGalleryTab('coberturaTriplex', this, '#areas')">Cobertura Triplex</div>
         </div>
 
-        <div id="apartamentos" class="gallery-panel">
+        <div id="areasComunsPanel" class="gallery-panel">
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp" alt="Apartamento">
-                <div class="gallery-caption" id="aptCaption">Cozinha decorada</div>
+                <img id="areasComunsImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp" alt="Área comum">
+                <div class="gallery-caption" id="areasComunsCaption">Piscina</div>
               </div>
               <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevApt()">‹</button>
-                <button class="circle-btn" onclick="nextApt()">›</button>
+                <button class="circle-btn" onclick="prevGalleryImg('areasComuns')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('areasComuns')">›</button>
               </div>
             </div>
             <div class="gallery-copy">
-              <h3>De 2 suítes a coberturas triplex</h3>
-              <p>Apartamentos de 143m² e 145m² com 2 ou 3 suítes, e coberturas triplex de 348m² e 371m², com 2 a 4 vagas por unidade.</p>
+              <h3>Design que eleva o dia a dia</h3>
+              <p>Espaços que vão além do lazer: brinquedoteca, playground e salão de festas reúnem os momentos de convívio, enquanto academia, piscina e sauna cuidam do bem-estar. Uma extensão do lar pensada para quem busca qualidade de vida no coração dos Jardins.</p>
               <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
             </div>
           </div>
         </div>
 
-        <div id="areasComuns" class="gallery-panel" style="display:none">
+        <div id="apartamentosPanel" class="gallery-panel" style="display:none">
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp" alt="Área comum">
-                <div class="gallery-caption" id="areaCaption">Piscina</div>
+                <img id="apartamentosImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp" alt="Apartamento">
+                <div class="gallery-caption" id="apartamentosCaption">Cozinha</div>
               </div>
               <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevArea()">‹</button>
-                <button class="circle-btn" onclick="nextArea()">›</button>
+                <button class="circle-btn" onclick="prevGalleryImg('apartamentos')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('apartamentos')">›</button>
               </div>
             </div>
             <div class="gallery-copy">
-              <h3>Lazer completo nos Jardins</h3>
-              <p>Brinquedoteca, salão de festas, playground, academia, piscina, sauna e estar externo com paisagismo. Também conta com 1 loja de 171m² e salas comerciais de 27m² a 39m².</p>
+              <h3>Plantas para viver com leveza</h3>
+              <p>Unidades de 143m² e 145m², com opções de 2 ou 3 suítes, equilibram amplitude e privacidade em cada ambiente — uma composição pensada para o dia a dia de quem valoriza espaço e conforto.</p>
+              <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="coberturaTriplexPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="coberturaTriplexImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp" alt="Cobertura triplex">
+                <div class="gallery-caption" id="coberturaTriplexCaption">Perspectiva living</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('coberturaTriplex')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('coberturaTriplex')">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Um triplex à altura dos Jardins</h3>
+              <p>Três níveis para diferentes momentos da rotina: no térreo, ambientes sociais para receber com estilo; no intermediário, a privacidade das suítes; e no rooftop, um terraço a céu aberto com espaço gourmet, cenário ideal para celebrações com vista privilegiada.</p>
               <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
             </div>
           </div>
@@ -343,26 +364,44 @@
       empreendimentoNome: "Lina Jardins"
     };
     window.PAGE_DATA = {
-      apts: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/6-1.webp", cap: "Living ampliado"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp", cap: "Cozinha"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-1.webp", cap: "Living"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2-1.webp", cap: "Living"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-1.webp", cap: "Varanda integrada"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-1.webp", cap: "Hall dos dormitórios"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7-1.webp", cap: "Suíte master"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/8.webp", cap: "Suíte"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Suite-03-02.webp", cap: "Dormitório"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Area-de-servico-02.webp", cap: "Área de serviço"}
-      ],
-      areas: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp", cap: "Piscina"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3.webp", cap: "Salão de festas"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2.webp", cap: "Salão de festas"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1.webp", cap: "Salão de festas, espaço gourmet"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/5.webp", cap: "Brinquedoteca"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Playground.webp", cap: "Playground"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7.webp", cap: "Academia"}
+      galleryTabs: [
+        {
+          id: "areasComuns",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp", cap: "Piscina"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3.webp", cap: "Salão de festas"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2.webp", cap: "Salão de festas"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1.webp", cap: "Salão de festas, espaço gourmet"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/5.webp", cap: "Brinquedoteca"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Playground.webp", cap: "Playground"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7.webp", cap: "Academia"}
+          ]
+        },
+        {
+          id: "apartamentos",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/6-1.webp", cap: "Living ampliado"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp", cap: "Cozinha"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-1.webp", cap: "Living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2-1.webp", cap: "Living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-1.webp", cap: "Varanda integrada"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-1.webp", cap: "Hall dos dormitórios"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7-1.webp", cap: "Suíte master"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/8.webp", cap: "Suíte"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Suite-03-02.webp", cap: "Dormitório"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Area-de-servico-02.webp", cap: "Área de serviço"}
+          ]
+        },
+        {
+          id: "coberturaTriplex",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp", cap: "Perspectiva living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-escritorio-02.webp", cap: "Perspectiva escritório"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-suite-master-02.webp", cap: "Perspectiva suíte"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-gourmet-02.webp", cap: "Perspectiva cobertura"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-rooftop-02.webp", cap: "Perspectiva rooftop"}
+          ]
+        }
       ],
       plantas: {
         "suites143": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp", cap: "2 suítes, 143m²"},
