@@ -16,6 +16,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/full.css">
+  <style>
+    body.modal-open{overflow:hidden}
+    .lead-thanks[hidden]{display:none}
+    .lead-thanks{position:fixed;inset:0;z-index:12000;display:grid;place-items:center;padding:24px}
+    .lead-thanks-backdrop{position:absolute;inset:0;background:rgba(30,30,30,.72);backdrop-filter:blur(5px)}
+    .lead-thanks-panel{position:relative;width:min(460px,100%);background:#fff;padding:56px 40px 34px;text-align:center;outline:none;box-shadow:0 30px 70px rgba(0,0,0,.35);transform:translateY(14px);opacity:0;transition:transform .35s ease,opacity .35s ease}
+    .lead-thanks.is-visible .lead-thanks-panel{transform:translateY(0);opacity:1}
+    .lead-thanks-panel:before{content:'';position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--terracotta)}
+    .lead-thanks-close{position:absolute;right:18px;top:14px;border:0;background:transparent;color:#777;font-size:30px;line-height:1;cursor:pointer;padding:6px}
+    .lead-thanks-mark{width:74px;height:74px;border:1px solid rgba(200,145,114,.5);border-radius:50%;display:grid;place-items:center;margin:0 auto 24px;color:var(--terracotta);background:#faf6f3}
+    .lead-thanks-mark svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .lead-thanks-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#8f6c58;font-weight:700;margin-bottom:10px}
+    .lead-thanks h2{font-size:34px;line-height:1.05;text-transform:uppercase;font-weight:300;color:#303030;margin-bottom:16px}
+    .lead-thanks h2 strong{font-weight:700;color:var(--terracotta)}
+    .lead-thanks-copy{font-size:16px;line-height:1.65;color:#656565;max-width:420px;margin:0 auto 28px}
+    .lead-thanks-choice{border-top:1px solid #e7e0dc;border-bottom:1px solid #e7e0dc;padding:24px 0;margin-bottom:24px}
+    .lead-thanks-choice strong{display:block;font-size:18px;color:#333;margin-bottom:7px}
+    .lead-thanks-choice p{font-size:14px;line-height:1.55;color:#747474;margin:0 auto 18px;max-width:380px}
+    .lead-thanks-choice .btn-green-full{margin:0;min-width:230px;text-align:center}
+    .lead-thanks-return{border:0;background:transparent;color:#6d6d6d;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit;font-size:13px}
+    @media (prefers-reduced-motion:reduce){.lead-thanks-panel{transition:none}}
+    @media (max-width:600px){
+      .lead-thanks{padding:14px}
+      .lead-thanks-panel{padding:48px 25px 34px}
+      .lead-thanks h2{font-size:28px}
+    }
+    .plantas-hotspot-list{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;margin-top:22px;font-size:13px;color:#767676}
+    .plantas-hotspot-list span{display:flex;align-items:center;gap:8px}
+    .plantas-hotspot-list span:before{content:'';width:6px;height:6px;background:var(--terracotta);border-radius:50%;flex:0 0 6px}
+    @media (max-width:600px){.plantas-hotspot-list{grid-template-columns:1fr}}
+
+    .accordion .row{border-bottom:1px solid rgba(255,255,255,.18)}
+    .accordion .row summary{padding:14px 0;font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none}
+    .accordion .row summary::-webkit-details-marker{display:none}
+    .accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
+    .accordion .row[open] .plus{transform:rotate(45deg)}
+    .accordion-copy{font-size:13px;line-height:1.7;color:#d8d8d8;text-transform:none;padding:0 0 18px}
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -37,7 +75,7 @@
           <a href="#atendimento">Falar com Carolline</a>
         </nav>
         <div class="header-actions">
-          <a class="btn btn-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Lina%20Jardins." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn btn-wa" href="#atendimento">Fale com um corretor</a>
         </div>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
           <span></span><span></span><span></span>
@@ -49,7 +87,7 @@
           <a href="#atendimento">Falar com Carolline</a>
         </nav>
         <div class="header-actions">
-          <a class="btn btn-wa" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Lina%20Jardins." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn btn-wa" href="#atendimento">Fale com um corretor</a>
         </div>
       </div>
     </div>
@@ -71,12 +109,14 @@
     <section class="full-hero" id="inicio" style="--bg-image:url('https://paesegregori.com.br/wp-content/uploads/2024/07/banner-1.webp')">
       <div class="full-hero-inner">
         <h1>Lina Jardins</h1>
+        <a href="#atendimento" class="btn-outline-full" style="margin-top:0;color:#fff;border-color:rgba(255,255,255,.6)">Fale com um corretor</a>
       </div>
       <div class="full-hero-bottom-bar">
-        <div class="full-hero-bottom-left">Pronto para morar,<br>Jardins</div>
+        <div class="full-hero-bottom-left">No coração dos Jardins,<br>um dos endereços mais desejados de SP</div>
         <div class="full-hero-bottom-right">
-          <div class="full-hero-info">2 e 3 suítes</div>
-          <div class="full-hero-info">Coberturas triplex</div>
+          <div class="full-hero-info">145m² a 371m²</div>
+          <div class="full-hero-info">2 ou 3 suítes e coberturas triplex</div>
+          <div class="full-hero-info">2 a 4 vagas</div>
         </div>
       </div>
     </section>
@@ -84,8 +124,8 @@
     <section class="section-light" id="galeria">
       <div class="full-container intro-grid">
         <div>
-          <div class="title-big">A arte de morar<br>encontra o charme <span class="accent">dos Jardins</span></div>
-          <div class="text-body">Inspirado nas obras de Lina Bo Bardi, o Lina Jardins combina design atemporal, materiais de excelência e espaços criados para acolher com estilo e conforto. Torre única em terreno de 877m², com 15 pavimentos e 3 subsolos de garagem.</div>
+          <div class="title-big">Uma assinatura <span class="accent">atemporal</span><br>para viver nos Jardins</div>
+          <div class="text-body">O Lina Jardins nasce da sensibilidade de Lina Bo Bardi transposta para o morar: uma torre única que une acabamentos de altíssimo padrão a ambientes pensados para acolher com naturalidade. Cada detalhe reforça o mesmo propósito — elevar o cotidiano de quem escolhe viver em um dos endereços mais cobiçados de São Paulo.</div>
           <a href="#projetistas" class="btn-outline-full">Projetistas</a>
         </div>
         <div class="intro-image-wrap">
@@ -98,46 +138,67 @@
     <section class="section-light" id="areas">
       <div class="full-container">
         <div class="tabs">
-          <div class="tab" onclick="showGallery('areasComuns', this)">Áreas Comuns</div>
-          <div class="tab active" onclick="showGallery('apartamentos', this)">Apartamentos</div>
+          <div class="tab active" onclick="showGalleryTab('areasComuns', this, '#areas')">Áreas Comuns</div>
+          <div class="tab" onclick="showGalleryTab('apartamentos', this, '#areas')">Apartamentos</div>
+          <div class="tab" onclick="showGalleryTab('coberturaTriplex', this, '#areas')">Cobertura Triplex</div>
         </div>
 
-        <div id="apartamentos" class="gallery-panel">
+        <div id="areasComunsPanel" class="gallery-panel">
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="aptImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp" alt="Apartamento">
-                <div class="gallery-caption" id="aptCaption">Cozinha decorada</div>
+                <img id="areasComunsImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp" alt="Área comum">
+                <div class="gallery-caption" id="areasComunsCaption">Piscina</div>
               </div>
               <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevApt()">‹</button>
-                <button class="circle-btn" onclick="nextApt()">›</button>
+                <button class="circle-btn" onclick="prevGalleryImg('areasComuns')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('areasComuns')">›</button>
               </div>
             </div>
             <div class="gallery-copy">
-              <h3>De 2 suítes a coberturas triplex</h3>
-              <p>Apartamentos de 143m² e 145m² com 2 ou 3 suítes, e coberturas triplex de 348m² e 371m², com 2 a 4 vagas por unidade.</p>
-              <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Lina%20Jardins." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Carolline</a>
+              <h3>Design que eleva o dia a dia</h3>
+              <p>Espaços que vão além do lazer: brinquedoteca, playground e salão de festas reúnem os momentos de convívio, enquanto academia, piscina e sauna cuidam do bem-estar. Uma extensão do lar pensada para quem busca qualidade de vida no coração dos Jardins.</p>
+              <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
             </div>
           </div>
         </div>
 
-        <div id="areasComuns" class="gallery-panel" style="display:none">
+        <div id="apartamentosPanel" class="gallery-panel" style="display:none">
           <div class="gallery-split">
             <div>
               <div class="gallery-main">
-                <img id="areaImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp" alt="Área comum">
-                <div class="gallery-caption" id="areaCaption">Piscina</div>
+                <img id="apartamentosImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp" alt="Apartamento">
+                <div class="gallery-caption" id="apartamentosCaption">Cozinha</div>
               </div>
               <div class="gallery-nav">
-                <button class="circle-btn" onclick="prevArea()">‹</button>
-                <button class="circle-btn" onclick="nextArea()">›</button>
+                <button class="circle-btn" onclick="prevGalleryImg('apartamentos')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('apartamentos')">›</button>
               </div>
             </div>
             <div class="gallery-copy">
-              <h3>Lazer completo nos Jardins</h3>
-              <p>Brinquedoteca, salão de festas, playground, academia, piscina, sauna e estar externo com paisagismo. Também conta com 1 loja de 171m² e salas comerciais de 27m² a 39m².</p>
-              <a href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Lina%20Jardins." target="_blank" rel="noopener noreferrer" class="btn-terracotta">Fale com Carolline</a>
+              <h3>Plantas para viver com leveza</h3>
+              <p>Unidades de 143m² e 145m², com opções de 2 ou 3 suítes, equilibram amplitude e privacidade em cada ambiente — uma composição pensada para o dia a dia de quem valoriza espaço e conforto.</p>
+              <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="coberturaTriplexPanel" class="gallery-panel" style="display:none">
+          <div class="gallery-split">
+            <div>
+              <div class="gallery-main">
+                <img id="coberturaTriplexImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp" alt="Cobertura triplex">
+                <div class="gallery-caption" id="coberturaTriplexCaption">Perspectiva living</div>
+              </div>
+              <div class="gallery-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('coberturaTriplex')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('coberturaTriplex')">›</button>
+              </div>
+            </div>
+            <div class="gallery-copy">
+              <h3>Um triplex à altura dos Jardins</h3>
+              <p>Três níveis para diferentes momentos da rotina: no térreo, ambientes sociais para receber com estilo; no intermediário, a privacidade das suítes; e no rooftop, um terraço a céu aberto com espaço gourmet, cenário ideal para celebrações com vista privilegiada.</p>
+              <a href="#atendimento" class="btn-terracotta">Falar com um corretor</a>
             </div>
           </div>
         </div>
@@ -148,23 +209,89 @@
       <div class="full-container">
         <div class="plantas-title">Plantas</div>
         <div class="tabs">
-          <div class="tab" onclick="showPlanta('suites143')">2 suítes, 143m²</div>
-          <div class="tab" onclick="showPlanta('suites145')">2 suítes, 145m²</div>
-          <div class="tab" onclick="showPlanta('dorms143')">3 dorms. c/ suíte, 143m²</div>
-          <div class="tab" onclick="showPlanta('tres-suites145')">3 suítes, 145m²</div>
-          <div class="tab active" onclick="showPlanta('triplex')">Cobertura triplex</div>
+          <div class="tab active" onclick="showGalleryTab('implantacao', this, '#plantas')">Áreas Comuns</div>
+          <div class="tab" onclick="showGalleryTab('duasSuites', this, '#plantas')">2 Suítes</div>
+          <div class="tab" onclick="showGalleryTab('tresDormitorios', this, '#plantas')">3 Dormitórios</div>
+          <div class="tab" onclick="showGalleryTab('coberturaTriplexPlanta', this, '#plantas')">Cobertura Triplex</div>
         </div>
-        <div class="plantas-grid">
-          <div>
-            <div class="plantas-copy">Apartamentos de 143m² e 145m², com opções de 2 ou 3 suítes, ou 3 dormitórios com 1 suíte. Coberturas triplex de 348m² e 371m², com 2 a 4 vagas por unidade.</div>
-            <div class="plantas-nav">
-              <button class="circle-btn" onclick="prevPlanta()">‹</button>
-              <button class="circle-btn" onclick="nextPlanta()">›</button>
+
+        <div id="implantacaoPanel" class="gallery-panel">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">Cada detalhe do térreo foi desenhado para equilibrar segurança, praticidade e lazer — da portaria blindada e dos acessos independentes às áreas de convívio como salão de festas, playground e piscina.</div>
+              <div class="plantas-hotspot-list">
+                <span>Acesso residencial pedestre</span>
+                <span>Acesso residencial veículos</span>
+                <span>Área de espera - embarque</span>
+                <span>Portaria blindada</span>
+                <span>Hall</span>
+                <span>Elevador social - final 1</span>
+                <span>Elevador de serviço - finais 1 e 2</span>
+                <span>Elevador social - final 2</span>
+                <span>Brinquedoteca</span>
+                <span>Salão de festas</span>
+                <span>Playground</span>
+                <span>Estar externo</span>
+                <span>Piscina</span>
+                <span>Academia</span>
+                <span>Sauna</span>
+                <span>Acesso ao playground e estar externo</span>
+                <span>Loja</span>
+                <span>Acesso comercial pedestre</span>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="implantacaoImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/terreo.webp" alt="Implantação do térreo">
+              <div class="plantas-ribbon" id="implantacaoCaption">Áreas comuns, térreo</div>
             </div>
           </div>
-          <div class="plantas-img-wrap">
-            <img id="plantaImg" src="https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp" alt="Cobertura triplex">
-            <div class="plantas-ribbon" id="plantaCaption">Cobertura triplex, 348m² e 371m²</div>
+        </div>
+
+        <div id="duasSuitesPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">As plantas de 2 suítes equilibram amplitude, privacidade e conforto em layouts inteligentes. A integração entre sala, cozinha e terraço valoriza a convivência e a luz natural, enquanto a circulação bem resolvida traduz elegância em cada detalhe.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('duasSuites')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('duasSuites')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="duasSuitesImg" src="https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp" alt="2 suítes">
+              <div class="plantas-ribbon" id="duasSuitesCaption">2 suítes, 143m²</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tresDormitoriosPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">Plantas pensadas para uma rotina mais fluida, com áreas sociais generosas e integração entre estar, jantar e terraço. As diferentes metragens, incluindo versões com pé-direito duplo e opções com 3 suítes, atendem a variados perfis sem abrir mão da privacidade.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('tresDormitorios')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('tresDormitorios')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="tresDormitoriosImg" src="https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-143m.webp" alt="3 dormitórios">
+              <div class="plantas-ribbon" id="tresDormitoriosCaption">3 dormitórios c/ suíte, 143m²</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="coberturaTriplexPlantaPanel" class="gallery-panel" style="display:none">
+          <div class="plantas-grid">
+            <div>
+              <div class="plantas-copy">As coberturas triplex elevam a experiência residencial a um novo patamar, distribuindo em três níveis áreas sociais generosas, suítes confortáveis e um rooftop privativo — um refúgio ao ar livre com espaço gourmet, ideal para receber com total privacidade.</div>
+              <div class="plantas-nav">
+                <button class="circle-btn" onclick="prevGalleryImg('coberturaTriplexPlanta')">‹</button>
+                <button class="circle-btn" onclick="nextGalleryImg('coberturaTriplexPlanta')">›</button>
+              </div>
+            </div>
+            <div class="plantas-img-wrap">
+              <img id="coberturaTriplexPlantaImg" src="https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-terreo.webp" alt="Cobertura triplex">
+              <div class="plantas-ribbon" id="coberturaTriplexPlantaCaption">Cobertura triplex, 348m², térreo</div>
+            </div>
           </div>
         </div>
       </div>
@@ -191,10 +318,25 @@
         <div>
           <div class="local-title">O charme de<br>viver nos <strong>Jardins</strong></div>
           <div class="address-line">📍 Al. Joaquim Eugênio de Lima, 697 — Jardins, São Paulo</div>
-          <div class="local-copy">Um dos bairros mais desejados de São Paulo, com ruas arborizadas, comércio de alto padrão e fácil acesso à Av. Paulista e à Av. Brigadeiro Luís Antônio.</div>
+          <div class="local-copy">Um bairro exclusivo, onde a sofisticação encontra a conveniência urbana e o acesso fácil aos principais polos culturais, gastronômicos e de lazer da cidade.</div>
+          <div class="accordion">
+            <details class="row">
+              <summary><span>Mobilidade e acesso</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">A poucos passos das estações Trianon-MASP e Brigadeiro, com acesso direto a vias estruturais como Paulista, Rebouças e Nove de Julho — o trajeto pela cidade fica mais curto.</p>
+            </details>
+            <details class="row">
+              <summary><span>Cultura, gastronomia, moda e lazer</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">MASP, Japan House e Itaú Cultural ficam a poucos minutos, assim como a Rua Oscar Freire — território de moda e alta gastronomia que define o estilo de vida do bairro.</p>
+            </details>
+            <details class="row">
+              <summary><span>Infraestrutura completa e segura</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">Comércio qualificado e serviços essenciais ao redor garantem o dia a dia prático, sem abrir mão da tranquilidade que o endereço pede.</p>
+            </details>
+          </div>
         </div>
         <div class="map-wrap">
-          <a class="map-btn" href="https://maps.google.com/?q=Alameda+Joaquim+Eugenio+de+Lima+697+Jardins+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/07/Mapa-LINA.webp" alt="Mapa de localização do Lina Jardins">
+          <a class="map-btn" href="https://maps.app.goo.gl/GBxpnZa58kt8wHBT7" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
         </div>
       </div>
     </section>
@@ -206,12 +348,12 @@
           <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
           <div class="ficha-item"><h4>Endereço</h4><p>Al. Joaquim Eugênio de Lima, 697</p></div>
           <div class="ficha-item"><h4>Bairro</h4><p>Jardins</p></div>
-          <div class="ficha-item"><h4>Torre Única</h4><p>15 pavimentos, terreno de 877m², 3 subsolos</p></div>
-          <div class="ficha-item"><h4>2 suítes</h4><p>143m² e 145m²</p></div>
-          <div class="ficha-item"><h4>3 dorms. com suíte</h4><p>143m² e 145m²</p></div>
-          <div class="ficha-item"><h4>Coberturas triplex</h4><p>348m² e 371m²</p></div>
-          <div class="ficha-item"><h4>Vagas</h4><p>2 a 4 por unidade</p></div>
-          <div class="ficha-item"><h4>Comercial</h4><p>1 loja de 171m², salas de 27m² a 39m²</p></div>
+          <div class="ficha-item"><h4>Terreno</h4><p>Torre única em 877m², 15 pavimentos</p></div>
+          <div class="ficha-item"><h4>Apartamentos</h4><p>2 suítes – 143m² e 145m²<br>3 dorms. com suíte – 143m² e 145m²<br>Coberturas triplex – 348m² e 371m²</p></div>
+          <div class="ficha-item"><h4>Lazer</h4><p>Brinquedoteca, salão de festas, playground, academia, piscina, sauna e estar externo com paisagismo</p></div>
+          <div class="ficha-item"><h4>Garagem</h4><p>3 subsolos, 2 a 3 vagas por apartamento</p></div>
+          <div class="ficha-item"><h4>Loja</h4><p>171m²</p></div>
+          <div class="ficha-item"><h4>Salas Comerciais</h4><p>27m² a 39m²</p></div>
           <div class="ficha-item"><h4>Arquitetura</h4><p>Nitsche Arquitetos</p></div>
           <div class="ficha-item"><h4>Interiores</h4><p>Studio Superlimão</p></div>
           <div class="ficha-item"><h4>Paisagismo</h4><p>Barbieri + Gorski</p></div>
@@ -244,11 +386,29 @@
               <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
               <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
             </form>
-            <a class="btn-green-full" href="https://wa.me/5511919890615?text=Ol%C3%A1%2C%20quero%20conhecer%20mais%20sobre%20o%20empreendimento%20Lina%20Jardins." target="_blank" rel="noopener noreferrer">Ou fale direto no WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="lead-thanks" id="leadThankYou" role="dialog" aria-modal="true" aria-labelledby="leadThankYouTitle" hidden>
+      <div class="lead-thanks-backdrop" data-thanks-close></div>
+      <div class="lead-thanks-panel" tabindex="-1">
+        <button class="lead-thanks-close" type="button" aria-label="Fechar" data-thanks-close>&times;</button>
+        <div class="lead-thanks-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M12 25.5 20.5 34 37 16"/><circle cx="24" cy="24" r="20"/></svg>
+        </div>
+        <div class="lead-thanks-eyebrow">Mensagem recebida</div>
+        <h2 id="leadThankYouTitle">Obrigado pelo seu <strong>interesse</strong></h2>
+        <p class="lead-thanks-copy">Recebemos seus dados. Carolline vai analisar suas preferências e entrar em contato para apresentar as informações do Lina Jardins.</p>
+        <div class="lead-thanks-choice">
+          <strong>Prefere falar agora?</strong>
+          <p>Se quiser antecipar o atendimento, você pode chamar Carolline diretamente no WhatsApp.</p>
+          <a class="btn-green-full" id="thankYouWhatsapp" href="#" role="button">Falar com Carolline</a>
+        </div>
+        <button class="lead-thanks-return" type="button" data-thanks-close>Continuar na página</button>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -296,35 +456,78 @@
       empreendimentoNome: "Lina Jardins"
     };
     window.PAGE_DATA = {
-      apts: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/6-1.webp", cap: "Living ampliado"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp", cap: "Cozinha"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-1.webp", cap: "Living"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2-1.webp", cap: "Living"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-1.webp", cap: "Varanda integrada"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-1.webp", cap: "Hall dos dormitórios"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7-1.webp", cap: "Suíte master"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/8.webp", cap: "Suíte"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Suite-03-02.webp", cap: "Dormitório"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Area-de-servico-02.webp", cap: "Área de serviço"}
-      ],
-      areas: [
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp", cap: "Piscina"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3.webp", cap: "Salão de festas"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2.webp", cap: "Salão de festas"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1.webp", cap: "Salão de festas, espaço gourmet"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/5.webp", cap: "Brinquedoteca"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Playground.webp", cap: "Playground"},
-        {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7.webp", cap: "Academia"}
-      ],
-      plantas: {
-        "suites143": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp", cap: "2 suítes, 143m²"},
-        "suites145": {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-145m.webp", cap: "2 suítes, 145m²"},
-        "dorms143": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-143m.webp", cap: "3 dormitórios com suíte, 143m²"},
-        "tres-suites145": {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-suites-145m.webp", cap: "3 suítes, 145m²"},
-        "triplex": {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp", cap: "Cobertura triplex, 348m² e 371m²"}
-      },
-      plantaOrder: ["suites143", "suites145", "dorms143", "tres-suites145", "triplex"]
+      galleryTabs: [
+        {
+          id: "areasComuns",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Piscina.webp", cap: "Piscina"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3.webp", cap: "Salão de festas"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2.webp", cap: "Salão de festas"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1.webp", cap: "Salão de festas, espaço gourmet"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/5.webp", cap: "Brinquedoteca"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Playground.webp", cap: "Playground"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7.webp", cap: "Academia"}
+          ]
+        },
+        {
+          id: "apartamentos",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/6-1.webp", cap: "Living ampliado"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cozinha-02.webp", cap: "Cozinha"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/4-1.webp", cap: "Living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/2-1.webp", cap: "Living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/3-1.webp", cap: "Varanda integrada"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/1-1.webp", cap: "Hall dos dormitórios"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/7-1.webp", cap: "Suíte master"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/8.webp", cap: "Suíte"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Suite-03-02.webp", cap: "Dormitório"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Area-de-servico-02.webp", cap: "Área de serviço"}
+          ]
+        },
+        {
+          id: "coberturaTriplex",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/02/triplex.webp", cap: "Perspectiva living"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-escritorio-02.webp", cap: "Perspectiva escritório"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-suite-master-02.webp", cap: "Perspectiva suíte"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-gourmet-02.webp", cap: "Perspectiva cobertura"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/Cobertura-rooftop-02.webp", cap: "Perspectiva rooftop"}
+          ]
+        },
+        {
+          id: "implantacao",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/terreo.webp", cap: "Áreas comuns, térreo"}
+          ]
+        },
+        {
+          id: "duasSuites",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-143m.webp", cap: "2 suítes, 143m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/2-suites-145m.webp", cap: "2 suítes, 145m²"}
+          ]
+        },
+        {
+          id: "tresDormitorios",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-143m.webp", cap: "3 dormitórios c/ suíte, 143m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-145m.webp", cap: "3 dormitórios c/ suíte, 145m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-dorms-1-suite-pe-direito-duplo-143m-b.webp", cap: "3 dormitórios c/ suíte, pé-direito duplo, 143m²"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2024/07/3-suites-145m.webp", cap: "3 suítes, 145m²"}
+          ]
+        },
+        {
+          id: "coberturaTriplexPlanta",
+          images: [
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-terreo.webp", cap: "Cobertura triplex, 348m², térreo"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-superior.webp", cap: "Cobertura triplex, 348m², superior"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-348m²-rooftop.webp", cap: "Cobertura triplex, 348m², rooftop"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-371m²-terreo.webp", cap: "Cobertura triplex, 371m², térreo"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-371m²-superior.webp", cap: "Cobertura triplex, 371m², superior"},
+            {img: "https://paesegregori.com.br/wp-content/uploads/2025/11/Cobertura-triplex-371m²-rooftop.webp", cap: "Cobertura triplex, 371m², rooftop"}
+          ]
+        }
+      ]
     };
   </script>
   <script src="/assets/full.js"></script>
@@ -332,7 +535,61 @@
     (function(){
       var form = document.getElementById("lpLeadForm");
       var status = document.getElementById("lpLeadStatus");
+      var leadThankYou = document.getElementById("leadThankYou");
+      var leadThankYouPanel = leadThankYou ? leadThankYou.querySelector(".lead-thanks-panel") : null;
+      var thankYouWhatsapp = document.getElementById("thankYouWhatsapp");
+      var previousFocusedElement = null;
       if(!form) return;
+
+      function openThankYouModal(clickUrl){
+        if(!leadThankYou || !leadThankYouPanel) return;
+        previousFocusedElement = document.activeElement;
+        if(thankYouWhatsapp) thankYouWhatsapp.setAttribute("href", clickUrl);
+        leadThankYou.hidden = false;
+        document.body.classList.add("modal-open");
+        window.requestAnimationFrame(function(){
+          leadThankYou.classList.add("is-visible");
+          leadThankYouPanel.focus();
+        });
+      }
+
+      function closeThankYouModal(){
+        if(!leadThankYou) return;
+        leadThankYou.classList.remove("is-visible");
+        leadThankYou.hidden = true;
+        document.body.classList.remove("modal-open");
+        if(previousFocusedElement && typeof previousFocusedElement.focus === "function") previousFocusedElement.focus();
+      }
+
+      if(leadThankYou){
+        leadThankYou.querySelectorAll("[data-thanks-close]").forEach(function(control){
+          control.addEventListener("click", closeThankYouModal);
+        });
+        document.addEventListener("keydown", function(event){
+          if(event.key === "Escape" && !leadThankYou.hidden) closeThankYouModal();
+        });
+      }
+
+      if(thankYouWhatsapp){
+        thankYouWhatsapp.addEventListener("click", function(){
+          var cfg = window.PAGE_CONFIG;
+          window.dataLayer.push({
+            event: "qualified_whatsapp_action",
+            construtora: "paesegregori",
+            produto: cfg.empreendimentoSlug,
+            corretor: cfg.corretorSlug,
+            tipo_pagina: "landing_produto",
+            content_name: cfg.empreendimentoNome,
+            content_category: "imovel_lancamento",
+            form_location: "thank_you_modal",
+            lead_source: "site",
+            lead_temperature: "hot",
+            page_path: window.location.pathname,
+            page_location: window.location.href
+          });
+        });
+      }
+
       form.addEventListener("submit", function(event){
         event.preventDefault();
         var nome = document.getElementById("lpNome").value;
@@ -363,9 +620,11 @@
           page_path: window.location.pathname,
           page_location: window.location.href
         });
-        if(status) status.textContent = "Dados registrados. Abrindo o WhatsApp...";
+        if(status) status.textContent = "Dados registrados.";
         var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
-        window.open("https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo), "_blank", "noopener,noreferrer");
+        var clickUrl = "https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo);
+        form.reset();
+        openThankYouModal(clickUrl);
       });
     })();
   </script>
