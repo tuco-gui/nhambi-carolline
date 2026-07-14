@@ -46,6 +46,13 @@
     .plantas-hotspot-list span{display:flex;align-items:center;gap:8px}
     .plantas-hotspot-list span:before{content:'';width:6px;height:6px;background:var(--terracotta);border-radius:50%;flex:0 0 6px}
     @media (max-width:600px){.plantas-hotspot-list{grid-template-columns:1fr}}
+
+    .accordion .row{border-bottom:1px solid rgba(255,255,255,.18)}
+    .accordion .row summary{padding:14px 0;font-size:14px;text-transform:uppercase;color:#eee;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none}
+    .accordion .row summary::-webkit-details-marker{display:none}
+    .accordion .plus{color:var(--terracotta);font-size:20px;font-weight:300}
+    .accordion .row[open] .plus{transform:rotate(45deg)}
+    .accordion-copy{font-size:13px;line-height:1.7;color:#d8d8d8;text-transform:none;padding:0 0 18px}
   </style>
 </head>
 <body>
@@ -283,18 +290,22 @@
           <div class="section-title-side"><span class="accent">Diferenciais</span><br>técnicos</div>
         </div>
         <div>
-          <div class="areas-desc" style="max-width:none;margin-bottom:26px">Torre única em terreno com mais de 2.000m², com 100% dos apartamentos entregues.</div>
+          <div class="areas-desc" style="max-width:none;margin-bottom:26px">A Paes e Gregori assina o L Klabin com o mesmo rigor de sempre: materiais de alta qualidade, acabamentos impecáveis e uma torre única pensada nos mínimos detalhes — do infraestrutura técnica ao conforto do dia a dia.</div>
           <div class="diff-grid">
-            <div class="diff-item"><span class="ico">⌂</span><span>Vagas determinadas</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Elevador com controle de acesso</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Hall e depósito privativos no andar</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Churrasqueira a carvão na varanda</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Persianas motorizadas nos dormitórios</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para ar condicionado (carga e dreno)</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Terraço técnico para ar condicionado</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Infraestrutura para coifa na cozinha</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Tomadas USB (suítes e sala)</span></div>
-            <div class="diff-item"><span class="ico">⌂</span><span>Contrapiso com tratamento acústico</span></div>
+            <div class="diff-item"><span class="ico">▭</span><span>Vagas determinadas</span></div>
+            <div class="diff-item"><span class="ico">⚿</span><span>Elevador com controle de acesso</span></div>
+            <div class="diff-item"><span class="ico">⌂</span><span>Hall privativo</span></div>
+            <div class="diff-item"><span class="ico">▤</span><span>Depósito privativo no andar</span></div>
+            <div class="diff-item"><span class="ico">▲</span><span>Churrasqueira a carvão instalada na varanda</span></div>
+            <div class="diff-item"><span class="ico">▥</span><span>Persianas motorizada nos dormitórios</span></div>
+            <div class="diff-item"><span class="ico">❄</span><span>Infraestrutura para ar condicionado (carga e dreno)</span></div>
+            <div class="diff-item"><span class="ico">♨</span><span>Terraço técnico para ar condicionado</span></div>
+            <div class="diff-item"><span class="ico">⌒</span><span>Infraestrutura para coifa na cozinha</span></div>
+            <div class="diff-item"><span class="ico">⚡</span><span>Tomadas USB (suítes e sala)</span></div>
+            <div class="diff-item"><span class="ico">▦</span><span>Contrapiso com tratamento acústico</span></div>
+            <div class="diff-item"><span class="ico">✓</span><span>Apartamentos entregues 100% forrados</span></div>
+            <div class="diff-item"><span class="ico">◐</span><span>Pintura epóxi no subsolo</span></div>
+            <div class="diff-item"><span class="ico">✦</span><span>Torre única em terreno com mais de 2.000m²</span></div>
           </div>
         </div>
       </div>
@@ -306,7 +317,7 @@
           <div class="section-title-side"><span class="accent">Projetistas</span></div>
         </div>
         <div>
-          <div class="proj-copy">Um time dedicado a traduzir sofisticação e essência de viver bem em cada detalhe do L Klabin.</div>
+          <div class="proj-copy">O L Klabin reúne profissionais de peso para traduzir sofisticação e praticidade em um projeto com o DNA da Paes e Gregori. Cada ambiente foi pensado nos mínimos detalhes, entregando o máximo em conforto e design.</div>
           <div class="proj-list">
             <div class="proj-item"><span class="role">Arquitetura e Interiores</span><span class="name">Perkins &amp; Will</span></div>
             <div class="proj-item"><span class="role">Paisagismo</span><span class="name">Rodrigo Oliveira</span></div>
@@ -318,11 +329,26 @@
     <section class="section-dark" id="localizacao">
       <div class="full-container local-grid">
         <div>
-          <div class="local-title">Um dos bairros mais<br>desejados: <strong>Chácara Klabin</strong></div>
+          <div class="local-title">Chácara Klabin:<br><strong>elegância e tranquilidade</strong></div>
           <div class="address-line">📍 Rua Luís Molina, 105 — Chácara Klabin, São Paulo</div>
-          <div class="local-copy">Bairro tradicional com infraestrutura completa de comércio, serviços e transporte.</div>
+          <div class="local-copy">Uma região residencial valorizada, de ruas arborizadas e serviços de excelência — onde conforto, segurança e qualidade de vida caminham juntos, a poucos passos das principais vias da cidade.</div>
+          <div class="accordion" style="margin-top:8px">
+            <details class="row">
+              <summary><span>Fácil acesso e mobilidade</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">A poucos minutos das estações de metrô Chácara Klabin e Santos-Imigrantes, com conexões rápidas a vias como a Av. Dr. Ricardo Jafet e a Rua Vergueiro — mobilidade ágil para toda a cidade.</p>
+            </details>
+            <details class="row">
+              <summary><span>Educação de alto nível</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">O entorno reúne instituições de ensino de referência para diferentes faixas etárias, reforçando o perfil familiar e a conveniência do bairro.</p>
+            </details>
+            <details class="row">
+              <summary><span>Áreas verdes e lazer</span><span class="plus">+</span></summary>
+              <p class="accordion-copy">O Parque da Independência, o Aquário de São Paulo e a Praça Kant ficam a poucos minutos — opções ao ar livre para caminhadas, esportes e momentos em família.</p>
+            </details>
+          </div>
         </div>
         <div class="map-wrap">
+          <img src="https://paesegregori.com.br/wp-content/uploads/2024/07/Mapa-L-KLABIN.webp" alt="Mapa de localização do L Klabin">
           <a class="map-btn" href="https://maps.google.com/?q=Rua+Luis+Molina+105+Chacara+Klabin+Sao+Paulo" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
         </div>
       </div>
@@ -335,12 +361,13 @@
           <div class="ficha-item"><h4>Status</h4><p>Pronto para morar</p></div>
           <div class="ficha-item"><h4>Endereço</h4><p>Rua Luís Molina, 105</p></div>
           <div class="ficha-item"><h4>Bairro</h4><p>Chácara Klabin</p></div>
-          <div class="ficha-item"><h4>Torre Única</h4><p>22 pavimentos, terreno de 2.031m²</p></div>
-          <div class="ficha-item"><h4>Apartamentos 3 suítes</h4><p>154m², 2 vagas</p></div>
-          <div class="ficha-item"><h4>Gardens 3 suítes</h4><p>214m² e 247m², 2 vagas</p></div>
-          <div class="ficha-item"><h4>Coberturas duplex</h4><p>324m², 3 suítes, 3 vagas</p></div>
+          <div class="ficha-item"><h4>Torre Única</h4><p>Terreno de 2.031m², 22 pavimentos</p></div>
+          <div class="ficha-item"><h4>Apartamentos</h4><p>154m² – 3 suítes (2 vagas)<br>Gardens 214m² e 247m² – 3 suítes (2 vagas)<br>Coberturas duplex 324m² – 3 suítes (3 vagas)</p></div>
+          <div class="ficha-item"><h4>Lazer</h4><p>Coworking, Playground, Salão de festas, Piscina adulto com raia, Piscina infantil, Sauna seca, Academia Life Fitness, Churrasqueira, Salão de jogos, Brinquedoteca</p></div>
+          <div class="ficha-item"><h4>Lojas</h4><p>155m² (Luís Molina), 243m² (Pedro Pomponazzi)</p></div>
           <div class="ficha-item"><h4>Arquitetura e Interiores</h4><p>Perkins &amp; Will</p></div>
           <div class="ficha-item"><h4>Paisagismo</h4><p>Rodrigo Oliveira</p></div>
+          <div class="ficha-item"><h4>Fotografia</h4><p>Pedro Mascaro Imagens</p></div>
         </div>
       </div>
     </section>
