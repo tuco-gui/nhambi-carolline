@@ -655,14 +655,74 @@
   </script>
   <script src="/assets/full.js"></script>
   <script>
+    window.dataLayer = window.dataLayer || [];
     (function(){
+      var cfg = window.PAGE_CONFIG || {};
+      var leadEndpoint = "https://webhook.figueiramarketing.com.br/webhook/bd83d8bf-d63f-4161-a97b-ad38095d3ae6";
+      var FORM_NAME = "Landing Page | Tons Klabin | Carolline";
+      var telefoneDestino = cfg.telefoneDestino || "5511919890615";
+
       var form = document.getElementById("lpLeadForm");
       var status = document.getElementById("lpLeadStatus");
       var leadThankYou = document.getElementById("leadThankYou");
       var leadThankYouPanel = leadThankYou ? leadThankYou.querySelector(".lead-thanks-panel") : null;
       var thankYouWhatsapp = document.getElementById("thankYouWhatsapp");
       var previousFocusedElement = null;
-      if(!form) return;
+
+      function sanitizeValue(value){ return (value || "").replace(/\s+/g, " ").trim(); }
+      function queryValue(params, names){
+        for(var i = 0; i < names.length; i += 1){ var v = sanitizeValue(params.get(names[i])); if(v) return v; }
+        return "";
+      }
+      function inferPlatform(utmSource, utmMedium, fbclid){
+        var source = sanitizeValue(utmSource).toLowerCase();
+        var medium = sanitizeValue(utmMedium).toLowerCase();
+        if(/instagram|^ig$/.test(source)) return "instagram";
+        if(/facebook|^fb$/.test(source)) return "facebook";
+        if(/meta/.test(source) || fbclid) return "meta";
+        if(/google|adwords|gads|googleads/.test(source)) return /cpc|paid|ppc|ads/.test(medium) ? "google_ads" : "google";
+        if(/youtube/.test(source)) return "youtube";
+        if(/tiktok/.test(source)) return "tiktok";
+        if(/linkedin/.test(source)) return "linkedin";
+        if(source) return source.replace(/[^a-z0-9_-]/g, "_").slice(0, 50);
+        return "website";
+      }
+      function buildAttribution(){
+        var params = new URLSearchParams(window.location.search);
+        var fbclid = queryValue(params, ["fbclid"]);
+        var utmSource = queryValue(params, ["utm_source"]);
+        var utmMedium = queryValue(params, ["utm_medium"]);
+        var paidMeta = Boolean(fbclid || /facebook|instagram|meta/i.test(utmSource));
+        var fbp = (document.cookie.match(/(^|;)\s*_fbp=([^;]+)/) || [])[2] || null;
+        var fbc = (document.cookie.match(/(^|;)\s*_fbc=([^;]+)/) || [])[2] || (fbclid ? ("fb.1." + Date.now() + "." + fbclid) : null);
+        return {
+          ad_id: queryValue(params, ["ad_id", "utm_ad_id"]),
+          ad_name: queryValue(params, ["ad_name", "utm_ad_name"]),
+          adset_id: queryValue(params, ["adset_id", "utm_adset_id"]),
+          adset_name: queryValue(params, ["adset_name", "utm_adset_name"]),
+          campaign_id: queryValue(params, ["campaign_id", "utm_campaign_id"]),
+          campaign_name: queryValue(params, ["campaign_name"]),
+          utm_source: utmSource,
+          utm_medium: utmMedium,
+          utm_campaign: queryValue(params, ["utm_campaign"]),
+          utm_content: queryValue(params, ["utm_content"]),
+          utm_term: queryValue(params, ["utm_term"]),
+          fbclid: fbclid,
+          fbp: fbp,
+          fbc: fbc,
+          user_agent: navigator.userAgent || null,
+          is_organic: !paidMeta,
+          platform: inferPlatform(utmSource, utmMedium, fbclid)
+        };
+      }
+      function postLead(payload, useKeepalive){
+        return fetch(leadEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          keepalive: !!useKeepalive,
+          body: JSON.stringify(payload)
+        });
+      }
 
       function openThankYouModal(clickUrl){
         if(!leadThankYou || !leadThankYouPanel) return;
@@ -675,7 +735,6 @@
           leadThankYouPanel.focus();
         });
       }
-
       function closeThankYouModal(){
         if(!leadThankYou) return;
         leadThankYou.classList.remove("is-visible");
@@ -683,7 +742,6 @@
         document.body.classList.remove("modal-open");
         if(previousFocusedElement && typeof previousFocusedElement.focus === "function") previousFocusedElement.focus();
       }
-
       if(leadThankYou){
         leadThankYou.querySelectorAll("[data-thanks-close]").forEach(function(control){
           control.addEventListener("click", closeThankYouModal);
@@ -693,61 +751,175 @@
         });
       }
 
+      // Cliques em WhatsApp direto (botão flutuante, rodapé): alimenta o Pixel via GTM (evento whatsapp_click)
+      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(function(link){
+        if(link.id === "thankYouWhatsapp") return;
+        link.addEventListener("click", function(){
+          window.dataLayer.push({
+            event: "whatsapp_click",
+            construtora: "paesegregori",
+            produto: cfg.empreendimentoSlug || "tons-klabin",
+            corretor: cfg.corretorSlug || "carolline",
+            tipo_pagina: "landing_produto",
+            content_name: cfg.empreendimentoNome || "Tons Klabin",
+            content_category: "imovel_lancamento",
+            page_path: window.location.pathname,
+            page_location: window.location.href,
+            click_text: (link.textContent || link.getAttribute("aria-label") || "WhatsApp").trim()
+          });
+        });
+      });
+
+      // Botão do modal pós-formulário: marca o lead como QUENTE (event_type qualified_whatsapp_click)
       if(thankYouWhatsapp){
         thankYouWhatsapp.addEventListener("click", function(){
-          var cfg = window.PAGE_CONFIG;
+          var protocolo = window._leadProtocolo || "";
+          var leadDetails = window._leadDetails || {};
           window.dataLayer.push({
             event: "qualified_whatsapp_action",
             construtora: "paesegregori",
-            produto: cfg.empreendimentoSlug,
-            corretor: cfg.corretorSlug,
+            produto: cfg.empreendimentoSlug || "tons-klabin",
+            corretor: cfg.corretorSlug || "carolline",
             tipo_pagina: "landing_produto",
-            content_name: cfg.empreendimentoNome,
+            content_name: cfg.empreendimentoNome || "Tons Klabin",
             content_category: "imovel_lancamento",
+            protocolo: protocolo,
             form_location: "thank_you_modal",
-            lead_source: "site",
+            lead_source: leadDetails.platform || "site",
             lead_temperature: "hot",
             page_path: window.location.pathname,
             page_location: window.location.href
           });
+          var clickUrl = thankYouWhatsapp.getAttribute("href") || "";
+          var attribution = buildAttribution();
+          postLead(Object.assign({}, attribution, {
+            event_type: "qualified_whatsapp_click",
+            id: protocolo,
+            origin: window.location.origin,
+            form_id: "lpLeadForm",
+            form_name: FORM_NAME,
+            name: leadDetails.name || "",
+            phone: leadDetails.phone || "",
+            email: "",
+            interest: leadDetails.purpose || "",
+            purpose: leadDetails.purpose || "",
+            schedule: leadDetails.timeline || "",
+            lead_source: leadDetails.platform || "site",
+            lead_temperature: "hot",
+            qualified_whatsapp_clicked: true,
+            qualified_whatsapp_clicked_at: new Date().toISOString(),
+            qualified_whatsapp_status: "QUENTE - clicou no WhatsApp pós-formulário",
+            inbox_url: clickUrl,
+            landing_url: window.location.href,
+            referrer: document.referrer
+          }), true).catch(function(err){
+            console.warn("[leadForm] Falha ao atualizar qualificação do WhatsApp.", err);
+          });
         });
       }
 
-      form.addEventListener("submit", function(event){
+      if(!form) return;
+      form.addEventListener("submit", async function(event){
         event.preventDefault();
-        var nome = document.getElementById("lpNome").value;
-        var telefone = document.getElementById("lpTelefone").value;
+        var nome = sanitizeValue(document.getElementById("lpNome").value);
+        var telefone = sanitizeValue(document.getElementById("lpTelefone").value);
         var purpose = document.getElementById("lpPurpose").value;
         var timeline = document.getElementById("lpTimeline").value;
-        if(!nome.trim() || !telefone.trim() || !purpose || !timeline){
+        if(!nome || !telefone || !purpose || !timeline){
           form.reportValidity();
           return;
         }
-        var cfg = window.PAGE_CONFIG;
+        var phoneDigits = telefone.replace(/\D/g, "");
+        if(phoneDigits.length < 10 || phoneDigits.length > 13){
+          if(status) status.textContent = "Confira o WhatsApp informado, incluindo o DDD.";
+          return;
+        }
+
+        var submitButton = form.querySelector('button[type="submit"]');
         var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
-        window.dataLayer.push({
-          event: "lead_form_submit",
-          construtora: "paesegregori",
-          produto: cfg.empreendimentoSlug,
-          corretor: cfg.corretorSlug,
-          tipo_pagina: "landing_produto",
-          content_name: cfg.empreendimentoNome,
-          content_category: "imovel_lancamento",
-          protocolo: protocolo,
+        window._leadProtocolo = protocolo;
+        window._leadDetails = { name: nome, phone: telefone, purpose: purpose, timeline: timeline };
+        var attribution = buildAttribution();
+        window._leadDetails.platform = attribution.platform;
+
+        var mensagem = "🔥 LEAD QUALIFICADO - formulario preenchido no site. | Quero conhecer o empreendimento " + (cfg.empreendimentoNome || "Tons Klabin") + " com " + (cfg.corretorNome || "Carolline") + ". | Protocolo: " + protocolo + " | Nome: " + nome + " | WhatsApp: " + telefone + " | Objetivo: " + purpose + " | Prazo: " + timeline;
+        var clickUrl = "https://wa.me/" + telefoneDestino + "?text=" + encodeURIComponent(mensagem);
+
+        var payload = Object.assign({}, attribution, {
+          event_type: "lead_form_submit",
+          id: protocolo,
+          origin: window.location.origin,
           form_id: "lpLeadForm",
-          form_location: "full_corretor_section",
-          lead_source: "site",
-          lead_purpose: purpose,
-          purchase_timeline: timeline,
-          telefone_lead: telefone.trim(),
-          page_path: window.location.pathname,
-          page_location: window.location.href
+          form_name: FORM_NAME,
+          name: nome,
+          phone: telefone,
+          email: "",
+          interest: purpose,
+          purpose: purpose,
+          schedule: timeline,
+          message: "",
+          lead_temperature: "warm",
+          qualified_whatsapp_clicked: false,
+          qualified_whatsapp_status: "PENDENTE - formulário enviado, ainda não clicou no WhatsApp pós-formulário",
+          inbox_url: clickUrl,
+          landing_url: window.location.href,
+          referrer: document.referrer
         });
-        if(status) status.textContent = "Dados registrados.";
-        var mensagem = "Meu nome é " + nome.trim() + ". Quero conhecer mais sobre o empreendimento " + cfg.empreendimentoNome + " com " + cfg.corretorNome + ". Objetivo: " + purpose + ". Prazo: " + timeline + ".";
-        var clickUrl = "https://wa.me/" + cfg.telefoneDestino + "?text=" + encodeURIComponent(mensagem + " Protocolo: " + protocolo);
-        form.reset();
-        openThankYouModal(clickUrl);
+
+        if(submitButton){ submitButton.disabled = true; submitButton.textContent = "Registrando..."; }
+        if(status) status.textContent = "Registrando seus dados com segurança...";
+
+        var webhookOk = false;
+        try {
+          var resp = await postLead(payload, false);
+          var raw = await resp.text().catch(function(){ return ""; });
+          var result = {};
+          try { result = JSON.parse(raw); } catch(_){}
+          webhookOk = resp.ok && result.success !== false;
+        } catch(err) {
+          console.warn("[leadForm] Falha ao registrar o formulário.", err);
+          window.dataLayer.push({
+            event: "lead_form_submit_error",
+            construtora: "paesegregori",
+            produto: cfg.empreendimentoSlug || "tons-klabin",
+            corretor: cfg.corretorSlug || "carolline",
+            protocolo: protocolo,
+            form_id: "lpLeadForm",
+            error_message: (err && err.message) || String(err),
+            page_path: window.location.pathname,
+            page_location: window.location.href
+          });
+        }
+
+        if(webhookOk){
+          window.dataLayer.push({
+            event: "lead_form_submit",
+            construtora: "paesegregori",
+            produto: cfg.empreendimentoSlug || "tons-klabin",
+            corretor: cfg.corretorSlug || "carolline",
+            tipo_pagina: "landing_produto",
+            content_name: cfg.empreendimentoNome || "Tons Klabin",
+            content_category: "imovel_lancamento",
+            protocolo: protocolo,
+            form_id: "lpLeadForm",
+            form_location: "full_corretor_section",
+            lead_source: attribution.platform,
+            lead_purpose: purpose,
+            purchase_timeline: timeline,
+            campaign_id: attribution.campaign_id,
+            adset_id: attribution.adset_id,
+            ad_id: attribution.ad_id,
+            page_path: window.location.pathname,
+            page_location: window.location.href
+          });
+          if(status) status.textContent = "Dados registrados com sucesso.";
+          form.reset();
+          openThankYouModal(clickUrl);
+        } else {
+          if(status) status.textContent = "Não foi possível enviar seus dados agora. Tente novamente em instantes.";
+        }
+
+        if(submitButton){ submitButton.disabled = false; submitButton.textContent = "Quero as plantas e valores"; }
       });
     })();
   </script>
