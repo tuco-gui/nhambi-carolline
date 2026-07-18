@@ -480,46 +480,63 @@
           <div class="full-corretor-copy">
             <h3>Fale com <strong>Carolline</strong></h3>
             <p style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--terracotta);font-weight:700;margin-bottom:6px">📍 Tons Klabin — Chácara Klabin, zona sul de São Paulo</p>
-            <p>Deixe seus dados e receba plantas, valores e condições do Tons Klabin em primeira mão. Fica na Rua Major Newton Feliciano, 105, a passos de duas estações de metrô.</p>
-            <form id="lpLeadForm" novalidate style="display:grid;gap:10px;max-width:360px;margin-bottom:18px">
-              <input type="text" id="lpNome" name="nome" placeholder="Seu nome" autocomplete="name" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
-              <input type="tel" id="lpTelefone" name="telefone" placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" inputmode="numeric" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
-              <select id="lpPurpose" name="purpose" aria-label="Objetivo" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
-                <option value="">Você quer...</option>
-                <option value="Morar">Morar</option>
-                <option value="Investir">Investir</option>
-                <option value="Ainda avaliando">Ainda avaliando</option>
-              </select>
-              <select id="lpTimeline" name="purchase_timeline" aria-label="Prazo para comprar" required style="min-height:44px;padding:0 14px;border:1px solid #ccc">
-                <option value="">Prazo pra comprar</option>
-                <option value="Até 3 meses">Até 3 meses</option>
-                <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-                <option value="Acima de 6 meses / ainda estou avaliando">Acima de 6 meses / ainda estou avaliando</option>
-              </select>
-              <button class="btn-green-full" type="submit" style="border:none;cursor:pointer">Quero as plantas e valores</button>
-              <span id="lpLeadStatus" style="font-size:13px;color:#666"></span>
-            </form>
+            <p>Converse agora com a Carolline: em menos de 1 minuto ela entende o que você procura e te envia plantas, valores e condições do Tons Klabin. Fica na Rua Major Newton Feliciano, 105, a passos de duas estações de metrô.</p>
+            <button type="button" class="btn-green-full" data-wa-open style="border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;max-width:360px">
+              <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M16.02 3.2C8.95 3.2 3.2 8.95 3.2 16.02c0 2.47.72 4.86 2.08 6.9L3 29l6.26-2.22a12.77 12.77 0 0 0 6.76 1.94H16c7.07 0 12.8-5.75 12.8-12.82 0-3.43-1.34-6.66-3.76-9.08A12.7 12.7 0 0 0 16.02 3.2zm5.82 15.3c-.32-.16-1.88-.93-2.18-1.03-.29-.1-.5-.16-.71.16-.21.31-.82 1.03-1 1.24-.18.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.57-1.88-1.76-2.2-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.72-.97-2.36-.26-.62-.53-.54-.71-.55h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.62 0 1.53 1.13 3.02 1.29 3.23.16.21 2.2 3.36 5.33 4.71.74.32 1.32.52 1.77.67.74.23 1.41.2 1.95.12.59-.09 1.88-.77 2.14-1.51.26-.74.26-1.38.18-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
+              Conversar com a Carolline
+            </button>
+            <p style="font-size:12px;color:#8a8a8a;margin-top:10px">Resposta rápida, sem compromisso.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="lead-thanks" id="leadThankYou" role="dialog" aria-modal="true" aria-labelledby="leadThankYouTitle" hidden>
-      <div class="lead-thanks-backdrop" data-thanks-close></div>
-      <div class="lead-thanks-panel" tabindex="-1">
-        <button class="lead-thanks-close" type="button" aria-label="Fechar" data-thanks-close>&times;</button>
-        <div class="lead-thanks-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><path d="M12 25.5 20.5 34 37 16"/><circle cx="24" cy="24" r="20"/></svg>
+    <style>
+      .wa-chat[hidden]{display:none}
+      .wa-chat{position:fixed;inset:0;z-index:13000;display:flex;align-items:flex-end;justify-content:flex-end;padding:0}
+      .wa-chat-backdrop{position:absolute;inset:0;background:rgba(11,20,26,.55);backdrop-filter:blur(2px)}
+      .wa-chat-window{position:relative;width:400px;max-width:100%;height:min(620px,100vh);display:flex;flex-direction:column;background:#efeae2;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden;margin:0 24px 24px 0;border-radius:12px;transform:translateY(16px);opacity:0;transition:transform .3s ease,opacity .3s ease}
+      .wa-chat.is-visible .wa-chat-window{transform:translateY(0);opacity:1}
+      .wa-chat-header{display:flex;align-items:center;gap:12px;background:#075e54;color:#fff;padding:12px 14px;flex:none}
+      .wa-chat-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.3)}
+      .wa-chat-id{flex:1;line-height:1.2}
+      .wa-chat-id strong{display:block;font-size:15px;font-weight:600}
+      .wa-chat-id span{font-size:12px;color:rgba(255,255,255,.75)}
+      .wa-chat-close{background:transparent;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:4px 6px}
+      .wa-chat-body{flex:1;overflow-y:auto;padding:16px 14px;background-color:#efeae2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='4' cy='4' r='1' fill='%23d9d2c8'/%3E%3C/svg%3E");display:flex;flex-direction:column;gap:8px}
+      .wa-msg{max-width:80%;padding:8px 11px;border-radius:8px;font-size:14px;line-height:1.45;color:#111b21;box-shadow:0 1px .5px rgba(11,20,26,.13);word-wrap:break-word;white-space:pre-wrap}
+      .wa-msg.bot{align-self:flex-start;background:#fff;border-top-left-radius:2px}
+      .wa-msg.user{align-self:flex-end;background:#d9fdd3;border-top-right-radius:2px}
+      .wa-typing{align-self:flex-start;background:#fff;border-radius:8px;border-top-left-radius:2px;padding:11px 14px;box-shadow:0 1px .5px rgba(11,20,26,.13);display:inline-flex;gap:4px}
+      .wa-typing span{width:7px;height:7px;border-radius:50%;background:#9aa5ab;animation:waBlink 1.2s infinite}
+      .wa-typing span:nth-child(2){animation-delay:.2s}
+      .wa-typing span:nth-child(3){animation-delay:.4s}
+      @keyframes waBlink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+      .wa-chat-input{flex:none;padding:10px 12px;background:#f0f0f0;display:flex;flex-direction:column;gap:8px;border-top:1px solid #e0ddd7}
+      .wa-input-row{display:flex;gap:8px}
+      .wa-input-row input{flex:1;min-height:44px;padding:0 14px;border:1px solid #ccc;border-radius:22px;font-size:15px;outline:none}
+      .wa-input-row input:focus{border-color:#075e54}
+      .wa-send{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:#075e54;color:#fff;font-size:20px;cursor:pointer;display:grid;place-items:center}
+      .wa-send:disabled{opacity:.5;cursor:default}
+      .wa-choices{display:flex;flex-wrap:wrap;gap:8px}
+      .wa-choice{border:1px solid #075e54;background:#fff;color:#075e54;border-radius:20px;padding:9px 16px;font-size:14px;cursor:pointer;font:inherit;font-size:14px}
+      .wa-choice:hover{background:#075e54;color:#fff}
+      .wa-cta{display:block;width:100%;text-align:center;background:#25d366;color:#fff;border:0;border-radius:22px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none}
+      @media (max-width:600px){.wa-chat-window{width:100%;height:100vh;margin:0;border-radius:0}}
+    </style>
+    <div class="wa-chat" id="waChat" hidden>
+      <div class="wa-chat-backdrop" data-wa-close></div>
+      <div class="wa-chat-window" role="dialog" aria-modal="true" aria-label="Conversa com Carolline">
+        <div class="wa-chat-header">
+          <img class="wa-chat-avatar" src="https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg" alt="Carolline">
+          <div class="wa-chat-id">
+            <strong>Carolline</strong>
+            <span id="waStatus">online</span>
+          </div>
+          <button class="wa-chat-close" type="button" data-wa-close aria-label="Fechar conversa">&times;</button>
         </div>
-        <div class="lead-thanks-eyebrow">Mensagem recebida</div>
-        <h2 id="leadThankYouTitle">Obrigado pelo seu <strong>interesse</strong></h2>
-        <p class="lead-thanks-copy">Recebemos seus dados. Carolline vai analisar suas preferências e entrar em contato para apresentar as informações do Tons Klabin.</p>
-        <div class="lead-thanks-choice">
-          <strong>Prefere falar agora?</strong>
-          <p>Se quiser antecipar o atendimento, você pode chamar Carolline diretamente no WhatsApp.</p>
-          <a class="btn-green-full" id="thankYouWhatsapp" href="#" role="button">Falar com Carolline</a>
-        </div>
-        <button class="lead-thanks-return" type="button" data-thanks-close>Continuar na página</button>
+        <div class="wa-chat-body" id="waBody"></div>
+        <div class="wa-chat-input" id="waInput"></div>
       </div>
     </div>
   </main>
@@ -663,11 +680,14 @@
       var FORM_NAME = "Landing Page | Tons Klabin | Carolline";
       var telefoneDestino = cfg.telefoneDestino || "5511919890615";
 
-      var form = document.getElementById("lpLeadForm");
-      var status = document.getElementById("lpLeadStatus");
-      var leadThankYou = document.getElementById("leadThankYou");
-      var leadThankYouPanel = leadThankYou ? leadThankYou.querySelector(".lead-thanks-panel") : null;
-      var thankYouWhatsapp = document.getElementById("thankYouWhatsapp");
+      var chatEl = document.getElementById("waChat");
+      var chatBody = document.getElementById("waBody");
+      var chatInput = document.getElementById("waInput");
+      var chatStatus = document.getElementById("waStatus");
+      var chatStarted = false;
+      var leadSaved = false;
+      var protocolo = "";
+      var lead = { name: "", phone: "", purpose: "", timeline: "" };
       var previousFocusedElement = null;
 
       function sanitizeValue(value){ return (value || "").replace(/\s+/g, " ").trim(); }
@@ -725,202 +745,188 @@
         });
       }
 
-      function openThankYouModal(clickUrl){
-        if(!leadThankYou || !leadThankYouPanel) return;
-        previousFocusedElement = document.activeElement;
-        if(thankYouWhatsapp) thankYouWhatsapp.setAttribute("href", clickUrl);
-        leadThankYou.hidden = false;
-        document.body.classList.add("modal-open");
-        window.requestAnimationFrame(function(){
-          leadThankYou.classList.add("is-visible");
-          leadThankYouPanel.focus();
-        });
+      var SLEEP = function(ms){ return new Promise(function(r){ setTimeout(r, ms); }); };
+      function firstName(n){ return sanitizeValue(n).split(" ")[0] || sanitizeValue(n); }
+      function scrollBottom(){ if(chatBody) chatBody.scrollTop = chatBody.scrollHeight; }
+
+      function addUser(text){
+        var d = document.createElement("div");
+        d.className = "wa-msg user";
+        d.textContent = text;
+        chatBody.appendChild(d);
+        scrollBottom();
       }
-      function closeThankYouModal(){
-        if(!leadThankYou) return;
-        leadThankYou.classList.remove("is-visible");
-        leadThankYou.hidden = true;
+      async function addBot(text){
+        var t = document.createElement("div");
+        t.className = "wa-typing";
+        t.innerHTML = "<span></span><span></span><span></span>";
+        chatBody.appendChild(t);
+        if(chatStatus) chatStatus.textContent = "digitando...";
+        scrollBottom();
+        await SLEEP(Math.min(1200, 500 + text.length * 22));
+        t.remove();
+        if(chatStatus) chatStatus.textContent = "online";
+        var d = document.createElement("div");
+        d.className = "wa-msg bot";
+        d.textContent = text;
+        chatBody.appendChild(d);
+        scrollBottom();
+      }
+      function clearInput(){ if(chatInput) chatInput.innerHTML = ""; }
+      function askText(placeholder, type, validate, onDone){
+        clearInput();
+        var row = document.createElement("div");
+        row.className = "wa-input-row";
+        var inp = document.createElement("input");
+        inp.type = type || "text";
+        inp.placeholder = placeholder;
+        if(type === "tel"){ inp.inputMode = "numeric"; inp.autocomplete = "tel"; }
+        var btn = document.createElement("button");
+        btn.className = "wa-send"; btn.type = "button"; btn.setAttribute("aria-label", "Enviar"); btn.textContent = "➤";
+        row.appendChild(inp); row.appendChild(btn);
+        chatInput.appendChild(row);
+        inp.focus();
+        function submit(){
+          var val = sanitizeValue(inp.value);
+          if(validate && !validate(val)){ inp.focus(); inp.style.borderColor = "#e53935"; return; }
+          addUser(val); clearInput(); onDone(val);
+        }
+        btn.addEventListener("click", submit);
+        inp.addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); submit(); } });
+      }
+      function askChoices(options, onPick){
+        clearInput();
+        var wrap = document.createElement("div");
+        wrap.className = "wa-choices";
+        options.forEach(function(opt){
+          var b = document.createElement("button");
+          b.className = "wa-choice"; b.type = "button"; b.textContent = opt.label;
+          b.addEventListener("click", function(){ addUser(opt.label); clearInput(); onPick(opt.value); });
+          wrap.appendChild(b);
+        });
+        chatInput.appendChild(wrap);
+      }
+
+      function whatsappUrl(){
+        var msg = "🔥 LEAD QUALIFICADO - conversa no site. | Quero conhecer o " + (cfg.empreendimentoNome || "Tons Klabin") + ", na Chácara Klabin (zona sul de SP), com " + (cfg.corretorNome || "Carolline") + ". | Protocolo: " + protocolo + " | Nome: " + lead.name + " | WhatsApp: " + lead.phone + " | Objetivo: " + lead.purpose + " | Prazo: " + lead.timeline;
+        return "https://wa.me/" + telefoneDestino + "?text=" + encodeURIComponent(msg);
+      }
+
+      // Grava o lead assim que a conversa termina (ANTES de ir pro WhatsApp) — seguro anti-abandono
+      function saveLead(){
+        if(leadSaved) return;
+        leadSaved = true;
+        protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        window._leadProtocolo = protocolo;
+        var attribution = buildAttribution();
+        window._leadDetails = { name: lead.name, phone: lead.phone, purpose: lead.purpose, timeline: lead.timeline, platform: attribution.platform };
+        window.dataLayer.push({
+          event: "lead_form_submit",
+          construtora: "paesegregori", produto: cfg.empreendimentoSlug || "tons-klabin", corretor: cfg.corretorSlug || "carolline",
+          tipo_pagina: "landing_produto", content_name: cfg.empreendimentoNome || "Tons Klabin", content_category: "imovel_lancamento",
+          protocolo: protocolo, form_id: "waChat", form_location: "whatsapp_widget",
+          lead_source: attribution.platform, lead_purpose: lead.purpose, purchase_timeline: lead.timeline,
+          campaign_id: attribution.campaign_id, adset_id: attribution.adset_id, ad_id: attribution.ad_id,
+          page_path: window.location.pathname, page_location: window.location.href
+        });
+        postLead(Object.assign({}, attribution, {
+          event_type: "lead_form_submit", id: protocolo, origin: window.location.origin,
+          form_id: "waChat", form_name: FORM_NAME, name: lead.name, phone: lead.phone, email: "",
+          interest: lead.purpose, purpose: lead.purpose, schedule: lead.timeline, message: "",
+          lead_temperature: "warm", qualified_whatsapp_clicked: false,
+          qualified_whatsapp_status: "PENDENTE - conversou no widget, ainda não abriu o WhatsApp",
+          inbox_url: whatsappUrl(), landing_url: window.location.href, referrer: document.referrer
+        }), true).catch(function(err){ console.warn("[waChat] Falha ao gravar lead.", err); });
+      }
+
+      // Clique em abrir WhatsApp: marca lead QUENTE (event_type qualified_whatsapp_click)
+      function goWhatsApp(url){
+        var attribution = buildAttribution();
+        window.dataLayer.push({
+          event: "qualified_whatsapp_action",
+          construtora: "paesegregori", produto: cfg.empreendimentoSlug || "tons-klabin", corretor: cfg.corretorSlug || "carolline",
+          tipo_pagina: "landing_produto", content_name: cfg.empreendimentoNome || "Tons Klabin", content_category: "imovel_lancamento",
+          protocolo: protocolo, form_location: "whatsapp_widget", lead_source: attribution.platform, lead_temperature: "hot",
+          page_path: window.location.pathname, page_location: window.location.href
+        });
+        postLead(Object.assign({}, attribution, {
+          event_type: "qualified_whatsapp_click", id: protocolo, origin: window.location.origin,
+          form_id: "waChat", form_name: FORM_NAME, name: lead.name, phone: lead.phone, email: "",
+          interest: lead.purpose, purpose: lead.purpose, schedule: lead.timeline,
+          lead_source: attribution.platform, lead_temperature: "hot",
+          qualified_whatsapp_clicked: true, qualified_whatsapp_clicked_at: new Date().toISOString(),
+          qualified_whatsapp_status: "QUENTE - conversou no widget e abriu o WhatsApp",
+          inbox_url: url, landing_url: window.location.href, referrer: document.referrer
+        }), true).catch(function(){});
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      // Fluxo da conversa
+      async function runFlow(){
+        await addBot("Olá! 👋 Que bom te ver por aqui.");
+        await addBot("Sou a Carolline, corretora do Tons Klabin — na Chácara Klabin, zona sul de SP 😊");
+        await addBot("Posso te fazer 3 perguntinhas rápidas pra já te atender do jeito certo?");
+        await SLEEP(250);
+        await addBot("Pra começar, como você se chama?");
+        askText("Digite seu nome...", "text", function(v){ return v.length >= 2; }, function(v){ lead.name = v; stepPhone(); });
+      }
+      async function stepPhone(){
+        await addBot("Prazer, " + firstName(lead.name) + "! 😊");
+        await addBot("Qual o seu WhatsApp com DDD? É por ele que eu te envio as plantas e os valores.");
+        askText("(11) 90000-0000", "tel", function(v){ var d = v.replace(/\D/g, ""); return d.length >= 10 && d.length <= 13; }, function(v){ lead.phone = v; stepPurpose(); });
+      }
+      async function stepPurpose(){
+        await addBot("Você está pensando em morar ou investir?");
+        askChoices([
+          { label: "🏡 Morar", value: "Morar" },
+          { label: "📈 Investir", value: "Investir" },
+          { label: "🤔 Ainda avaliando", value: "Ainda avaliando" }
+        ], function(v){ lead.purpose = v; stepTimeline(); });
+      }
+      async function stepTimeline(){
+        await addBot("E pra quando você pretende comprar?");
+        askChoices([
+          { label: "Até 3 meses", value: "Até 3 meses" },
+          { label: "De 3 a 6 meses", value: "De 3 a 6 meses" },
+          { label: "Acima de 6 meses", value: "Acima de 6 meses / ainda estou avaliando" }
+        ], function(v){ lead.timeline = v; finish(); });
+      }
+      async function finish(){
+        saveLead();
+        await addBot("Perfeito, " + firstName(lead.name) + "! Já anotei tudo aqui 📝");
+        await addBot("Vou te levar pra nossa conversa no WhatsApp pra te enviar as plantas e os valores agora mesmo 🎉");
+        clearInput();
+        var a = document.createElement("button");
+        a.className = "wa-cta"; a.type = "button"; a.textContent = "Abrir conversa no WhatsApp";
+        a.addEventListener("click", function(){ goWhatsApp(whatsappUrl()); });
+        chatInput.appendChild(a);
+        scrollBottom();
+      }
+
+      function openChat(){
+        if(!chatEl) return;
+        previousFocusedElement = document.activeElement;
+        chatEl.hidden = false;
+        document.body.classList.add("modal-open");
+        window.requestAnimationFrame(function(){ chatEl.classList.add("is-visible"); });
+        if(!chatStarted){ chatStarted = true; runFlow(); }
+      }
+      function closeChat(){
+        if(!chatEl) return;
+        chatEl.classList.remove("is-visible");
+        chatEl.hidden = true;
         document.body.classList.remove("modal-open");
         if(previousFocusedElement && typeof previousFocusedElement.focus === "function") previousFocusedElement.focus();
       }
-      if(leadThankYou){
-        leadThankYou.querySelectorAll("[data-thanks-close]").forEach(function(control){
-          control.addEventListener("click", closeThankYouModal);
-        });
-        document.addEventListener("keydown", function(event){
-          if(event.key === "Escape" && !leadThankYou.hidden) closeThankYouModal();
-        });
+
+      if(chatEl){
+        chatEl.querySelectorAll("[data-wa-close]").forEach(function(c){ c.addEventListener("click", closeChat); });
+        document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !chatEl.hidden) closeChat(); });
       }
 
-      // Cliques em WhatsApp direto (botão flutuante, rodapé): alimenta o Pixel via GTM (evento whatsapp_click)
-      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(function(link){
-        if(link.id === "thankYouWhatsapp") return;
-        link.addEventListener("click", function(){
-          window.dataLayer.push({
-            event: "whatsapp_click",
-            construtora: "paesegregori",
-            produto: cfg.empreendimentoSlug || "tons-klabin",
-            corretor: cfg.corretorSlug || "carolline",
-            tipo_pagina: "landing_produto",
-            content_name: cfg.empreendimentoNome || "Tons Klabin",
-            content_category: "imovel_lancamento",
-            page_path: window.location.pathname,
-            page_location: window.location.href,
-            click_text: (link.textContent || link.getAttribute("aria-label") || "WhatsApp").trim()
-          });
-        });
-      });
-
-      // Botão do modal pós-formulário: marca o lead como QUENTE (event_type qualified_whatsapp_click)
-      if(thankYouWhatsapp){
-        thankYouWhatsapp.addEventListener("click", function(){
-          var protocolo = window._leadProtocolo || "";
-          var leadDetails = window._leadDetails || {};
-          window.dataLayer.push({
-            event: "qualified_whatsapp_action",
-            construtora: "paesegregori",
-            produto: cfg.empreendimentoSlug || "tons-klabin",
-            corretor: cfg.corretorSlug || "carolline",
-            tipo_pagina: "landing_produto",
-            content_name: cfg.empreendimentoNome || "Tons Klabin",
-            content_category: "imovel_lancamento",
-            protocolo: protocolo,
-            form_location: "thank_you_modal",
-            lead_source: leadDetails.platform || "site",
-            lead_temperature: "hot",
-            page_path: window.location.pathname,
-            page_location: window.location.href
-          });
-          var clickUrl = thankYouWhatsapp.getAttribute("href") || "";
-          var attribution = buildAttribution();
-          postLead(Object.assign({}, attribution, {
-            event_type: "qualified_whatsapp_click",
-            id: protocolo,
-            origin: window.location.origin,
-            form_id: "lpLeadForm",
-            form_name: FORM_NAME,
-            name: leadDetails.name || "",
-            phone: leadDetails.phone || "",
-            email: "",
-            interest: leadDetails.purpose || "",
-            purpose: leadDetails.purpose || "",
-            schedule: leadDetails.timeline || "",
-            lead_source: leadDetails.platform || "site",
-            lead_temperature: "hot",
-            qualified_whatsapp_clicked: true,
-            qualified_whatsapp_clicked_at: new Date().toISOString(),
-            qualified_whatsapp_status: "QUENTE - clicou no WhatsApp pós-formulário",
-            inbox_url: clickUrl,
-            landing_url: window.location.href,
-            referrer: document.referrer
-          }), true).catch(function(err){
-            console.warn("[leadForm] Falha ao atualizar qualificação do WhatsApp.", err);
-          });
-        });
-      }
-
-      if(!form) return;
-      form.addEventListener("submit", async function(event){
-        event.preventDefault();
-        var nome = sanitizeValue(document.getElementById("lpNome").value);
-        var telefone = sanitizeValue(document.getElementById("lpTelefone").value);
-        var purpose = document.getElementById("lpPurpose").value;
-        var timeline = document.getElementById("lpTimeline").value;
-        if(!nome || !telefone || !purpose || !timeline){
-          form.reportValidity();
-          return;
-        }
-        var phoneDigits = telefone.replace(/\D/g, "");
-        if(phoneDigits.length < 10 || phoneDigits.length > 13){
-          if(status) status.textContent = "Confira o WhatsApp informado, incluindo o DDD.";
-          return;
-        }
-
-        var submitButton = form.querySelector('button[type="submit"]');
-        var protocolo = "PROTOCOLO-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
-        window._leadProtocolo = protocolo;
-        window._leadDetails = { name: nome, phone: telefone, purpose: purpose, timeline: timeline };
-        var attribution = buildAttribution();
-        window._leadDetails.platform = attribution.platform;
-
-        var mensagem = "🔥 LEAD QUALIFICADO - formulario preenchido no site. | Quero conhecer o empreendimento " + (cfg.empreendimentoNome || "Tons Klabin") + ", na Chácara Klabin (zona sul de SP), com " + (cfg.corretorNome || "Carolline") + ". | Protocolo: " + protocolo + " | Nome: " + nome + " | WhatsApp: " + telefone + " | Objetivo: " + purpose + " | Prazo: " + timeline;
-        var clickUrl = "https://wa.me/" + telefoneDestino + "?text=" + encodeURIComponent(mensagem);
-
-        var payload = Object.assign({}, attribution, {
-          event_type: "lead_form_submit",
-          id: protocolo,
-          origin: window.location.origin,
-          form_id: "lpLeadForm",
-          form_name: FORM_NAME,
-          name: nome,
-          phone: telefone,
-          email: "",
-          interest: purpose,
-          purpose: purpose,
-          schedule: timeline,
-          message: "",
-          lead_temperature: "warm",
-          qualified_whatsapp_clicked: false,
-          qualified_whatsapp_status: "PENDENTE - formulário enviado, ainda não clicou no WhatsApp pós-formulário",
-          inbox_url: clickUrl,
-          landing_url: window.location.href,
-          referrer: document.referrer
-        });
-
-        if(submitButton){ submitButton.disabled = true; submitButton.textContent = "Registrando..."; }
-        if(status) status.textContent = "Registrando seus dados com segurança...";
-
-        var webhookOk = false;
-        try {
-          var resp = await postLead(payload, false);
-          var raw = await resp.text().catch(function(){ return ""; });
-          var result = {};
-          try { result = JSON.parse(raw); } catch(_){}
-          webhookOk = resp.ok && result.success !== false;
-        } catch(err) {
-          console.warn("[leadForm] Falha ao registrar o formulário.", err);
-          window.dataLayer.push({
-            event: "lead_form_submit_error",
-            construtora: "paesegregori",
-            produto: cfg.empreendimentoSlug || "tons-klabin",
-            corretor: cfg.corretorSlug || "carolline",
-            protocolo: protocolo,
-            form_id: "lpLeadForm",
-            error_message: (err && err.message) || String(err),
-            page_path: window.location.pathname,
-            page_location: window.location.href
-          });
-        }
-
-        if(webhookOk){
-          window.dataLayer.push({
-            event: "lead_form_submit",
-            construtora: "paesegregori",
-            produto: cfg.empreendimentoSlug || "tons-klabin",
-            corretor: cfg.corretorSlug || "carolline",
-            tipo_pagina: "landing_produto",
-            content_name: cfg.empreendimentoNome || "Tons Klabin",
-            content_category: "imovel_lancamento",
-            protocolo: protocolo,
-            form_id: "lpLeadForm",
-            form_location: "full_corretor_section",
-            lead_source: attribution.platform,
-            lead_purpose: purpose,
-            purchase_timeline: timeline,
-            campaign_id: attribution.campaign_id,
-            adset_id: attribution.adset_id,
-            ad_id: attribution.ad_id,
-            page_path: window.location.pathname,
-            page_location: window.location.href
-          });
-          if(status) status.textContent = "Dados registrados com sucesso.";
-          form.reset();
-          openThankYouModal(clickUrl);
-        } else {
-          if(status) status.textContent = "Não foi possível enviar seus dados agora. Tente novamente em instantes.";
-        }
-
-        if(submitButton){ submitButton.disabled = false; submitButton.textContent = "Quero as plantas e valores"; }
+      // Todos os CTAs (botão de conversar, flutuante, "agende sua visita", links de WhatsApp) abrem o chat
+      document.querySelectorAll('[data-wa-open], .floating-wa, a[href="#atendimento"], a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(function(el){
+        el.addEventListener("click", function(e){ e.preventDefault(); openChat(); });
       });
     })();
   </script>
