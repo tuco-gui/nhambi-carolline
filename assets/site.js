@@ -27,7 +27,6 @@ var STATUS_SLUGS = {
 };
 
 var CORRETORES = [
-  { slug: "carolline", nome: "Carolline", telefone: "5511919890615", foto: "https://cdn.tess.im/assets/uploads/bcedfe9a-9cc5-4db7-a61f-fc73d8fe1466.jpg", bio: "Atendimento consultivo dedicado a encontrar a unidade certa para cada perfil, com dezenas de vendas realizadas nos empreendimentos Paes e Gregori." },
   { slug: "chocolate", nome: "Chocolate", telefone: "5511987769810", bio: "Corretor(a) especializado(a) nos empreendimentos Paes e Gregori, com atendimento próximo do início ao pós-venda." },
   { slug: "danilo", nome: "Danilo", telefone: "5511954361467", bio: "Experiência consolidada em plantas, valores e condições, sempre buscando a melhor opção para cada cliente." },
   { slug: "felipe", nome: "Felipe", telefone: "5511955579117", bio: "Atendimento ágil e transparente, com foco em ajudar você a decidir com segurança e clareza." },
